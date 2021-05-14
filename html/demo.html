@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function timeout(ms) {
+        //     return new Promise((resolve, reject) => {
+        //         console.log("123");
+        //         setTimeout(resolve, ms, 'done');
+        //     });
+        // }
+
+        // timeout(1000).then((value) => {
+        //     console.log(value);
+        // });
+
+        // const p1 = new Promise(function (resolve, reject) {
+        //     setTimeout(() => reject(new Error('fail')), 3000)
+        // })
+
+        // const p2 = new Promise(function (resolve, reject) {
+        //     setTimeout(() => resolve(p1), 1000)
+        // })
+
+
+        // p2
+        //     .then(result => console.log(result))
+        //     .catch(error => console.log(error))
+        debugger
+        // function func1() {
+        //     api().then((data) => {
+        //         console.log(data);
+        //     }).catch(error => {
+        //         console.log('error => ' + error);
+        //     })
+        // }
+        // func1()
+
+
+        // function api() {
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             console.log("hello world");
+        //             resolve('success')
+        //         }, 2000)
+        //     }).then(data => {
+        //         console.log("=>" + data);
+        //         // return "haha"
+        //         // return new Promise((resolve, reject) => {
+        //         //     // resolve("world hello")
+        //         // })
+        //         return p
+        //     })
+        // }
+
+
+        // const p = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         console.log("p");
+        //         // resolve("hw")
+        //         // reject('fail')
+        //     }, 2000)
+        // })
+
+        getJSON("/post/1.json").then(function () {
+            return getJSON("post.commentURL");
+        }).then(function (comments) {
+            console.log("resolved: ", comments);
+        }, function (err) {
+            console.log("rejected: ", err);
+        });
+
+        function getJSON(param){
+            return new Promise(resolve => {
+                resolve(param)
+            }).catch(error => {
+                console.log("error => " + error);
+            })
+        }
+
+        // const p1 = new Promise(function (resolve, reject) {
+        //     setTimeout(() => resolve(), 3000)
+        // })
+
+        // const p2 = new Promise(function (resolve, reject) {
+        //     setTimeout(() => resolve("aaa"), 1000)
+        // })
+
+        // p2
+        //     .then(result => console.log(result))
+        //     .catch(error => console.log(error))
+
+
+
+    </script>
+</body>
+
+</html>
