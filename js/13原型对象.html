@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name, age) {
+            this.name = name
+            this.age = age
+            this.sleep = function () {
+                console.log("person sleep");
+            }
+        }
+  
+        /** 
+         * 1.（prototype：原型对象）每个函数都有一个特殊的属性叫作原型（prototype），其prototype 是一个对象 所以也称其为原型对象
+         * 2.（__proto__：对象原型）对象都会有一个__proto__指向构造函数 prototype 原型对象
+        */
+        console.dir(Person);
+        console.log("Person.prototype:"); // Person.prototype是一个对象，其中constructor属性指向构造函数
+        console.log(Person.prototype);
+
+        console.log('----');
+        var person = new Person()
+        console.dir(person);
+        console.log("person.__proto__:");
+        console.log(person.__proto__);
+
+        console.log("person.__proto__ === Person.prototype:" + person.__proto__ === Person.prototype);
+    
+        // 对象原型（__proto__）和 构造函数原型对象（prototype）里都有一个 constructor 属性，\
+        //称其为构造函数，因为其指向的是构造函数本身.
+        // constructor ：记录该对象引用哪个构造行数；可以让原型对象重新指向原来的构造函数
+        console.log("Person.prototype.constructor:");
+        console.log(Person.prototype.constructor);
+        console.log("person.__proto__.constructor:");
+        console.log(person.__proto__.constructor);
+
+
+
+        // // 原型对象 constructor 属性指向构造函数
+        // console.log(Person.prototype);
+        // console.dir(Person) // 构造函数
+        // var ldh = new Person("ldh", 44)
+        // console.log(ldh);
+        // console.log(ldh.__proto__); // 对象原型 constructor 属性指向构造函数
+        // console.log(ldh.__proto__ == Person.prototype);
+        // console.log(ldh.__proto__.constructor === Person.prototype.constructor);
+
+        // console.log('---------');
+        // console.log(Array.prototype);
+        // Array.prototype.sum = function () {
+        //     var sum = 0;
+        //     for (var i = 0; i < this.length; i++) {
+        //         sum += this[i];
+        //     }
+        //     return sum;
+        // }
+        // var arr = [11, 22, 33]
+        // console.log(arr.sum());
+
+        // console.log('------');
+
+        // function func(){
+        //     console.log('func');
+        // }
+        // console.log(func.prototype);
+        // console.log(Function.prototype);
+        // // console.log(func.prototype.constructor === Function.prototype);
+    </script>
+</body>
+
+</html>

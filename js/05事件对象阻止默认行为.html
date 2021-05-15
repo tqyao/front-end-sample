@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <br>
+    <a href="www.baidu.com">百度</a>
+</body>
+<script>
+    // 常见事件对象的属性和方法
+    var button = document.querySelector('button');
+    button.addEventListener('click', fn)
+    button.addEventListener('mouseover', fn)
+    button.addEventListener('mouseout', fn)
+    function fn (e) {
+        console.log(e.type); // 返回事件类型
+    }
+
+    // event.preventDefault() 阻止默认行为
+    var a = document.querySelector('a')
+    a.addEventListener('click', function(e){
+        e.preventDefault()
+    })
+</script>
+
+</html>

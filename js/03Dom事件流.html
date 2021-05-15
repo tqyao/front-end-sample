@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .father {
+        position: relative;
+        height: 300px;
+        width: 300px;
+        margin: 100px auto;
+        background-color: pink;
+    }
+
+    .father>div {
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        left: 25%;
+        top: 25%;
+        background-color: purple;
+    }
+</style>
+
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+
+<script>
+    /* js 事件流的三个阶段 */
+    // 1. js中只能执行冒泡或者捕获阶段中的其中之一
+    // 2. onclick 和 attackEvent 只能得到冒泡阶段
+    // 3. 实际开发关注冒泡
+    // 4. onblur onfocuse onmouseenter onmouseleave 是没有冒泡时间的  
+
+    // true 捕获阶段，false 冒泡阶段
+    var father = document.querySelector(".father");
+    father.addEventListener('click', fn('father'), false);
+
+    var son = document.querySelector(".son");
+    son.addEventListener('click', fn('son'), false);
+
+    document.addEventListener('click', fn('html'), false)
+
+    function fn(param) {
+        alert(param);
+    }
+</script>
+
+</html>

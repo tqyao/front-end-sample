@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+<script>
+    var ul = document.querySelector('ul');
+    // this 指向的是绑定事件的对象（元素），event.target 指向的是触发事件的元素（对象）
+    ul.addEventListener('click', function (e) {
+        console.log("click happen");
+        console.log(this); //ul
+        console.log(e.target);
+        console.log(e.srcElement); // ie6\7\8
+        console.log(e.currentTarget); // 跟this一样
+    })
+</script>
+
+</html>

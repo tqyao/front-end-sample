@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+    // console.log(num); 报错
+
+    /* 变量、方法函数提升 */  
+    console.log(num2) //undefinded
+    var num2 = 100
+
+    myFun()// haha
+    function myFun() {
+        console.log("hahah")
+    }
+
+    var fun2
+    console.log(fun2); // undefinded
+    fun2 = function(){
+        console.log("nihao")
+    }
+    console.log(fun2()); //nihao
+
+    // 1.字面量创建对象
+    var obj = {
+        age: 18,
+        name: 'zhangsan',
+        fn(parm) {
+            console.log(parm);
+        }
+    }
+
+    // 2.new Object() 创建对象
+    var xiaoming = new Object();
+    xiaoming.firstName = 'xiao'
+    xiaoming.lastName = 'ming'
+    xiaoming.age = 18
+
+    
+    //3. 构造函数创建对象
+    function People(name, age) {
+        this.name = name
+        this.age = age
+        this.eat = function (parm) {
+            console.log(parm);
+        }
+    }
+
+    var lisi = new People("lisi", 18)
+    console.log(lisi['age']);
+    console.log(lisi.name);
+    lisi.eat("好东西")
+
+    console.log("---------------")
+
+
+</script>
+
+</html>

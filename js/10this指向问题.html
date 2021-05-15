@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+
+    <script>
+        // this 一般情况下指向调用它的对象
+        // 全局作用域和普通函数中this指向window（定时器中this指向window）
+        console.log(this);
+
+        console.log('---');
+        function fn() {
+            console.log(this);
+        }
+        window.fn()
+
+        window.setInterval(function () {
+            console.log(this);
+        }, 1000)
+
+        // 方法调用中谁调用 this 指向谁
+        var o = {
+            sayHi: function(){
+                console.log(this);
+            }
+        }
+        o.sayHi()
+
+        var button = document.querySelector('button')
+        button.addEventListener('click', function(){
+            console.log(this);
+        })
+
+        // 构造行数中 this 指向构造函数的实例
+        function Fun(){
+            console.log(this);
+        }
+        var fun = new Fun()
+    </script>
+</body>
+
+</html>
