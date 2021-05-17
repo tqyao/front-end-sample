@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    {{msg}}
+    <ul>
+        <li :key="index" v-for="(item, index) in plist"> {{item + '---' + index}}</li>
+    </ul>
+
+    <p :style="{fontSize: fontSize + 'px'}"><b>子组件向父组件传值，改变我的字体大小</b></p>
+    <hr>
+<!--    父组件监听子组件的事件@expand-text, 接受子主键的参数 $event-->
+    <menu-item :plist="plist" @expand-text="handle($event)"></menu-item>
+
+</div>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+    /*
+    * 子组件向父组件传参数
+    * */
+    //创建子组件
+    Vue.component('menu-item', {
+        // 以数组形式传递值
+        props: ['plist'],
+        data() {
+            return {
+                str: '子组件',
+            }
+        },
+        methods: {
+        },
+        template: `
+            <div>
+                  {{str}}
+                </br>
+                <button @click="$emit('expand-text', 5)">changeParentSize</button>
+            </div>
+        `
+
+    })
+
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            msg: '父组件属性',
+            plist: ["jkl", 'knight', 'kage'],
+            fontSize: 5
+        },
+        methods: {
+            handle(val) {
+                console.log(val)
+                this.fontSize += val;
+            }
+        }
+    })
+</script>
+</body>
+</html>

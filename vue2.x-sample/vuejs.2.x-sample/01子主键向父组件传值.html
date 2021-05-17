@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    {{msg}}
+    <!--    静态传递-->
+    <menu-item title="hello"></menu-item>
+    <menu-item :title="toChild" content="同时传递动态绑定属性和静态值"></menu-item>
+</div>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+
+    //创建子组件
+    Vue.component('menu-item', {
+        // 以数组形式传递值
+        props: ['title', 'content'],
+        template: `<div>title:{{title}} | content: {{content}}</div>>`
+    })
+
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            msg: 'hello',
+            toChild: 'toChildValue'
+        }
+    })
+</script>
+</body>
+</html>

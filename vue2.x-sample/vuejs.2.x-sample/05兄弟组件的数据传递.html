@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!doctype html>
+        <html lang="zh">
+        <head>
+            <meta charset="UTF-8">
+            <title>Document</title>
+        </head>
+<body>
+<div id="app">
+    <div>父组件</div>
+    <!--        <div>-->
+    <!--            <button @click='handle'>销毁事件</button>-->
+    <!--        </div>-->
+    <test-tom></test-tom>
+    <test-jerry></test-jerry>
+</div>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+
+    //定义事件中心
+    let hub = new Vue()
+    Vue.component('test-tom', {
+        data() {
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            handle() {
+                hub.$emit('jerry-event', 5)
+            }
+        },
+        // 文档挂在渲染完成
+        mounted() {
+            // 监听到 jerry 触发的 tom 事件
+            hub.$on('tom-event', (val) => {
+                this.count += val
+            })
+        },
+        template: `<div>
+                            tom: {{count}}
+                            <button @click="handle">点击触发jerry事件</button>
+                       </div>`
+    })
+    Vue.component('test-jerry', {
+        data() {
+            return {
+                count: 0
+            }
+        },
+        methods: {
+            handle() {
+                hub.$emit('tom-event', 10)
+            }
+        },
+        mounted() {
+            hub.$on('jerry-event', (val) => {
+                this.count += val
+            })
+        },
+        template: `<div>
+                            jerry: {{count}}
+                            <button @click="handle">点击触发tom事件</button>
+                       </div>`
+    })
+    let vm = new Vue({
+        el: '#app',
+        data: {}
+    })
+</script>
+</body>
+</html>

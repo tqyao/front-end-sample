@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    {{msg}}
+    <ul>
+        <li :key="index" v-for="(item, index) in toList">{{item}}</li>
+    </ul>
+    {{pobj.name}}
+    <hr>
+    <!--    静态传递-->
+    <menu-item title="hello"></menu-item>
+    <menu-item :title="toChild" content="同时传递动态绑定属性和静态值"></menu-item>
+<!--    直接传递pnum 和 pboolean 不加：子组件拿到的是字符串-->
+    <menu-item pnum="777" pboolean="true" :plist="toList" :pobj="pobj"></menu-item>
+    <menu-item :pnum=777 :pboolean="true" :plist="toList" :pobj="pobj"></menu-item>
+
+    <menu-item :pnum="toNumb" :pboolean="toBoolean" :plist="toList" :pobj="pobj"></menu-item>
+</div>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+
+    //创建子组件
+    Vue.component('menu-item', {
+        // 以数组形式传递值
+        props: ['title', 'content', 'pnum', 'pboolean', 'plist', 'pobj'],
+        template: `
+        <div>
+            {{pnum + '---' + pboolean}}
+            <ul>
+               <li :key="index" v-for="(item, index) in plist">{{item}}</li>
+            </ul>
+             {{pobj}}
+            
+        </div>
+        `
+    })
+
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            msg: '父组件属性',
+            toChild: 'toChildValue',
+            toNumb: 111,
+            toBoolean: true,
+            toList: ['xiaoming', 'xiaohu', 'wei'],
+            pobj: {
+                name: 'jkl',
+                age: 17
+            }
+        }
+    })
+</script>
+</body>
+</html>
