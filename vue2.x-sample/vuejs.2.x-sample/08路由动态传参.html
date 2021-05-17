@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <router-link to="/user/1">User1</router-link>
+    <router-link to="/user/2">User2</router-link>
+    <router-link to="/user/3">User3</router-link>
+    <router-link to="/register">Register</router-link>
+
+    <!-- 路由占位符 -->
+    <router-view></router-view>
+
+</div>
+<script type="text/javascript" src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<!--<script type="test/javascript" src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>-->
+<script type="text/javascript">
+
+    // const User = {
+    //     template: '<h1>User 组件 -- 用户id为: {{id}} -- 姓名为:{{uname}} -- 年龄为：{{age}}</h1>'
+    // }
+
+    // 1. $route.param.id获取路由参数
+    // const User = {
+    //     template: '<h1>User组件 ---- {{$route.param.id}}</h1>'
+    // }
+
+    // 2. props 接受参数
+    // const User = {
+    //     props: ['id'],
+    //     template: '<h1>User组件 ---- {{id}}</h1>'
+    // }
+
+    // 3.  props 可指定对象类型的静态参数
+    // const User = {
+    //     props: ['username', 'pwd', 'age'],
+    //     template: '<h1>User组件 ---- {{username}}---- {{pwd}} --- {{age}}</h1>'
+    // }
+
+    //4.
+    const User = {
+        props: ['username', 'age', 'id'],
+        template: '<h1>User组件 ---- {{username}}---- {{id}} --- {{age}}</h1>'
+    }
+
+
+    const Register = {
+        template: '<h1>Register 组件</h1>'
+    }
+
+    // 创建路由实例对象
+    const router = new VueRouter({
+        // 所有的路由规则
+        routes: [
+            {path: '/', redirect: '/user'},
+            // 1.
+            // {path: '/user/:id', component: User},
+            // 2. props 传参
+            // {path: '/user/:id', component: User, props: true},
+            // 3.  props 可指定对象类型的静态参数
+            // {path: '/user/:id', component: User, props: {username: 'lisi', age: 12}},
+
+
+            //4. props 如果是一个函数，则这个函数接受 route 对象为自己的形参
+            {
+                path: '/user/:id',
+                component: User,
+                props: route => ({
+                    username:'zs',
+                    age: 20,
+                    id: route.params.id
+                })
+            },
+            {path: '/register', component: Register}
+        ]
+    })
+
+
+    let vm = new Vue({
+        el: '#app',
+        data: {},
+        router //挂载路由实例到vue实例上
+    })
+</script>
+</body>
+</html>
