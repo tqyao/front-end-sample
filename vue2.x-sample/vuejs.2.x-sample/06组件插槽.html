@@ -19,7 +19,7 @@
         <h1 slot="footer">底部内容</h1>
     </child-component2>
     <hr/>
-<!--    具名插槽，填充多个标签template-->
+    <!--    具名插槽，填充多个标签template-->
 
     <child-component2>
         <template slot="header">
@@ -33,9 +33,19 @@
         </template>
         <template slot="footer">
             <p>底部内容注释</p>
-           <h1>底部内容1</h1>
+            <h1>底部内容1</h1>
         </template>
     </child-component2>
+    <hr>
+
+    <todo-list>
+        <template v-slot:banding>
+            <h2>banding2</h2>
+        </template>
+        <template v-slot:default="slotProps">
+            <span>{{slotProps.item}}</span>
+        </template>
+    </todo-list>
 
 </div>
 <script type="text/javascript" src="js/vue.js"></script>
@@ -54,8 +64,8 @@
     })
 
     /*
-    * 具名插槽
-    * */
+  * 具名插槽，填充多个标签template
+  * */
     Vue.component('child-component2', {
         template: `
             <div class="container">
@@ -72,9 +82,26 @@
         `
     })
 
-    /*
-    * 具名插槽，填充多个标签template
-    * */
+
+    Vue.component('todo-list', {
+        data() {
+            return {
+                items: ['Feed a cat', 'Buy milk']
+            }
+        },
+        template: `
+          <div>
+              <i>
+                <slot name="banding"></slot>
+              </i>
+              <ul>
+                <li v-for="(item, index) in items">
+                  <slot :item="item"></slot>
+                </li>
+              </ul>
+          </div>
+        `
+    })
 
 
     let vm = new Vue({
