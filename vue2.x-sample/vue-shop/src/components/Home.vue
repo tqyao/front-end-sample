@@ -10,13 +10,17 @@
     </el-header>
     <el-container>
       <!--      侧边栏-->
-      <el-aside width="200px">
+      <el-aside :width="collapse ? '64px' : '200px'">
         <!--        侧边栏菜单-->
+        <div class="toggle-button" @click="isCollapse">|||</div>
         <el-menu
             background-color="#545c64"
             text-color="#fff"
             active-text-color="#409EFF"
-            unique-opened>
+            unique-opened
+            :collapse="collapse" :collapse-transition="false"
+            :default-active="defaultActive"
+            router>
 
           <!--          一级菜单-->
           <el-submenu :index="item.id + ''" v-for="item in menuList" :key="item.id">
@@ -26,7 +30,8 @@
               <span>{{ item.authName }}</span>
             </template>
             <!--            二级菜单-->
-            <el-menu-item :index="child.id + ''" v-for="child in item.children" :key="child.id">
+            <el-menu-item :index="'/' + child.path + ''" v-for="child in item.children"
+                          :key="child.id" @click="activeItem(child.path)">
               <template slot="title">
                 <i class="el-icon-menu"></i>
                 <span>{{ child.authName }}</span>
@@ -39,7 +44,7 @@
       </el-aside>
       <!--      主题区域-->
       <el-main>
-
+        <router-view></router-view>
       </el-main>
     </el-container>
   </el-container>
@@ -50,6 +55,8 @@ export default {
   name: "Home",
   data() {
     return {
+      defaultActive: '',
+      collapse: false,
       menuList: [],
       iconsObj: {
         125: 'iconfont icon-user',
@@ -70,10 +77,18 @@ export default {
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
       this.menuList = res.data
       console.log(this.menuList)
+    },
+    isCollapse(){
+      this.collapse = !this.collapse
+    },
+    activeItem(path){
+      this.defaultActive = '/' + path
+      window.sessionStorage.setItem('activePath', this.defaultActive)
     }
   },
   created() {
     this.getMenuList()
+    this.defaultActive = window.sessionStorage.getItem('activePath')
   }
 }
 </script>
@@ -118,5 +133,14 @@ export default {
 }
 .iconfont {
   margin-right: 10px;
+}
+.toggle-button {
+  background-color: #4A5064;
+  font-size: 10px;
+  line-height: 24px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.2em;
+  cursor: pointer;
 }
 </style>
