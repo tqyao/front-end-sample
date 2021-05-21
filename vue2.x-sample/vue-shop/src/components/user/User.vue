@@ -50,8 +50,11 @@
         <el-table-column label="操作">
           <!--          slot-scope="scope"获取子组件 slot上绑定的值-->
           <template slot-scope="scope">
-            <el-button type="primary" icon="el-icon-edit" size="mini"></el-button>
+            <!--            修改用户信息按钮-->
+            <el-button type="primary" icon="el-icon-edit" size="mini" @click="showUpdateUserDialog(scope.row.id)"></el-button>
+            <!--            删除用户按钮-->
             <el-button type="danger" icon="el-icon-delete" size="mini"></el-button>
+            <!--            分配角色按钮-->
             <el-tooltip class="item" effect="dark" content="分配角色" placement="top" :enterable="false">
               <el-button type="warning" icon="el-icon-setting" size="mini"></el-button>
             </el-tooltip>
@@ -72,21 +75,65 @@
 
       <!--      添加用户对话框-->
       <el-dialog
+          @close="closeDialogReset"
           title="提示"
           :visible.sync="dialogVisible"
           width="50%">
-<!--        &lt;!&ndash;        添加用户表单&ndash;&gt;-->
-<!--        <el-form :model="userFrom" :rules="userFromRules" ref="ruleFormRef" label-width="75px">-->
-<!--          <el-form-item label="活动名称" prop="name">-->
-<!--            <el-input v-model="userFrom.name"></el-input>-->
-<!--          </el-form-item>-->
-<!--        </el-form>-->
+        <!--        添加用户表单-->
+        <el-form status-icon :model="userFrom" :rules="userFromRules" ref="userFormRef" label-width="75px">
+          <!--          用户名称-->
+          <el-form-item label="用户名" prop="username">
+            <el-input v-model="userFrom.username"></el-input>
+          </el-form-item>
+          <!--          密码-->
+          <el-form-item label="密码" prop="password">
+            <el-input v-model="userFrom.password"></el-input>
+          </el-form-item>
+          <!--          邮箱-->
+          <el-form-item label="邮箱" prop="email">
+            <el-input v-model="userFrom.email"></el-input>
+          </el-form-item>
+          <!--          手机-->
+          <el-form-item label="手机" prop="mobile">
+            <el-input v-model="userFrom.mobile"></el-input>
+          </el-form-item>
+        </el-form>
 
         <!--        对话框确定&取消按钮-->
         <span slot="footer" class="dialog-footer">
             <el-button @click="dialogVisible = false">取 消</el-button>
-            <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+            <el-button type="primary" @click="addUser">确 定</el-button>
         </span>
+      </el-dialog>
+
+
+      <!--        修改用户对话框-->
+      <el-dialog
+          title="修改用户信息"
+          :visible.sync="updateDialogVisible"
+          width="50%">
+
+        <!--        修改用户表单-->
+        <el-form status-icon :model="userEdit" :rules="userFromRules" label-width="75px">
+          <!--          用户名称-->
+          <el-form-item label="用户名" prop="username">
+            <el-input v-model="userEdit.username"></el-input>
+          </el-form-item>
+          <!--          手机号-->
+          <el-form-item label="手机号" prop="mobile">
+            <el-input v-model="userEdit.password"></el-input>
+          </el-form-item>
+          <!--          邮箱-->
+          <el-form-item label="邮箱" prop="email">
+            <el-input v-model="userEdit.password"></el-input>
+          </el-form-item>
+        </el-form>
+
+        <!--        修改用户对话框确定取消按钮-->
+        <span slot="footer" class="dialog-footer">
+            <el-button @click="updateDialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="updateDialogVisible = false">确 定</el-button>
+         </span>
       </el-dialog>
 
 
@@ -98,7 +145,49 @@
 export default {
   name: "User",
   data() {
+    const checkEmail = (rule, value, callback) => {
+      const regEmail = /[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+      if (regEmail.test(value)) {
+        callback()
+      } else {
+        callback(new Error('邮箱格式不正确'))
+      }
+    }
+    const checkPhone = (rule, value, callback) => {
+      const regPhone = /^((\(\d{2,3}\))|(\d{3}\-))?1(3|5|8|9)\d{9}$/
+      if (regPhone.test(value)) {
+        callback()
+      } else {
+        callback(new Error('请输入正确手机号'))
+      }
+    }
     return {
+      // 添加用户表单
+      userFrom: {
+        username: '',
+        password: '',
+        email: '',
+        mobile: ''
+      },
+      // 用户表单验证规则
+      userFromRules: {
+        username: [
+          {required: true, message: '请输入用户名称', trigger: 'blur'},
+          {min: 3, max: 8, message: '长度在 3 到 8 个字符', trigger: 'blur'}
+        ],
+        password: [
+          {required: true, message: '请输入密码', trigger: 'blur'},
+          {min: 3, max: 18, message: '长度在 3 到 18 个字符', trigger: 'blur'}
+        ],
+        email: [
+          {required: true, message: '请输入邮箱', trigger: 'blur'},
+          {validator: checkEmail, trigger: 'blur'}
+        ],
+        mobile: [
+          {required: true, message: '请输入手机号', trigger: 'blur'},
+          {validator: checkPhone, trigger: 'blur'}
+        ]
+      },
       // 用户列表参数对象
       queryInfo: {
         query: '',
@@ -110,7 +199,10 @@ export default {
       total: 0,
       userList: [],
       // 对话框的显示与隐藏
-      dialogVisible: false
+      dialogVisible: false,
+      // 修改用用户的对话框显示与隐藏
+      updateDialogVisible: false,
+      userEdit: {}
     }
   },
   created() {
@@ -145,10 +237,38 @@ export default {
         this.$message.success(res.meta.msg)
       }
     },
+    // 搜索提交
     searchSubmit() {
       this.queryInfo.pagenum = 1
       this.getUserList()
+    },
+    // 关闭对话框重置表单
+    closeDialogReset() {
+      this.$refs.userFormRef.resetFields()
+    },
+    // 添加用户axios请求
+    addUser() {
+      this.$refs.userFormRef.validate(async vaild => {
+        if (!vaild) return
+        const {data: res} = await this.$http.post('/users', this.userFrom)
+
+        if (res.meta.status !== 201) {
+          this.$message.error('添加用户失败')
+          return
+        }
+        this.$message.success('添加用户成功')
+        // 隐藏对话框
+        this.dialogVisible = false
+        // 重新获取用户列表
+        this.getUserList()
+      })
+    },
+    async showUpdateUserDialog(id) {
+      this.updateDialogVisible = true
+      const {data : res} = this.$http.get(`users/${id}`)
+
     }
+
   },
 
 }
