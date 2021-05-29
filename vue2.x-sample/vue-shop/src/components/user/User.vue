@@ -389,7 +389,8 @@ export default {
     },
     // 重置分配角色对话框数据
     allocateDialogReset() {
-
+      this.currentUserInfo = {}
+      this.selectRoleId = ''
     }
 
   },
