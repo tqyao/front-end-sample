@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17-数组去重</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+
+    function unique(array) {
+        let newArray = [];
+        array.forEach(item => {
+            if (newArray.indexOf(item) === -1) {
+                newArray.push(item);
+            }
+        })
+        return newArray;
+    }
+    let li = ["a", "b", "c", "c", "a", "b"];
+    console.log(unique(li));
+</script>
+
+</html>

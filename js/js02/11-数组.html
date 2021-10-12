@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    /*数组创建方式*/
+
+    //字面量创建
+    let array1 = [1, "2", "a"];
+
+
+    //构造函数创建
+    let array2 = new Array();
+    console.log(array2);    //[]
+
+    let array3 = new Array(3);
+    console.log(array3) // [empty × 3]
+
+    let array4 = new Array(1, 2, "3");
+    console.log(array4);    // [1,2,"3"]
+
+    /* 数组添加 */
+    let array5 = ["1", 2];
+    //尾部添加，原数组发生变化
+    console.log(array5.push("red")) // 3（数组长度）
+    console.log(array5.push("blue", 777));  //5（数组长度）
+
+    //头部添加,原数组发生变化
+    console.log(array5.unshift("AB"));  // 6 （数组长度）
+    console.log(array5.unshift(111, "222"));   //8 （数组长度）
+
+    /*数组删除*/
+    // 尾部删除（弹出）一个元素，返回尾部元素
+    console.log(array5.pop());  // 777
+    // 头部删除（弹出）一个元素，返回首元素
+    console.log(array5.shift()); // 111
+
+    /*数组排序*/
+    // 反转
+    let array6 = ["red", "blue", "purple"];
+    console.log(array6.reverse().toString());   //purple,blue,red
+
+    // 默认排序 (只能对数组元素都是个位数的元素升序排序)
+    let array7 = [2, 6, 4, 8];
+    console.log(array7.sort().toString());  //2,4,6,8
+
+    // 升序
+    console.log(array7.sort((a, b) => a - b).toString());   //2,4,6,8
+    // 降序
+    console.log(array7.sort((a, b) => b - a).toString());   //8,6,4,2
+
+    // 获取数组元素索引
+    let array8 = ["red", "blue", "purple", "black"];
+    // 返回元素所在索引
+    console.log(array8.indexOf("blue"));    // 1
+    console.log(array8.indexOf("apple"));   // 不存在返回 -1
+
+    // 从后往前查找返回数组索引
+    console.log(array8.lastIndexOf("blue"));    // 1
+    console.log(array8.lastIndexOf("apple"));   // 不存在返回 -1
+</script>
+
+</html>
