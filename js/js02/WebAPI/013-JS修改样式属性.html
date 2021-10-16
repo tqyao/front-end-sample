@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #0dff1d;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div></div>
+    <script>
+        /**
+
+         Js 修改元素样式
+
+         element.style 修改的是行内样式，权重比CSS高
+         样式是驼峰命名法
+         */
+        let divEle = document.querySelector('div');
+        let flag = false;
+        divEle.onclick = function (){
+            if (flag) {
+                this.style.backgroundColor = 'pink';
+                flag = !flag;
+            }else {
+                this.style.backgroundColor = 'green';
+                flag = !flag;
+            }
+        }
+    </script>
+</body>
+
+
+</html>

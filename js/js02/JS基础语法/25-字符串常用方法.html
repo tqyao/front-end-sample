@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25-字符串常用方法</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+    let str1 = "Tom";
+    let str2 = str1.concat("Jerry")
+    console.log(str2);  // TomJerry
+    console.log("length => " + str2.length) // length => 8
+
+    /*截取*/
+    // 索引3-6 包含3不包含6
+    console.log(str2.substring(3, 4));  //J
+    // 从索引3开始，截取4位
+    console.log(str2.substr(3, 4)); //Jerr
+
+    //slice()
+    //方法提取某个字符串的一部分，并返回一个新的字符串，且不会改动原字符串。
+    console.log(str2.slice(-5,-1)); //Jerr
+
+    /*替换*/
+    console.log(str2.replace('Tom', 'Dog'));
+
+    /*字符串转数组*/
+    console.log(str2.split(''));
+
+
+</script>
+
+</html>

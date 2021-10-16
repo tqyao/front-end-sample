@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22-字符串出现次数</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    let str2 = "abcoefoxyozzopp";
+
+    console.log(str2);
+
+    function getPosition(str) {
+        let count = 0;
+        let index = 0;
+        let temp = 0;
+        let position = [];
+
+        while ((temp = str.indexOf('o', index)) > -1 && index < str.length) {
+            count++;
+            position.push(index);
+            index = temp + 1;
+        }
+        return {
+            count,
+            position
+        }
+    }
+
+    function getPosition2(str) {
+        let position = [];
+        let index = -1;
+        let temp;
+        while ((temp = str.indexOf('o', index +1)) !== -1) {
+            index = temp;
+            position.push(temp);
+        }
+        return position;
+    }
+    console.log(getPosition2(str2));
+</script>
+
+</html>

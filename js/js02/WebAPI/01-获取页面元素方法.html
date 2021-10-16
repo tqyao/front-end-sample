@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25-字符串常用方法</title>
+</head>
+
+<body>
+<div id="first">abc</div>
+<div class="second">efg</div>
+<div>abc</div>
+<div>
+    <ul>
+        <li>li标签1</li>
+        <li>li标签1</li>
+        <li>li标签1</li>
+        <li>li标签1</li>
+        <li>li标签1</li>
+    </ul>
+</div>
+<script>
+    let firstTag = document.getElementById('first');
+    console.log("getElementById => %o", firstTag);  //getElementById => div#first
+
+    // 获取到的是一个伪数组
+    let secondTag = document.getElementsByClassName('second');
+    console.log("getElementsByClassName => %o", secondTag); //getElementsByClassName => HTMLCollection [div.second]
+
+    // 获取到的是一个伪数组
+    let thirdTag = document.getElementsByTagName('li');
+    console.log("getElementsByTagName => %o", thirdTag);    //getElementsByTagName => HTMLCollection(5) [li, li, li, li, li]
+
+    // 只能拿到第一个 div 元素
+    let query1 = document.querySelector('div');
+    console.log("querySelector('div') => %o", query1);  //querySelector('div') => div#first
+
+    //id
+    let query2 = document.querySelector('#first');
+    console.log("querySelector('#first') => %o", query2);   //querySelector('#first') => div#first
+
+    //class
+    let query3 = document.querySelector('.second');
+    console.log("querySelector('.second') => %o", query3);  //querySelector('.second') => div.second
+
+    // 标签名字
+    let queryAll1 = document.querySelectorAll('li');
+    console.log("querySelectorAll('li') => %o", queryAll1); //querySelectorAll('li') => NodeList(5) [li, li, li, li, li]
+
+    // 拿到ul标签元素封装伪数组
+    let queryAll2 = document.querySelectorAll('ul');
+    console.log("querySelectorAll('ul') => %o", queryAll2); //querySelectorAll('ul') => NodeList [ul]
+
+    let queryAll3 = document.querySelectorAll('#Nothing');
+    console.log("querySelectorAll('#Nothing') => %o", queryAll3);   //querySelectorAll('#Nothing') => NodeList []
+
+    /*获取body*/
+    console.log(document.body);
+    /*获取html*/
+    console.log(document.documentElement);
+</script>
+</body>
+
+<script>
+
+
+</script>
+
+</html>
