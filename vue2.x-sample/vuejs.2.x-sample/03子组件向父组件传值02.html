@@ -14,7 +14,7 @@
     <p :style="{fontSize: fontSize + 'px'}"><b>子组件向父组件传值，改变我的字体大小</b></p>
     <hr>
     <!--    父组件监听子组件的事件@expand-text -->
-    <menu-item :plist="plist" content="组件一" @expand-text="handle"></menu-item>
+    <menu-item :plist="plist" content="组件一" @expand-text="changeSize"></menu-item>
 <!--    <menu-item :plist="plist" content="组件二" @expand-text.native="handle"></menu-item>-->
 
 </div>
@@ -53,7 +53,7 @@
             fontSize: 5
         },
         methods: {
-            handle() {
+            changeSize() {
                 this.fontSize += 3;
             }
         }
