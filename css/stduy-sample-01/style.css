@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f3f5f7;
+    font: normal 400 16px "Microsoft YaHei";
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #121112;
+
+}
+
+.w {
+    margin: 0 auto;
+}
+
+.header {
+    width: 1000px;
+    height: 42px;
+    margin: 10px auto;
+    /*background-color: pink;*/
+
+    /*可以用背景图片方式布局logo*/
+    /*background: greenyellow url("img/logo.png") no-repeat  left center;x*/
+
+    line-height: 42px;
+}
+
+.header > img:first-child {
+    display: inline-block;
+    float: left;
+    width: 195px;
+    height: 42px;
+    margin: 0 10px;
+}
+
+.nav li {
+    float: left;
+    margin: 0 20px 0 40px;
+}
+
+.nav li a {
+    /*并不是a标签导致nav导航不在一行显示，a本事就是行内元素，应为a被包裹在li中，li为块级元素独占一行，
+    所以并不是给a加浮动，而是给li加浮动*/
+    /*float: left;*/
+
+    display: block;
+    height: 40px;
+    padding: 0 5px;
+}
+
+.nav > li:first-child a {
+    border-bottom: 2px solid #48a6f7;
+}
+
+.nav > li a:hover {
+    /*background-color: palegreen;*/
+
+    /*background-color: #fff;: 2 px solid gray;*/
+}
+
+.search {
+    float: left;
+    width: 270px;
+    height: 38px;
+    margin-left: 30px;
+    border: 2px solid #6fbef7;
+    border-right: 0;
+    /*background-color: silver;*/
+}
+
+.search input{
+    float: left;
+    width: 210px;
+    height: 38px;
+    padding-left: 10px;
+    border: 0;
+}
+
+.search-btn {
+    float: left;
+    width: 50px;
+    height: 38px;
+    border: 0;
+    /*background-color: #f0ad4e;*/
+    background: #f0ad4e url("img/btn.png") no-repeat  ;
+    /*height: 29px;*/
+    /*background-color: blue;*/
+}
+.user {
+    float: right;
+    margin-right: 20px;
+}
+
+/*.user .avatar {*/
+/*    float: left;*/
+/*    margin: 0 5px 0 20px*/
+/*}*/
+
+.user .username {
+    font-size: 12px;
+    color: #9f9fa1;
+}
+
+

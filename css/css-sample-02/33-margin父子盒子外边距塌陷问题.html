@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    .father {
+        width: 500px;
+        height: 400px;
+        background-color: pink;
+
+        margin-top: 50px;
+
+        /*
+        成因：嵌套的父子盒子都添加外边距
+
+        解决
+        给父盒子添加如下
+        1. 添加上边框
+        2. 添加上内边距
+        3. overflow: hidden;*/
+        /*border: 1px solid transparent;*/
+        /*padding-top: 1px;*/
+        overflow: hidden;
+    }
+    .son {
+        width: 200px;
+        height: 200px;
+        background-color: #115e5b;
+
+        /*让父子盒子上边框增加100px外边距，但出现外边距塌陷的情况*/
+        margin-top: 100px;
+
+
+    }
+</style>
+
+<body>
+<div class="father">
+    <div class="son"></div>
+</div>
+</body>
+
+
+</html>

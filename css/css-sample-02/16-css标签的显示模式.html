@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    div {
+        width: 200px;
+        height: 200px;
+        background: pink;
+    }
+
+    span {
+        width: 200px;
+        height: 200px;
+        background: #0dff1d;
+    }
+
+    input {
+        width: 200px;
+        height: 200px;
+    }
+</style>
+
+<body>
+<!--
+    块级元素
+    1. 独占一行
+    2. 可以设置高度宽度
+    3. 宽度默认是容器的 100% （父容器的宽度）
+    4. 是盒子模型，里头可以访任何块级元素和行内元素
+    注意：
+    文字类元素标签不能包含块级元素，例如 p h1~6...
+-->
+
+<div>我是块级元素，独占一行</div>我想挤一挤 <br><br>
+
+<!--
+    行内元素：a, strong, b, em, i, del, ins, u, span, s
+    特点：
+    1. 相邻行内元素在一行上，一行可显示多个
+    2. 无法设置高宽
+    3. 默认宽度是本身内容所占宽度
+    4. 行内元素只能容纳文本或其他元素
+    注意：
+    1. a 里面不能再放a标签
+    2. a 里面可以放块元素，但给a转换成块级元素比较安全-->
+<span>我是行内元素捏</span><strong>我也是行内元素捏</strong><span>我是行内元素捏</span><strong>我也是行内元素捏</strong> <br><br>
+<!--
+    行内块：<img/> <input/>   <td>
+    1.相邻元素在一行上，但有间隙
+    2.默认宽度是父级元素宽度
+    3.可以设置宽高-->
+
+<input type="text"><input type="text">
+</body>
+
+
+</html>

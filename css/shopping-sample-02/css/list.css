@@ -1,0 +1,114 @@
+.miaosha {
+    position: absolute;
+    top: 42px;
+    left: 197px;
+    padding: 4px 0 0 14px;
+    border-left: 1px solid #c40000;
+}
+
+.nav {
+    line-height: 47px;
+    /*盒子li溢出，影响下面元素布局（li是浮动，但下面标准流盒子文字不会被压住，而是文字围绕着溢出部分）
+    解决添加overflow: hidden;
+    */
+    overflow: hidden;
+}
+
+.sk_list ul li {
+    float: left;
+}
+
+.sk_list ul li a {
+    padding: 0 30px;
+    font-weight: 900;
+    color: black;
+    font-size: 20px;
+    line-height: 47px;
+}
+
+.sk_content ul li {
+    float: left;
+
+}
+
+.sk_content ul li a {
+    /*display: block;*/
+    padding: 0 26px;
+    font-size: 14px;
+    line-height: 49px;
+}
+
+.sk_bd ul li {
+    margin-top: 13px;
+    margin-right: 13px;
+    float: left;
+    width: 290px;
+    height: 460px;
+    /*这里设置透明边框是因为，这样鼠标经过加外边框后盒子不会被撑开*/
+    border: 1px solid transparent;
+    /*background-color: pink;*/
+}
+.sk_bd ul li:nth-child(4n) {
+    margin-right: 0;
+}
+
+.sk_bd ul li:hover {
+    border: 1px solid red;
+}
+
+.sk_goods {
+    text-align: center;
+}
+
+.sk_info {
+    padding: 0 12px;
+}
+
+.prices {
+    margin-top: 16px;
+    font-size: 22px;
+    color: #e60012;
+}
+
+.prices .ago {
+    margin-left: 3px;
+    font-size: 14px;
+    color: #a4a4a4;
+    text-decoration: line-through;
+}
+
+.jindu {
+    display: inline-block;
+    margin: 8px 10px 0;
+    width: 133px;
+    height: 12px;
+    border: 1px solid red;
+    border-radius: 6px;
+}
+
+.jindu .percent {
+    width: 30%;
+    height: 10px;
+    border-radius: 6px 0 0 6px;
+    background-color: red;
+    transition: all 0.5s;
+}
+
+.residue .leave{
+    font-size: 16px;
+    color: red;
+    font-weight: 900;
+}
+
+.sk_bd ul li:hover .jindu .percent {
+    width: calc(100% - 30px);
+}
+
+.sk_bd button {
+    margin-top: 4px;
+    width: 289px;
+    height: 48px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #b1191a;
+}

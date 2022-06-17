@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    i,
+    em {
+        font-style: normal;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .box {
+        margin: 100px auto;
+        width: 392px;
+        height: 468px;
+        text-align: center;
+        /*background-color: pink;*/
+        background-color: #fdfffc;
+    }
+
+    .box img {
+        /*margin: 0 auto;*/
+        width: 230px;
+        height: 280px;
+    }
+
+    .info {
+        margin: 0 20px 20px 20px;
+        text-align: left;
+        /*background-color: palegoldenrod;*/
+    }
+
+    .info h4 {
+        font-weight: 400;
+        color: #8b8e95;
+    }
+
+    .price {
+        margin-top: 10px;
+        font-size: 32px;
+        color: #ad4c57;
+    }
+
+    .price span {
+        margin-left: 4px;
+        font-size: 14px;
+        color: #8b8e95;
+        text-decoration: line-through;
+    }
+
+    .info div:last-of-type {
+        /*vertical-align: center;*/
+        /*line-height: 12px;*/
+        font-size: 12px;
+        color: #8b8e95;
+    }
+
+    .info div:last-of-type em {
+        color: red;
+    }
+
+    .info .jindutiao {
+        display: inline-block;
+        padding: 1px;
+        width: 138px;
+        height: 12px;
+        border: 1px solid #b43b25;
+        border-radius: 6px;
+    }
+
+    .jindutiao p:first-child {
+        width: 50%;
+        height: 100%;
+        background-color: #ec6b56;
+        transition: all .7s;
+    }
+
+    .info button {
+        margin-top: 4px;
+        width: 100%;
+        height: 50px;
+        font-size: 20px;
+        color: #f1dbd3;
+        border: 0;
+        background-color: #b43b25;
+    }
+
+    .box:hover .jindutiao p:first-child {
+        width: calc(100% - 30px);
+    }
+</style>
+
+<body>
+    <div class="box">
+        <img src="img/phone.webp" alt="">
+        <div class="info">
+            <h4>Apple苹果iPhone6 s Plus(A1699)32G 金色移动联通电信4G手机</h4>
+            <div class="price">￥6088<span>￥6988</span></div>
+            <div>已售<em>87%</em>
+                <div class="jindutiao">
+                    <p></p>
+                </div> 剩余<em>29</em>件
+            </div>
+            <button>立即抢购</button>
+        </div>
+
+    </div>
+</body>
+
+
+</html>

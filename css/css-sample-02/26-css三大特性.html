@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    body {
+        /*font: 16px/32px "Microsoft YaHei";*/
+
+        /*
+        行高如果不带单位，通常是指当前字体大小的1.5倍，实际开发中如此设置可以根据当前文字大小适应行高
+        */
+        font: 14px/1.5 "Microsoft YaHei";
+        color: pink;
+    }
+    div {
+        color: black;
+        font-size: 20px;
+    }
+
+    body{
+        color: red;
+    }
+
+</style>
+
+<body>
+<!--1. 层叠性：，相同选择器 相同的样式，采取就近原则
+2. 继承性：子类标签会继承父类属性，常常是一些文字属性，例：font-，color，line-。
+开发中常利用继承性给 body 标签设置字体属性，以简化代码-->
+
+<!--css 选择器优先级-->
+<!--| 选择器            | 选择器权重 |
+| -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; | &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; |
+| 继承 或者 *       | 0,0,0,0    |
+| 标签选择器        | 0,0,0，1   |
+| 类选择器          | 0,0，1,0   |
+| id选择器          | 0,1,0,0    |
+| 行内样式 style="" | 1,0,0, 0   |
+| !important        | 无穷       |-->
+
+
+
+<div>我是div标签</div>
+<p>我是p标签</p>
+
+<!--a标签默认被浏览器单独设定了一个样式，所以给body设置样式根据继承性可知，继承的优先级为0，给body设置的样式对a无影响，必须单独给a设置-->
+<a href="#">我是a标签，我不被影响</a>
+</body>
+
+
+</html>

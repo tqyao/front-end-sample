@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    /*1.分开写*/
+    div {
+        font-size: 19px;
+
+        /*
+        字体粗细
+        font-weight:
+            - normal 400
+            - bold 700
+            - bolder
+            - lighter
+        */
+        font-weight: 700;
+
+        /*
+        字体倾斜
+         font-style:
+        - italic;
+        - normal
+        */
+        font-style: italic;
+        font-family: "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    }
+
+    /*2. 写一行*/
+    .baseFont {
+
+        /*
+        font：
+        必须按照以下顺序：
+        font: font-style font-weight font-size/font-height font-family
+        不可省略：font-size，font-family
+        */
+        font: italic 700 19px "Microsoft YaHei";
+        /*font: 900 19px "Microsoft YaHei";*/
+        /*font: 19px "Microsoft YaHei"*/
+
+    }
+
+</style>
+
+<body>
+<div class="">我是第一行倾斜加粗字，一行美丽的文字</div>
+<p class="baseFont">我是第二行倾斜加粗字，一行美丽的文字</p>
+</body>
+
+
+</html>

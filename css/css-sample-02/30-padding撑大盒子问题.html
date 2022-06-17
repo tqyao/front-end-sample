@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    h1 {
+        /*设置宽度后盒子会被撑开*/
+        /*width: 100%;*/
+        height: 100px;
+        padding: 100px;
+        background-color: pink;
+    }
+
+    div {
+        width: 300px;
+        height: 200px;
+        background-color: green;
+    }
+    div p {
+        /*用margin的话盒子会被挤出父盒子外*/
+        /*margin: 30px;*/
+        padding: 30px;
+        font-size: 10px;
+        line-height: 10px;
+        /*不给子元素指定宽盒子就不会被撑开，默认（width:100%）宽度继承父元素宽度。如果显示指定width:100%则盒子会被撑开*/
+        width: 100%;
+
+
+/*
+        不指定高度，p标签默认高度是内容高度，没有内容则高度为零，不管指定不指定高度都会根据内边距撑开盒子高度
+        height: 30px;
+        height: 100%;*/
+        /*height: 100%;   !*高度设置为div盒子高度，再根据padding值撑开*!*/
+        background-color: blue;
+        /*border:1px dashed red;*/
+    }
+</style>
+
+<body>
+
+<h1></h1>
+
+<div>
+    <p>我是给p标签增高的内容</p>
+</div>
+
+</body>
+
+
+</html>

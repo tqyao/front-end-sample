@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .price {
+        margin: 100px auto;
+        width: 167px;
+        height: 24px;
+        line-height: 24px;
+        border: 1px solid #b6362d;
+        background-color: #fcf0ec;
+    }
+
+    .miaosha {
+        position: relative;
+        float: left;
+        margin-right: 4px;
+        width: 89px;
+        height: 100%;
+        color: #fcf0ec;
+        font-weight: 700;
+        background-color: #d03a2a;
+    }
+
+    .origin {
+        font-size: 14px;
+        color: #999b9a;
+        text-decoration: line-through;
+    }
+
+    .triangle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 24px 12px 0 0;
+        border-color: transparent #fcf0ec transparent transparent;
+    }
+
+
+</style>
+
+<body>
+<div class="price">
+    <span class="miaosha">￥1650.00
+    <i class="triangle"></i>
+    </span>
+    <span class="origin">￥5088.00</span>
+</div>
+</body>
+
+
+</html>

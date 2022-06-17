@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        height: 2000px;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .box1 {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+
+        /*
+        绝对定位的特性：
+        情况一：盒子没有被包含在父盒子中，则以浏浏览器document为准
+        */
+        position: absolute;
+        top: 100px;
+        right: 200px;
+    }
+
+    .far1 {
+        margin: 100px;
+        width: 400px;
+        height: 400px;
+        background-color: saddlebrown;
+    }
+
+    .far1 .box2 {
+        width: 200px;
+        height: 200px;
+        background-color: cadetblue;
+
+        /*
+        情况二：盒子的父亲是一个标准流或是浮动的盒子（祖先没有定位），绝对定位的盒子参照任然是浏览器document为准
+        */
+        position: absolute;
+        bottom: 100px;
+        right: 200px;
+    }
+
+    .grand {
+        width: 300px;
+        height: 300px;
+        background-color: salmon;
+    }
+
+    .grand .far2 {
+        width: 200px;
+        height: 200px;
+        background-color: deeppink;
+
+        position: relative;
+    }
+
+    .grand .far2 .son {
+        width: 50px;
+        height: 50px;
+        background-color: aqua;
+
+
+        /*情况三：如果祖先元素有定位（绝对、相对、固定），则绝对定位的盒子以最近一级父元素为参考点移动位置*/
+        position: absolute;
+        bottom: 50px;
+        right: 20px;
+    }
+</style>
+
+<body>
+    <div class="box1"></div>
+
+    <div class="far1">
+        <div class="box2"></div>
+    </div>
+
+    <div class="grand">
+        <div class="far2">
+            <div class="son"></div>
+        </div>
+    </div>
+</body>
+
+
+</html>

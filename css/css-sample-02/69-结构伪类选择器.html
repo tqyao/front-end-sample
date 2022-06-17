@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+
+    /*伪类选择器
+    E:first-child 匹配父元素中第一个子元素E
+    E:nth-child (n)  匹配父元素中第n个子元素E
+
+
+    E:first-of-type 匹配指定类型E的第一个元素
+    E:nth-of-type(n) 匹配指定类型E的第n个元素
+
+
+
+    */
+
+    /*---------one------------*/
+
+
+    /*选取 div 下 span 下 的第一个标签
+    因为span下没有包含标签，所以未选择到任何元素
+    */
+    div span :first-child {
+        background-color: pink;
+    }
+
+    /*
+    注意 与上面选择器不同的是 span:first-child 之间没有空格
+    选择 div 下的第一个（元素）是 span 元素
+    */
+    div span:first-child {
+        background-color: saddlebrown;
+    }
+
+    /*----------one-----------*/
+
+
+    /*---------two------------*/
+    /*
+    选择 div 下的第一个（元素）是 div 的元素
+    */
+    div div:first-child {
+        color: sandybrown;
+    }
+
+
+    /*选择 div 下第一个元素，并没有限定是什么元素*/
+    /*    div :first-child {
+            color: seagreen;
+        }*/
+    /*-----------two----------*/
+
+
+    /*----------three-----------*/
+    .three ul:last-of-type {
+        background-color: pink;
+    }
+    .three ul:last-child {
+        background-color: chocolate;
+    }
+    /*-----------three----------*/
+
+</style>
+
+<body>
+
+<div class="one">
+    <p>oh <span>my</span> <span>god</span></p>
+    <div>我是div02</div>
+    <div>我是div01</div>
+</div>
+<br>
+
+<div class="two">
+    <div>我是div01</div>
+    <span>我是span01</span>
+    <div>我是div02</div>
+</div>
+<br>
+
+<div class="three">
+    <ul>
+        <li>我是ul 11</li>
+        <li>我是ul 12</li>
+        <li>我是ul 13</li>
+    </ul>
+    <ul>
+        <li>我是ul 21</li>
+        <li>我是ul 22</li>
+        <li>我是ul 23</li>
+    </ul>
+    <ol>
+        <li>我是ol 11</li>
+        <li>我是ol 12</li>
+        <li>我是ol 13</li>
+    </ol>
+</div>
+
+</body>
+
+
+</html>

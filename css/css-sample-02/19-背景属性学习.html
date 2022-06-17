@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+
+    div {
+        margin: 10px 10px;
+        width: 280px;
+        height: 200px;
+
+        /*
+        background:背景颜色
+        可选值：
+        - transparent：默认，透明色
+        - 16进制
+        - rgb代码
+        - 预定义
+        */
+        background: pink;
+    }
+    .box1 {
+ /*
+        background-image：背景图片
+        可选值：
+        - none
+        - url()
+        优点：方便调整位置
+        注意：背景图片会盖住背景颜色
+        */
+        background-image: url("./img/logo.png");
+    }
+
+/*    background-repeat：背景平铺
+    可选：
+    - no-repeat
+    - repeat-x
+    - repeat-y
+    - repeat (默认)
+    */
+    .box2 {
+        display: inline-block;
+        background-image: url("./img/logo.png");
+        background-repeat: no-repeat;
+    }
+    .box3 {
+        display: inline-block;
+        background-image: url("./img/logo.png");
+        background-repeat: repeat-x;
+    }
+    .box4 {
+        display: inline-block;
+        background-image: url("./img/logo.png");
+        background-repeat: repeat-y;
+    }
+    .box5 {
+        display: inline-block;
+        background-image: url("./img/logo.png");
+        background-repeat: repeat;
+    }
+
+    .box6 {
+        background-image: url("./img/logo.png");
+        background-repeat: no-repeat;
+/*
+        background-position：x y
+        解释：背景图片位置
+        可选：
+        - 1.方位名词：top center bottom left center right
+        - 2.精确值：x,y 如果省略一个参数，那必定是省略了y坐标，且省略的y值是center
+        - 3.混合单位
+        */
+        background-position: center right;
+        /*background-position: right center;*/
+    }
+
+    .box7 {
+        background-image: url("./img/logo.png");
+        background-repeat: no-repeat;
+        /*只有x抽有 right，所以省略y轴，默认省略的都是center，等价于 right center */
+        background-position: right;
+    }
+    .box8 {
+        background-image: url("./img/logo.png");
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+
+</style>
+
+<body>
+<div class="box1">背景图片</div>
+
+<div class="box2">背景平铺</div>
+<div class="box3">背景平铺</div>
+<div class="box4">背景平铺</div>
+<div class="box5">背景平铺</div>
+
+<div class="box6"></div>
+<div class="box7"></div>
+<div class="box8"></div>
+<div class="box9"></div>
+</body>
+
+
+</html>

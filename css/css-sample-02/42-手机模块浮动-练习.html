@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    .product {
+        margin: 0 auto;
+        width: 1280px;
+        height: 560px;
+        background-color: pink;
+    }
+
+    .banner {
+        margin-right: 10px;
+        width: 248px;
+        height: 560px;
+        background-color: green;
+        float: left;
+    }
+
+    .product ul li {
+        margin-right: 10px;
+
+        /*第二行盒子margin-bottom溢出盒子，但外溢出的是外边距，不显示*/
+        margin-bottom: 10px;
+        /*此时如果用padding-bottom，由于给定了盒子的高度，所以盒子会被撑开边长外溢出盒子*/
+        /*padding-bottom: 10px;*/
+        width: 248px;
+        height: 275px;
+        background-color: #888888;
+        float: left;
+
+    }
+    .product ul .row-last {
+        margin-right: 0;
+    }
+
+    .product ul .one-row {
+        margin-bottom: 10px;
+    }
+</style>
+
+<body>
+<div class="product">
+    <div class="banner"></div>
+    <ul>
+<!--        <li class="one-row"></li>-->
+<!--        <li class="one-row"></li>-->
+<!--        <li class="one-row"></li>-->
+<!--        <li class="row-last one-row"></li>-->
+        <li></li>
+        <li></li>
+        <li></li>
+        <li class="row-last"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li class="row-last"></li>
+    </ul>
+</div>
+</body>
+
+
+</html>

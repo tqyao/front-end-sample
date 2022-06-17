@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-table练习</title>
+</head>
+
+<style>
+    table{
+        width: 500px;
+        height: 249px;
+    }
+    th {
+        height: 30px;
+    }
+    table,
+    td,th{
+        text-align: center;
+        font-size: 14px;
+        border: 1px solid pink;
+
+/*        border-collapse:控制浏览器绘制表格方式。控制相邻单元格边框。
+        - collapse：表示合并相邻单元格边框*/
+        border-collapse: collapse;
+    }
+</style>
+<body>
+<!--
+    thead：定义表头标签，必须包含 tr 标签
+    tbody：定义表格主体，存放数据本体
+-->
+<!--<table align="center" border="1" cellpadding="0" cellspacing="0" width="500">-->
+
+<table align="center" cellspacing="0">
+    <thead>
+    <tr>
+        <th>排名</th>
+        <th>关键字</th>
+        <th>趋势</th>
+        <th>今日搜索</th>
+        <th>最近七日</th>
+        <th>相关链接</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>鬼吹灯</td>
+        <td><img src="img/down.jpg" alt=""></td>
+        <td>123</td>
+        <td>343</td>
+        <td>
+            <a href="">贴吧</a>
+            <a href="">图片</a>
+            <a href="">百科</a>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>鬼吹灯</td>
+        <td><img src="img/up.jpg" alt=""></td>
+        <td>123</td>
+        <td>343</td>
+        <td>
+            <a href="">贴吧</a>
+            <a href="">图片</a>
+            <a href="">百科</a>
+        </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>鬼吹灯</td>
+        <td align="center"><img src="img/down.jpg" alt=""></td>
+        <td>123</td>
+        <td>343</td>
+        <td>
+            <a href="">贴吧</a>
+            <a href="">图片</a>
+            <a href="">百科</a>
+        </td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>鬼吹灯</td>
+        <td><img src="img/down.jpg" alt=""></td>
+        <td>123</td>
+        <td>343</td>
+        <td>
+            <a href="">贴吧</a>
+            <a href="">图片</a>
+            <a href="">百科</a>
+        </td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>鬼吹灯</td>
+        <td><img src="img/up.jpg" alt=""></td>
+        <td>123</td>
+        <td>343</td>
+        <td>
+            <a href="">贴吧</a>
+            <a href="">图片</a>
+            <a href="">百科</a>
+        </td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>鬼吹灯</td>
+        <td><img src="img/down.jpg" alt=""></td>
+        <td>123</td>
+        <td>343</td>
+        <td>
+            <a href="">贴吧</a>
+            <a href="">图片</a>
+            <a href="">百科</a>
+        </td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>鬼吹灯</td>
+        <td><img src="img/down.jpg" alt=""></td>
+        <td>123</td>
+        <td>343</td>
+        <td>
+            <a href="">贴吧</a>
+            <a href="">图片</a>
+            <a href="">百科</a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+
+
+</html>

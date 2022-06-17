@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul li {
+
+        width: 200px;
+        height: 300px;
+        border: 2px solid red;
+
+
+        /*外边框叠加合并
+        第一个li先浮动，在执行margin-left:-2px
+        第二个li先浮动（贴紧第一个li，再执行margin-left:-2px）
+        */
+        float: left;
+        margin-left: -2px;
+
+        /*请况三 请打开注释*/
+        /*position: relative;*/
+    }
+
+    /* 起因：由于后面的盒子 执行margin-left:-2px，压制前面的盒子，
+        以至于除了最后一个盒子外，其他盒子鼠标经过外表框只有上下左三条边变色*/
+    /*    ul li:hover {
+            border: 2px solid blue;
+        }*/
+
+    /*情况一，如果盒子（li）没有定位，则给li添加相对定位（不能是绝对定位）*/
+    /*    ul li:hover{
+            position: relative;
+            border: 2px solid blue
+        }*/
+
+    /*情况二：由于某些原因，li已经是添加定位（子绝父相）,此时可以用z-index*/
+    /*    ul li:hover {
+            border: 2px solid blue;
+            z-index: 1;
+        }*/
+
+</style>
+
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+</body>
+
+</div>
+
+
+</html>

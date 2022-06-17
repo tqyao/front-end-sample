@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        height: 1000px;
+        background-color: #f3f5f7;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .w {
+        margin: 0 auto;
+        width: 1000px;
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+        content: "";
+        display: table;
+    }
+
+    .clearfix:after {
+        clear: both;
+    }
+
+    .up_box {
+        margin-top: 100px;
+        height: 200px;
+        background-color: silver;
+    }
+
+    .code {
+        margin-top: 30px;
+        /*background-color: silver;*/
+    }
+
+    .top_nav {
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .top_nav h4 {
+        float: left;
+        font-weight: 400;
+        color: #666767;
+    }
+
+    .top_nav ul {
+        float: left;
+        margin-left: 230px;
+    }
+
+    .top_nav ul li {
+        float: left;
+        margin: 0 30px;
+    }
+
+    .top_nav ul li a {
+        font-size: 14px;
+        color: #9a9a9b;
+    }
+
+    .top_nav ul li a:hover {
+        color: #63bbfc;
+    }
+
+    .top_nav > a {
+        float: right;
+        margin-right: 20px;
+        font-size: 12px;
+        color: #9a9a9b;
+    }
+
+    .bottom_box {
+        margin-top: 10px;
+        /*background-color: darkseagreen;*/
+    }
+
+    .bottom_box .left_side {
+        float: left;
+        width: 180px;
+        /*background-color: salmon;*/
+    }
+
+    .bottom_box .left_side img {
+        float: left;
+        width: 180px;
+        /*margin-right: 10px;*/
+    }
+
+    .right_side {
+        float: left;
+        margin-left: 10px;
+    }
+
+    .top_banner img {
+        float: left;
+        width: 810px;
+        /*margin-bottom: 10px;*/
+    }
+
+    .item {
+        float: left;
+        margin-top: 6px;
+        /*background-color: violet;*/
+    }
+
+    .item ul {
+        float: left;
+    }
+
+    .item ul li {
+        float: left;
+        margin-right: 10px;
+        width: 195px;
+        height: 221px;
+        background-color: #fff;
+        box-shadow: 1px 2px 3px 4px rgba(0,0,0,.3);
+    }
+
+    .item ul li:nth-child(4) {
+        margin-right: 0;
+    }
+
+    .item ul li img {
+        float: left;
+        width: 195px;
+    }
+
+    .item .info {
+        float: left;
+        padding: 5px 10px 10px;
+    }
+
+    .info h4 {
+        font-weight: 400;
+        font-size: 14px;
+    }
+    
+    .info p {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #ffbd9a;
+    }
+
+    .info p span {
+        color: #ababab;
+    }
+
+</style>
+
+<body>
+<div class="up_box w"></div>
+
+<!--清除浮动影响 style="overflow: hidden" -->
+<div class="code w" style="overflow: hidden">
+    <div class="top_nav">
+        <h4>编程入门</h4>
+        <ul>
+            <li><a href="#">热门</a></li>
+            <li><a href="#">初级</a></li>
+            <li><a href="#">中级</a></li>
+            <li><a href="#">高级</a></li>
+        </ul>
+        <a href="#">查看全部</a>
+    </div>
+    <div class="bottom_box">
+        <div class="left_side">
+            <img src="img/left_banner.png" alt="">
+        </div>
+        <div class="right_side">
+            <div class="top_banner">
+                <img src="img/top_banner.png" alt="">
+            </div>
+            <div class="item">
+                <ul>
+                    <li>
+                        <img src="img/item_banner.png" alt="">
+                        <div class="info">
+                            <h4>Android Hybrid APP开发实战H5+原生！</h4>
+                            <p>高级<span>· 1125人在学习</span></p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/item_banner.png" alt="">
+                        <div class="info">
+                            <h4>Android Hybrid APP开发实战H5+原生！</h4>
+                            <p>高级<span>· 1125人在学习</span></p>
+                        </div>
+                    </li>                    <li>
+                    <img src="img/item_banner.png" alt="">
+                    <div class="info">
+                        <h4>Android Hybrid APP开发实战H5+原生！</h4>
+                        <p>高级<span>· 1125人在学习</span></p>
+                    </div>
+                </li>                    <li>
+                    <img src="img/item_banner.png" alt="">
+                    <div class="info">
+                        <h4>Android Hybrid APP开发实战H5+原生！</h4>
+                        <p>高级<span>· 1125人在学习</span></p>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--        清除浮动影响-->
+        <div style="clear: both"></div>
+    </div>
+</div>
+</body>
+
+
+</html>

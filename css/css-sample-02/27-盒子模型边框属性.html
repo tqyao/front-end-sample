@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    .box {
+        width: 200px;
+        height: 100px;
+
+        /*边框属性：*/
+        border-width: 10px;
+
+/*
+        border-style:
+        - solid 实线边框
+        - dashed 虚线边框
+        - dotted  点线边框
+        border-style: solid;
+        border-style: dashed;*/
+        border-style: dotted;
+        border-color: pink;
+    }
+
+    .box2 {
+        margin-top: 5px;
+        width: 200px;
+        height: 200px;
+
+        /*边框属性合并写法，无顺序要求，但习惯按照:border-width border-style border-color; */
+        border: 5px solid blue;
+        border-top: 5px solid red;
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+
+<!--    练习：请给一个200*200的盒子，设置上边框为红色，其余边框为蓝色（提示：一定注意边框的层叠性）-->
+    <div class="box2">
+
+    </div>
+</body>
+
+
+</html>

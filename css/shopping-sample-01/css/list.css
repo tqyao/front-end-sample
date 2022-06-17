@@ -1,0 +1,141 @@
+.ms {
+    padding: 21px 0 0 168px;
+    float: left;
+    height: 100%;
+}
+.ms img {
+    display: inline-block;
+    margin-left: 14px;
+    padding-left: 14px;
+    border-left: 2px solid #c40000;
+}
+.lsnav {
+    height: 30px;
+    border-bottom: 2px solid #a22b25;
+}
+
+.lsnav ul li {
+    float: left;
+
+}
+
+.lsnav ul li a {
+    display: block;
+    padding: 0 28px;
+    height: 30px;
+}
+
+
+.lsnav ul li:nth-child(-n+3) a{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.lsnav ul li:last-child a::after {
+    margin-left: 3px;
+    font-family: 'iconfont';
+    content: '\e665';
+}
+
+.lsbanner {
+    height: 120px;
+}
+
+.lsbanner img {
+    height: 100%;
+    width: 100%;
+}
+.ls {
+    margin-top: 24px;
+}
+
+.ls ul li:first-child .litop {
+    border: 1px solid #e12228;
+    border-bottom: 0;
+    padding-bottom: 3px;
+}
+.litop {
+    padding-bottom: 4px;
+}
+
+/*最后一个盒子外边距超过版心大小 解决方案一*/
+/*.ls ul {
+    width: 1300px;
+}*/
+.ls ul li {
+    float: left;
+    margin-right: 13px;
+    width: 288px;
+    height: 458px;
+    /*background-color: pink;*/
+}
+/*最后一个盒子外边距超过版心大小 解决方案二*/
+.ls ul li:nth-child(4n){
+    margin-right: 0;
+}
+
+.lsgoods {
+    width: 100%;
+    height: 297px;
+    text-align: center;
+    /*background-color: sandybrown;*/
+}
+
+.lsinfo {
+    padding: 0 12px;
+}
+.lsinfo h3 {
+    height: 36px;
+}
+
+.prices {
+    margin-top: 16px;
+    font-size: 22px;
+    color: #e60012;
+}
+
+.prices .ago {
+    font-size: 14px;
+    color: #a4a4a4;
+    text-decoration: line-through;
+}
+.ls .jindu {
+    /*height: 16px;*/
+    /*line-height: 16px;*/
+}
+.ls .jindu .jingdutiao {
+    display: inline-block;
+    margin: 0 5px;
+    width: 146px;
+    height: 16px;
+    border: 1px solid #e12228;
+    border-radius: 8px;
+}
+
+.jingdutiao .jinduover {
+    margin: 1px;
+    width: 50px;
+    height: 12px;
+    background-color: red;
+    transition: width 0.5s;
+}
+
+.ls ul li:hover .jinduover {
+    width: calc(100% - 30px);
+}
+
+.jindu .style_red{
+    font-weight: 900;
+    color: red;
+    font-size: 15px;
+}
+
+.ls ul li button {
+    /*margin-top: 4px;*/
+    width: 100%;
+    height: 49px;
+    font-size: 20px;
+    color: #fff;
+    border: 0;
+    background-color: #b1191a;
+}

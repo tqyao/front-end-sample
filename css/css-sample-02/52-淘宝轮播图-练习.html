@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .tb_promo {
+        position: relative;
+
+        /*相对定位不脱标，可以用margin auto居中*/
+        margin: 100px auto;
+        width: 550px;
+        height: 280px;
+        background-color: pink;
+        border: 4px solid red;
+    }
+
+    .tb_promo img {
+        /*设置成父盒子高宽，以免图片过大撑大盒子影响布局*/
+        width: 550px;
+        height: 280px;
+    }
+
+    /*.left,*/
+    /*.right{*/
+    /*    position: absolute;*/
+    /*    width: 15px;*/
+    /*    height: 30px;*/
+    /*    text-align: center;*/
+    /*    line-height: 30px;*/
+    /*    background-color: rgba(0, 0, 0, .2);*/
+    /*}*/
+
+    /*.left {*/
+    /*    top: 50%;*/
+    /*    margin-top: -15px;*/
+    /*    border-radius: 0 30px 30px 0;*/
+
+    /*}*/
+
+    /*.right {*/
+    /*    top: 50%;*/
+    /*    right: 0;*/
+    /*    margin-top: -15px;*/
+    /*    border-radius: 30px 0 0 30px;*/
+    /*}*/
+
+    .prev,
+    .next {
+        position: absolute;
+        /*绝对定位的元素是脱离标准流的，可以给高宽*/
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        color: #bce8f1;
+        background-color: rgba(0,0,0,.3);
+    }
+
+    .prev {
+        top: 50%;
+        left: 0;
+        margin-top: -15px;
+        border-radius: 0 15px 15px 0;
+    }
+
+    .next{
+        top: 50%;
+        right: 0;
+        margin-top: -15px;
+        border-radius: 15px 0 0 15px;
+    }
+
+    .promo_nav {
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        margin-left: -41px;
+        width: 92px;
+        height: 16px;
+        background-color: rgba(0,0,0,.4);
+        border-radius: 16px 16px;
+    }
+
+    .promo_nav li {
+        float: left;
+    }
+
+    .promo_nav li a {
+        margin: 3px 2px 0;
+        float: left;
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        background-color: whitesmoke;
+    }
+
+    .promo_nav li:first-child a {
+        background-color: orange;
+    }
+
+    .promo_nav li:first-child {
+        margin-left: 12px;
+    }
+
+
+</style>
+
+<body>
+<div class="tb_promo">
+    <img src="img/tb.jpg" alt="">
+    <a class="prev" href="#">&lt;</a>
+    <a class="next" href="#">&gt;</a>
+    <ul class="promo_nav">
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+    </ul>
+</div>
+
+</body>
+
+
+</html>

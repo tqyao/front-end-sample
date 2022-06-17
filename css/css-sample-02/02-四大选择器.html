@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    /*
+    1. 类选择器：. 定义，class调用
+    2. id选择器：# 定义，id调用
+    3. 标签选择器
+    4. *:选择所有，包括html，body，ul，div...
+    */
+
+    /*1.类选择器*/
+    .boxSize{
+        width: 200px;
+        height: 200px;
+    }
+    .red{
+        background: red;
+    }
+
+    /*2.id选择器*/
+    #green{
+        background: #0dff1d;
+    }
+
+    /*3.标签选择器*/
+    div{
+        /*
+        font-family 可以定义多个字体，当系统缺少第一个会使用第二个字体，以此类推；
+        多个字体之间逗号分隔；
+        具有空格的字体名称用引号包含；
+        */
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    /*4.通配符选择器*/
+    *{
+        font-size: 30px;
+    }
+
+</style>
+
+<body>
+<div class="boxSize red">我爱你</div>
+<div id="green" class="boxSize">你爱我</div>
+</body>
+
+
+</html>

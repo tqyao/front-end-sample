@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-table</title>
+</head>
+
+<style>
+    /* 设置表格外边框 **/
+    table,th,td{
+        border: 1px solid black;
+    }
+    table{
+
+        table-layout: fixed;
+        /*合并边框
+        - separate
+        - collapse
+        */
+        border-collapse: collapse;
+        /*border-spacing: 设置单元格间距
+         语法：border-spacing: length length；//第一个length横向间距，第二个纵向。
+      注意：1.当且仅当border-collapse: separate;设置border-spacing才生效
+     		2.效果等同于<table>标签的 cellspacing 属性（即border-spacing:0;等同于cellspacing="0"）
+        */
+    }
+</style>
+<body>
+    <!--
+        align：整表对齐样式
+        border：外边框
+        cellpadding：单元格内间距
+        cellspacing：单元格间距
+
+
+     -->
+<!--    <table align="center" border="1" cellpadding="0" cellspacing="0" width="200" height="300">-->
+
+    <table >
+        <tr>
+            <th>name</th>
+            <th>sex</th>
+            <th>age</th>
+        </tr>
+
+        <tbody>
+            <tr>
+                <td>郭富城1</td>
+                <td>男</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>郭德纲</td>
+                <td>男</td>
+                <td>44</td>
+            </tr>
+            <tr>
+                <td>郭碧成</td>
+                <td>女</td>
+                <td>33</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+
+</html>

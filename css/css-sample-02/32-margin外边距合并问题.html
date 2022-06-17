@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+}
+
+/*margin 垂直外边距合并，两个兄弟盒子设置了相邻垂直外边距，保留较大者
+    解决：给一个盒子加外边距就ok了
+*/
+.box1 {
+    margin-bottom: 50px;
+}
+.box2 {
+    margin-top: 10px;
+}
+
+</style>
+
+<body>
+<div class="box box1"></div>
+<div class="box box2"></div>
+</body>
+
+
+</html>

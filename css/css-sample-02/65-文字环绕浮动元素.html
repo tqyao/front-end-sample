@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+        height: 2000px;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    /*两种写法 写法一*/
+    .box {
+        margin: 100px auto;
+        padding: 20px;
+        width: 300px;
+        height: 150px;
+        background-color: pink;
+    }
+
+    .box .pic {
+        float: left;
+        margin-right: 10px;
+        width: 200px;
+        height: 100px;
+        background-color: pink;
+    }
+
+    .box .pic img {
+        /*vertical-align: middle;*/
+        width: 100%;
+        height: 100%;
+    }
+
+    /*两种写法 写法二*/
+    .box1 {
+        margin: 100px auto;
+        padding: 20px;
+        width: 300px;
+        height: 150px;
+        background-color: pink;
+    }
+
+    .box1 img {
+        margin-right: 10px;
+        float: left;
+        width: 200px;
+        height: 100px;
+    }
+
+    .box2 {
+        padding: 5px;
+        margin: auto;
+        width: 350px;
+        height: 100px;
+        background-color: pink;
+    }
+    .box2 .pic {
+        margin-right: 10px;
+        float: left;
+        width: 200px;
+        height: 100px;
+        background-color: silver;
+    }
+
+    .box2 .pic img {
+        width: 100%;
+        height: 100%;
+    }
+
+</style>
+
+<body>
+<div class="box">
+    <div class="pic">
+        <img src="img/img123.png" alt="">
+    </div>
+    <p>家长看争议教材插画：个别图画就能把孩子们毁了？娃们哪有这么脆弱</p>
+</div>
+<div class="box1">
+    <img src="img/img123.png" alt="">
+    <p>家长看争议教材插画：个别图画就能把孩子们毁了？娃们哪有这么脆弱</p>
+</div>
+<div class="box2">
+    <div class="pic">
+        <img src="img/img123.png" alt="">
+    </div>
+    <p>家长看争议教材插画：个别图画就能把孩子们毁了？娃们哪有这么脆弱</p>
+</div>
+
+</body>
+
+
+</html>

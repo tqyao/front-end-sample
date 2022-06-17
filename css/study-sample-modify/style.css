@@ -1,0 +1,628 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 2000px;
+    background-color: #f3f5f7;
+    font: normal 400 16px "Microsoft YaHei";
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #121112;
+
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*版心*/
+.w {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+/*头部区域*/
+.header {
+    /*width: 1000px;*/
+    height: 42px;
+    margin: 20px auto;
+    /*background-color: pink;*/
+}
+
+.logo {
+    float: left;
+    width: 195px;
+    height: 42px;
+    /*background-color: lightcoral;*/
+}
+
+.nav {
+    float: left;
+    margin-left: 50px;
+}
+
+.nav ul li {
+    float: left;
+}
+
+.nav ul li a {
+    display: block;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 10px;
+    margin: 0 15px;
+    /*background-color: #f0ad4e;*/
+}
+
+.nav ul li a:hover {
+    border-bottom: 2px solid #48a6f7;
+    color: #48a6f7;
+}
+
+.search {
+    float: left;
+    width: 270px;
+    height: 38px;
+    margin-left: 50px;
+    border: 2px solid #48a6f7;
+    /*background-color: antiquewhite;*/
+}
+
+.search input {
+    float: left;
+    padding-left: 10px;
+    width: 210px;
+    height: 38px;
+    border: 0;
+}
+
+.search button {
+    float: left;
+    width: 50px;
+    height: 38px;
+    /*background-color: khaki;*/
+    border: 0;
+    background: url("img/btn.png") no-repeat;
+}
+
+.user {
+    float: right;
+    margin-right: 20px;
+    font-size: 12px;
+    line-height: 42px;
+    color: #9f9fa1;
+    /*background-color: yellowgreen;*/
+}
+
+
+/*banner图区域*/
+.banner {
+    height: 421px;
+    background-color: #190367;
+}
+
+/*必须是 .banner .w ，否者所有的.w 都会加背景和高*/
+.banner .w {
+    height: 421px;
+    background: url("img/banner.png") no-repeat top center;
+}
+
+/*修改后的banner侧边栏布局 start*/
+
+/*先布局侧边栏盒子高、宽、背景，后面子标签元素不给具体高宽，这样可以设置margin时可以不关心挤出父盒子，
+设置padding时不会撑大盒子。
+*/
+.left_nav {
+    float: left;
+    height: 421px;
+    width: 200px;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+
+.left_nav ul li {
+    padding-left: 20px;
+}
+
+.left_nav ul li a {
+    color: whitesmoke;
+    font-size: 14px;
+    line-height: 46px;
+}
+
+.left_nav ul li a span {
+    float: right;
+    margin-right: 20px;
+}
+
+.left_nav ul li a:hover {
+    color: #3074b8;
+}
+
+/*修改后的banner侧边栏布局 end*/
+
+/*开始自己写的的banner侧边栏布局 start*/
+/*.left_nav ul li a {*/
+/*    display: block;*/
+/*    height: 46px;*/
+/*    width: 180px;*/
+/*    padding-left: 20px;*/
+/*    color: whitesmoke;*/
+/*    font-size: 14px;*/
+/*    line-height: 46px;*/
+/*    !*background-color: silver;*!*/
+/*}*/
+
+/*.left_nav ul li a span {*/
+/*    float: right;*/
+/*    margin-right: 20px;*/
+/*}*/
+
+/*.left_nav ul li a:hover{*/
+/*    color: #3074b8;*/
+/*}*/
+
+/*开始自己写的的banner侧边栏布局 end*/
+
+
+.course {
+    float: right;
+    /*浮动的盒子不会有垂直外边距合并的问题*/
+    margin-top: 80px;
+    width: 212px;
+    height: 274px;
+    /*text-align: center;*/
+    background-color: #fefffe;
+}
+
+.course h4 {
+    height: 40px;
+    line-height: 40px;
+    color: whitesmoke;
+    text-align: center;
+    background-color: #a4cde6;
+}
+
+.course ul li {
+    height: 50px;
+    margin: 5px 26px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.course ul li:first-child {
+    margin-top: 14px;
+}
+
+.course ul li a {
+    font-size: 14px;
+}
+
+.course ul li > div {
+    /*text-align: left;*/
+    font-size: 12px;
+    color: #c8c7c7;
+}
+
+.course .btn {
+    margin-left: 26px;
+    width: 160px;
+    height: 40px;
+    color: #48a6f7;
+    border: 1px solid #48a6f7;
+    background-color: #ffffff;
+}
+
+.goods {
+    margin-top: 5px;
+    height: 50px;
+    /*有关文字属性都会被子元素继承，不用单独给子元素设置*/
+    line-height: 50px;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 1px 1px rgba(91, 95, 107, 0.36);
+}
+
+/*精品推荐导航模块*/
+.goods h4 {
+    float: left;
+    margin: 0 30px;
+    font-size: 14px;
+    color: #58a7e8;
+}
+
+.list ul li {
+    float: left;
+}
+
+.list ul li a {
+    padding: 0 30px;
+    font-size: 14px;
+    border-right: 1px solid rgba(0, 0, 0, .3);
+}
+
+.list ul li:first-child > a {
+    border-left: 1px solid rgba(0, 0, 0, .3);
+    border-right: 1px solid rgba(0, 0, 0, .3);
+}
+
+.list ul li:last-child > a {
+    border-right: 0;
+}
+
+.goods .modify {
+    float: right;
+    margin-right: 20px;
+    font-size: 12px;
+    color: #58a7e8;
+}
+
+/*精品推荐列表*/
+.recommend {
+    margin-top: 20px;
+    /*height: 440px;*/
+    /*background-color: slategray;*/
+}
+
+.recommend .title {
+    height: 40px;
+    line-height: 40px;
+    /*background-color: chocolate;*/
+}
+
+.title h4 {
+    float: left;
+    font-weight: 400;
+}
+
+.title a {
+    float: right;
+    margin-right: 10px;
+    font-size: 12px;
+    color: #b3b3b3;
+}
+
+.item ul li {
+    float: left;
+}
+
+.item .box {
+    width: 192px;
+    height: 230px;
+    margin: 0 10px 10px 0;
+    background-color: #ffffff;
+    box-shadow: 2px 4px 3px 1px rgba(0, 0, 0, .3);
+    position: relative;
+}
+
+/*
+使用公式（an+ b）.描述：a代表一个循环的大小，N是一个计数器（从0开始），以及b是偏移量。
+  在这里，我们对所有.item ul 下 索引是5的倍数的 li 标签元素的亲子元素 .box 去除了右外边距
+  注意:
+  1. 这里用 :nth-child(5n+0) :nth-of-type(5n+0) 都可以
+  区别 ：nth-child 例如：p:nth-child(3n+0)选取的p标签元素的父元素下的，索引倍数是5的任何元素
+			:nth-of-type 例如：p:nth-of-type(3n+0)选取的是p标签元素父元素下的，索引倍数是5的p标签元素
+*/
+.item ul li:nth-of-type(5n+0) > .box {
+    margin-right: 0;
+}
+
+.box em img {
+    position: absolute;
+    top: 4px;
+    right: -4px;
+}
+
+.box > img {
+    /*width: 192px;*/
+    width: 100%;
+}
+
+.box .info {
+    margin-top: 10px;
+    padding: 0 20px;
+    /*background-color: slategray;*/
+}
+
+.box .info h4 {
+    height: 40px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.box .info p {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #d6d6d6;
+}
+
+.box .info p span {
+    color: #f0ad4e;
+}
+
+/*编程入门模块*/
+.code {
+    margin-top: 20px;
+
+}
+
+.top_title {
+    height: 40px;
+    line-height: 40px;
+    /*background-color: #a94442;*/
+}
+
+.top_title h4 {
+    /*margin-right: 260px;*/
+    float: left;
+    font-weight: 400;
+    color: #717171;
+}
+
+.top_title ul {
+    float: left;
+    margin-left: 260px;
+}
+
+.top_title ul li {
+    float: left;
+    margin: 0 30px;
+}
+
+.top_title ul li a {
+    /*todo: 这里给a加float，不然会影响下面布局（不知道为啥）*/
+    float: left;
+    font-size: 14px;
+    color: #a7a8a8;
+}
+
+.top_title ul li a:hover {
+    color: #57bafd;
+}
+
+.top_title > a {
+    float: right;
+    margin-right: 20px;
+    font-size: 12px;
+    color: #c6c7c8;
+}
+
+
+.bottom_box {
+    /*小技巧：给整合底部盒子多加10px，解决第四个 item ul li 多出的
+        外边距装不下导致被盒子挤下去的问题。
+
+        解释：
+        由于 bottom_box 的父元素是整个板块，整个板块已经采用版心的宽度（宽度定死），
+        那么超出部分只会向右延伸，且不会撑大盒子（padding才会撑大）。
+
+        即使子元素的大小超过了父容器, 超出父容器的部分仍然会正常显示,
+         子元素仍然包含在父容器内部。 因为父容器的overflow属性
+         设置为了visible, 我们之所以能够看到超出的部分,
+    */
+    width: 1010px;
+}
+
+.left_side_box {
+    float: left;
+    margin-right: 10px;
+    /*background-color: silver;*/
+}
+
+.left_side_box img {
+    float: left;
+    width: 180px;
+}
+
+.right_side_box {
+    float: left;
+    margin-bottom: 10px;
+    /*background-color: cadetblue;*/
+}
+
+.top_banner img {
+    width: 810px;
+}
+
+.video_item ul li {
+    float: left;
+    margin-right: 10px;
+    width: 195px;
+    height: 221px;
+    background-color: #ffffff;
+    box-shadow: 1px 2px 3px 4px rgba(0, 0, 0, .3);
+}
+
+.video_item ul li img {
+    width: 195px;
+}
+
+.video_item .info {
+    padding: 5px 10px;
+}
+
+.video_item .info h4 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.video_item .info p {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #ffbd9a;
+}
+
+.video_item .info p span {
+    margin-left: 5px;
+    color: #ababab;
+}
+
+/*机器学习推荐列表模块*/
+.robot {
+    margin-top: 30px;
+    /*background-color: silver;*/
+}
+
+.robot .top_nav {
+    height: 40px;
+    line-height: 40px;
+    /*background-color: cadetblue;*/
+}
+
+.top_nav h4 {
+    float: left;
+    font-weight: 400;
+    color: #717171;
+}
+
+.top_nav ul {
+    float: left;
+    margin-left: 240px;
+}
+
+.top_nav ul li {
+    float: left;
+    margin: 0 30px;
+}
+
+.top_nav ul li a {
+    font-size: 14px;
+    color: #a7a8a8;
+
+}
+
+.top_nav ul li a:hover {
+    color: #57bafd;
+}
+
+.top_nav > a {
+    float: right;
+    margin-right: 20px;
+    font-size: 12px;
+    color: #c6c7c8;
+}
+
+.bottom_item {
+    margin-top: 10px;
+    /*background-color: slateblue;*/
+}
+
+.bottom_item ul {
+    float: left;
+    width: 1010px;
+}
+
+.bottom_item ul li {
+    float: left;
+    margin-right: 10px;
+    width: 192px;
+    height: 221px;
+    background-color: #ffffff;
+    box-shadow: 1px 2px 3px 4px rgba(0, 0, 0, .3);
+}
+
+.bottom_item ul li img {
+    width: 192px;
+}
+
+.info {
+    padding: 5px 10px 10px;
+}
+
+.bottom_item .info h4 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.bottom_item .info p {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #ffbd9a;
+}
+
+.bottom_item .info p span {
+    margin-left: 5px;
+    color: #ababab;
+}
+
+
+/*页脚*/
+.footer {
+    margin-top: 30px;
+    height: 300px;
+    background-color: #fff;
+
+    /*嵌套盒子都添加了margin-top，出现外边距塌陷问题
+    解决：
+    */
+    overflow: hidden;
+}
+
+.logo_side {
+    float: left;
+    margin: 30px 0 20px 10px;
+    width: 510px;
+    /*background-color: khaki;*/
+}
+
+.logo_side img {
+    width: 180px;
+}
+
+.brief p:nth-of-type(1) {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #939393;
+}
+
+.brief p:nth-child(2) {
+    font-size: 12px;
+    color: #939393;
+}
+
+.logo_side button {
+    margin-top: 10px;
+    width: 134px;
+    height: 38px;
+    color: #61c6ff;
+    border: 1px solid #61c6ff;
+    background-color: #ffffff;
+}
+
+.link_side {
+    float: left;
+    margin: 30px 0 0 10px;
+}
+
+/*加上这个条，是因为 ul 里面的li浮动导致，如果ul不浮动，就会失去高宽*/
+.link_side > ul {
+    float: left;
+}
+
+.link_side > ul > li {
+    float: left;
+    margin-left: 70px;
+}
+
+.link_side > ul > li h4 {
+    font-weight: 400;
+}
+
+.link_side > ul > li ul {
+    margin-top: 10px;
+    font: normal 400 14px "Microsoft Sans Serif";
+}

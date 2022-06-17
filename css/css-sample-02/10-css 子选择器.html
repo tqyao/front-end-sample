@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    /*1.后代选择器：会影响选中的标签及其所有后代*/
+    /*2.子选择器：只对亲儿子有效*/
+    .box-base {
+        margin-bottom: 20px;
+        width: 200px;
+        height: 200px;
+        background: #d5d5d5;
+
+    }
+    .demo1 a {
+        color: #0dff1d;
+    }
+
+    .demo2 > a {
+        color: #5bc0de;
+    }
+</style>
+
+<body>
+<a href="#">对照，我是正常a标签包含文字样式</a>
+<br>
+<br>
+
+
+<div class="box-base demo1">
+    <a href="#">我是div的亲儿子</a>
+    <p>
+        <a href="#">我是div的孙子</a>
+    </p>
+</div>
+
+<div class="box-base demo2">
+    <a href="#">我是div的亲儿子</a>
+    <p>
+        <a href="#">我是div的孙子</a>
+    </p>
+</div>
+
+
+</body>
+
+
+</html>

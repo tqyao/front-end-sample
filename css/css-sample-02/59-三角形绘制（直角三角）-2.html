@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .box {
+        width: 0;
+        height: 0;
+
+        /*边框100px为单个三角形的高，4个三角形拼接成的正方形是200x200*/
+        border: 100px solid pink;
+        border-right-color: red;
+        border-bottom-color: green;
+        border-left-color: blue;
+    }
+
+    .box2 {
+        margin-top: 100px;
+        width: 0;
+        height: 0;
+
+        /*照顾兼容性*/
+        font-size: 0;
+        line-height: 0;
+        /*照顾兼容性*/
+        border: 100px solid transparent;
+
+        /*下三角*/
+        border-top-color: pink;
+
+        /*!*左三角*!*/
+        /*border-right-color: red;*/
+
+        /*!*右三角*!*/
+        /*border-left-color: blue;*/
+
+        /*!*上山脚*!*/
+        /*border-bottom-color: green;*/
+    }
+
+
+
+    .box3,
+    .box4,
+    .box5,
+    .box6 {
+        float: left;
+        width: 0;
+        height: 0;
+        border-style: solid;
+    }
+
+    .box3 {
+        border-width: 60px 30px 0 0;
+        border-color: transparent red transparent transparent;
+    }
+
+    .box4 {
+        border-width: 0 30px 60px 0;
+        border-color: transparent pink transparent transparent;
+    }
+
+    .box5 {
+        border-width: 60px 0 0 30px;
+        border-color: transparent transparent transparent green;
+    }
+
+    .box6{
+        border-width: 60px 30px 0 0;
+        border-color: blue transparent transparent transparent;
+    }
+
+    .box7{
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: pink transparent transparent transparent;
+    }
+
+</style>
+
+<body>
+
+</body>
+<div class="box"></div>
+<div class="box2"></div>
+<div class="box7"></div>
+<div>
+    <div style="overflow: hidden" class="top">
+        <div class="box3"></div>
+        <div class="box5"></div>
+    </div>
+    <div class="bottom">
+        <div class="box4"></div>
+        <div class="box6"></div>
+    </div>
+
+</div>
+
+
+</html>

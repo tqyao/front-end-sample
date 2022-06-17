@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    .box {
+        /*浮动和盒子无法用  margin: 0 auto; 水平居中*/
+        /*浮动的盒子用z-index;没有效果*/
+        /*z-index: 100;*/
+
+        float: left;
+        margin: 0 auto;
+        width: 50px;
+        height: 50px;
+        background-color: pink;
+    }
+
+    .base_box {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+    }
+
+    .xiongda {
+        background-color: silver;
+        top: 50px;
+        left: 50px;
+        z-index: 2;
+    }
+
+    .xionger {
+        background-color: cadetblue;
+        top: 100px;
+        left: 100px;
+
+        /*
+        z-index：
+        默认是auto
+        */
+        z-index: 1;
+    }
+
+    .guangtouqiang {
+        /*定位的盒子无法用margin:auto 实现水平居中*/
+        /*margin: 0 auto;*/
+        background-color: salmon;
+
+
+        /*定位的盒子水平居中*/
+        left: 50%;
+        /*这里不能用margin-right*/
+        /*margin-right: 697px;*/
+        /*margin-left: -50%;*/
+        margin-left: -100px;
+
+        /*定位的盒子垂直居中*/
+        top: 50%;
+        margin-top: -100px;
+    }
+
+</style>
+
+<body>
+<div class="box">浮动的盒子</div>
+
+<div class="xiongda base_box">熊大</div>
+<div class="xionger base_box">熊二</div>
+<div class="guangtouqiang base_box">光头强</div>
+</body>
+
+
+</html>

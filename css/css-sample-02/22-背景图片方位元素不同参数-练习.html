@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    div {
+        margin: 10px;
+        width: 280px;
+        height: 200px;
+        background-color: pink;
+        background-image: url("img/logo.png");
+        background-repeat: no-repeat;
+    }
+
+    .box1 {
+        /*省缺x，x默认center*/
+        background-position: bottom;
+    }
+
+    .box2 {
+        /*省缺y，y默认center*/
+        background-position: right;
+    }
+
+    .box3 {
+        /*验证box2*/
+        background-position: right center;
+    }
+
+    .demo1 {
+        background-position: 20px 20px;
+    }
+
+    .demo2 {
+        /*省缺一个参数，一定是省缺y，且y默认center*/
+        background-position: 20px;
+    }
+
+    .demo3 {
+        background-position: 20px center;
+    }
+
+    /*混合写法 必须第一个是x，第二个是y，否者设置无效如sampel1*/
+    .sample1 {
+        /*第一个是y，无效赋值方式*/
+        background-position: top 150px;
+    }
+    .sample2 {
+        background-position: right 150px;
+    }
+
+
+</style>
+
+<body>
+<!--    1. 使用方位名词及省缺值
+    2. 使用精确值及省缺值
+    3. 使用混合值及省缺值-->
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+<hr>
+<div class="demo1"></div>
+<div class="demo2"></div>
+<div class="demo3"></div>
+<hr>
+<div class="sample1"></div>
+<div class="sample2"></div>
+<div class="sample3"></div>
+</body>
+
+
+</html>

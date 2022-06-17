@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    /*.x_line {*/
+    /*    float: left;*/
+    /*    height: 200px;*/
+    /*    width: 1000px;*/
+    /*    border-bottom: 1px solid silver;*/
+    /*}*/
+
+    .box1 {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+
+        /*
+        相对定位特性：
+         1. 相对于自己原来的位置移动
+         2. 原来的位置继续占有，后面的盒子还是按照标准流对待（不脱标，原有位置继续保留）
+        */
+        position: relative;
+        top:100px;
+        left: 100px;
+
+    }
+    .box2 {
+        width: 300px;
+        height: 200px;
+        background-color: cadetblue;
+    }
+</style>
+
+<body>
+<!--<div class="x_line"></div>-->
+<div class="box1"></div>
+<div class="box2"></div>
+
+</body>
+
+
+</html>

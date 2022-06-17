@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f6f3;
+    }
+    a {
+        color: #b2b4b4;
+        text-decoration: none;
+    }
+    a:hover {
+        color: orange;
+    }
+    .box {
+        margin: 100px auto;
+        width: 300px;
+        height: 430px;
+        background-color: white;
+    }
+
+    .box > img {
+        /*图片大过盒子，让宽度等于盒子使得图片等比例缩放*/
+        width: 100%;
+    }
+
+    .box .brief {
+        height: 70px;
+    /*    由于没有设定宽度，段落左右两边空隙可以用padding
+        当然也可以用margin */
+        /*margin: 0 30px;*/
+        padding: 0 30px;
+        font-size: 14px;
+
+        /*由于这里给定高度，所以breif盒子与上延的距离不能用padding，否者会撑大盒子*/
+        margin-top: 30px;
+    }
+    .box .comment {
+        margin: 20px 0 5px;
+        padding: 0 30px;
+        font-size: 12px;
+        color: #b2b4b4;
+    }
+    .title{
+        padding: 0 30px;
+        font-size: 14px;
+    }
+    .title > h4 {
+        display: inline;
+        font-weight: 400;
+    }
+    .title em {
+        margin: 0 2px;
+        font-style: normal;
+        color: rgba(0,0,0,0.1);
+    }
+    .title span {
+        color: orange;
+    }
+
+</style>
+
+<body>
+<div class="box">
+    <img src="img/img.png" alt="">
+    <p class="brief"><a href="#">撒娇的空间奥斯卡来得及昂克赛拉快速建档立卡艾克氨基酸的克拉就是考虑到奥德赛金阿奎来得及啊</a></p>
+    <div class="comment">来自于 117383782 的评价</div>
+    <div class="title">
+        <h4><a href="#">Redimi AirDots真无线蓝牙...</a> </h4> <em>|</em> <span>99.9元</span>
+    </div>
+</div>
+</body>
+
+
+</html>

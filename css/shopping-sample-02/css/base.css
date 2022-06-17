@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+em,
+i {
+    /* 去除斜体 */
+    font-style: normal
+}
+
+li {
+    /* 去除li前面的实心圆点 */
+    list-style: none
+}
+
+img {
+    /* 去除低版本浏览器图片有外边框问题 */
+    border: 0;
+    /* 图片（行内元素和行内块元素）中线对齐，去除图片底空白间隙问题 */
+    vertical-align: middle
+}
+
+button {
+    /* 鼠标小手 */
+    cursor: pointer
+}
+
+a {
+    /* 改变a标签默认蓝颜色字体 */
+    color: #666;
+    /* 去除a标签下划线 */
+    text-decoration: none
+}
+
+a:hover {
+    color: #c81623
+}
+
+button,
+
+
+input {
+    font-family: Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+    outline: none;
+    border: 0;
+}
+body {
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+    color: #666;
+    height: 2000px;
+
+}
+
+.hide,
+.none {
+    /* 隐藏元素，隐藏后继续占有原来位置（不脱标） */
+    display: none
+}
+
+.clearfix:after {
+    /* 让元素不占有空间 */
+    visibility: hidden;
+    height: 0;
+    /* 清楚浮动核心代码 */
+    clear: both;
+    /* 生成伪元素是个行内块元素，清除浮动要求是块级元素 */
+    display: block;
+    /* 伪元素必须要有content */
+    content: ".";
+}
+
+/* 兼容ie低版本 */
+.clearfix {
+    *zoom: 1
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        margin: 100px auto 5px;
+        width: 980px;
+        border: 2px solid rgba(0, 0, 0, .3);
+
+        /*
+         方案二
+          缺点：无法显示溢出部分
+        */
+        /*overflow: auto;*/
+    }
+
+    /*
+    方案三：
+        :after伪元素法：方案一的变种，隔墙法的另一种形式。
+        给父元素添加.clearfix
+        */
+    .clearfix:after {
+        content: "";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+
+    /*方案四：
+    双伪元素清除浮动：浮动子元素两边添墙
+    */
+    .clearfix3:before,
+    .clearfix3:after {
+        content: "";
+        display: table;
+    }
+
+    .clearfix3:after {
+        clear: both;
+    }
+
+    /*兼容IE6，7,清除浮动*/
+    .clearfix {
+        *zoom: 1;
+    }
+
+    .box > div {
+        margin-left: 10px;
+        float: left;
+        width: 232px;
+        height: 300px;
+        background-color: palegoldenrod;
+    }
+
+    .footer {
+        height: 200px;
+        background-color: gray;
+    }
+
+</style>
+
+<body>
+<div class="box clearfix3">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <!--
+        清楚浮动带来的影响：子div浮动，脱离了标准流导致没有设置高度的父盒子无法被撑开，高度为0，以至于后续的盒子占有原本的box的位置。
+        解决：
+
+            1.额外标签法：给浮动子元素最后一个添加额外的快级元素标签清楚浮动样式
+            clear:
+             - left：清除左侧浮动
+             - right：清除右侧浮动
+             - both：清除两侧浮动
+
+             2. 给父亲添加overflow
+             overflow：
+             - hidden
+             - auto
+             - scroll
+    -->
+
+
+    <!--    方案一 这里不能添加div作为隔墙法清楚浮动，因为css已经为box>div盒子添加浮动，浮动的盒子脱标，且具有行内块元素特质，并非块级元素-->
+    <!--    <div  style="clear: both"></div>-->
+    <!--    <p style="clear: both"></p>-->
+</div>
+<div class="footer"></div>
+</body>
+
+
+</html>

@@ -1,0 +1,72 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8776843",
+      "name": "edit",
+      "font_class": "icon-test",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "8776878",
+      "name": "download",
+      "font_class": "icon-test1",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "8777039",
+      "name": "unlock",
+      "font_class": "icon-test2",
+      "unicode": "e644",
+      "unicode_decimal": 58948
+    },
+    {
+      "icon_id": "8777078",
+      "name": "flow",
+      "font_class": "icon-test3",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "8777429",
+      "name": "caution",
+      "font_class": "icon-test4",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "8777495",
+      "name": "star_filled",
+      "font_class": "icon-test5",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "21497128",
+      "name": "做保养",
+      "font_class": "zuobaoyang",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "21497135",
+      "name": "罚款代缴",
+      "font_class": "fakuandaijiaobeifen",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "21497136",
+      "name": "新车必备",
+      "font_class": "xinchebibei",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    }
+  ]
+}

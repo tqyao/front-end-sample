@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    .faker-class a {
+        text-decoration: none;
+    }
+    .faker-class a:first-child:link {
+        color: red;
+    }
+
+    .faker-class .a2:visited {
+        color: blue;
+    }
+
+    .faker-class .a3:hover {
+        color: pink;
+    }
+
+    .faker-class .a4:active {
+        color: #0dff1d;
+    }
+</style>
+
+<body>
+
+<!--链接伪类：
+1. 必须按照 :link -> :visited -> :hover -> :active 顺序写，否者失效
+2. 因为 a 具有默认样式实际开发中需要给链接单独设置样式（也就是当给body设置样式时，不会影响a标签样式-->）
+
+
+<a href="#">测试伪类选择器，我是对照组</a>
+<br><br>
+<div class="faker-class">
+    <a class="a1" href="#">1.测试伪类选择器,未访问</a><br><br>
+    <a class="a2" href="#">2.测试伪类选择器,已访问</a><br><br>
+    <a class="a3" href="#">3.测试伪类选择器,鼠标滑过链接</a><br><br>
+    <a class="a4" href="#">4.测试伪类选择器,鼠标选中</a><br><br>
+</div>
+
+</body>
+
+
+</html>

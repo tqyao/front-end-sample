@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--    SEO(Search Engine Optimization)汉译为搜索引|擎优化，是一种利用搜索引|擎的规则提高网站在有关搜索引擎内自然排名的方式。
+            采取 TDK 三个标签来优化SEO
+    -->
+    <!--    T网站标题-->
+    <title>列表页 -正品低价、品质保障、配送及时、轻松购物！</title>
+    <!--    D 网站描述-->
+    <meta name="description"
+          content="品优购-专业的综合网上购物商城，为您提供正品低价的购物选择、优质便捷的服务体验。商品来自全球数十万品牌商家，囊括家电、手机、电脑、服装、居家、母婴、美妆、个护、食品、生鲜等丰富品类，满足各种购物需求。"/>
+    <!--    K 网站关键词-->
+    <meta name="keywords" content="网上购物,网上商城,家电,手机,电脑,服装,居家,母婴,美妆,个护,食品,生鲜">
+    <!--    基础样式-->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <link rel="stylesheet" href="css/list.css">
+    <!--    favicon 图标-->
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+
+<!--    快捷导航栏-->
+<section class="shortcut">
+    <div class="w">
+        <ul class="fl">
+            <li>品优购欢迎您!&nbsp;&nbsp;</li>
+            <li><a href="#">请登录&nbsp;&nbsp;</a></li>
+            <li><a class="style_red" href="#">免费注册</a></li>
+        </ul>
+        <!--    中间竖线采用1px宽度的盒子，再给其左右外边距-->
+        <ul class="fr">
+            <li><a href="#">我的订单</a></li>
+            <li></li>
+            <li><a class="arrow" href="#">我的品优购</a></li>
+            <li></li>
+            <li><a href="#">品优购会员</a></li>
+            <li></li>
+            <li><a href="#">企业采购</a></li>
+            <li></li>
+            <li><a class="arrow" href="#">关注品优购</a></li>
+            <li></li>
+            <li><a class="arrow" href="#">客户服务</a></li>
+            <li></li>
+            <li><a class="arrow" href="#">网站导航</a></li>
+        </ul>
+    </div>
+</section>
+
+<!--采取定位的方式布局，所以首先给定header模块高度，因为绝对定位的子元素脱标，无法把父盒子撑开-->
+<header class="header w">
+    <!--    logo seo优化
+    1. 给logo链接且包含在h4中以突出权重，链接指向网站首页，并且给以悬浮提示的title
+    2. 链接内容填网站名称（title也填网站名称）
+    3. 给链接设置成logo宽高并赋予logo为背景
+    4. 链接内容通过font-size或者overflow+text-indent隐藏文字
+    -->
+    <div class="logo">
+        <h4><a href="../shopping-sample-02/index.html" title="品优购">品优购</a></h4>
+    </div>
+
+    <div class="miaosha">
+        <img src="imgs/miaosha.png" alt="">
+    </div>
+
+    <!--    先给父盒子一个整体的宽高刚好可以包含input和btn
+            由于input 和 btn 是行内块元素，换行写会出现小空隙，分别给他们加上浮动就可以解决
+    -->
+    <div class="search">
+        <input type="text" placeholder="语言开发">
+        <button>搜索</button>
+    </div>
+
+    <ul class="hotwords fl">
+        <li><a class="style_red" href="#">优惠购首发</a></li>
+        <li><a href="#">亿元优惠</a></li>
+        <li><a href="#">9.9元团购</a></li>
+        <li><a href="#">美满99减30</a></li>
+        <li><a href="#">办公用品</a></li>
+        <li><a href="#">电脑</a></li>
+        <li><a href="#">通信</a></li>
+    </ul>
+
+
+    <!--    1. 通过图标字体以伪元素方式布局
+            2.
+             - 注意em这个小盒子不能给宽，因为后期可能数字增大，因此只需给padding左右俩边撑开
+             - 设置left而不设置right，当盒子被撑开会使盒子向right方向拉长，复合中国人习惯
+    -->
+    <button class="shopcar">我的购物车 <em>8000</em></button>
+
+</header>
+
+<nav class="nav">
+    <div class="w">
+        <div class="sk_list">
+            <ul>
+                <li><a href="#">品优秒杀</a></li>
+                <li><a href="#">品优秒杀</a></li>
+                <li><a href="#">品优秒杀</a></li>
+            </ul>
+        </div>
+        <div class="sk_content">
+            <ul>
+                <li><a href="#">女装</a></li>
+                <li><a href="#" class="style_red">女鞋</a></li>
+                <li><a href="#">女装</a></li>
+                <li><a href="#">女装</a></li>
+                <li><a href="#">女装</a></li>
+                <li><a href="#">女装</a></li>
+                <li><a href="#">女装</a></li>
+                <li><a href="#">女装</a></li>
+                <li><a href="#">更多分类</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="w sk_container">
+    <div class="sk_hd">
+        <img src="upload/list_banner_03.jpg" alt="">
+    </div>
+    <div class="sk_bd">
+        <ul class="clearfix">
+            <li>
+                <div class="sk_goods">
+                    <img src="upload/phone.png" alt="">
+                </div>
+                <div class="sk_info">
+                    <h3>Apple苹果iPhone6sP1us(A1699)32G金色移动联通电信4G手机</h3>
+                    <div class="prices">
+                        ￥6088<span class="ago">￥6988</span>
+                    </div>
+                    <div class="residue">
+                        已售87%<div class="jindu"><div class="percent"></div></div>剩余 <em class="leave">29</em> 件
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>
+            <li>
+                <div class="sk_goods">
+                    <img src="upload/phone.png" alt="">
+                </div>
+                <div class="sk_info">
+                    <h3>Apple苹果iPhone6sP1us(A1699)32G金色移动联通电信4G手机</h3>
+                    <div class="prices">
+                        ￥6088<span class="ago">￥6988</span>
+                    </div>
+                    <div class="residue">
+                        已售87%<div class="jindu"><div class="percent"></div></div>剩余 <em class="leave">29</em> 件
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>
+            <li>
+                <div class="sk_goods">
+                    <img src="upload/phone.png" alt="">
+                </div>
+                <div class="sk_info">
+                    <h3>Apple苹果iPhone6sP1us(A1699)32G金色移动联通电信4G手机</h3>
+                    <div class="prices">
+                        ￥6088<span class="ago">￥6988</span>
+                    </div>
+                    <div class="residue">
+                        已售87%<div class="jindu"><div class="percent"></div></div>剩余 <em class="leave">29</em> 件
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>
+            <li>
+                <div class="sk_goods">
+                    <img src="upload/phone.png" alt="">
+                </div>
+                <div class="sk_info">
+                    <h3>Apple苹果iPhone6sP1us(A1699)32G金色移动联通电信4G手机</h3>
+                    <div class="prices">
+                        ￥6088<span class="ago">￥6988</span>
+                    </div>
+                    <div class="residue">
+                        已售87%<div class="jindu"><div class="percent"></div></div>剩余 <em class="leave">29</em> 件
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>
+            <li>
+                <div class="sk_goods">
+                    <img src="upload/phone.png" alt="">
+                </div>
+                <div class="sk_info">
+                    <h3>Apple苹果iPhone6sP1us(A1699)32G金色移动联通电信4G手机</h3>
+                    <div class="prices">
+                        ￥6088<span class="ago">￥6988</span>
+                    </div>
+                    <div class="residue">
+                        已售87%<div class="jindu"><div class="percent"></div></div>剩余 <em class="leave">29</em> 件
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>
+            <li>
+                <div class="sk_goods">
+                    <img src="upload/phone.png" alt="">
+                </div>
+                <div class="sk_info">
+                    <h3>Apple苹果iPhone6sP1us(A1699)32G金色移动联通电信4G手机</h3>
+                    <div class="prices">
+                        ￥6088<span class="ago">￥6988</span>
+                    </div>
+                    <div class="residue">
+                        已售87%<div class="jindu"><div class="percent"></div></div>剩余 <em class="leave">29</em> 件
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>            <li>
+            <div class="sk_goods">
+                <img src="upload/phone.png" alt="">
+            </div>
+            <div class="sk_info">
+                <h3>Apple苹果iPhone6sP1us(A1699)32G金色移动联通电信4G手机</h3>
+                <div class="prices">
+                    ￥6088<span class="ago">￥6988</span>
+                </div>
+                <div class="residue">
+                    已售87%<div class="jindu"><div class="percent"></div></div>剩余 <em class="leave">29</em> 件
+                </div>
+            </div>
+            <button>立即抢购</button>
+        </li>
+            <li>
+                <div class="sk_goods">
+                    <img src="upload/phone.png" alt="">
+                </div>
+                <div class="sk_info">
+                    <h3>Apple苹果iPhone6sP1us(A1699)32G金色移动联通电信4G手机</h3>
+                    <div class="prices">
+                        ￥6088<span class="ago">￥6988</span>
+                    </div>
+                    <div class="residue">
+                        已售87%<div class="jindu"><div class="percent"></div></div>剩余 <em class="leave">29</em> 件
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>            <li>
+            <div class="sk_goods">
+                <img src="upload/phone.png" alt="">
+            </div>
+            <div class="sk_info">
+                <h3>Apple苹果iPhone6sP1us(A1699)32G金色移动联通电信4G手机</h3>
+                <div class="prices">
+                    ￥6088<span class="ago">￥6988</span>
+                </div>
+                <div class="residue">
+                    已售87%<div class="jindu"><div class="percent"></div></div>剩余 <em class="leave">29</em> 件
+                </div>
+            </div>
+            <button>立即抢购</button>
+        </li>
+            <li>
+                <div class="sk_goods">
+                    <img src="upload/phone.png" alt="">
+                </div>
+                <div class="sk_info">
+                    <h3>Apple苹果iPhone6sP1us(A1699)32G金色移动联通电信4G手机</h3>
+                    <div class="prices">
+                        ￥6088<span class="ago">￥6988</span>
+                    </div>
+                    <div class="residue">
+                        已售87%<div class="jindu"><div class="percent"></div></div>剩余 <em class="leave">29</em> 件
+                    </div>
+                </div>
+                <button>立即抢购</button>
+            </li>
+
+
+
+        </ul>
+    </div>
+</div>
+<footer class="footer">
+    <div class="w">
+        <div class="mod_service">
+            <ul>
+                <li>
+                    <h5></h5>
+                    <div class="service_txt">
+                        <h4>正品保障</h4>
+                        <p>正品保障,提供发票</p>
+                    </div>
+                </li>
+                <li>
+                    <h5></h5>
+                    <div class="service_txt">
+                        <h4>正品保障</h4>
+                        <p>正品保障,提供发票</p>
+                    </div>
+                </li>
+                <li>
+                    <h5></h5>
+                    <div class="service_txt">
+                        <h4>正品保障</h4>
+                        <p>正品保障,提供发票</p>
+                    </div>
+                </li>
+                <li>
+                    <h5></h5>
+                    <div class="service_txt">
+                        <h4>正品保障</h4>
+                        <p>正品保障,提供发票</p>
+                    </div>
+                </li>
+                <li>
+                    <h5></h5>
+                    <div class="service_txt">
+                        <h4>正品保障</h4>
+                        <p>正品保障,提供发票</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="mod_help">
+            <dl>
+                <dt>服务指南</dt>
+                <dd><a href="#">购物流程</a></dd>
+                <dd><a href="#">会员介绍</a></dd>
+                <dd><a href="#">生活旅行/团购</a></dd>
+                <dd><a href="#">常见问题</a></dd>
+                <dd><a href="#">大家电</a></dd>
+                <dd><a href="#">联系客服</a></dd>
+            </dl>
+            <dl>
+                <dt>服务指南</dt>
+                <dd><a href="#">购物流程</a></dd>
+                <dd><a href="#">会员介绍</a></dd>
+                <dd><a href="#">生活旅行/团购</a></dd>
+                <dd><a href="#">常见问题</a></dd>
+                <dd><a href="#">大家电</a></dd>
+                <dd><a href="#">联系客服</a></dd>
+            </dl>
+            <dl>
+                <dt>服务指南</dt>
+                <dd><a href="#">购物流程</a></dd>
+                <dd><a href="#">会员介绍</a></dd>
+                <dd><a href="#">生活旅行/团购</a></dd>
+                <dd><a href="#">常见问题</a></dd>
+                <dd><a href="#">大家电</a></dd>
+                <dd><a href="#">联系客服</a></dd>
+            </dl>
+            <dl>
+                <dt>服务指南</dt>
+                <dd><a href="#">购物流程</a></dd>
+                <dd><a href="#">会员介绍</a></dd>
+                <dd><a href="#">生活旅行/团购</a></dd>
+                <dd><a href="#">常见问题</a></dd>
+                <dd><a href="#">大家电</a></dd>
+                <dd><a href="#">联系客服</a></dd>
+            </dl>
+            <dl>
+                <dt>服务指南</dt>
+                <dd><a href="#">购物流程</a></dd>
+                <dd><a href="#">会员介绍</a></dd>
+                <dd><a href="#">生活旅行/团购</a></dd>
+                <dd><a href="#">常见问题</a></dd>
+                <dd><a href="#">大家电</a></dd>
+                <dd><a href="#">联系客服</a></dd>
+            </dl>
+            <dl>
+                <dt>帮助中心</dt>
+                <dd>
+                    <img src="../shopping-sample-02/imgs/erweima.png" alt="">
+                    品优购客户端
+                </dd>
+            </dl>
+        </div>
+        <div class="mod_copyright">
+            <div class="links">
+                <a href="#">关于我们</a> | <a href="#">联系我们</a> | 联系客服 | 商家入驻 | 营销中心 | 手机品优购 | 友情链接 | 销售联盟 | 品优购社区 | 品优购公益 |
+                English Site | Contact U
+            </div>
+            <div class="copyright">
+                <a href="#">
+                    地址：北京市昌平区建材城西路金燕龙办公楼一层 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn <br>
+                    京ICP备08001421号京公网安备110108007702
+                </a>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+</body>
+</html>

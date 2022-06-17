@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    ul,
+    li {
+        list-style: none;
+
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    /*属性选择器：
+        类选择器，属性选择器，伪类选择器 权重都是10
+    */
+
+    input[name] {
+        background-color: pink;
+    }
+
+    /*属性后面的值的引号可加可不加*/
+    input[value=请输入值] {
+        background-color: pink;
+    }
+
+    input[type="tel"] {
+        background-color: pink;
+    }
+
+    /*
+    正则表达符号 ^:匹配带有class属性值的前缀（开头）带icon的 div
+    权重：标签+属性选择->1+10=11
+    */
+    div[class^="icon"]{
+        color: pink;
+    }
+
+    /*
+    带正则符号属性选择器
+    正则符$：匹配带有class属性值的后缀带有data的 section标签
+    权重->1+10=11
+    */
+    section[class$="data"]{
+        background-color: beige;
+    }
+
+    /*
+    正则表达符号 * ：匹配带有等号后面值的
+    */
+    p[class*="article"]{
+        color: red;
+    }
+
+    /*
+    交集选择器：div（1）+.icon4(10) = 11
+    */
+    div.icon4 {
+        color: silver;
+    }
+
+</style>
+
+<body>
+<!--1.  根据属性选择-->
+<input type="text" name="first"> <br>
+
+<!--2. 根据 属性=值 选择（值可以不加引号）-->
+<input type="text" valu ="请输入值">
+<input type="text">
+<br>
+
+<form>
+    <input type="tel" >
+    <input type="email">
+    <input type="submit" value="提交">
+</form>
+
+<!--3.属性选择器可以选择属性值开头带某些值开头的元素-->
+<div class="icon1">小图标1</div>
+<div class="icon2">小图标2</div>
+<div class="icon3">小图标3</div>
+<div class="icon4">小图标4</div>
+<div>我是对照用的，我不会被选中</div>
+<br>
+
+<!--4.属性选择器可以选择属性值结尾带某些值的元素-->
+<section class="icon1-data">我是安其拉</section>
+<section class="icon2-data">我是哥斯拉</section>
+<section class="icon3-ico">我是谁都不是</section>
+<br>
+
+<!--5.属性选择器可以选择属性值带某些之的元素-->
+<p class="abc_article_hjk">我是文章</p>
+<p class="qwe_article_uio">我也是文章</p>
+<p class="vxc_poi">我不是文章</p>
+
+</body>
+
+
+</html>

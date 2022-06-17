@@ -1,0 +1,303 @@
+
+.main {
+    height: 466px;
+    background-color: pink;
+}
+
+.main .lfside {
+    /*display: none;*/
+    float: left;
+    width: 210px;
+    height: 465px;
+    background-color: #b72d2c;
+}
+
+.main .lfside ul li {
+    margin-left: 2px;
+}
+
+.main .lfside ul li a {
+    display: inline-block;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #fff;
+    height: 31px;
+    width: 100%;
+    line-height: 31px;
+}
+
+.main .lfside ul li a:hover {
+    color: #b72d2c;
+    background-color: #f6f6f6;
+}
+
+
+.main .lfside ul li a::after {
+    margin-right: 10px;
+    float: right;
+    font-family: 'iconfont';
+    content: '\e666';
+}
+
+.main .section {
+    float: left;
+    margin: 10px 10px 0;
+    width: 721px;
+    height: 455px;
+}
+
+.main .section img {
+    width: 100%;
+    height: 100%;
+}
+
+.main .rgside {
+    float: left;
+    width: 248px;
+    height: 100%;
+    background-color: silver;
+}
+
+.main .rgside .quick_info {
+    width: 248px;
+    height: 163px;
+    border: 1px solid #e5e5e5;
+    background-color: cadetblue;
+}
+
+.main .rgside .quick_info h4 {
+    position: relative;
+    padding-left: 10px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+    color: #333333;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.main .rgside .quick_info h4::after {
+    position: absolute;
+    right: 10px;
+    font-family: 'iconfont';
+    color: #737272;
+    font-weight: 400;
+    content: '更多 \e666';
+}
+
+.main .rgside .quick_info ul {
+    margin: 5px 0 0 10px;
+}
+
+.main .rgside .quick_info ul li {
+    height: 24px;
+    line-height: 24px;
+}
+
+/*无法设置粗体效果*/
+/*.main .rgside .quick_info ul li a strong {*/
+/*    font-weight: 1200 !important;*/
+/*}*/
+
+.main .rgside .box {
+    width: 247px;
+    height: 209px;
+    background-color: saddlebrown;
+}
+
+.main .rgside .box table {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #e5e5e5;
+}
+
+
+.recom {
+    margin-top: 5px;
+    height: 159px;
+    background-color: #ebebeb;
+}
+
+.recom ul {
+    height: 100%;
+}
+
+.recom ul li {
+    float: left;
+    width: 248px;
+    height: 100%;
+    /*background-color: silver;*/
+}
+
+.recom ul li img {
+    width: 100%;
+    height: 100%;
+}
+
+.recom .today_img {
+    float: left;
+    width: 203px;
+    height: 100%;
+}
+
+.recom ul li:nth-of-type(2n) {
+    margin-top: 8px;
+    width: 1px;
+    height: 142px;
+    border-left: 1px solid #b0b0b0;
+}
+
+.recom ul li:last-child {
+    border: 0;
+}
+
+
+.floor .w {
+    margin-top: 30px;
+}
+
+.box-hd {
+    height: 30px;
+    border-bottom: 2px solid #bf4646;
+}
+
+.box-hd h3 {
+    float: left;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ba3737;
+}
+
+.box-hd .tab-list {
+    float: right;
+}
+
+.tab-list ul li {
+    float: left;
+}
+
+.tab-list ul li a {
+    margin: 0 15px;
+}
+
+.box-bd {
+    height: 361px;
+    background-color: pink;
+}
+
+.tab_content_item > div {
+    float: left;
+    height: 361px;
+}
+
+.col_209 {
+    width: 209px;
+    text-align: center;
+    background-color: #f9f8f8;
+}
+
+.col_209 ul {
+    margin-left: 14px;
+}
+
+.col_209 ul li {
+    margin-right: 10px;
+    float: left;
+    width: 85px;
+    height: 34px;
+    text-align: center;
+    line-height: 34px;
+    border-bottom: 1px solid #ccc;
+}
+
+.col_209 > a {
+    display: inline-block;
+    margin-top: 20px;
+    width: 156px;
+    height: 201px;
+}
+
+.col_209 a img {
+    width: 100%;
+    height: 100%;
+}
+
+.col_329 {
+    position: relative;
+    width: 329px;
+    text-align: center;
+    background-color: #b5d4d6;
+}
+
+.col_329 img {
+    margin-top: 38px;
+    width: 276px;
+    height: 295px;
+}
+
+.col_329 .qiehuan {
+    /*todo: 无效*/
+    margin-left: -23px;
+    position: absolute;
+    right: 50%;
+    bottom: 14px;
+    width: 47px;
+    height: 12px;
+}
+
+.col_329 .qiehuan ul li {
+    float: left;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    background-color: #3d3d3d;
+}
+
+.col_329 .qiehuan ul li:first-child {
+    background-color: #fff;
+}
+
+.col_329 .qiehuan ul li:nth-child(2) {
+    margin: 0 5px;
+}
+
+.col_220 {
+    width: 220px;
+    border: 1px solid #ccc;
+    border-top: 0;
+    border-left: 0;
+    background-color: #fff;
+}
+
+.col_220 .t-img {
+    position: relative;
+    height: 181px;
+    border-bottom: 1px solid #ccc;
+}
+.col_220 .t-img img,
+.col_220 .b-img img{
+    position: absolute;
+    bottom: 1px;
+    right: 0;
+}
+
+.col_220 .t-img img {
+    width: 200px;
+    height: 155px;
+}
+
+.col_220 .b-img{
+    position: relative;
+    height: 180px;
+}
+
+.col_220 .b-img img {
+    width: 202px;
+    height: 157px;
+}
+
+.col_220 > img {
+    margin-top: 70px;
+    margin-left: 24px;
+}
+
+

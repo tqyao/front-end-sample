@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .price {
+        position: relative;
+        margin: 100px auto;
+        width: 167px;
+        height: 24px;
+        line-height: 24px;
+        border: 1px solid red;
+        background-color: pink;
+    }
+
+    .price > span {
+        position: absolute;
+        top: 0;
+        right: 80px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 24px 12px 0 0;
+        border-color: transparent #fcfffb transparent transparent;
+    }
+
+    .now {
+        float: left;
+        padding-left: 2px;
+        width: 85px;
+        height: 24px;
+        line-height: 24px;
+        color: #fef7ee;
+        background-color: #c63929;
+    }
+
+    .now em ,
+    .prev em {
+        font-size: 16px;
+        font-style: normal;
+    }
+
+    .now > span {
+        font-weight: 700;
+    }
+
+    .prev {
+        text-align: center;
+        font-size: 14px;
+        color: #949595;
+        line-height: 24px;
+        text-decoration: line-through;
+        background-color: #fdfdfc;
+    }
+
+
+
+</style>
+
+<body>
+<div class="price">
+    <div class="now">
+        <em>￥</em><span>1650.00</span>
+    </div>
+    <span></span>
+    <div class="prev">
+        ￥5888.00
+    </div>
+</div>
+</body>
+
+
+</html>

@@ -1,0 +1,58 @@
+.w {
+    margin: 0 auto;
+    width: 1200px;
+}
+header {
+    height: 84px;
+    border-bottom: 2px solid #c61a2a;
+}
+.style_red {
+    color: red;
+}
+.logo {
+    padding-top: 18px;
+}
+.registerarea form{
+    margin-top: 20px;
+    background-color: pink;
+}
+.fm-hd {
+    height: 40px;
+    line-height: 40px;
+    color: #333333;
+    background-color: #ececec;
+}
+.fm-hd .lf {
+    float: left;
+    margin-left: 4px;
+    font-size: 16px;
+}
+.fm-hd .rf {
+    float: right;
+    margin-right: 4px;
+}
+.fm-bd {
+    /*text-align: center;*/
+}
+.fm-bd label {
+    display: block;
+    height: 56px;
+}
+.fm-bd input {
+    width: 239px;
+    height: 35px;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer ul li {
+    display: inline-block;
+}
+
+footer ul li:nth-child(-n+6)::after {
+    margin: 0 10px;
+    content: '|';
+}

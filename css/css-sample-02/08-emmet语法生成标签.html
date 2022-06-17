@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    ：
+    div{
+        /* emmet语法采取简写方式写css*/
+        /*w200*/
+        width: 200px;
+        /*tdn*/
+        text-decoration: none;
+    }
+</style>
+
+<body>
+<!--1.生成父子用 ＞
+2.生成兄弟标签用+
+3.带有id或类名用：.和#
+4.生成标签带有序号用：$
+5.生成标签带内容用：{}-->
+
+<!--ul>li*2>span-->
+<ul>
+    <li><span></span></li>
+    <li><span></span></li>
+</ul>
+
+<!--ul>li.demo$*2>span-->
+<ul>
+    <li class="demo1"><span></span></li>
+    <li class="demo2"><span></span></li>
+</ul>
+
+<!--ul>li#demo$*2>span{content$}-->
+<ul>
+    <li id="demo1"><span>content1</span></li>
+    <li id="demo2"><span>content2</span></li>
+</ul>
+
+</body>
+
+
+</html>

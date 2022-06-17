@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+
+    /*
+    border-radius：边框半径，半径越大边角弧度越大。
+    取值：
+    - 具体值
+    - 百分比
+    */
+
+    body{
+        height: 3000px;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    .normal {
+        margin-bottom: 40px;
+        width: 300px;
+        height: 100px;
+        background-color: pink;
+
+        border-radius: 20px
+    }
+
+    .zhengfangxing {
+        margin-bottom: 40px;
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+
+        /*当半径取长宽的一半的时候，此时是一个圆形*/
+        /*border-radius:100px*/
+        border-radius: 50%;
+    }
+
+    .juxing {
+        margin-bottom: 40px;
+        width: 300px;
+        height: 100px;
+        background-color: pink;
+
+        /*取矩形高的一半：类椭圆，常用按钮*/
+        border-radius: 50px;
+    }
+
+    .buguize1 {
+        margin-bottom: 40px;
+        width: 300px;
+        height: 100px;
+        background-color: pink;
+
+        /*从左上角开始，顺时针设置*/
+        border-radius: 10px 20px 30px 40px;
+    }
+
+    .buguize2 {
+        margin-bottom: 40px;
+        width: 300px;
+        height: 100px;
+        background-color: pink;
+
+        /*只给两个值，对角设置*/
+        border-radius: 10px 40px;
+    }
+
+    .buguize3 {
+        margin-bottom: 40px;
+        width: 300px;
+        height: 100px;
+        background-color: pink;
+
+        /*左上 右上左下（对角）右下*/
+        border-radius: 10px 30px 40px;
+    }
+
+    .only-set-angle {
+        margin-bottom: 40px;
+        width: 300px;
+        height: 100px;
+        background-color: pink;
+
+        border-bottom-right-radius: 40px;
+    }
+
+    .shangbanyuan {
+        width: 100px;
+        height: 50px;
+        border-radius: 100px 100px 0 0;
+        background-color: pink;
+    }
+
+    .xiabanyuan {
+        width: 100px;
+        height: 50px;
+        border-radius: 0 0 100px 100px;
+        background-color: pink;
+    }
+
+    ul li {
+        float: left;
+        margin: 10px;
+    }
+
+    .zuobanyuan {
+        width: 50px;
+        height: 100px;
+        border-radius: 100px 0 0 100px;
+        background-color: pink;
+    }
+
+    .youbanyuan{
+        width: 50px;
+        height: 100px;
+        border-radius: 0 100px 100px 0;
+        background-color: pink;
+    }
+</style>
+
+<body>
+<div class="normal"></div>
+<div class="zhengfangxing">正方形</div>
+<div class="juxing">矩形</div>
+<div class="buguize1">不规则</div>
+<div class="buguize2">不规则</div>
+<div class="buguize3">不规则</div>
+<div class="only-set-angle">单独设置某个角</div>
+
+<ul>
+    <li>
+        <div class="shangbanyuan">上半圆</div>
+    </li>
+
+    <li>
+        <div class="xiabanyuan">下半圆</div>
+    </li>
+
+    <li>
+        <div class="zuobanyuan">左半圆</div>
+    </li>
+    <li>
+        <div class="youbanyuan">右半圆</div>
+    </li>
+</ul>
+</body>
+
+
+</html>

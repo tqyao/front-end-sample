@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+   /*
+   对比练习1，2：
+    插入图片方式，由于图片比屏幕要大很多，图片核心区域无法显示，根据屏幕大小，只显示到左上角一部分（可以调整浏览器窗口大小模拟）
+    图片背景方式，可以很方便调整突变位于盒子中的位置，所以核心区域显示问题可以解决
+    */
+    .box {
+        height: 900px;
+        /*background-color: pink;*/
+        background-image: url("img/bg.jpg");
+        background-repeat: no-repeat;
+        background-position: center top;
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+</body>
+
+
+</html>

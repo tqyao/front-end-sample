@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用text-align:center代替浮动</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    ul,
+    li {
+        list-style: none;
+
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .box {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .box a {
+        display: inline-block;
+        padding: 0 18px;
+        height: 40px;
+        line-height: 40px;
+        color: #86827d;
+        border: 1px solid rgba(0, 0, 0, .3);
+        background-color: #f6f8f5;
+    }
+
+    .box a:nth-of-type(2),
+    .box a:nth-last-of-type(3) {
+        border: 0;
+        background-color: #f3f5f7;
+    }
+
+    .box input {
+        outline: none;
+        height: 40px;
+        width: 40px;
+    }
+
+</style>
+
+<body>
+<div class="box">
+    <a href="#">&lt;&lt;上一页</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6</a>
+    <a href="#">...</a>
+    <a href="#">&gt;&gt;下一页</a>
+    到第
+    <input type="text">
+    页
+    <a href="#">确定</a>
+</div>
+</body>
+
+
+</html>

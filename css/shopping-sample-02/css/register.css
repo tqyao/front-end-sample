@@ -1,0 +1,141 @@
+.w {
+    margin: 0 auto;
+    width: 1200px;
+}
+
+header {
+    height: 84px;
+    border-bottom: 2px solid #c61a2a;
+}
+
+.style_red {
+    color: red;
+}
+
+.logo {
+    padding-top: 18px;
+}
+
+.registerarea {
+    margin-top: 20px;
+    height: 522px;
+    border: 1px solid #dddddd;
+}
+
+.registerarea form h4 {
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #dddddd;
+    background-color: #ebeceb;
+}
+
+.login {
+    float: right;
+}
+
+.inp {
+    width: 293px;
+    height: 33px;
+    border: 1px solid #999999;
+}
+
+.registerarea ul li label {
+    display: inline-block;
+    width: 92px;
+    text-align: right;
+    font-weight: 900;
+}
+
+.registerarea ul {
+    margin: 0 auto;
+    width: 600px;
+}
+
+.registerarea ul li {
+    margin-bottom: 20px;
+}
+
+
+.registerarea ul li:first-child {
+    margin-top: 55px;
+}
+
+.registerarea .error,
+.registerarea .success {
+    margin-left: 6px;
+    color: #df3033;
+}
+
+.registerarea .success {
+    color: greenyellow;
+}
+
+.registerarea .error_icon,
+.registerarea .success_icon {
+    display: inline-block;
+    margin-right: 4px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background: url(../imgs/error.png) no-repeat;
+}
+
+.registerarea .success_icon {
+    background: url(../imgs/success.png) no-repeat;
+}
+
+.safe {
+    margin-top: -10px;
+    margin-left: 218px;
+}
+
+.safe span {
+    padding: 0 12px;
+    color: #fff;
+    background-color: #cd2e1a;
+}
+
+.safe .zhong {
+    background-color: #61b64a;
+}
+
+.safe .qiang {
+    background-color: #ea9625;
+}
+
+.agree {
+    margin-left: 90px;
+}
+
+.agree input {
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+.agree a {
+    color: #1ba1e6;
+}
+
+.registerbtn {
+    margin: 20px 0 0 100px;
+    width: 199px;
+    height: 34px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #c81623;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer ul li {
+    display: inline-block;
+}
+
+footer ul li:nth-child(-n+6)::after {
+    margin: 0 10px;
+    content: '|';
+}
