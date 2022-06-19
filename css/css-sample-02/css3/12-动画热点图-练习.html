@@ -15,7 +15,7 @@
     }
 
     body {
-        background-color: #f3f5f7;
+        background-color: #3c3f41;
     }
 
     ul,
@@ -27,9 +27,102 @@
         text-decoration: none;
     }
 
+    .map {
+        position: relative;
+        margin: 0 auto;
+        width: 747px;
+        height: 617px;
+        background: url(media/map.png) no-repeat;
+    }
+
+    .city {
+        position: absolute;
+        top: 227px;
+        right: 194px;
+    }
+
+    .tb {
+        top: 500px;
+        right: 80px;
+    }
+    .gz {
+        top: 531px;
+        right: 184px;
+    }
+
+    .dotted {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #4498f3;
+    }
+
+    div[class^='pule'] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 8px;
+        height: 8px;
+        box-shadow: 0 0 12px #009dfd;
+        border-radius: 50%;
+
+        animation: pule 1.2s linear infinite;
+    }
+
+
+    div.pule2 {
+        animation-delay: .4s;
+    }
+    div.pule1 {
+        animation-delay: .8s;
+    }
+
+
+    @keyframes pule {
+        0%{
+
+        }
+        25%{
+            /*transform: scale(5);
+            这里不用scale是因为会吧阴影也放大
+            */
+            /*transform: scale(5);*/
+            width: 40px;
+            height: 40px;
+            opacity: 1;
+        }
+        70%{
+            /*transform: scale(9);*/
+            width: 70px;
+            height: 70px;
+            opacity: 0.5;
+        }
+    }
+
 
 </style>
-
+<div class="map">
+<!--    <img src="media/map.png" alt="">-->
+    <div class="city">
+        <div class="dotted"></div>
+        <div class="pule1"></div>
+        <div class="pule2"></div>
+        <div class="pule3"></div>
+    </div>
+    <div class="city tb">
+        <div class="dotted"></div>
+        <div class="pule1"></div>
+        <div class="pule2"></div>
+        <div class="pule3"></div>
+    </div>
+    <div class="city gz">
+        <div class="dotted"></div>
+        <div class="pule1"></div>
+        <div class="pule2"></div>
+        <div class="pule3"></div>
+    </div>
+</div>
 <body>
 
 </body>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+        perspective: 500px;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    img {
+        display: block;
+        margin: 20px auto;
+
+    }
+
+    img:first-child {
+        transform: rotateZ(25deg);
+    }
+
+    img:nth-child(2) {
+        transform: rotateZ(-25deg);
+    }
+
+    img:nth-child(3) {
+        transition: all 1.2s;
+    }
+
+    img:nth-child(3):hover {
+        transform: rotateZ(360deg);
+    }
+</style>
+
+<body>
+    <img src="media/pig.jpg" alt="">
+    <img src="media/pig.jpg" alt="">
+    <img src="media/pig.jpg" alt="">
+</body>
+
+
+</html>

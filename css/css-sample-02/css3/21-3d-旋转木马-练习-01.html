@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+        perspective: 500px;
+
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+
+    section {
+        position: relative;
+        margin: 100px auto;
+        width: 300px;
+        height: 200px;
+        transform-style: preserve-3d;
+        transition: all 5s;
+
+        animation: xuanzhuan 5s linear 0s infinite;
+    }
+
+    section:hover {
+        /* transform: rotateY(360deg); */
+        transform: rotateX(-45deg);
+    }
+
+    section div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(media/dog.jpg) no-repeat;
+
+    }
+
+    section div:first-child {
+        transform: translateZ(200px);
+    }
+
+    section div:nth-child(2) {
+        transform: translate3d(400px, 0, 0px) rotateY(45deg);
+    }
+
+    section div:nth-child(3) {
+        transform: translate3d(400px, 0, -400px) rotateY(135deg);
+    }
+
+    section div:nth-child(4) {
+        transform: translate3d(0, 0, -500px) rotateY(180deg);
+    }
+
+    section div:nth-child(5) {
+        transform: translate3d(-400px, 0, 0px) rotateY(-45deg);
+    }
+
+    section div:nth-child(6) {
+        transform: translate3d(-400px, 0, -400px) rotateY(45deg);
+    }
+
+    @keyframes xuanzhuan {
+        0% {
+            transform: translateY(0);
+        }
+
+        100% {
+            transform: translateY(360deg);
+        }
+    }
+</style>
+
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+
+
+</html>

@@ -27,11 +27,26 @@
         text-decoration: none;
     }
 
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
 
+        /* 这样写 transform会被层叠 */
+        /* transform: translateX(100px);
+        transform: translateY(100px); */
+
+        /* 1. translateZ 一般单位是px */
+        /* transform: translateX(100px) translateY(100px) translateZ(100px); */
+        /* 2.简写形式，不能省略 */
+        transform: translate3d(100px, 100px, 0);
+
+    }
 </style>
 
 <body>
 
+    <div></div>
 </body>
 
 

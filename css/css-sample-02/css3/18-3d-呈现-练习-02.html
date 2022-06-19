@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    body {
+        perspective: 500px;
+    }
+
+    .box {
+        margin: 100px auto;
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        /* 让子元素保持3d立体环境 （给父元素添加）*/
+        transform-style: preserve-3d;
+        /* 对比发现，加了 transform-style: preserve-3d;才能使子元素保留设置好的3d效果（x轴翻转60deg） */
+        /* transform-style: flat; */
+        transition: all .8s;
+    }
+
+    .box:hover {
+        transform: rotateY(45deg);
+    }
+
+    .box div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: pink;
+    }
+
+    .box div:nth-child(2) {
+        background-color: salmon;
+        transform: rotateX(60deg);
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+
+</html>

@@ -28,33 +28,27 @@
         text-decoration: none;
     }
 
-    div{
-        position: relative;
-        margin: 100px auto;
+    div {
+        margin: 300px auto;
         width: 200px;
-        height: 40px;
-        border: 2px solid #ccc;
-    }
-    div::after{
-        position: absolute;
-        right: 10px;
-        top: 12px;
-        content: '';
-        width: 10px;
-        height: 10px;
-        border: 1px solid #000;
-        border-left: 0;
-        border-top: 0;
-        transform: rotate(45deg);
+        height: 200px;
+        background-color: pink;
         transition: all .6s;
+
+        /*transform-origin: center center;*/
+        /*transform-origin: 50% 50%;*/
+        transform-origin: 50px 50px;
     }
-    div:hover::after {
-        transform: rotate(225deg);
+
+    div:hover {
+        transform: rotate(360deg);
     }
+
+
 </style>
 
 <body>
-    <div></div>
+<div></div>
 </body>
 
 

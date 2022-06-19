@@ -16,6 +16,7 @@
 
     body {
         background-color: #f3f5f7;
+        height: 2000px;
     }
 
     ul,
@@ -27,13 +28,13 @@
         text-decoration: none;
     }
 
-    div {
+    .box1 div {
         width: 200px;
         height: 200px;
         background-color: pink;
     }
 
-    div:nth-child(1) {
+    .box1 div:nth-child(1) {
         /*margin-top: 100px;*/
 
         /*position: relative;*/
@@ -46,15 +47,55 @@
         /*transform: translateY(100px);*/
     }
 
-    div:nth-child(2) {
+    .box1 div:nth-child(2) {
+        /*transform: translate(-100px);*/
         background-color:silver;
+    }
+
+    .box2 div{
+        position: relative;
+
+        margin: 0 auto;
+        height: 600px;
+        width: 600px;
+        background-color: salmon;
+    }
+
+    .box2 div p {
+        height: 200px;
+        width: 200px;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        /*margin-left: -100px;*/
+        /*margin-top: -100px;*/
+        /*自身像素的百分比移动*/
+        transform: translate(-50%,-50%);
+
+        background-color: silver;
+    }
+
+    span {
+        /*对行内元素无效*/
+        transform: translateX(100px);
     }
 
 </style>
 
 <body>
-<div></div>
-<div></div>
+<div class="box1">
+    <div></div>
+    <div></div>
+</div>
+
+<div class="box2">
+    <div>
+        <p></p>
+    </div>
+</div>
+
+<span>123</span>
 </body>
 
 

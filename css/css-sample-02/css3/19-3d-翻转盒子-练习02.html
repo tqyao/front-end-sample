@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+        perspective: 500px;
+
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .box {
+        position: relative;
+        margin: 100px auto;
+        width: 300px;
+        height: 300px;
+        transition: all .8s;
+
+        /* 子盒子做了3d效果，必须添加3d呈现保留字盒子3d环境效果 */
+        transform-style: preserve-3d;
+    }
+
+    .box:hover {
+        transform: rotateY(180deg);
+    }
+
+
+    .front,
+    .back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 300px;
+        text-align: center;
+        color: #fff;
+        font-size: 30px;
+        border-radius: 50%;
+    }
+
+    .front {
+        background-color: pink;
+        /* 让前后盒子处在不同平面 */
+        z-index: 1;
+        /* todo: */
+        /* 翻转后不可见 */
+        backface-visibility: hidden;
+    }
+
+    .back {
+        background-color: purple;
+        /* 先让背面盒子翻转，与前面盒子形成背靠背 */
+        transform: rotateY(180deg);
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="front">黑马程序员</div>
+        <div class="back">我在这等你</div>
+    </div>
+</body>
+
+
+</html>

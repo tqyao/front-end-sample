@@ -28,61 +28,33 @@
         text-decoration: none;
     }
 
-    .pic {
+    div{
+        position: relative;
+        margin: 100px auto;
         width: 200px;
-        height: 200px;
-        border-radius: 100px;
-        border: 3px solid pink;
-        transform: rotate(40deg);
-        transition: all .5s;
+        height: 40px;
+        border: 2px solid #ccc;
     }
-
-    .pic:hover {
-        transform: rotate(360deg);
+    div::after{
+        position: absolute;
+        right: 10px;
+        top: 12px;
+        content: '';
+        width: 10px;
+        height: 10px;
+        border: 1px solid #000;
+        border-left: 0;
+        border-top: 0;
+        transform: rotate(45deg);
+        transition: all .6s;
     }
-
-    .pic img {
-        width: 100%;
-        border-radius: 100px;
-
-
-    }
-
-    .test li{
-        margin-top: 20px;
-        width: 200px;
-        height: 100px;
-        background-color: pink;
-    }
-
-    .test li:nth-child(3){
-        transform: rotate(-40deg);
-    }
-
-    .box {
-        width: 100px;
-        height: 100px;
-        background-color: sandybrown;
-        transform: rotate(40deg);
-    }
-    .box2 {
-        background-color: salmon;
+    div:hover::after {
+        transform: rotate(225deg);
     }
 </style>
 
 <body>
-<div class="pic">
-    <img src="media/pic.jpg" alt="">
-</div>
-<ul class="test">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-</ul>
-<div class="box box1"></div>
-<div class="box box2"></div>
+    <div></div>
 </body>
 
 

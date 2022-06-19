@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+
+    }
+
+    ul {
+        margin: 100px;
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ul li {
+        margin: 10px;
+        float: left;
+        width: 142px;
+        height: 48px;
+        perspective: 500px;
+    }
+
+    .box {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: all .5s;
+        transform-style: preserve-3d;
+
+        /* 我们需要看到紫色盒子的立体效果（进大远小），需要给元素的父元素添加透视，
+        这里紫色盒子的父元素是box，但box旋转也需要透视效果，所以给box的父盒子li加perspective，
+        这样box 紫色 和 粉色盒子都有透视效果 */
+        /* perspective: 500px; */
+    }
+
+    .box div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 48px;
+        text-align: center;
+
+    }
+
+
+    .box:hover {
+        transform: rotateX(90deg);
+    }
+
+    .front {
+        background-color: pink;
+        transform: translateZ(24px);
+    }
+
+    .box .bottom {
+        background-color: purple;
+        /* 先移动再旋转，否者会出事！！！ */
+        transform: translateY(24px) rotateX(-90deg);
+    }
+</style>
+
+<body>
+    <ul>
+        <li>
+            <div class="box">
+                <div class="front">黑马程序员</div>
+                <div class="bottom">pink老师在等你</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">黑马程序员</div>
+                <div class="bottom">pink老师在等你</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">黑马程序员</div>
+                <div class="bottom">pink老师在等你</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">黑马程序员</div>
+                <div class="bottom">pink老师在等你</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">黑马程序员</div>
+                <div class="bottom">pink老师在等你</div>
+            </div>
+        </li>
+    </ul>
+</body>
+
+
+</html>

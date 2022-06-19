@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+        /* 1. 透视卸载被观察元素的父元素上 */
+        /* 2. 透视是指眼睛到屏幕的距离 */
+        /* 3. 透视通常是px做单位 */
+        /* translateZ 是物体距离屏幕的距离，正值越大，距离屏幕越远（距离人眼观察越近），成像越大 */
+        perspective: 500px;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    div {
+        margin: 100px auto;
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        transition: all .8s;
+    }
+
+    div:hover {
+        transform: translate3d(0, 0, 100px);
+    }
+</style>
+
+<body>
+    <div>透视</div>
+</body>
+
+
+</html>

@@ -9,12 +9,13 @@
 </head>
 
 <style>
-    .box {
-        margin: 100px auto;
+    div[class^='box'] {
+        margin: 30px;
+        float: left;
         width: 250px;
         height: 300px;
         background-color: pink;
-
+        box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, .3);
         /*
         box-shadow: h-shadow v-shadow blur spread color inset;
         - h-shadow（必须）：水平阴影
@@ -26,18 +27,30 @@
             参数：
             - outset
             - inset
-
         */
-
     }
 
-    .box:hover {
-        box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, .3) inset;
+    div.box1 {
+        box-shadow: 14px 16px 6px 6px rgba(115, 47, 47, 0.3);
     }
+
+    div.box2 {
+        box-shadow: 14px 16px 6px 6px rgba(115, 47, 47, 0.3),
+        -14px 16px 6px 6px rgba(115, 47, 47, 0.3);
+    }
+
+    div.box3 {
+        box-shadow: 14px 16px 6px 6px rgba(115, 47, 47, 0.3),
+        1px 16px 6px 6px rgba(115, 47, 47, 0.3),
+        1px -16px 6px 6px rgba(115, 47, 47, 0.3);
+    }
+
 </style>
 
 <body>
-<div class="box"></div>
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
 
 </body>
 

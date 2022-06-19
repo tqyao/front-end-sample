@@ -28,14 +28,48 @@
     }
 
     /*1.定义动画*/
-    @keyframes move {
-        /*动画初始状态*/
+    /*@keyframes move {*/
+    /*    !*动画初始状态*!*/
+    /*    0% {*/
+    /*        transform: translateX(0) ;*/
+    /*    }*/
+    /*    !*动画结束时状态*!*/
+    /*    100% {*/
+    /*        transform: translateX(1000px);*/
+    /*    }*/
+    /*}*/
+
+    /*@keyframes move2 {*/
+    /*    !*相当于0%*!*/
+    /*    from {*/
+    /*        transform: translate(0, 0);*/
+    /*    }*/
+    /*    !*相当于100%*!*/
+    /*    to {*/
+    /*        transform: translate(1000px, 0);*/
+    /*    }*/
+    /*}*/
+
+/*
+    1. 多个状态的变化 keyframes 关键帧
+    2. 百分比必须为整数
+    3. 百分比就是总时间,用关键帧百分比 x 动画执行时间 = 该关键帧执行时间
+     */
+    @keyframes move3 {
         0% {
-            transform: translateX(0) ;
+            transform: translate(0,0);
         }
-        /*动画结束时状态*/
+        25% {
+            transform: translate(1000px, 0);
+        }
+        50% {
+            transform: translate(1000px, 500px);
+        }
+        75% {
+            transform: translate(0,500px);
+        }
         100% {
-            transform: translateX(1000px);
+            transform: translate(0, 0);
         }
     }
 
@@ -45,9 +79,9 @@
         background-color: pink;
         /*2.使用动画*/
         /*动画名称*/
-        animation-name: move;
+        animation-name: move3;
         /*动画运行时间*/
-        animation-duration: 2s;
+        animation-duration: 10s;
     }
 
 

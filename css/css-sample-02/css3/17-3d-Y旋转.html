@@ -13,9 +13,10 @@
         margin: 0;
         padding: 0;
     }
- 
+
     body {
         background-color: #f3f5f7;
+        perspective: 500px;
     }
 
     ul,
@@ -27,27 +28,33 @@
         text-decoration: none;
     }
 
-    div {
-        float: left;
-        margin-left: 10px;
-        overflow: hidden;
+    img {
+        display: block;
+        margin: 20px auto;
+
     }
 
-    div img {
-        /*谁做过度给谁加
-        这里是鼠标经过 div img 给 img 放大，所以给img加过度
-        */
-        transition: all .2s;
+    img:first-child {
+        transform: rotateY(25deg);
     }
-    div img:hover {
-        transform: scale(1.1);
+
+    img:nth-child(2) {
+        transform: rotateY(-25deg);
+    }
+
+    img:nth-child(3) {
+        transition: all 1.2s;
+    }
+
+    img:nth-child(3):hover {
+        transform: rotateY(360deg);
     }
 </style>
 
 <body>
-<div><a href="#"><img src="media/scale.jpg" alt=""></a></div>
-<div><a href="#"><img src="media/scale.jpg" alt=""></a></div>
-<div><a href="#"><img src="media/scale.jpg" alt=""></a></div>
+    <img src="media/pig.jpg" alt="">
+    <img src="media/pig.jpg" alt="">
+    <img src="media/pig.jpg" alt="">
 </body>
 
 
