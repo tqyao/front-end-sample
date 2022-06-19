@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #ccc;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    div {
+        position: relative;
+        overflow: hidden;
+        width: 200px;
+        height: 100px;
+    }
+
+    div img {
+        position: absolute;
+        animation: running 2s steps(8);
+    }
+
+    @keyframes running {
+        0% {
+            /*transform: translate(0, 0);*/
+            top: 0;
+            left: 0;
+        }
+        100% {
+            /*transform: translate(-1600px, 0);*/
+            top: 0;
+            left: -1600px;
+        }
+    }
+
+</style>
+
+<body>
+<div><img src="media/bear.png" alt=""></div>
+</body>
+
+
+</html>

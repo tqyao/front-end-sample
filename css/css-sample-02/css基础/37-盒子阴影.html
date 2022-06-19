@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    .box {
+        margin: 100px auto;
+        width: 250px;
+        height: 300px;
+        background-color: pink;
+
+        /*
+        box-shadow: h-shadow v-shadow blur spread color inset;
+        - h-shadow（必须）：水平阴影
+        - v-shadow（必须）：垂直阴影
+        - blur（可选）：阴影模糊距离
+        - spread（可选）：阴影尺寸
+        - color（可选）：阴影颜色
+        - inset（可选）：内外部阴影显示模式，默认外部阴影（outset），如果是外部阴影必须省略。
+            参数：
+            - outset
+            - inset
+
+        */
+
+    }
+
+    .box:hover {
+        box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, .3) inset;
+    }
+</style>
+
+<body>
+<div class="box"></div>
+
+</body>
+
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+        height: 2000px;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    div{
+        position: relative;
+        margin: 100px auto;
+        width: 200px;
+        height: 40px;
+        border: 2px solid #ccc;
+    }
+    div::after{
+        position: absolute;
+        right: 10px;
+        top: 12px;
+        content: '';
+        width: 10px;
+        height: 10px;
+        border: 1px solid #000;
+        border-left: 0;
+        border-top: 0;
+        transform: rotate(45deg);
+        transition: all .6s;
+    }
+    div:hover::after {
+        transform: rotate(225deg);
+    }
+</style>
+
+<body>
+    <div></div>
+</body>
+
+
+</html>
