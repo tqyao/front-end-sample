@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    div {
+        margin: 100px auto;
+        width: 500px;
+        height: 500px;
+        border: 2px solid pink;
+        background: url(images/dog.jpg) no-repeat;
+        /* 1.设置背景图片大小 */
+        /* background-size: ; */
+        /* background-size: 300px 300px; */
+        /* 2. 省略一个参数，一定是设置宽度，高度随宽度等比例缩放 */
+        /* background-size: 300px; */
+        /* 3. 等比例拉伸直到图片完全覆盖父盒子，会有可能图片显示不完整 */
+        /* background-size: cover; */
+        /* 4. 宽和高等比例拉升，当宽度或高度铺满父盒子就不会在拉伸了，有可能有空白缝隙 */
+        background-size: contain;
+    }
+</style>
+
+<body>
+    <div>
+
+    </div>
+</body>
+
+
+</html>

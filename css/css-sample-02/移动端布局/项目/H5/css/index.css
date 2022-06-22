@@ -1,0 +1,450 @@
+body {
+    margin: 0 auto;
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: -apple-system, Helvetica, sans-serif;
+    background-color: #ccc;
+    height: 2000px;
+}
+
+
+/*在移动端浏览器默认的外观在ios上加上这个属性才能给按钮和输入框自定义样式*/
+
+input {
+    -webkit-appearance: none;
+}
+
+/*禁用长按页面时的弹出菜单*/
+img,
+a {
+    -webkit-touch-callout: none;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    /*CSS3盒子模型*/
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    /*点击高亮我们需要清除清除设置为transparent完成透明*/
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+a {
+    text-decoration: none;
+    color: #666666;
+}
+
+ul {
+    list-style: none;
+    height: 45px;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.style_red {
+    color: red;
+}
+
+.app {
+    height: 45px;
+    background-color: #333333;
+}
+
+.app ul li {
+    float: left;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+}
+
+.app ul li:nth-child(1) {
+    width: 8%;
+}
+
+.app ul li:nth-child(1) img {
+    width: 8px;
+}
+
+.app ul li:nth-child(2) {
+    width: 10%;
+}
+
+.app ul li:nth-child(2) img {
+    width: 30px
+}
+
+.app ul li:nth-child(3) {
+    width: 57%;
+
+}
+
+.app ul li:nth-child(4) {
+    width: 25%;
+    background-color: #f63515;
+}
+
+.search_wrap {
+    position: fixed;
+    height: 44px;
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+}
+
+.search_menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 44px;
+}
+
+.search_menu::before {
+    position: absolute;
+    top: 12px;
+    left: 8px;
+    display: block;
+    width: 20px;
+    height: 18px;
+    content: "";
+    background: url(../images/s-btn.png) no-repeat;
+    background-size: 20px 18px;
+}
+
+.login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 44px;
+}
+
+.login::after {
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    content: "登录";
+    color: #fff;
+}
+
+.search {
+    position: relative;
+    top: 7px;
+    margin: 0 50px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #fff;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.jd {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    width: 20px;
+    height: 15px;
+
+}
+
+.jd::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 1px;
+    height: 100%;
+    border-right: 1px solid #ccc;
+}
+
+.jd img {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+
+.search-icon {
+    position: absolute;
+    top: 7px;
+    left: 57px;
+    width: 18px;
+    height: 15px;
+    background: url(../images/jd-sprites.png) no-repeat -82px 0;
+    background-size: 200px auto;
+}
+
+.foucs img {
+    width: 100%;
+
+}
+
+.brand {
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+
+.brand div {
+    float: left;
+    width: 33.33%;
+}
+
+.brand img {
+    width: 100%;
+}
+
+nav a {
+    float: left;
+    width: 20%;
+    height: 81px;
+    text-align: center;
+
+}
+
+nav img {
+    margin: 10px 0;
+    width: 40px;
+    height: 40px;
+}
+
+nav a span {
+    display: block;
+}
+
+.news {
+    margin-top: 20px;
+}
+
+/* .news a img {
+    width: 100%;
+} */
+
+.news a {
+    float: left;
+
+}
+
+.news img {
+    width: 100%;
+}
+
+.news a:nth-child(1) {
+    width: 50%;
+}
+
+.news a:nth-child(n+2) {
+    width: 25%;
+    border-left: 1px solid #ccc;
+}
+
+.seckill {
+    margin-top: 20px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    background-color: #fff;
+}
+
+.sec-hd {
+    position: relative;
+    height: 35px;
+    line-height: 35px;
+}
+
+.sec-hd h3 {
+    float: left;
+}
+
+.countdown {
+    position: absolute;
+    left: 80px;
+}
+
+.countdown .hour {
+    color: red;
+    font-weight: 700;
+}
+
+.countdown .hour::after {
+    position: absolute;
+    top: 7px;
+    width: 21px;
+    height: 18px;
+    content: "";
+    background: url(../images/seckill-time-to_1de70c91.png) no-repeat;
+    background-size: 21px 18px;
+}
+
+.countdown .when {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.when span {
+    display: inline-block;
+    padding: 2px 1px;
+    height: 18px;
+    line-height: 15px;
+    color: #fff;
+    vertical-align: middle;
+    border-radius: 3px;
+    background-color: red;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+
+
+.hot {
+    float: right;
+
+}
+
+.hot::after {
+    display: inline-block;
+    margin-left: 3px;
+    content: ">";
+    font-size: 8px;
+    color: #fff;
+    height: 12px;
+    width: 12px;
+    line-height: 11px;
+    border-radius: 6px;
+    background-color: #f63515;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.sec-bd {
+    height: 100px
+}
+
+.sec-bd ul {
+    margin-top: 10px;
+}
+
+.sec-bd ul li {
+    float: left;
+    width: 16.66%;
+    height: 100px;
+    text-align: center;
+    /* background-color: salmon; */
+}
+
+.sec-bd ul li img {
+    margin: 10px 0;
+    width: 56px;
+    height: 56px;
+}
+
+.sec-bd ul li span {
+    display: block;
+    font-weight: 700;
+}
+
+.goods {
+    margin-top: 30px;
+}
+
+.goods ul li {
+    overflow: hidden;
+    float: left;
+    margin-bottom: 10px;
+    height: 288px;
+    width: 49%;
+    border-radius: 10px;
+    background-color: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.goods ul li:nth-child(even) {
+    float: right;
+}
+
+.goods ul li:nth-child(odd) {
+    float: left;
+}
+
+
+.goods .goods_item {
+    height: 172px;
+}
+
+.goods_item img {
+    width: 100%;
+    height: 100%;
+    /* height: 172px; */
+}
+
+.goods_info {
+    padding: 10px;
+}
+
+.goods_info h3 {
+    font-weight: 400;
+}
+
+.goods .price {
+    font-size: 16px;
+}
+
+.price .discount {
+    display: inline-block;
+    margin-left: 4px;
+    font-weight: 300;
+    padding: 0 2px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid red;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.comment {
+    float: left;
+    padding: 5px 0;
+    color: #999999;
+}
+
+.similar {
+    float: right;
+    padding: 10px;
+    height: 30px;
+    line-height: 13px;
+    border: 1px solid #333333;
+    border-radius: 15px;
+    background-color: #fff;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
