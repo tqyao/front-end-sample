@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    div {
+        margin: 100px auto;
+        width: 400px;
+        height: 200px;
+        border: 1px solid #666;
+        /* 1. 背景渐变必须添加私有前缀 */
+        background: -webkit-linear-gradient(left, red, blue);
+        /* 3. 第一个参数写颜色的话，默认方位是top */
+        background: -webkit-linear-gradient(red, blue);
+        /* 4. 可以有两个方位名词 */
+        background: -webkit-linear-gradient(top left, red, blue);
+        /* 2.第一个参数可以是方位或者度数 */
+        background: -webkit-linear-gradient(90deg, red, blue);
+    }
+</style>
+
+<body>
+    <div></div>
+</body>
+
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+
+
+    /* sales-box */
+
+    .sales-box {
+        border-top: 1px solid #bbb;
+        background-color: #fff;
+        margin: 4px;
+    }
+
+    .sales-hd {
+        position: relative;
+        height: 44px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .sales-hd h2 {
+        position: relative;
+        text-indent: -999px;
+        overflow: hidden;
+    }
+
+    .sales-hd h2::after {
+        position: absolute;
+        top: 5px;
+        left: 8px;
+        content: "";
+        width: 79px;
+        height: 15px;
+        background: url(../images/hot.png) no-repeat 0 -20px;
+        background-size: 79px auto;
+    }
+
+    .more {
+        position: absolute;
+        right: 5px;
+        top: 0px;
+        background: -webkit-linear-gradient(left, #FF506C, #FF6BC6);
+        border-radius: 15px;
+        padding: 3px 20px 3px 10px;
+        color: #fff;
+    }
+
+    .more::after {
+        content: "";
+        position: absolute;
+        top: 9px;
+        right: 9px;
+        width: 7px;
+        height: 7px;
+        border-top: 2px solid #fff;
+        border-right: 2px solid #fff;
+        transform: rotate(45deg);
+    }
+</style>
+
+<body>
+    <div class="sales-box">
+        <div class="sales-hd">
+            <h2>热门活动</h2>
+            <a href="#" class="more">获取更多福利</a>
+        </div>
+        <div class="sales-bd">
+            <div class="row">
+                <a href="#">
+                    <img src="upload/pic1.jpg" alt="">
+                </a>
+                <a href="#">
+                    <img src="upload/pic2.jpg" alt="">
+                </a>
+            </div>
+            <div class="row">
+                <a href="#">
+                    <img src="upload/pic3.jpg" alt="">
+                </a>
+                <a href="#">
+                    <img src="upload/pic4.jpg" alt="">
+
+                </a>
+            </div>
+            <div class="row">
+                <a href="#">
+                    <img src="upload/pic5.jpg" alt="">
+                </a>
+                <a href="#">
+                    <img src="upload/pic6.jpg" alt="">
+
+                </a>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+
+</html>
