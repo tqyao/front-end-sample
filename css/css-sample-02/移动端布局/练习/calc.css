@@ -1,0 +1,56 @@
+.test {
+  width: 193.97637795px;
+}
+html {
+  font-size: 16px;
+}
+.w {
+  max-width: 980px;
+  min-width: 650px;
+  margin: 10px auto;
+}
+#header {
+  margin-bottom: 55px;
+  height: 80px;
+  text-align: center;
+  background-color: pink;
+}
+#header a {
+  font-size: 32px;
+}
+#header a:hover {
+  color: pink;
+}
+.shopping-nav {
+  overflow: hidden;
+  display: flex;
+  padding: 10px 20px;
+  height: 100px;
+  background-color: pink;
+  border-radius: 20px;
+}
+.shopping-nav .nav-item-lf {
+  width: 70%;
+  background-color: orange;
+}
+.shopping-nav .nav-item-rg {
+  width: 30%;
+  background-color: #444444;
+}
+main.foucs {
+  position: relative;
+  margin-top: 10px;
+  background-color: pink;
+  border: 2rem dotted yellowgreen;
+}
+main.foucs img {
+  vertical-align: middle;
+}
+main.foucs img:nth-child(1) {
+  width: 5.125rem;
+}
+main.foucs img:nth-child(2) {
+  position: absolute;
+  right: 0;
+  width: 5.125rem;
+}

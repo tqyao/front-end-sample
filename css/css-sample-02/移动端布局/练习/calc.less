@@ -1,0 +1,81 @@
+@baseBorder: 5px;
+@baseFont: 16px;
+@color: pink;
+@font32: 32px;
+@font16: 24px;
+
+@testConvert: 5px + 5cm;
+
+.test {
+    width: @testConvert;
+}
+
+html {
+    font-size: @baseFont;
+}
+
+.w {
+    max-width: 980px;
+    min-width: 650px;
+    margin: 10px auto;
+}
+
+#header {
+    margin-bottom: 5px + 50;
+    height: 80px;
+    text-align: center;
+    background-color: @color;
+
+    a {
+        font-size: @font32;
+
+        &:hover {
+            color: @color;
+        }
+    }
+}
+
+.shopping-nav {
+    overflow: hidden;
+    display: flex;
+    padding: 10px 20px;
+    height: 100px;
+    background-color: @color;
+    border-radius: 20px;
+
+    .nav-item-lf {
+        width: 70%;
+        background-color: orange;
+    }
+
+    .nav-item-rg {
+        width: 30%;
+        // 颜色之间也可以运算
+        background-color: #666 - #222;
+    }
+}
+
+main {
+    &.foucs {
+        position: relative;
+        margin-top: 10px;
+        background-color: @color;
+        // 复合运算
+        border: (5rem / @baseBorder + 1) dotted yellowgreen;
+
+        img {
+            vertical-align: middle;
+
+            &:nth-child(1) {
+                // 1.如果计算两个数之间都有单位，则以第一个单位为准
+                width: (82rem / @baseFont);
+            }
+
+            &:nth-child(2) {
+                position: absolute;
+                right: 0;
+                width: (82 / 16rem);
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+.w {
+  max-width: 980px;
+  min-width: 650px;
+  margin: 10px auto;
+}
+#header {
+  margin-bottom: 5px;
+  height: 80px;
+  text-align: center;
+  background-color: pink;
+}
+#header a {
+  font-size: 32px;
+}
+#header a:hover {
+  color: pink;
+}
+.shopping-nav {
+  overflow: hidden;
+  display: flex;
+  padding: 10px 20px;
+  height: 100px;
+  background-color: pink;
+  border-radius: 20px;
+}
+.shopping-nav .nav-item-lf {
+  width: 70%;
+  background-color: orange;
+}
+.shopping-nav .nav-item-rg {
+  width: 30%;
+  background-color: purple;
+}

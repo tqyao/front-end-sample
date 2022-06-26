@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #f3f5f7;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+
+    /*
+     1. @media 定义媒体查询
+     2. 定义媒体类型：screen print all
+     3. 关键字：and or not
+     4. media feature：媒体特性必须包含小括号
+     */
+
+    /* 定义 手机、电脑、平板媒体 且 且宽度小于800，把body背景颜色设置成紫色 */
+    @media screen and (max-width:800px) {
+        body {
+            background-color: purple;
+        }
+    }
+
+
+    /* 定义 手机、电脑、平板媒体 且 且宽度大于1100，把body背景颜色设置成粉色 */
+    @media screen and (min-width:1100px) {
+        body {
+            background-color: pink;
+        }
+    }
+</style>
+
+<body>
+
+
+</body>
+
+
+</html>
