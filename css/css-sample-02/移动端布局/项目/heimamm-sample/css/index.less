@@ -1,0 +1,313 @@
+a {
+    text-decoration: none;
+}
+
+em {
+    font-style: normal;
+}
+
+body {
+    max-width: 750px;
+    min-width: 320px;
+    margin: 0 auto;
+    background-color: #F2F4F7;
+    height: 2000px;
+}
+
+// 设置默认值，当屏幕宽度超过750px，给定一个固定宽度 37.5px（750/20）
+@media screen and (min-width:750px) {
+    html {
+        font-size: 37.5px !important;
+    }
+}
+
+.main_content {
+    background-color: #fff;
+}
+
+.title {
+    text-align: center;
+
+    h2 {
+        margin: 0;
+        padding: .8rem;
+        font-weight: 400;
+        font-size: .9333rem;
+        border-bottom: 1px solid #EAEAEA;
+    }
+}
+
+
+.nav_entry {
+    padding-top: 1.36rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    span[class^="icon-nav-icon"] {
+        width: 2.88rem;
+        height: 2.88rem;
+        background: url(../icons/icon1.png) no-repeat center;
+        background-size: 2.88rem 2.88rem;
+    }
+
+    a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 33.33%;
+        color: #333333;
+        font-size: .64rem;
+
+
+        .icon-nav-icon02 {
+            background-image: url(../icons/icon2.png);
+        }
+
+        .icon-nav-icon03 {
+            background-image: url(../icons/icon3.png);
+        }
+
+        .icon-nav-icon04 {
+            background-image: url(../icons/icon5.png);
+        }
+
+
+        .icon-nav-icon05 {
+            background-image: url(../icons/icon5.png);
+        }
+
+        .icon-nav-icon06 {
+            background-image: url(../icons/icon6.png);
+        }
+
+
+        &:nth-child(-n+3) {
+            margin-bottom: 1.8667rem;
+        }
+
+    }
+}
+
+.go {
+    padding: 1.6rem .5333rem 1.1467rem;
+
+    img {
+        width: 100%;
+    }
+}
+
+.box_content {
+    margin-top: .2667rem;
+    padding: 1.0667rem .64rem 1.0133rem .5867rem;
+    background-color: #fff;
+
+    .box_hd {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        h3 {
+            margin: 0;
+            font-size: .7467rem;
+        }
+
+        .icon {
+            margin-right: .48rem;
+            vertical-align: middle;
+            display: inline-block;
+            width: 1.0133rem;
+            height: 1.0133rem;
+            background: url(../icons/i1.png) no-repeat;
+            background-size: 1.0133rem 1.0133rem;
+        }
+
+        .more {
+            font-size: .5867rem;
+            color: #999999;
+        }
+    }
+}
+
+.box_bd {
+    overflow: hidden;
+    position: relative;
+    padding-top: 1.0667rem;
+}
+
+.get_job_foucs {
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        width: 9.0133rem;
+        height: 10.0267rem;
+        text-align: center;
+        background: #fff;
+
+        /* Center slide text vertically */
+
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        transition: 300ms;
+        transform: scale(0.6);
+        opacity: .5;
+
+        a {
+            display: inline-block;
+            // width: 9.0133rem;
+            // height: 10.0267rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+
+    }
+
+    .swiper-slide-active,
+    .swiper-slide-duplicate-active {
+        z-index: 999;
+        transform: scale(1);
+        opacity: 1;
+    }
+
+
+    p {
+        width: 9.0133rem;
+        font-size: .6667rem;
+
+    }
+}
+
+.sdy_box {
+    padding: 1.0667rem .64rem 0 .5867rem;
+}
+
+.study {
+
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        margin: .2667rem;
+        padding: .2667rem;
+        width: 7.2533rem;
+        // height: 4.6133rem;
+
+        text-align: left;
+        font-size: 18px;
+        background: #fff;
+        border-radius: .2667rem;
+        box-shadow: 0 0 .2667rem rgba(0, 0, 0, .2);
+
+        /* Center slide text vertically */
+        // display: -webkit-box;
+        // display: -ms-flexbox;
+        // display: -webkit-flex;
+        // display: flex;
+        // -webkit-box-pack: center;
+        // -ms-flex-pack: center;
+        // -webkit-justify-content: center;
+        // justify-content: center;
+        // -webkit-box-align: center;
+        // -ms-flex-align: center;
+        // -webkit-align-items: center;
+        // align-items: center;
+        a {
+            font-size: .64rem;
+            color: #333333;
+        }
+
+        .vedio {
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .info {
+
+
+            p {
+                margin: .2667rem 0 .4rem 0;
+
+            }
+
+            span {
+                color: #ccc;
+                font-size: .48rem;
+            }
+
+            em {
+                color: #FF4400;
+            }
+        }
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+footer {
+    // padding: .2667rem 0 .4rem;
+    display: flex;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3.04rem;
+    background-color: #ffffff;
+
+    a {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #333333;
+        font-size: .64rem;
+
+        div[class^="icon-footer-icon"] {
+            margin-bottom: .2933rem;
+            width: 1.04rem;
+            height: 1.0933rem;
+            background: url(../icons/home.png) no-repeat;
+            background-size: 1.04rem 1.0933rem;
+        }
+
+        div.icon-footer-icon02 {
+            background-image: url(../icons/ms.png);
+        }
+
+        div.icon-footer-icon03 {
+            background-image: url(../icons/net.png);
+        }
+
+        div.icon-footer-icon04 {
+            background-image: url(../icons/user.png);
+        }
+    }
+}

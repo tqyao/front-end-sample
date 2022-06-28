@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <title>黑马面面</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/swiper-bundle.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+
+    <section class="main_content">
+        <header class="title">
+            <h2>黑马面面</h2>
+        </header>
+        <nav class="nav_entry">
+            <a href="#">
+                <span class="icon-nav-icon01"></span>
+                <em>技术面试</em>
+            </a>
+            <a href="#">
+                <span class="icon-nav-icon02"></span>
+                <em>技术面试</em>
+            </a>
+            <a href="#">
+                <span class="icon-nav-icon03"></span>
+                <em>技术面试</em>
+            </a>
+            <a href="#">
+                <span class="icon-nav-icon04"></span>
+                <em>技术面试</em>
+            </a>
+            <a href="#">
+                <span class="icon-nav-icon05"></span>
+                <em>技术面试</em>
+            </a>
+            <a href="#">
+                <span class="icon-nav-icon06"></span>
+                <em>技术面试</em>
+            </a>
+        </nav>
+
+        <div class="go">
+            <img src="images/go.png" alt="">
+        </div>
+    </section>
+
+
+    <section class="box_content">
+        <div class="box_hd">
+            <h3><span class="icon"></span>就业指导</h3>
+            <a class="more">更多&gt;&gt;</a>
+        </div>
+        <div class="box_bd">
+            <!-- 旋转木马轮播图模块 -->
+            <div class="get_job_foucs">
+                <!-- Swiper -->
+                <div class="swiper-container get_job_fo">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#"> <img src="images/pic.png" alt=""></a>
+                            <p>老师教你应对面试技巧</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/2.jpg" alt="">
+                            <p>老师教你应对面试技巧</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/3.jpg" alt="">
+                            <p>老师教你应对面试技巧</p>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="box_content sdy_box">
+        <div class="box_hd">
+            <h3><span class="icon"></span>充电学习</h3>
+            <a class="more">更多&gt;&gt;</a>
+        </div>
+        <div class="box_bd">
+            <!-- 旋转木马轮播图模块 -->
+            <div class="study">
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <div class="vedio">
+                                    <img src="images/pic1.png" alt="">
+                                </div>
+                                <div class="info">
+                                    <p>说地道英语，告别中式英语</p>
+                                    <span><em>156</em>人学习</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <div class="vedio">
+                                    <img src="images/pic2.png" alt="">
+                                </div>
+                                <div class="info">
+                                    <p>说地道英语，告别中式英语</p>
+                                    <span><em>156</em>人学习</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <a href="#">
+                                <div class="vedio">
+                                    <img src="images/pic1.png" alt="">
+                                </div>
+                                <div class="info">
+                                    <p>说地道英语，告别中式英语</p>
+                                    <span><em>156</em>人学习</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+    </section>
+
+    <footer>
+        <a href="#">
+            <div class="icon-footer-icon01"></div>
+            <span>首页</span>
+        </a>
+        <a href="#">
+            <div class="icon-footer-icon02"></div>
+            <span>技术面试</span>
+        </a>
+        <a href="#">
+            <div class="icon-footer-icon03"></div>
+            <span>模拟面试</span>
+        </a>
+        <a href="#">
+            <div class="icon-footer-icon04"></div>
+            <span>我的主页</span>
+        </a>
+    </footer>
+    <script src="js/flexible.js"></script>
+    <!-- Swiper JS -->
+    <script src="js/swiper-bundle.js"></script>
+    <script>
+        // 沙箱函数（匿名函数），立即执行，作用域限定在函数内，不会影响外部
+        (function () {
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 2,
+                spaceBetween: 0,
+                centeredSlides: true,
+                loop: true,
+                // loopedSlides: 2,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        })()
+
+            (function () {
+                var swiper = new Swiper(".mySwiper", {
+                    slidesPerView: 2.2,
+                    spaceBetween: 30,
+                    freeMode: true,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                });
+            })()
+    </script>
+
+
+</body>
+
+</html>

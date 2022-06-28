@@ -41,7 +41,8 @@
         /*top: 100px;*/
         /*left: 100px;*/
 
-        transform: translate(100px,100px);
+        /* transform: translate(100px, 100px); */
+        transform: translateX(500px);
         /*transform: translate(300px,0);*/
         /*transform: translateX(300px);*/
         /*transform: translateY(100px);*/
@@ -49,10 +50,10 @@
 
     .box1 div:nth-child(2) {
         /*transform: translate(-100px);*/
-        background-color:silver;
+        background-color: silver;
     }
 
-    .box2 div{
+    .box2 div {
         position: relative;
 
         margin: 0 auto;
@@ -71,7 +72,7 @@
         /*margin-left: -100px;*/
         /*margin-top: -100px;*/
         /*自身像素的百分比移动*/
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
 
         background-color: silver;
     }
@@ -80,22 +81,21 @@
         /*对行内元素无效*/
         transform: translateX(100px);
     }
-
 </style>
 
 <body>
-<div class="box1">
-    <div></div>
-    <div></div>
-</div>
-
-<div class="box2">
-    <div>
-        <p></p>
+    <div class="box1">
+        <div></div>
+        <div></div>
     </div>
-</div>
 
-<span>123</span>
+    <div class="box2">
+        <div>
+            <p></p>
+        </div>
+    </div>
+
+    <span>123</span>
 </body>
 
 
