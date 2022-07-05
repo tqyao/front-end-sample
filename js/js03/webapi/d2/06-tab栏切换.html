@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.w {
+			margin: 100px auto;
+			width: 1000px;
+		}
+
+		.clearfix::after {
+			/*为元素默认是行内元素*/
+			display: block;
+			/*伪元素必须添加content属性起效果*/
+			content: "";
+			/*隐藏元素*/
+			height: 0;
+			visibility: hidden;
+			/*清除浮动*/
+			clear: both;
+		}
+
+		.tab_list ul {
+			border: 1px solid #ccc;
+			border-left: 0;
+			border-right: 0;
+			background-color: #eff1f0;
+		}
+
+		.tab_list ul li {
+			float: left;
+			padding: 0 20px;
+			height: 40px;
+			line-height: 40px;
+
+			cursor: pointer;
+		}
+
+		.tab_list li:hover {
+			background-color: rgba(0, 0, 0, .1);
+		}
+
+		.current {
+			color: #fff;
+			background-color: #b62d2d !important;
+		}
+
+		.tab_con {
+			padding: 20px;
+			height: 400px;
+			border: 1px solid #ccc;
+			border-top: 0;
+		}
+
+		.item {
+			display: none;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="tab w">
+		<div class="tab_list">
+			<ul class="clearfix">
+				<li class="current">商品介绍</li>
+				<li>规格与包装</li>
+				<li>售后保障</li>
+				<li>商品评价（50000）</li>
+				<li>手机社区</li>
+			</ul>
+		</div>
+		<div class="tab_con">
+			<div class="item" style="display: block">商品介绍模块</div>
+			<div class="item">规格与包装模块</div>
+			<div class="item">售后保障模块</div>
+			<div class="item">商品评价（50000）模块</div>
+			<div class="item">手机社区模块</div>
+		</div>
+	</div>
+	<script>
+		let items = document.querySelector(".tab_con").querySelectorAll(".item");
+		let lis = document.querySelector(".tab_list").querySelectorAll("li");
+
+		for (let i = 0; i < lis.length; i++) {
+			lis[i].onclick = function () {
+				console.log("click");
+				for (let i = 0; i < lis.length; i++) {
+					lis[i].setAttribute("class", "");
+					items[i].style.display = "none";
+				}
+				this.setAttribute("class", "current");
+				// items[i].style.display = "block";
+				items[i].setAttribute("style", "display:block");
+			}
+		}
+	</script>
+</body>
+
+</html>

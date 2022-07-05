@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		a {
+			text-decoration: none;
+			box-sizing: border-box;
+			color: black;
+			font-size: 14px;
+		}
+
+		ul {
+			padding: 0;
+			list-style: none;
+		}
+
+		.nav > ul > li {
+			float: left;
+
+		}
+
+		.nav > ul > li:nth-child(-n+3) {
+			border-bottom: 1px solid #ccc;
+		}
+
+		.nav li a {
+			display: inline-block;
+			padding: 10px 20px;
+		}
+
+		.nav .dropdown .dd {
+			display: none;
+			/*width: 72px;*/
+		}
+
+		.dd ul li {
+			border: 1px solid orange;
+			border-top: 0;
+		}
+
+		.dd ul li:first-child {
+			border-top: 1px solid #ccc;
+		}
+
+		.nav > ul > li a:hover {
+			background-color: rgba(0, 0, 0, .2);
+		}
+		.dropdown:hover .dd{
+			display: block;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="nav">
+		<ul>
+			<li><a href="#">导航1</a></li>
+			<li><a href="#">导航2</a></li>
+			<li><a href="#">导航3</a></li>
+			<li>
+				<div class="dropdown">
+					<div class="dt"><a href="#">微博</a></div>
+					<div class="dd">
+						<ul>
+							<li><a href="#">私信</a></li>
+							<li><a href="#">评论</a></li>
+							<li><a href="#">@我</a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</nav>
+	<script>
+
+	</script>
+</body>
+</html>

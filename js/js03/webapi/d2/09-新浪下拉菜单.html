@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.clearfix::after {
+			content: "";
+			display: block;
+			height: 0;
+			visibility: hidden;
+			clear: both;
+		}
+
+		.nav {
+			margin: 100px auto;
+			width: 1000px;
+			border: 1px solid #ccc;
+			border-left: 0;
+			border-right: 0;
+			background-color: #e3e6e3;
+		}
+
+		.nav > li {
+			float: left;
+
+			height: 40px;
+			line-height: 40px;
+		}
+
+		.td a {
+			display: block;
+			padding: 0 40px;
+			color: black;
+		}
+
+		.dd ul li {
+			padding-left: 20px;
+			border: 1px solid #c2a606;
+			border-top: 0;
+			cursor: pointer;
+		}
+
+		.dd {
+			display: none;
+		}
+
+		/*.show {*/
+		/*	display: none;*/
+		/*}*/
+		.mousepass {
+			color: #c49f8c !important;
+			background-color: rgba(0, 0, 0, .1);
+		}
+
+		.mousepass2 {
+			background-color: #fff5da;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<ul class="nav clearfix">
+		<li>
+			<div class="dropdown">
+				<div class="td"><a href="#">微博1</a></div>
+				<div class="dd">
+					<ul>
+						<li>私信</li>
+						<li>评论</li>
+						<li>@我</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="dropdown">
+				<div class="td"><a href="#">微博</a></div>
+				<div class="dd">
+					<ul>
+						<li>私信</li>
+						<li>评论</li>
+						<li>@我</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="dropdown">
+				<div class="td"><a href="#">微博</a></div>
+				<div class="dd">
+					<ul>
+						<li>私信</li>
+						<li>评论</li>
+						<li>@我</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="dropdown">
+				<div class="td"><a href="#">微博</a></div>
+				<div class="dd">
+					<ul>
+						<li>私信</li>
+						<li>评论</li>
+						<li>@我</li>
+					</ul>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<script>
+		let nav = document.querySelector(".nav");
+		let navLis = nav.children;
+		let dds = document.querySelectorAll(".dd");
+		// console.log(navLis);
+
+		for (let i = 0; i < navLis.length; i++) {
+			// 获取每个nav li dd ul 下的三个li
+			let ddLis = navLis[i].firstElementChild.children[1].firstElementChild.children;
+			console.log(ddLis);
+			for (let j = 0; j < ddLis.length; j++) {
+				console.log("+", ddLis[j]);
+				ddLis[j].onmousemove = function () {    //给三个下拉框循环添加鼠标经过时间
+					//排他
+					for (let j = 0; j < ddLis.length; j++) {
+						console.log("===", dds[j]);
+						ddLis[j].className = "";
+					}
+					this.className = "mousepass2";
+				}
+			}
+
+			navLis[i].onmousemove = function () {
+				// console.log(this.firstElementChild);
+				// console.log(this.firstElementChild.children[1]);
+				for (let i = 0; i < navLis.length; i++) {
+					// console.log(navLis[i].firstElementChild.firstElementChild.firstElementChild);
+					navLis[i].firstElementChild.firstElementChild.firstElementChild.className = ""; //<a>
+					navLis[i].firstElementChild.children[1].style.display = "none";
+				}
+				this.firstElementChild.firstElementChild.firstElementChild.className = "mousepass";
+				this.firstElementChild.children[1].style.display = "block";
+			}
+			navLis[i].onmouseout = function () {
+				for (let i = 0; i < navLis.length; i++) {
+					navLis[i].firstElementChild.firstElementChild.firstElementChild.className = "";
+					navLis[i].firstElementChild.children[1].style.display = "none";
+				}
+			}
+
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function add(v1, v2) {
+            console.log(typeof v1)
+            return v1 + v2;
+        }
+
+        function sub(v1, v2) {
+            return v1 - v2;
+        }
+
+        function chen(v1, v2) {
+            return v1 * v2;
+        }
+
+        function chu(v1, v2) {
+            return v1 / v2;
+        }
+
+        function cale(v1, v2, way) {
+            way = parseInt(way);
+            v1 = parseFloat(v1)
+            v2 = parseFloat(v2)
+            let res;
+            switch (way) {
+                case 1:
+                    console.log(way);
+                    console.log(v1);
+                    res = add(v1, v2);
+                    console.log(res)
+                    break;
+                case 2:
+                    res = sub(v1, v2);
+                    break;
+                case 3:
+                    res = chen(v1, v2);
+                    break;
+                case 4:
+                    res = chu(v1, v2);
+                    break;
+                default:
+                    console.log(way + "ss");
+                    res = "error";
+            }
+            return res;
+        }
+
+        while (1) {
+            let inp = prompt("欢迎使用简易计算器：\n" +
+                "\n" +
+                "1. 加法运算；\n" +
+                "2. 减法运算；\n" +
+                "3. 乘法运算；\n" +
+                "4. 除法运算；+\n" +
+                "5. 退出：\n" +
+                "\n" +
+                "请输入您的选项：");
+            if ("" == inp || isNaN(inp) || inp % 1 || inp > 5) {
+                alert("选择有误");
+                continue;
+            }
+            if (inp == 5) {
+                break;
+            }
+            let res = cale(prompt("请输入两个数（第一）："), prompt("请输入两个数（第二）："), inp);
+            console.log("res:", res)
+            if (isNaN(parseFloat(res).toFixed(2))) {
+                alert("输入错误！");
+                continue;
+            }
+            alert("计算结果：" + res);
+
+        }
+
+        // let btnEle = document.getElementsByClassName("btn")[0];
+        // let btnEle = document.getElementById("btn");
+        // console.log(btnEle);
+        // btnEle.addEventListener('click', () => {
+        //     while (1) {
+        //         let inp = prompt("欢迎使用简易计算器：\n" +
+        //             "\n" +
+        //             "1. 加法运算；\n" +
+        //             "2. 减法运算；\n" +
+        //             "3. 乘法运算；\n" +
+        //             "4. 除法运算；+\n" +
+        //             "5. 退出：\n" +
+        //             "\n" +
+        //             "请输入您的选项：");
+        //         if (isNaN(inp) || inp % 1 || inp >= 5) {
+        //             alert("选择有误");
+        //             break;
+        //         }
+        //         let res = cale(prompt("请输入两个数（第一）："), prompt("请输入两个数（第二）："), inp);
+        //         if (isNaN(res)) {
+        //             alert("输入错误！");
+        //             continue
+        //         }
+        //         alert("计算结果：", res);
+        //     }
+        // })
+
+    </script>
+</head>
+
+<body>
+<button class="btn" id="btn">点击开始计算</button>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.box {
+			color: red;
+		}
+
+		.box2 {
+			color: orange;
+		}
+
+		.box3 {
+			margin-top: 50px;
+			display: block;
+			width: 100px;
+			height: 100px;
+			/*padding: 20px;*/
+			/*border: 10px solid #ccc;*/
+			background-color: pink;
+		}
+
+		.box3 span {
+			display: block;
+			/*width: 60px;*/
+			height: 50px;
+			padding: 0 40px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+	<!--	点击跳转后地址栏：https://www.baidu.com-->
+	<a href="https://www.baidu.com">aaa</a>
+	<!--	file:///user/123-->
+	<a href="/user/123">user</a>
+	<!-- 当前文件路径/00-Sapmle.html# --> 注意最后的#
+	<a href="#">#</a>
+	<a href="javascript:;">哈哈哈</a>
+	<button>点击</button>
+	<span class="box">hello<i>world</i></span>
+
+	<div class="box3"><span>子盒子</span></div>
+	<script>
+		let btn = document.querySelector("button");
+		let span = document.querySelector("span");
+		btn.onclick = function () {
+			span.className = "box2";
+		}
+	</script>
+</body>
+
+</html>

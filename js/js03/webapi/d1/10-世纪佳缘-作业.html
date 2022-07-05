@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		input {
+			color: #ccc;
+		}
+		.focus {
+			border: 0;
+			outline: 1px solid pink;
+		}
+	</style>
+</head>
+
+<body>
+	<input class="" type="text" value="世纪佳缘">
+	<script>
+		let inp = document.querySelector("input");
+
+		let flag = 0;
+		// todo：输入检测是否是用户输入的世纪佳缘
+		inp.oninput = function () {
+		}
+		inp.onfocus = function () {
+			console.log("获取焦点");
+			this.className = "focus";
+			if (this.value == "世纪佳缘") {
+				this.value = "";
+			}
+		}
+		inp.onblur = function () {
+			this.className = "";
+			if(this.value == "") {
+				this.value = "世纪佳缘";
+			}
+		}
+	</script>
+</body>
+</html>

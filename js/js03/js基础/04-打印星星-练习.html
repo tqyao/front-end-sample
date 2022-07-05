@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function printStar1(n) {
+            let str = '';
+            for (let i = n; i >= 1; i--) {
+                for (let j = i; j >= 1; j--) {
+                    str += '*'
+                }
+                str += '\n'
+            }
+            console.log(str)
+        }
+
+        function printStar2(n) {
+            let str = '';
+            for (let i = 1; i <= n; i++) {
+                for (let j = 1; j <= i; j++) {
+                    str += '*'
+                }
+                str += '\n'
+            }
+            console.log(str)
+        }
+
+        function printStar3(n) {
+            let res="";
+            for (let i = 1; i <= n; i++) {
+                for (let j = 1; j <= n; j++) {
+                        (i<=j)?res+='*':res+=" "
+                }
+                res+="\n"
+            }
+            console.log(res)
+        }
+
+
+        function printStar4(n) {
+            let res="";
+            for (let i = 1; i <= n; i++) {
+                for (let j = n; j >= 1; j--) {
+                    (j>i)?res+=" ":res+="*"
+                }
+                res+="\n"
+            }
+            console.log(res)
+        }
+
+
+        printStar1(4)
+        console.log('\n')
+        printStar2(4)
+        console.log('\n')
+        printStar3(4)
+        console.log('\n')
+        printStar4(4)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

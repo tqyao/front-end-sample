@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+
+	<ul>
+		<li>123</li>
+	</ul>
+
+	<script>
+		let newLi = document.createElement("li");
+		let ul = document.querySelector("ul");
+		console.log(ul.appendChild(newLi));//返回添加的子元素节点 <li></li>
+
+		let newLi2 = document.createElement("li");//插入新节点必须创建新节点，如果使用原来已插入（newLi），则原来插入节点失效
+		console.log(ul.insertBefore(newLi2,ul.children[0]))
+	</script>
+</body>
+
+</html>

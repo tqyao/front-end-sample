@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 拆分字符成数组
+        function strToList(str) {
+            let currentInx = 0, sepInx = 0, num = 0, item = "", li = [];
+            while ((sepInx = str.indexOf(',', currentInx)) != -1) {
+                //第一个是分隔符
+                if (sepInx == currentInx) {
+                    currentInx++;
+                    continue;
+                }
+                //分隔符之间的字符拼接
+                for (let i = currentInx; i < sepInx; i++) {
+                    item += str[i];
+                    currentInx = sepInx + 1;
+                }
+                num = parseFloat(item);
+                if (!isNaN(num)) li.push(num);
+                item = "";
+                //数组是以分隔符结束
+                if (currentInx >= str.length) {
+                    break;
+                }
+            }
+
+            for (let i = currentInx; i < str.length; i++) {
+                item += str[i];
+            }
+            num = parseFloat(item);
+            if (!isNaN(num)) li.push(num);
+            return li;
+        }
+
+        const str = "abc,jkl,opp";
+        const str2 = ",23232,34123,asda,12312,2"
+        console.log(strToList(str2));
+
+
+        //无指定形参个数求和
+        function getSum() {
+            console.log(arguments)
+            let max = 0;
+            for (let i = 0; i < arguments.length; i++) {
+                max += arguments[i];
+            }
+            console.log(max);
+        }
+
+        getSum(1, 2, 3, 213);
+
+
+        //判断闰年
+        function jugRunNian(year) {
+            if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+                console.log("%d是闰年", year);
+                return true;
+            }
+            console.log("%d不是闰年", year);
+            return false;
+        }
+
+        jugRunNian(new Date().getFullYear())
+
+
+        //判断某年2月有多少天
+        function jugFebDay(year) {
+            return jugRunNian(year) ? 28 : 29;
+        }
+
+        let year = 2000;
+        console.log("%d年 2月份天数是：%d", year, jugFebDay(year));
+
+
+        //函数定义两种方式
+        // 1. 关键字定义
+        function fun1() {
+
+        }
+
+        //2. 匿名函数
+        // - 声明变量
+        // -给变量赋值（值是表达式）
+        let fun2 = function (v1, v2) {
+
+        }
+        // 调用
+        fun2();
+
+
+        function testParam(v1){
+            console.log(typeof v1);
+        }
+        testParam(2.20)
+
+    </script>
+</head>
+
+<body>
+<!--    输入一组数以逗号分隔：<input class="inp" type="text" value="123">-->
+<!--    输出：<span class="result"></span>-->
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function randArray(len, min, max) {
+            return Array.from({length: len}, v => Math.floor(Math.random() * (max - min)) + min);
+        }
+
+        console.log("随机数组：%o", randArray(10, 1, 20))
+
+        // 数组求和和平均自
+        let sum = 0, avg = 0, arr = [2, 6, 1, 7, 4]
+        for (let i in arr) {
+            sum += arr[i];
+            // console.log(sum)
+        }
+        avg = sum / arr.length;
+        console.log("平均值：%d,数组和：%d", avg, sum);
+
+        // 数组求最大值
+        let arr2 = [3, 42334, 23, 0, -34234, 23, 42, 2234, -392], max = arr[0]
+        arr2.forEach((item, index) => {
+            if (max < item) max = item;
+        })
+        console.log("最大值：%d", max)
+
+
+        // 数组转字符串
+        const arr3 = ['pink', 'teacher', 'love', 'you'];
+
+        function combine(arr, ch) {
+            let res = "";
+            for (let i = 0; i < arr.length; i++) {
+                res += arr[i];
+                res += ch ? ch : ''
+            }
+            return res;
+        }
+
+        console.log(combine(arr3, '|'));
+        console.log(combine(arr3));
+
+
+        //数组筛选：把数组中大于10的元素选出放入新数组
+        const arr4 = randArray(10, 1, 20);
+        const newArr = arr4.filter(v => v > 10);
+        console.log("arr4:%o\nnewArr:%o", arr4, newArr);
+
+
+        // 数组去重
+        const arr5 = randArray(10, 0, 20);
+        let newArr2;
+
+        function removeDup(arr, value) {
+            return arr.filter(v => v != value)
+        }
+
+        newArr2 = removeDup(arr5, 0);
+        console.log("arr5:%o\nnewArr2:%o", arr5, newArr2);
+
+        //翻转数组
+        const arr6 = ['red', 'green', 'blue', 'orange', 'purple'];
+        let newArr3 = [];
+        for (let i = arr6.length - 1; i >= 0; i--) {
+            newArr3[newArr3.length] = arr6[i];
+        }
+        console.log("arr6:%o\nnewArr3:%o", arr6, newArr3);
+
+
+        // 冒泡排序
+        function sort1(narr) {
+            console.log("before, sort1:%o", narr);
+            // let narr = arr; 浅拷贝，只是传递了引用
+            let arr = [...narr];
+            for (let i = 0; i < arr.length - 1; i++) {
+                for (let j = 0; j < arr.length - i + 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            console.log("after,  sort1:%o", arr)
+        }
+
+        //冒泡优化
+        function sort2(narr) {
+            console.log("before, sort2:%o", narr);
+            let arr = [...narr];
+            for (let i = 0; i < arr.length - 1; i++) {
+                flag = 0;
+                for (let j = 0; j < arr.length - i + 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        flag = 1;
+                        temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+                if (!flag) break;
+            }
+            console.log("after,  sort2:%o", arr)
+        }
+
+        // let temp, flag, arr7 = randArray(10, 1, 20), arr8 = randArray(10, 1, 20);
+        let temp, flag, arr7 = randArray(10, 1, 20);
+
+        console.time("s1")
+        sort1(arr7);
+        console.timeEnd("s1")
+        console.time("s2")
+        sort2(arr7);
+        console.timeEnd("s2")
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //对象
+        //创建对象
+
+        //一 字面量创建对象
+        // - 创建
+        var obj = {}
+        var dog = {
+            // 属性以键值对创建
+            id: "001",
+            'name': "keke",
+            "age": 3,
+            k1: "",
+            k2: true,
+            //方法，通过也是键值对，但值是匿名函数
+            skill: function () {
+                console.log("汪汪汪");
+            }
+        }
+        // - 调用['属性名'] 和 .属性名
+
+        console.log(dog["id"]);
+        console.log(dog.name);
+        console.log(dog["age"]);
+        console.log(dog.k1);
+        console.log(dog.k2);
+        console.log(dog);
+        dog.skill();
+
+
+        // 二 通过new Object 创建对象
+        var ldh = new Object();
+        // - 添加属性
+        ldh.name = "刘德华";
+        ldh.careerSinger = true;
+        ldh["age"] = "28";
+        ldh["singing"] = function () {
+            console.log("我会唱《想和你你一起去吹吹风》");
+        }
+
+        console.log(typeof ldh);
+        console.log(ldh);//{name: '刘德华', careerSinger: true, age: '28', singing: ƒ}
+        ldh["singing"]();
+        console.log(ldh["age"]);
+        console.log(ldh.name);
+        console.log(ldh.careerSinger);
+
+        // 三 构造函数创建对象
+        // 1. 构造函数名大写
+        // 2. 添加this指向
+        function Star(id, name, age, isCareer, skill) {
+            this.id = id;
+            this.name = name;
+            this.age = age;
+            this.isCareer = isCareer;
+            this.skill = skill;
+        }
+
+        // 3. new 关键字创建
+        var zrf = new Star("002", "zrf", 29, true, () => {
+            console.log("i can singing")
+        });
+
+        console.log(zrf.id);
+        console.log(zrf["name"]);
+        console.log(zrf.k1);    //undefined
+        console.log(zrf["k2"]);//undefined
+        zrf.skill();
+        zrf["skill"]();
+        console.log(zrf); //Star {id: '002', name: 'zrf', age: 29, isCareer: true, skill: ƒ}
+
+
+        // 四 for...in 遍历对象
+        for (let k in zrf) {
+            console.log(k); //键名
+            console.log(zrf[k]); // 键值
+        }
+
+        let li = ["a", "b", "c", "d"];
+        for (let i in li) {
+            console.log(i); // 索引号
+            console.log(li[i]); // 值
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -25,12 +25,12 @@
 
     // 获取今天日期并格式化（年月日）
     let fullYear = date.getFullYear();
-    let month = date.getMonth();   //获取月份 ，从0开始 0，1，2...11 -> 一月,二月...十二月
+    let month = date.getMonth()+1;   //获取月份 ，从0开始 0，1，2...11 -> 一月,二月...十二月
     let date3 = date.getDate(); //获取天
     let day = date.getDay();    //星期几 0，1，2...6 -> 日，一，二
 
     let week = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
-    console.log("今天日期是：" + fullYear + "年" + month + "月" + date3 + "日 " + week[day]);
+    console.log("今天日期是：" + fullYear + "年" + parseInt(month) + "月" + date3 + "日 " + week[day]);
 
 
 </script>

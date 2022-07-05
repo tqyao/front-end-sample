@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        //注意：
+        // - 在函数内部没有声明，直接赋值的变量也是全局变量
+        // - 在调用变量前必须先调用函数
+        // - 不建议使用
+        function fun() {
+            num = 29;
+        }
+
+        // console.log(num) //error
+        fun();
+        console.log(num) //29
+
+
+        // es5没有块级作用域
+        if (1) {
+            var a = 10;//var es5
+            let b = 10;//let es6
+        }
+        console.log(a);
+        // console.log(b);//error
+
+        //es5作用域份两种
+        // 1. 全局作用域
+        // - 独立的js文件和整个script标签
+        // 2. 局部作用域
+        // - 函数内部，代码名只在函数内部起作用
+        function fun2(){
+            var v1=10;
+        }
+        console.log(v1);
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.box {
+			color: red;
+		}
+		.box2 {
+			color: orange;
+		}
+	</style>
+</head>
+
+<body>
+	<button>点击</button>
+
+	<span class="box">hello<i>world</i></span>
+	<script>
+		let btn = document.querySelector("button");
+		let span = document.querySelector("span");
+		btn.onclick = function () {
+			span.className = "box2";
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function randArray(len, start, end) {
+            // return Array.from(new Array(5), v => Math.floor((Math.random() * (end - start)) + start))
+            return Array.from({length: len}, v => Math.floor((Math.random() * (end - start)) + start))
+        }
+
+        function Counter() {
+            this.sum = 0;
+            this.count = 0
+        }
+
+        Counter.prototype.add = function (array) {
+            array.forEach(function (item) {
+                console.log(this)   //Window
+                this.sum += item;
+                ++this.count
+            })
+        }
+
+        Counter.prototype.add = function (array) {
+            console.log("this point is %o ",this)
+            // （this）传给了 forEach()，每次调用时，它都被传给 callback 函数，作为它的 this 值。
+            array.forEach(function (item) {
+                console.log(this)   //Counter
+                this.sum += item;
+                ++this.count
+            },this)
+        }
+
+        let c = new Counter();
+        c.add([2,5,9])
+        console.log(c.sum)
+        console.log(c.count)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

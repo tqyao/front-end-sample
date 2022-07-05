@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<h1 id="title">标题</h1>
+	<p>p标签</p>
+	<div class="box">box1</div>
+	<div class="box">box2</div>
+	<ul id="nav">
+		<li>123a</li>
+		<li>123b</li>
+		<li>123c</li>
+	</ul>
+	<ol class="list">
+		<li>123d</li>
+		<li>123e</li>
+		<li>123f</li>
+	</ol>
+
+
+	<!--从上往下执行，必须先加载页面元素，在获取文档对象-->
+	<script>
+
+		//getElementById
+        console.log(document.getElementById("title"));//<h1 id="title">标题</h1>
+        console.log(document.getElementById("abcd"));//null
+        // console.log(document.getElementById());//error
+        console.log(document.getElementById(""));//null
+
+
+		//getElementsByClassName
+        console.log(document.getElementsByClassName("box"));//HTMLCollection(2) [div.box, div.box]
+        console.log(document.getElementsByClassName("list"));//HTMLCollection [ol.list]
+        console.log(document.getElementsByClassName(""));//HTMLCollection []
+
+        console.log(document.getElementsByTagName("li"));//HTMLCollection(6) [li, li, li, li, li, li]
+
+		//要获取ol的li，首先获取父元素ol
+		let olElem = document.querySelector(".list");
+        console.log("===")
+        console.log(olElem.querySelectorAll("li"));
+
+
+        //querySelector 获取选择的第一个元素对象
+        console.log(document.querySelector("p"));
+        console.log(document.querySelector("#nav"));
+        console.log(document.querySelector("li"));
+
+
+        //querySelectorAll
+        console.log(document.querySelectorAll("li"));
+        console.log(document.querySelectorAll(".box"));
+        console.log(document.querySelectorAll("#nav"));
+
+
+        console.log(document.body);
+        console.log(document.documentElement);
+
+	</script>
+</body>
+
+</html>

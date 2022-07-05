@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 一 判断是否为数组
+        // 1.1 instanceof
+        // -
+        let arr = new Array(2);
+        console.log(arr instanceof Array);
+
+        //- isArray
+        console.log(Array.isArray(arr));
+
+        // 1.2 添加删除
+        let li = [2, 3, 4];
+        console.log(li);
+        console.log(li.push("pink"));//队尾添加，返回数组长度
+        console.log(li);
+        console.log(li.unshift("purple"));
+        ;//队头添加，返回数组长度
+        console.log(li);
+
+
+        console.log(li.pop()); //队尾弹出，返回删除元素
+        console.log(li);
+
+        console.log(li.shift());//队头弹出，返回删除元素
+        console.log(li);
+
+        /*        案例：筛选数组
+                有一个包含工资的数组[1500，1200，2000，2100，1800]，要求把数组中工资超过2000的删除，剩余的放到新数组里面*/
+        let nArr = [], salary = [1500, 1200, 2000, 2100, 1800];
+        for (let i = 0; i < salary.length; i++) {
+            if (salary[i] < 2000) {
+                nArr.push(salary[i]);
+            }
+        }
+        console.log(nArr);
+
+
+        // 1.3 数组翻转与排序
+        function randArray(len, min, max) {
+            return Array.from({length: len}, v => Math.floor(Math.random() * (max - min)) + min);
+        }
+
+        console.log("\n");
+        let li2 = randArray(5, 1, 10);
+        console.log(li2);
+
+        console.log(li2.reverse());
+
+        console.log(li2.sort((a, b) => a - b));//升序
+        console.log(li2.sort((a, b) => b - a));//降序
+
+        // 1.4 indexOf() lastIndexOf()
+        let li3 = ["pink", "red", "green"];
+        console.log(li3.indexOf("red"));
+        console.log(li3.indexOf("s"));
+        console.log(li3.lastIndexOf("red"));
+
+        //  数组去重
+        //有一个数组[c‘，a‘，z‘，a‘，x’，a‘，x’，c‘，b‘]，要求去除数组中重复的元素。
+        // let li4 = randArray(10,1,10);
+        // console.log(li3);
+
+        // let nLi = [], li4 = [3, 5, 1, 'x', 'x', 1, "pink", 3, "red", "blue", "pink", 'x'];
+        // for (let i = 0; i < li4.length; i++) {
+        //     if (nLi.indexOf(li4[i]) < 0) {
+        //         nLi.push(li4[i]);
+        //     }
+        // }
+        // console.log(nLi);
+
+        // 1.5 数组转字符串
+        let li5 = randArray(10, 1, 10);
+        console.log(li5);
+        console.log(li5.toString());
+        console.log(li5.join());//9,5,2,3,8,7,7,9,8,8
+        console.log(li5.join("-"));//3-1-9-1-9-3-3-4-6-3
+        console.log(li5.join(""));//9799463492
+
+        // 1.6 concat
+        let li6 = [[1]];
+        let li7 = [3, [5, 6]];
+        console.log("\n");
+        let concatLi = li6.concat(li7);
+        console.log(concatLi);   //[[1],3,[5,6]]
+
+        li6[0].push(4);
+        console.log(concatLi); //[[1,4],3,[5,6]]
+
+        let li8 = [1, 2, 3, [6, 7]];
+        let concatLi2 = li8.concat();
+        li8.unshift(5);
+        console.log("\n");
+        console.log(li8);//[5, 1, 2, 3, [6,7]]
+        console.log(concatLi2);//[1, 2, 3, [6,7]]
+
+        li8[li8.length-1].push(9);
+        console.log(concatLi2);
+
+
+        // 1.7 slice() 和 splice()
+
+        // 1.7.1 slice()：切片
+        // - 浅拷贝：元素是个对象引用，slice 会拷贝这个对象引用到新的数组里。
+        // 两个对象引用都引用了同一个对象。如果被引用的对象发生改变，则新的和原来的数组中的这个元素也会发生改变。
+        // - 不会改变原数组
+
+        var fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
+        // console.log(fruits.slice());//['Banana', 'Orange', 'Lemon', 'Apple', 'Mango']
+        // console.log(fruits.slice(-2, -1));//['Apple']
+        // console.log(fruits.slice(2, 1));//[]
+        // console.log(fruits.slice(3));//['Apple', 'Mango']
+
+        // 1.7.2 splice()：删除、替换现有元素、原地添加新的元素来修改数组，并以数组形式返回被修改的内容。此方法会改变原数组。
+        const months = ['Jan', 'March', 'April', 'June'];
+        // console.log(months.splice(1, 1));//['March']
+        // console.log(months);//['Jan', 'April', 'June']
+
+        // console.log(months.splice(0, 1, "Ban", "Tom"));//['Jan']
+        // console.log(months);//['Ban', 'Tom', 'March', 'April', 'June']
+
+        // console.log(months.splice(1));// ['March', 'April', 'June']
+        // console.log(months);//['Jan']
+
+        // console.log(months.splice(1, 0));//[]
+        // console.log(months);//['Jan', 'March', 'April', 'June']
+
+        // console.log(months.splice(1, "Any"));//[]
+        // console.log(months);//['Jan', 'March', 'April', 'June']
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

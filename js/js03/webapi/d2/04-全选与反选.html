@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		table {
+			margin: 100px auto;
+			width: 300px;
+			border-collapse: collapse;
+		}
+
+		thead {
+			height: 40px;
+			color: #fff;
+			background-color: #4397c7;
+		}
+
+		tbody tr {
+			height: 40px;
+		}
+
+		th, td {
+			padding-left: 10px;
+
+			border: 1px solid #ccc;
+		}
+
+		tbody tr {
+			color: #6e6c6f;
+			background-color: #eff1ee;
+		}
+		.bg {
+			background-color: rgba(0,0,0,.2);
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th><input type="checkbox" id="all_select"></th>
+				<th>商品</th>
+				<th>价钱</th>
+			</tr>
+		</thead>
+		<tbody class="tb">
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>iPhone8</td>
+				<td>8000</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>iPad Pro</td>
+				<td>5000</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>iPad Air</td>
+				<td>2000</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox"></td>
+				<td>Apple Watch</td>
+				<td>2000</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script>
+		let allSelect = document.querySelector("#all_select");
+		let tb = document.querySelector(".tb");
+		let trs = tb.querySelectorAll("tr");
+		let ckboxs = tb.querySelectorAll("input");
+		allSelect.onclick = function () {
+			// console.log(this.checked);
+			// 全选与反选
+			for (let i = 0; i < ckboxs.length; i++) {
+				ckboxs[i].checked = this.checked;
+			}
+		}
+		for (let i = 0; i < trs.length; i++) {
+			trs[i].onmouseover = function () {
+				for (let i = 0; i < trs.length; i++) {
+					// 后期修改颜色无需修改js，只需修改css
+					trs[i].className = "";
+				}
+				this.className = "bg";
+			}
+			trs[i].onmouseout = function () {
+				for (let i = 0; i < trs.length; i++) {
+					// 后期修改颜色无需修改js，只需修改css
+					trs[i].className = "";
+				}
+			}
+		}
+
+		for (let i = 0; i < ckboxs.length; i++) {
+
+			//单选
+			ckboxs[i].onclick = function () {
+				if (!this.checked) {	//如果当前是取消单选，则取消全选
+					allSelect.checked = false;
+					console.log("000");
+					// break;//语法错误
+					// return;//直接结束整个script，log 555也不会打印
+				} else {
+					for (let i = 0; i < ckboxs.length; i++) {
+						// debugger;
+						if (!ckboxs[i].checked) {//有一个未选中，取消全选
+							allSelect.checked = false;
+							break;//结束循环，log打印333
+							// return;//直接结束整个script，log 555也不会打印
+							console.log("111");
+						}
+						// 已全部选中
+						allSelect.checked = true;
+						console.log("222");
+					}
+				}
+
+				console.log("333");
+			}
+			console.log("444");
+		}
+		console.log("555");
+	</script>
+</body>
+
+</html>

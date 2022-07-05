@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		ul {
+			padding: 0;
+		}
+
+		textarea {
+			padding: 10px;
+			outline: none;
+			resize: none;
+		}
+
+		.message_area {
+			margin: 100px auto;
+			width: 500px;
+		}
+
+		.msg_show li {
+			margin: 10px 0;
+			padding-left: 10px;
+			height: 40px;
+			line-height: 40px;
+			color: deeppink;
+			background-color: #efd3f0;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="message_area">
+		<textarea name="msg_inp" id="msg" cols="30" rows="10" placeholder="输入您的留言"></textarea>
+		<button>发布</button>
+		<ul class="msg_show">
+			<li data-default="1">您的留言将会在这显示</li>
+		</ul>
+	</div>
+	<script>
+		let msgBox = document.querySelector(".message_area");
+		// console.log(msgBox.firstElementChild);
+		let textarea = msgBox.firstElementChild;
+		let btn = textarea.nextElementSibling;
+		// console.log(msgBox.children[msgBox.children.length - 1]);
+		let ulShow = msgBox.children[msgBox.children.length - 1];
+
+		// let defMsg = document.createElement("li");
+		// defMsg.innerHTML = "您的留言将会在这显示";
+		btn.onclick = function () {
+			if (textarea.value == "") {
+				alert("您还没有输入内容");
+				return false;
+			}
+			let lis = ulShow.children;
+			let msgLi = document.createElement("li");
+			msgLi.innerHTML = textarea.value;
+			if (lis.length == 1 && lis[0].dataset['default']) {
+				ulShow.removeChild(lis[0]);
+			}
+			console.log(lis);
+			console.log(lis[0]);
+			// ulShow.insertBefore(msgLi, undefined);
+			ulShow.insertBefore(msgLi, lis[0]);
+			textarea.value = "";
+		}
+	</script>
+</body>
+
+</html>

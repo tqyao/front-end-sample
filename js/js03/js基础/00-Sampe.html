@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        const li1 = [['a', 'pink'], ['b', 'red'], ['c', 'apple'], ['d', 'orange']];
+        const map = new Map(li1);
+        console.log(map);
+        console.log(...map);
+        console.log([...map]);
+
+
+        // const li2 = ['369', "9哥"];
+        // const map2 = new Map(li2); // error Iterator value 369 is not an entry object
+        // console.log(map2);
+
+
+        let li2 = ['a', 'b', 'c'];
+        console.log("... 运算：",...li2);
+        for (let key in li2) {
+            console.log(key);
+        }
+        for (let value of li2) {
+            console.log(value)
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

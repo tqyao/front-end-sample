@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*      js引擎运行机制：
+                1. 预解析：js引擎把 var 和 function 提升到当前作用域最前端
+                2. 代码执行：代码从上往下执行
+                预解析分为变量预解析（变量提升）和函数预解析（函数提升），预解析分两步：
+                1. 变量提升就是把所有的变量声明提升到当前的作用域最前面不提升赋值操作
+                2. 函数提升就是把所有的函数声明提升到当前作用域的最前面不调用函数*/
+
+
+        //case1:
+        console.log(a);//undefined
+        var a = 10;
+        console.log(a);//10
+
+        // case1执行过程：
+        //var a;
+        // console.log(a);
+        // a=10;
+        // console.log(a);
+
+
+        // //case2：
+        // fun(1);//执行了fun:1
+        // function fun(parm) {
+        //     console.log("执行了fun:", parm)
+        // }
+        // fun(2);//执行了fun:2
+
+        // //case3:
+        // // funParam();//error,不是一个函数
+        // var funParam = function () {
+        //     console.log("执行funParam成功！");
+        // }
+        // funParam();
+
+        // case3执行过程：
+        // var funParam;
+        // funParam();//error,不是一个函数
+        // funParam = function(){
+        //     console.log("执行funParam成功！");
+        // }
+
+
+        // 预解析练习：
+        // 1.
+        var a =10;
+        function fn1(){
+            console.log(a);//undefined
+            var a = 20;
+        }
+        fn1();
+
+        // 执行过程：
+        // var a
+        // function fn1(){
+        //     var a;
+        //     console.log(a);//undefined
+        //     a = 20;
+        // }
+        // a=10;
+        // fn1();
+
+        //2.
+        fn2();
+        console.log(c);//9
+        console.log(b);//9
+        console.log(a);//error,a未定义
+
+        function fn2() {
+            var a = b = c = 9;  //相当于 var a; b = 9; c = 9; 意味着b,c都是全局变量，这里应当:var a=9,b=9,c=9;
+            console.log(a);//9
+            console.log(b);//9
+            console.log(c);//9
+        }
+
+        // 执行过程
+        // var b, c;
+        // function fn2(){
+        //     var a;
+        //     a = b = c = 9;
+        //     console.log(a);
+        //     console.log(b);
+        //     console.log(c);
+        // }
+        // fn2();
+        // console.log(c);
+        // console.log(b);
+        // console.log(a);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.login ul {
+			list-style: none;
+			margin: 100px auto;
+			width: 530px;
+			padding: 80px 0;
+			border-radius: 10px;
+			border: 1px solid #ccc;
+		}
+
+		.login li {
+			height: 40px;
+			line-height: 40px;
+		}
+
+		.login li label {
+			margin-right: 10px;
+			display: inline-block;
+			width: 80px;
+			text-align: right;
+		}
+
+		.login li input {
+			margin-right: 10px;
+			outline: none;
+		}
+
+
+		.success,
+		.fail,
+		.info {
+			font-size: 12px;
+		}
+
+		.success {
+			color: #2b952b;
+		}
+
+		.fail {
+			color: #ff0000;
+		}
+
+		.info {
+			color: #999;
+		}
+
+
+		.icon_tip {
+			display: inline-block;
+			margin-right: 4px;
+			width: 15px;
+			height: 15px;
+			background: url("images/mess.png") no-repeat;
+			vertical-align: middle;
+		}
+
+		/*.icon_success,*/
+		/*.icon_fail,*/
+		/*.icon_info {*/
+		/*	display: inline-block;*/
+		/*	margin-right: 4px;*/
+		/*	width: 15px;*/
+		/*	height: 15px;*/
+		/*	background: url("images/mess.png") no-repeat;*/
+		/*	vertical-align: middle;*/
+		/*}*/
+
+		.icon_success {
+			background: url("images/right.png") no-repeat;
+		}
+
+		.icon_fail {
+			background: url("images/wrong.png") no-repeat;
+		}
+
+		.icon_info {
+			background: url("images/mess.png") no-repeat;
+		}
+
+	</style>
+</head>
+
+<body>
+	<form class="login">
+		<ul>
+			<li>
+				<label for="user">账户名：</label><input type="text" id="user"><span class="success"><i
+					class="icon_tip"></i>您输入的正确</span>
+			</li>
+			<li class="pwd">
+				<label for="pwd">密码：</label><input type="password" id="pwd"><i
+					class="icon_tip"></i><span class="info">请输入6~16位密码</span>
+			</li>
+		</ul>
+
+	</form>
+	<script>
+		let li = document.querySelector(".pwd");
+		let pwd = li.querySelector("#pwd");
+		let span = li.querySelector("span");
+		let iElem = li.querySelector("i");
+		console.log(iElem);
+		pwd.onblur = function () {
+			console.log("pwd失去焦点");
+			if (6 < this.value.length && this.value.length < 16) {
+				console.log("输入正确");
+				span.className = "success";
+				span.innerHTML = "您输入的正确";
+				iElem.className = "icon_tip icon_success";
+
+			} else {
+				span.className = "fail";
+				span.innerHTML = "您输入的位数不对要求6~16位";
+				iElem.className = "icon_tip icon_fail";
+			}
+		}
+
+	</script>
+
+</body>
+
+</html>

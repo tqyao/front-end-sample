@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+
+
+	</style>
+</head>
+
+<body>
+	<div class="demo" item="nav" data-index="2" data-list-name="andy"></div>
+	<script>
+		let demo = document.getElementsByClassName("demo")[0];
+
+		console.log(demo.className);
+		console.log(demo.item);//undefined
+		// console.log(demo.data-index);//error
+		console.log(demo.dataIndex);//undefined
+		console.log(demo["data-index"]);//undefined
+
+		console.log(demo.getAttribute("item"));
+		console.log(demo.getAttribute("data-index"));
+		console.log(demo.getAttribute("data-list-name"));
+
+		// h5 新增
+		// 1.自定义属性都以 data-开头
+		// 2. 自定义属性存放在名叫 dataset 的set集合中
+		console.log(demo.dataset);//DOMStringMap {index: '2', listName: 'andy'}
+		console.log(demo.dataset.item); // undefined h5新增自定义属性必须 data- 开头
+		console.log(demo.dataset .index); //取值无语加 data- 浅醉
+		console.log(demo.dataset["index"]);
+		console.log(demo.dataset.listName); //多分隔符采用驼峰命名
+		console.log(demo.dataset["listName"]);
+
+	</script>
+</body>
+
+</html>

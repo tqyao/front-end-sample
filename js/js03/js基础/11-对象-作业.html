@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 1。创建一个电脑对象，该家对象要有颜色、重量、品牌、型号，可以看电影、听音乐、打游戏和敲代码。
+        //
+        // 2。创建一个按钮对象，该家对象中需要包含宽，高，背景颜色和点击行为。
+        //
+        // 3。创建一个车的对象，该对象要有重量、颜色、牌子，可以载人、拉货和耕田。
+
+        //1.
+        var computer = {
+            color: 'black',
+            weight: '2.5kg',
+            brand: 'Huawei',
+            // screen-h:'15.6',
+            "screen-h": 15.6,
+            "version": '2.xxx',
+            calc: function (num1, num2) {
+                console.log("%d + %d = %d", num1, num2, num1 + num2);
+            },
+            play: function () {
+                console.log("play games");
+            }
+        }
+        // computer.screen-h
+        console.log(computer["screen-h"]);
+        console.log(computer.version);
+        console.log(computer["version"]);
+        computer.calc(2, 3);
+        computer['calc'](4, 6);
+        console.log(computer);
+
+
+        //2.
+        var btn = new Object();
+        btn.width = "100px";
+        btn.height = "100px";
+        // btn.background-color = 'pink' //语法检查出错
+        btn["background-color"] = 'pink';
+        btn.click = function () {
+            console.log("您点击了按钮");
+        }
+
+        // console.log(btn.background-color);//error
+        console.log(btn["background-color"]);
+        btn.click();
+
+
+        //3.该对象要有重量、颜色、牌子，可以载人、拉货和耕田。
+        function Car(weight, brand, takeby, ploughing) {
+            this.weight = weight;
+            this.brand = brand;
+            this.takeby = takeby;
+            this.carryGoods = function () {
+                console.log("承载货物");
+            };
+            this.ploughing = function (bk) {
+                console.log("%s耕作庄家",bk);
+            }
+        }
+
+        console.log("\n");
+        var bsj = new Car("200kg",'bsj',5,false);
+        for (let k in bsj) {
+            console.log("%s:%s",k,bsj[k]);
+        }
+        bsj.ploughing(bsj.brand);
+        bsj.takeby = function () {
+            console.log("可以做5人喔");
+        }
+        bsj.takeby();
+
+        console.log(123/10)
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.banner {
+			position: relative;
+			height: 80px;
+			background-color: pink;
+		}
+		.nav {
+			margin-top: 10px;
+			height: 200px;
+			background-color: orange;
+		}
+		.close {
+			position: absolute;
+			top: 20px;
+			right: 30px;
+			width: 40px;
+			height: 40px;
+			background-color: purple;
+			cursor:pointer;
+			background: url("d1/images/ico.png") no-repeat -121px -31px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="banner">
+		<div class="close"></div>
+	</div>
+	<nav class="nav">
+
+	</nav>
+
+	<script>
+		let banner = document.querySelector(".banner");
+		let close = document.querySelector(".close");
+		close.onclick = function () {
+			console.log("被点击了");
+			banner.style.display = "none";
+		}
+	</script>
+</body>
+</html>

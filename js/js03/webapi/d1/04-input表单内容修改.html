@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+
+</head>
+<style>
+
+</style>
+<body>
+	<input type="text" value="默认内容">
+	<button>点击</button>
+	<script>
+		let inp = document.querySelector("input");
+		let btn = document.querySelector("button ");
+
+		btn.onclick = function () {
+			// inp.innerHTML = "被点击了"; // 不起作用，普通标签元素才有
+			inp.value = "被点击了";
+			this.disabled = true;   // this 指向事件函数的调用者，btn调用onclick，this指向btn；
+		}
+	</script>
+</body>
+
+</html>
