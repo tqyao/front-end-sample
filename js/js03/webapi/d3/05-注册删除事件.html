@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+
+
+	</style>
+</head>
+
+<body>
+	<button>onclick</button>
+	<button>eventListener</button>
+	<button>attachListener</button>
+
+	<script>
+
+		let btns = document.querySelectorAll("button");
+		// 1. 传统方式添加事件处理函数
+		btns[0].onclick = function () {
+			alert("onclick");
+		}
+
+		// 唯一性
+		btns[0].onclick = function () {
+			alert("onclick function 2");
+			btns[0].onclick = null;
+		}
+
+		// 1. addEventListener
+		btns[1].addEventListener('click', function () {
+			alert("eventListener");
+		}, false)
+
+		btns[1].addEventListener('click', fn1/*不是调佣不需要（）*/, false)
+
+		function fn1() {
+			alert("eventListener function 2");
+			btns[1].removeEventListener('click', fn1);
+		}
+
+		// 3. IE9之前
+		// btns[2].attachEvent('onclick', fn2)
+		// function fn2() {
+		// 	alert("attachEvent ");
+		//  // 注销监听事件
+		//  btns[2].detachEvent('onclick', fn2)
+		// }
+
+
+	</script>
+</body>
+
+</html>

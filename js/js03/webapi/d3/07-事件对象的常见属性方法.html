@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		ul li {
+			margin: 10px;
+			background-color: pink;
+		}
+	</style>
+</head>
+
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+
+	<a href="https://www.baidu.com">百度</a>
+	<button>点击</button>
+	<script>
+
+		let ul = document.querySelector("ul");
+		ul.addEventListener('click', function (e) {
+			console.log(e);
+			console.log(this);  // 当前事件的绑定对象 点击li返回ul
+			console.log(e.target);  // 返回触发事件对象 点击li返回li
+			// console.log(e.srcElement);//ie678
+			console.log(e.currentTarget);// 返回当前事件的绑定着 点击li返回ul
+		})
+
+		let aElem = document.querySelector("a");
+		aElem.addEventListener('mousemove', function (e) {
+			console.log(e.type);
+		})
+		aElem.addEventListener('mouseout', function (e) {
+			console.log(e.type);
+		})
+		// aElem.addEventListener('click', function (e) {
+		// 	console.log(e.type);
+		// 	// e.preventDefault(); // 1.阻止事件默认行为
+		// 	// return false; // 2.阻止事件默认行为
+		// })
+		aElem.onclick = function (e) {
+			// e.returnValue; // ie678 3. 阻止事件默认行为
+			// 只限于传统注册方式
+			return false;
+		}
+
+
+	</script>
+</body>
+
+</html>

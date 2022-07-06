@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		table {
+			margin: 100px auto;
+			width: 600px;
+			text-align: center;
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+
+		thead {
+			height: 40px;
+			background-color: #cccccc;
+		}
+
+		th,
+		td {
+
+			border: 1px solid #333;
+		}
+
+	</style>
+</head>
+
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>科目</th>
+				<th>成绩</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+
+		</tbody>
+	</table>
+
+	<script>
+
+		// 1. 模拟数据
+		const datas = [
+			{
+				name: '魏璎珞',
+				subject: 'JavaScript',
+				score: 100
+			}, {
+				name: '弘历',
+				subject: 'JavaScript',
+				score: 98
+			}, {
+				name: '傅恒',
+				subject: 'JavaScript',
+				score: 99
+			}, {
+				name: '明玉',
+				subject: 'JavaScript',
+				score: 88
+			}, {
+				name: '大猪蹄子',
+				subject: 'JavaScript',
+				score: 0
+			}
+		];
+
+		let tbody = document.querySelector("tbody");
+
+		// 2. 根据 datas 创建行列
+		for (let i = 0; i < datas.length; i++) {
+			// 创建 tr
+			let tr = document.createElement("tr");
+			tbody.appendChild(tr);
+			// 创建td
+			for (let k in datas[i]) {
+				let td = document.createElement("td");
+				td.innerHTML = datas[i][k];
+				tr.appendChild(td);
+			}
+			// 删除单元格
+			let tdDel = document.createElement("td");
+			tdDel.innerHTML = "<a href='javascript:void(0)'>删除</a>"
+			tr.appendChild(tdDel);
+			// 为每个删除链接添加点击事件
+			let tds = tbody.children[i].children;
+			let aElem = tds[tds.length - 1].firstElementChild;
+			console.log(aElem);
+			aElem.onclick = function () {
+				// console.log(this.parentNode.parentNode)
+				tbody.removeChild(this.parentNode.parentNode);
+			}
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.father {
+			margin: 100px auto;
+			width: 400px;
+			height: 400px;
+			background-color: orange;
+			border: 1px solid transparent;
+		}
+
+		.son {
+			transform: translateY(-50%);
+			margin: 50% auto 0;
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+	<script>
+		let fa = document.querySelector(".father");
+		let son = fa.children[0];
+
+		// false：默认。冒泡
+		fa.addEventListener('click', () => alert("fa click"), false);
+		son.addEventListener('click', () => alert("son click"), false);
+		//
+		// // true：捕获
+		// fa.addEventListener('click', () => alert("fa click"), true);
+		// son.addEventListener('click', () => alert("son click"), true);
+
+		// 原始注册时间方式只能触发冒泡 :点击son： son -> father -> body -> html -> document
+		// document.onclick = () => {
+		// 	alert("document click")
+		// }
+
+		document.addEventListener('click',() => alert("document click 2"),false);
+
+
+		// 点击son：
+		//      理论：document -> html -> body -> son -> fa
+		//    todo:  实际 document -> son -> father????
+		// document.addEventListener('click', function () {
+		// 	alert("do click 2")
+		// }, true);
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+
+
+	</style>
+</head>
+
+<body>
+	<div>我是div，我占个坑</div>
+	<button>click to write element</button>
+	<div class="inner"></div>
+	<div class="create"></div>
+	<div class="inner_list"></div>
+	<script>
+		let btn = document.querySelector("button");
+		btn.onclick = function () {
+			// document加载完毕，触发事件会导致页面重绘
+			document.write("<div>向document写入元素节点</div>");
+		}
+		// write 创建相当于：
+		// window.onload = function () {
+		// 	document.write("<div>向document写入元素节点</div>");
+		// }
+
+		function innerCat() {
+			console.time("inner concat time");
+			let appendElem = "";
+			let inner = document.querySelector(".inner");
+			// innerHtml 拼接字符串方式
+			for (let i = 0; i < 10000; i++) {
+				appendElem += "<a>采取拼接方式&nbsp;</a>"
+			}
+			inner.innerHTML = appendElem;
+			console.timeEnd("inner concat time");
+		}
+
+		function innerList() {
+			console.time("innerList time");
+			let innerLi = document.querySelector(".inner_list");
+			let li = [];
+			for (let i = 0; i < 10000; i++) {
+				li.push("<a>采取拼接方式&nbsp;</a>");
+			}
+			innerLi.innerHTML = li.join('');
+			console.timeEnd("innerList time");
+		}
+
+		function cat() {
+			console.time("create way time");
+			let createElem;
+			let create = document.querySelector(".create");
+			for (let i = 0; i < 10000; i++) {
+				createElem = document.createElement("a");
+				createElem.innerHTML = "采取create方式创建\t"
+				create.appendChild(createElem)
+			}
+			console.timeEnd("create way time");
+		}
+
+
+		innerCat();
+		cat();
+		innerList();
+
+
+	</script>
+</body>
+
+</html>
