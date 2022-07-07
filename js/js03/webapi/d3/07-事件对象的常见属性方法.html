@@ -48,7 +48,7 @@
 		// 	// return false; // 2.阻止事件默认行为
 		// })
 		aElem.onclick = function (e) {
-			// e.returnValue; // ie678 3. 阻止事件默认行为
+			// e.returnValue = false; // ie678 3. 阻止事件默认行为
 			// 只限于传统注册方式
 			return false;
 		}

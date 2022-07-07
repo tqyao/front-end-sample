@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text">
+	<script>
+
+		let inp = document.querySelector("input");
+		document.addEventListener('keyup', (e) => {
+			// console.log(e.code);
+			// console.log(e.key);
+			// if (e.key === 's') {
+			// 	inp.focus();
+			// }
+			const s = 's';
+			let keycode = e.keyCode;
+			if (keycode == s.charCodeAt(0) || keycode == s.toUpperCase().charCodeAt(0)){
+				inp.focus();
+			}
+		})
+	</script>
+</body>
+</html>

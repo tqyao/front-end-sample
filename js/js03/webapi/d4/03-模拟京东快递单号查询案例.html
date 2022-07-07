@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+
+		body {
+			background-color: #eee;
+		}
+
+		.search {
+			margin: 100px auto;
+			width: 150px;
+		}
+
+		.boost {
+			visibility: hidden;
+			padding-left: 8px;
+			position: relative;
+			/*box-sizing: border-box;*/
+			margin-bottom: 8px;
+			height: 32px;
+			line-height: 32px;
+			border: 1px solid #ccc;
+			box-shadow: 0 1px 4px 0px rgba(0, 0, 0, .2);
+			background-color: #fff;
+		}
+
+		.boost::after {
+			content: "";
+			position: absolute;
+			top: 31px;
+			left: 24px;
+			width: 0;
+			height: 0;
+			border: 8px solid transparent;
+			border-top-color: #fff;
+		}
+
+		.search input {
+			box-sizing: border-box;
+			width: 100%;
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="search">
+		<div class="boost"></div>
+		<input type="text" value="">
+	</div>
+	<script>
+		let search = document.querySelector(".search");
+		let boost = search.children[0];
+		let inp = boost.nextElementSibling;
+
+		document.addEventListener("keyup", (e) => {
+			let keyword = e.key;
+			if (keyword == 's' || keyword == "S") {
+				inp.focus();
+			}
+		})
+		inp.addEventListener("focus", function () {
+			if (this.value) {
+				boost.innerHTML = inp.value;
+				boost.style.visibility = 'visible';
+			}
+		})
+		inp.addEventListener("blur", (e) => {
+			if (inp.value == "") {
+				boost.innerHTML = "";
+			}
+			boost.style.visibility = 'hidden';
+		})
+		inp.addEventListener("keypress", function (event) {
+			boost.innerHTML += event.key;
+			boost.style.visibility = 'visible';
+		})
+		inp.addEventListener("keydown", function (e) {
+
+			if (e.key === "Backspace") {
+				let val = this.value.substring(0, this.value.length - 1);
+				if (val !== "") {
+					boost.innerHTML = val;
+					return;
+				}
+				boost.style.visibility = 'hidden';
+			}
+		})
+
+	</script>
+</body>
+</html>
