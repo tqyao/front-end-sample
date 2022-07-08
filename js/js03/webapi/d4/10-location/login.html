@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+
+	</style>
+	<script>
+		// window.addEventListener("load", () => {
+		// 	const form = document.querySelector("form");
+		// 	const inpUsername = document.querySelector("#username");
+		// 	const btnLogin = inpUsername.nextElementSibling;
+		// 	btnLogin.addEventListener("click", () => {
+		// 		const name = inpUsername.value;
+		// 		if (!name) {
+		// 			alert("用户名不能为空！");
+		// 			return;
+		// 		}
+		// 		console.log(location.href);
+		// 		// http://localhost:63342/front-end-sample/js/js03/webapi/d4/10-location/login.html?
+		// 		let to = location.href;
+		// 		to = `${to.slice(0, to.lastIndexOf('/')+1)}index.html?username=${name}`;
+		// 		console.log(to);
+		// 		location.href = to;
+		// 	})
+		// 	// login btn 点击时间冒泡到 form，点击表单默认有点击跳转事件
+		// 	form.addEventListener("click",function (e){
+		// 		e.preventDefault();
+		// 	})
+		// })
+		if (navigator.userAgent
+				.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/)) {
+			window.location.href = "" //手机
+		} else {
+			window.location.href = "" //电脑
+		}
+	</script>
+</head>
+<body>
+	<div class="login">
+		<h1>登录</h1>
+		<form action="index.html">
+			<label for="username">用户名:</label>
+			<!--			一定得加 name 属性-->
+			<input type="text" id="username" name="username" placeholder="输入用户名">
+			<input type="submit">
+		</form>
+	</div>
+</body>
+</html>

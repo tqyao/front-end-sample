@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.countdown_box {
+			margin: 100px auto;
+			width: 300px;
+		}
+
+		.countdown_box span {
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			font-weight: 700;
+			font-size: 20px;
+			color: #fff;
+			background-color: black;
+		}
+	</style>
+	<script>
+
+		const random = (min, max) => Math.floor((Math.random() * (max - min + 1)) + min);
+		const randomTime = () => {
+			let date = new Date();
+			date.setHours(date.getHours() + random(0, 3));
+			date.setMinutes(date.getMinutes() + random(0, 60));
+			date.setSeconds(date.getSeconds() + random(0, 60));
+			return date;
+		}
+		window.addEventListener('load', () => {
+			const cdBox = document.querySelector(".countdown_box");
+			const hour = cdBox.firstElementChild;
+			const second = cdBox.lastElementChild;
+			const minute = second.previousElementSibling;
+			const randTime = randomTime();
+			console.log(typeof randTime);
+			const updateBox = (time) => {
+				let timeCountDown = countdown(time);
+				timeCountDown= timeCountDown.slice(timeCountDown.indexOf(" ") + 1).split(':');
+				hour.innerHTML = timeCountDown[0];
+				minute.innerHTML = timeCountDown[1];
+				second.innerHTML = timeCountDown[2];
+			}
+			updateBox(randTime);
+			setInterval(updateBox,1000,randTime);
+		})
+
+
+		// 获取倒计时
+		function countdown(time) {
+			let nowTime = Date.now();
+			let tarTime = +new Date(time);
+			let countDownTime = (tarTime - nowTime) / 1000;
+			let d, h, m, s;
+			d = parseInt(countDownTime / 60 / 60 / 24);
+			d = d < 10 ? '0' + d : d;
+			h = parseInt(countDownTime / 60 / 60 % 24);
+			h = h < 10 ? '0' + h : h;
+			m = parseInt(countDownTime / 60 % 60);
+			m = m < 10 ? '0' + m : m;
+			s = parseInt(countDownTime % 60);
+			s = s < 10 ? '0' + s : s;
+			return `${d}天 ${h}:${m}:${s}`;
+		}
+	</script>
+</head>
+<body>
+	<div class="countdown_box">
+		<span class="hour">1</span>
+		<span class="minute">2</span>
+		<span class="second">3</span>
+	</div>
+</body>
+</html>

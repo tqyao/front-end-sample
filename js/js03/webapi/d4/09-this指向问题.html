@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+
+	</style>
+</head>
+<body>
+	<script>
+		// 1. 全局普通函数
+		function fn() {
+			console.log(this)
+		}
+
+		window.fn();
+
+		// 2. 定时器
+		window.setTimeout(function () {
+			console.log("Timeout >> %o", this)
+		}, 100);
+
+		// 3. 方法调用：谁调用指向谁
+
+		// -
+		const obj = {
+			func: function () {
+				console.log("obj >> %o", this);
+			}
+		}
+		obj.func(); // this -> obj
+		// -
+		window.addEventListener("load", function () {
+			const btn = document.querySelector("button");
+			btn.onclick = function () {
+				console.log("onclick >> %o", this);
+			}
+			btn.addEventListener("click", function () {
+				console.log("listener >> %o", this);
+			})
+		})
+
+
+		// 4. 构造函数
+		function Person(name) {
+			console.log("person>> this->%o", this);
+			this.name = name;
+			this.getName = function () {
+				console.log(this)
+				return name
+			}
+		}
+
+		const person = new Person("xiaoming");
+		person.getName();
+
+
+		// 5. 箭头函数
+
+		// -
+		const oject = {
+			fn: () => console.log("oject=> >> %o", this)
+		}
+		oject.fn();
+
+		// -
+		function Person2(name) {
+			console.log("person2 >> this->%o", this);
+			this.name = name;
+			this.getName = () => console.log("p2 getName >>", this)
+		}
+
+		const p2 = new Person2();
+		p2.getName();
+
+	</script>
+	<button>this 指向</button>
+
+</body>
+</html>

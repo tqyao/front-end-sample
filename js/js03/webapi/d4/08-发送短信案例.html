@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+
+	</style>
+</head>
+<body>
+	<script>
+		// document.addEventListener("DOMContentLoaded", function () {
+		// 	console.log(this)
+		// 	const arrow = () => {
+		//      //this指向当前作用域上一级作用域
+		// 		console.log(this)
+		// 	}
+		// 	arrow();
+		// })
+
+		// document.addEventListener("DOMContentLoaded", function () {
+		// 	const btn = this.querySelector("button");
+		// 	btn.addEventListener("click", () => {
+		// 		let lefTime = 3;
+		// 		const updateDom = () => {
+		// 			btn.innerHTML = (lefTime--);
+		// 		}
+		// 		btn.disabled = true;
+		// 		updateDom();
+		// 		const interval = setInterval(updateDom, 1000);
+		// 		setTimeout(() => {
+		// 			btn.innerHTML = "发送短信";
+		// 			btn.disabled = false;
+		// 			clearInterval(interval);
+		// 		}, 3000)
+		// 	})
+		// })
+
+		// document.addEventListener("DOMContentLoaded", function () {
+		// 	const future = new Date();
+		// 	future.setSeconds(future.getSeconds() + 3);
+		// 	setInterval(() => {
+		// 		console.log(Math.floor((future.valueOf() - +new Date()) / 1000));
+		// 	}, 1000)
+		// })
+
+		document.addEventListener("DOMContentLoaded", function () {
+			let lefTime = 3;
+			let interval = null;
+			const btn = document.querySelector("button");
+			const intervalFn = () => {
+				if (lefTime >= 0) {
+					btn.disabled = true;
+					btn.innerHTML = lefTime--;
+					return;
+				}
+				btn.innerHTML = "发送短信";
+				btn.disabled = false;
+				lefTime = 3;
+				clearInterval(interval);
+			}
+			btn.addEventListener("click", () => {
+				intervalFn();
+				interval = setInterval(intervalFn, 1000)
+			})
+		})
+	</script>
+
+
+	<input type="number">
+	<button>发送短信</button>
+</body>
+</html>

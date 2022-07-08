@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script>
+		// todo:
+		alert("script alert");  // 这是 bom 中的 window 对象方法，可以在 dom 加载之前调用
+		// 文档从上至下执行 此时dom还没被渲染
+		let btn = document.querySelector("button");
+		// error 获取不到btn，空对象调用方法报错
+		// btn.addEventListener("click", function () {
+		// 	alert("btn click")
+		// })
+		window.addEventListener('load', () => {
+			alert("load alert");
+			btn = document.querySelector("button");
+			btn.addEventListener("click", function () {
+				alert("btn click on load listener");
+			})
+		})
+		document.addEventListener('DOMContentLoaded', () => {
+			alert("DOMContentLoaded alert");
+		})
+
+	</script>
+</head>
+<body>
+	<button>btn 按钮</button>
+</body>
+</html>
