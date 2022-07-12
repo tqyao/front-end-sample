@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.w {
+			margin: 0 auto;
+			width: 800px;
+		}
+
+		header {
+			height: 200px;
+			background-color: greenyellow;
+		}
+
+		nav {
+			position: relative;
+			margin-top: 10px;
+			height: 300px;
+			background-color: purple;
+		}
+
+		main {
+			margin-top: 10px;
+			height: 2000px;
+			background-color: orange;
+		}
+
+		aside {
+			position: absolute;
+			bottom: -20px;
+			right: -60px;
+			width: 60px;
+			height: 146px;
+			/*max-height: 146px;*/
+			background-color: pink;
+		}
+
+		.other {
+			height: 50px;
+			background-color: darkslateblue;
+		}
+
+		.back_top {
+			/*visibility: hidden;*/
+			display: none;
+			margin: 0 auto;
+			width: 2em;
+			cursor: pointer;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", function () {
+			const w = document.querySelector(".w");
+			const banner = document.querySelector("nav");
+			const aside = banner.querySelector("aside");
+			const main = document.querySelector("main");
+			const backTop = document.querySelector(".back_top");
+
+			// console.log(document.documentElement.clientWidth);
+			const right = (document.documentElement.clientWidth - w.offsetWidth) / 2 - aside.offsetWidth;
+			const asideTop = aside.offsetTop;   // 必须在滚动事件前获取，因为侧边栏 定位（绝对定位） 没有发生变化，是以header元素为参照
+			document.addEventListener("scroll", function () {
+				// console.log(window.pageYOffset);
+				// console.log(asideTop);
+				if (window.pageYOffset > banner.offsetTop) {
+					aside.style.position = "fixed";
+					aside.style.right = right + "px";
+					aside.style.top = asideTop + "px";
+				} else {
+					aside.style.position = "absolute";
+					aside.style.right = "-60px";
+					aside.style.bottom = "-20px"
+				}
+
+				if (window.pageYOffset > main.offsetTop) {
+					// backTop.style.visibility = "visible";
+					backTop.style.display = "block";
+				} else {
+					// backTop.style.visibility = "hidden";
+					backTop.style.display = "none";
+				}
+			})
+
+			function animate(obj, target) {
+				obj.timer && clearInterval(timer);
+				obj.timer = setInterval(function () {
+					if (window.scrollY == target) {
+						clearInterval(timer);
+						return;
+					}
+					let step = (target - window.scrollY) / 10;
+					step > 0 ? Math.ceil(step) : Math.floor(step);
+					window.scroll(0, window.scrollY + step);
+				}, 15)
+			}
+
+			backTop.addEventListener("click", function () {
+				animate(window, 100);
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="w">
+		<header>头部区域</header>
+		<nav>banner区域
+			<aside>
+				<div class="other"></div>
+				<div class="back_top">返回顶部</div>
+				<div class="other"></div>
+			</aside>
+		</nav>
+		<main>主体区域</main>
+	</div>
+
+</body>
+</html>

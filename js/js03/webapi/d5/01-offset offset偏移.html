@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 8px;
+		}
+
+		.box1 {
+			/*position: relative;*/
+			padding: 30px;
+			margin: 100px;
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+		}
+
+		.son1 {
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box1">
+		<div class="son1"></div>
+	</div>
+	<script>
+		const box1 = document.querySelector(".box1");
+		console.log(box1.offsetTop);
+		console.log(box1.offsetLeft);
+		console.log(box1.offsetWidth);
+		console.log(box1.offsetHeight);
+		console.log("\n")
+		const son1 = box1.firstElementChild;
+		console.log(son1.offsetParent);// 返回该元素带有定位的父元素div.box1，如果没有返回body
+		console.log(son1.offsetTop);
+		console.log(son1.offsetLeft);
+		console.log(son1.offsetWidth);
+		console.log(son1.offsetHeight);
+
+	</script>
+</body>
+
+</html>

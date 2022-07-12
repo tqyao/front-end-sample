@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<script>
+		// 1. (function () {} ())
+		(function funName(window, document, str) {
+			console.log("立即执行1")
+			console.log(this);
+			console.log(window);
+			console.log(document);
+			console.log(str);
+
+		}(window, document, "今晚来三炮"));
+
+		// 2.
+		(function (window, document, str) {
+			console.log("立即执行2")
+			console.log(this);
+			console.log(window);
+			console.log(document);
+			console.log(str);
+		})(window, document, "今晚来三炮")
+
+	</script>
+</body>
+
+</html>

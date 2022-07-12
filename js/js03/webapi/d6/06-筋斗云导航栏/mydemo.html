@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		body {
+			background-color: #000000;
+			font: 400 16px "Microsoft Sans Serif";
+		}
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+
+		.nav {
+			position: relative;
+			overflow: hidden;
+			margin: 100px auto;
+			width: 900px;
+			background-color: #fff;
+		}
+
+		.cloud {
+			position: absolute;
+			left: 0;
+			width: 83px;
+			height: 40px;
+			background: url(images/cloud.gif) no-repeat;
+		}
+
+		.nav::after {
+			position: absolute;
+			right: 0;
+			top: 5px;
+			content: "";
+			width: 32px;
+			height: 32px;
+			background: url(images/rss.png) no-repeat;
+		}
+
+		.nav ul li {
+			position: relative;
+			float: left;
+		}
+
+
+		.nav li a {
+			display: block;
+			width: 83px;
+			height: 40px;
+			text-align: center;
+			color: #000000;
+			line-height: 40px;
+		}
+
+		.current {
+			color: #fff !important;
+		}
+
+		.nav li:first-child a {
+			color: #0dff1d;
+		}
+	</style>
+	<script src="animate.js"></script>
+</head>
+<body>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const nav = document.querySelector(".nav");
+			const cloud = nav.querySelector(".cloud");
+			const nodeAs = nav.querySelectorAll("a");
+			const offsetWidth = nodeAs[0].offsetWidth
+			for (let i = 0; i < nodeAs.length; i++) {
+				nodeAs[i].dataset["index"] = i;
+			}
+			let current = 0;
+			nav.addEventListener("click", function (e) {
+				current = e.target.dataset["index"];
+			})
+
+			// 事件委派
+			nav.addEventListener("mouseover", function (e) {
+				const hoverA = e.target;
+				const index = hoverA.dataset["index"];
+				if (!index) return;
+				for (let i = 0; i < nodeAs.length; i++) {
+					nodeAs[i].className = "";
+				}
+				if (index != 0) {
+					hoverA.className = "current";
+				}
+				animate(cloud, index * offsetWidth);
+			})
+
+			nav.addEventListener("mouseout", function (e) {
+				animate(cloud, current * offsetWidth);
+			})
+		})
+	</script>
+	<div class="nav">
+		<span class="cloud"></span>
+		<ul>
+			<li><a href="#">首页新闻</a></li>
+			<li><a href="#">师资力量</a></li>
+			<li><a href="#">活动策划</a></li>
+			<li><a href="#">企业文化</a></li>
+			<li><a href="#">招聘信息</a></li>
+			<li><a href="#">公司简介</a></li>
+			<li><a href="#">我是佩奇</a></li>
+			<li><a href="#">啥是佩奇</a></li>
+		</ul>
+	</div>
+</body>
+</html>

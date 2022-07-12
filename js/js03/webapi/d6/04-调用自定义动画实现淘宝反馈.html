@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.sliderbar {
+			/*overflow: hidden;*/
+			position: fixed;
+			right: 0;
+			bottom: 20%;
+		}
+
+		.arrow {
+			position: relative;
+			display: block;
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			background-color: purple;
+			transition: all .2s;
+
+			z-index: 999;
+		}
+		.guodu {
+			transform: rotate(180deg);
+		}
+
+		.con {
+			position: absolute;
+			top: 0;
+			width: 80px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			background-color: purple;
+
+		}
+
+
+
+	</style>
+	<script src="animation.js"></script>
+</head>
+
+<body>
+	<div class="sliderbar">
+		<span class="arrow"><-</span>
+		<div class="con">问题反馈</div>
+	</div>
+	<script>
+		const sliderbar = document.querySelector(".sliderbar");
+		const arrow = document.querySelector(".arrow");
+		const con = document.querySelector(".con");
+		sliderbar.addEventListener("mouseenter", function () {
+			animation(con, -con.offsetWidth,function () {
+				arrow.className = "arrow guodu"
+			})
+
+		})
+		sliderbar.addEventListener("mouseleave", function () {
+			animation(con, 0,function () {
+				arrow.className = "arrow"
+			})
+		})
+	</script>
+</body>
+
+</html>

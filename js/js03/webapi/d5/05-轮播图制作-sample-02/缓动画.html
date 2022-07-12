@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		div{
+			position: absolute;
+			left: 0;
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+		}
+	</style>
+	<script src="animate.js"></script>
+</head>
+<body>
+	<button class="btn200">to 200</button>
+	<button class="btn800">to 800</button>
+	<div></div>
+	<script>
+		// function animate(obj, target, callback) {
+		// 	if (obj.timer) clearInterval(obj.timer);
+		// 	obj.timer = setInterval(function () {
+		// 		if (target == obj.offsetLeft) {
+		// 			clearInterval(obj.timer);
+		// 			obj.timer = null;
+		// 			callback && callback();
+		// 			return;
+		// 		}
+		// 		// easy-out 运动曲线步长
+		// 		let step = (target - obj.offsetLeft) / 10;
+		// 		// 目的让obj精准移动到target位置
+		// 		step = step < 0 ? Math.floor(step) : Math.ceil(step);
+		// 		console.log(step)
+		// 		obj.style.left = obj.offsetLeft + step + "px";
+		// 	}, 15)
+		// }
+		const div = document.querySelector("div");
+		const btn200 = document.querySelector(".btn200");
+		const btn800 = btn200.nextElementSibling;
+		btn200.addEventListener("click",function () {
+			animate(div,200);
+		})
+		btn800.addEventListener("click",function () {
+			animate(div,800);
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+/*详情页的样式文件*/
+.detail_content {
+    padding-top: 20px;
+    height: 800px;
+}
+
+.detail_nav ul li {
+    float: left;
+}
+
+.detail_nav ul li:nth-child(2n) {
+    margin: 0 10px;
+    font-family: 'icomoon';
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.detail_goods {
+    padding-top: 10px;
+}
+
+.goods_pic {
+    float: left;
+}
+
+.preview_img {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border: 1px solid #ccc;
+}
+
+.mask {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background-color: #ffefa7;
+    opacity: .5;
+}
+
+.big_pic {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 410px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid #8c1717;
+    z-index: 999;
+}
+
+.big_pic img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.preview_img{
+    cursor:move;
+}
+.preview_img > img {
+    width: 100%;
+}
+
+.preview_list {
+    position: relative;
+    margin-top: 60px;
+}
+
+.preview_list ul {
+    margin: 0 auto;
+    width: 300px;
+}
+
+.preview_list li {
+    box-sizing: border-box;
+    float: left;
+    margin: 0 1px;
+    width: 56px;
+    height: 56px;
+    border: 2px solid transparent;
+    /*background-color: pink;*/
+}
+
+.preview_list .current {
+    border-color: indianred;
+}
+
+.preview_list li img {
+    width: 100%;
+}
+
+.arrow_prev,
+.arrow_next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 32px;
+    background: url(../img/arrow-prev.png) no-repeat;
+}
+
+.arrow_next {
+    right: 0;
+    background-image: url(../img/arrow-next.png);
+}
+
+.goods_detail_info {
+    float: left;
+    padding-left: 72px;
+    width: 718px;
+}
+
+.goods_detail_info .news {
+    height: 32px;
+    color: #e12228;
+}
+
+.summary dl {
+    overflow: hidden;
+}
+
+.summary dt {
+    float: left;
+    padding-left: 8px;
+    width: 70px;
+    height: 36px;
+    line-height: 36px;
+}
+
+.summary dd,
+.summary dt {
+    float: left;
+}
+
+.summary_price,
+.summary_promotion {
+    position: relative;
+    padding: 10px 0;
+    background-color: #fee9eb;
+}
+
+.summary_price .price {
+    font-size: 24px;
+    color: #e12228;
+}
+
+.summary_price dd a {
+    color: #c81623;
+}
+
+.summary_price .remark {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.summary_promotion em {
+    padding: 5px;
+    color: #fff;
+    background-color: #c81623;
+}
+
+.summary_promotion dd {
+    width: 450px;
+    line-height: 36px;
+}
+
+.summary_support dd {
+    /*height: 36px;*/
+    line-height: 36px;
+}
+
+.choose_color dd,
+.choose_version dd,
+.buy_way dd {
+    margin: 0 2px;
+}
+
+.choose_color dd a,
+.choose_version dd a,
+.buy_way dd a {
+    display: inline-block;
+    width: 82px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    background-color: #f7f7f7;
+    border: 1px solid transparent;
+}
+
+.chose {
+    border: 1px solid #d34a54;
+}
+
+.choose_version {
+    margin: 10px 0;
+}
+
+.choose_version dd a {
+    width: 62px;
+    height: 34px;
+    line-height: 34px;
+}
+
+.buy_way dd a {
+    width: 74px;
+    height: 34px;
+    line-height: 34px;
+}
+
+.choose_btns {
+    margin-top: 30px;
+}
+
+.choose_amount {
+    float: left;
+    width: 50px;
+    height: 45px;
+    border: 1px solid #ccc;
+}
+
+.choose_amount input {
+    float: left;
+    width: 35px;
+    height: 100%;
+    text-align: center;
+    border: 0;
+    vertical-align: center;
+}
+
+.amount {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.amount a {
+    flex: 1;
+    padding-top: 2px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-top: 0;
+    border-right: 0;
+    background-color: #f1f1f1;
+}
+
+.amount a:last-child {
+    border-bottom: 0;
+}
+
+.amount a:last-child:hover {
+    cursor: not-allowed;
+}
+
+.addCar {
+    float: left;
+    margin-left: 10px;
+    width: 142px;
+    height: 46px;
+    line-height: 46px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #c81623;
+}

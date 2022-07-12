@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		div {
+			position: absolute;
+			left: 0;
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+		}
+
+		span {
+			position: absolute;
+			top: 300px;
+			display: block;
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+		}
+	</style>
+</head>
+
+<body>
+	<button class="btn800">夏雨荷到800</button>
+	<button class="btn500">夏雨荷到500</button>
+
+	<span>夏雨荷</span>
+	<script>
+		const div = document.querySelector("div");
+		const btn500 = document.querySelector(".btn500");
+		const btn800 = document.querySelector(".btn800");
+		const span = document.querySelector("span");
+
+		// animation(div, 700);
+		btn500.addEventListener("click", function () {
+			animation(span, 500);
+		})
+		btn800.addEventListener("click", function () {
+			animation(span, 800);
+		})
+
+		function animation(obj, target) {
+			clearInterval(obj.timer) // 避免多次调用生成多个定时器，导致动画'加速'
+			// todo: 多次调用，timer属性被是否被覆盖？
+			//  obj.timer 确实会被覆盖，但是定时器确确实实被创建，在处在内存中
+			obj.timer = setInterval(function () {
+				let step = (target - obj.offsetLeft) / 10;
+				step = step > 0 ? Math.ceil(step) : Math.floor(step);
+				if (obj.offsetLeft === target) {
+					clearInterval(obj.timer);
+					return;
+				}
+				obj.style.left = obj.offsetLeft + step + "px";
+
+			}, 15)
+		}
+	</script>
+</body>
+
+</html>

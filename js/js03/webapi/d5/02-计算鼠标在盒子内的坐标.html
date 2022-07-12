@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+		}
+
+		.box {
+			margin: 100px;
+			width: 400px;
+			height: 400px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		window.addEventListener("load", () => {
+
+			const box = document.querySelector(".box");
+			box.addEventListener("mousemove", function (e) {
+				const x = e.pageX - this.offsetLeft;
+				const y = e.pageY - this.offsetTop;
+				box.innerHTML = `当前x的坐标是${x},y的坐标是${y}`;
+			})
+		})
+	</script>
+	<div class="box">
+
+	</div>
+</body>
+</html>
