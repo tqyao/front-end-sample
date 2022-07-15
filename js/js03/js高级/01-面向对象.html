@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		class Star {
+			profess = "明星";
+
+			constructor(uname, age) {
+				this.uname = uname;
+				this.age = age;
+			}
+
+			selfInfo() {
+				console.log("我是%s", this.profess)
+			}
+
+			sing(v) {
+				console.log(`${this.uname}会唱${v}`);
+			}
+
+			run() {
+				console.log("跑步")
+			}
+		}
+
+		const ldh = new Star();
+
+		console.log(ldh);
+		console.log(ldh.uname);
+
+		ldh.age = 18;
+		console.log(ldh.age);
+		console.log(ldh["age"]);
+
+		ldh.money = 1000;
+		console.log(ldh.money);
+
+		ldh["uname"] = "刘德华";
+		ldh.sing("情歌");
+
+		console.log(ldh.profess);
+		ldh.selfInfo();
+
+		console.log(Star.uname);
+		console.log(Star.profess);
+
+		class MovieStar extends Star {
+			constructor(uname, age) {
+				super(uname, age);
+				// super();
+			}
+			selfInfo() {
+				super.selfInfo();
+				console.log("一个电影明星哦")
+			}
+		}
+
+		// const lxl = new MovieStar();
+		// console.log(lxl);
+		// console.log(lxl.profess);
+		//
+		// const cl = new MovieStar("成龙",69);
+		// console.log(cl);
+		// cl.sing("中国人");
+		//
+		// cl.profess = "电影明星"
+		// cl.selfInfo();
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<button>点击</button>
+	<script>
+
+		let that = null;
+
+		class Star {
+			constructor(uname, age) {
+				console.log("constructor this -> %o", this);  //this指向当前对象 out: constructor this -> Star {}
+				that = this;
+				this.uname = uname;
+				this.age = age;
+				this.btn = document.querySelector("button");
+				this.profession = "明星";
+				// - btn 绑定给对象属性，所以必须通过this调用
+				// - sing 作为回调函数，当btn被点击触发回调，不能加括号，加括号是立即执行方法
+				this.btn.onclick = this.selfInfo;
+			}
+
+			selfInfo() {
+				// 方法中this指向：谁调用该方法this指向谁
+				// - 当时按钮被点击时，是 btn 调用了当前方法，所以this指向btn，out: function this -> <button>​点击​</button>​
+				// - 当如果是Star对象调用方法，那this指向当前对象
+				console.log("function this -> %o", this);
+				console.log("我是%s", this.profession);
+				console.log("我是%s", that.profession);   // out:我是明星
+			}
+		}
+
+		const ldh = new Star();
+		ldh.selfInfo();//out:我是明星
+
+	</script>
+</body>
+</html>
