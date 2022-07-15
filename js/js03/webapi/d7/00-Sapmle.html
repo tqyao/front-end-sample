@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		body {
+			height: 2000px;
+		}
+
+		.box1 {
+			margin: 200px auto;
+			/*overflow: scroll;*/
+			width: 100px;
+			height: 200px;
+			background-color: pink;
+		}
+
+		.box2 {
+			position: absolute;
+			right: 1000px;
+			left: 10px;
+			width: 100px;
+			height: 100px;
+			background-color: purple;
+		}
+	</style>
+</head>
+
+<body>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+
+			function fn1(a){
+				console.log("111")
+				console.log(a)
+			}
+			function fn1(a,b){
+				console.log("2222")
+				console.log(b)
+				console.log(`${a+b}`)
+			}
+
+			fn1(2);
+
+			// const a = 2;
+			// clearInterval(a)
+			console.log("===")
+			let c = 0;
+			let t = setInterval(function (){
+				console.log(c++)
+			},1000);
+
+			setTimeout(function () {
+				clearInterval(t)
+				console.log("==>" + t);
+			},5000)
+
+			const box1 = document.querySelector(".box1");
+			console.log(box1.offsetHeight);
+			console.log(box1.scrollHeight);
+			console.log(box1.scrollTop);
+			box1.addEventListener("scroll", function (e) {
+				// console.log(this.scrollTop);
+			})
+
+			const add = document.querySelector(".add");
+			const reduce = document.querySelector(".reduce");
+			let i = 0, timer = null;
+
+			add.addEventListener("click",function () {
+				timer = setInterval(function () {
+					console.log(i++);
+				},1000)
+				console.log(`timer is ${timer}`)
+			})
+			reduce.addEventListener("click",function () {
+				timer && console.log(` clearInterval(timer) return ${clearInterval(timer)}`)
+				console.log(`timer2 is ${timer}`)
+			})
+		})
+
+
+	</script>
+	<button class="add">新增定时器</button>
+	<button class="reduce">清楚定时器</button>
+	<div class="box2">
+		11231
+	</div>
+	<div class="box1">
+		wodani
+		wodani
+		wodani
+		wodani
+		wodani
+		wodani
+		wodani
+		wodani
+		wodani
+		wodani
+		wodani
+		wodani
+		wodani
+	</div>
+
+</body>
+
+</html>

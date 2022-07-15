@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>03-本地存储</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const session = document.querySelector(".session");
+			const inp = session.querySelector("input");
+			const sessionBtns = session.querySelectorAll("button");
+			sessionBtns[0].addEventListener("click", function (e) {
+				sessionStorage.setItem("username", inp.value);
+				sessionStorage.setItem("pwd", inp.value);
+			})
+			sessionBtns[1].addEventListener("click", function (e) {
+				console.log(`pwd is ${sessionStorage.getItem("pwd")}`)
+				// alert(sessionStorage.getItem("pwd"))
+			})
+			sessionBtns[2].addEventListener("click", function (e) {
+				sessionStorage.removeItem("username");
+			})
+			sessionBtns[3].addEventListener("click", function (e) {
+				sessionStorage.clear();
+			})
+
+			const local = document.querySelector(".local");
+			const inp1 = local.querySelector("input");
+			const localBtns = local.querySelectorAll("button");
+			localBtns[0].addEventListener("click", function (e) {
+				localStorage.setItem("username1", inp1.value);
+				localStorage.setItem("pwd1", inp1.value);
+			})
+			localBtns[1].addEventListener("click", function (e) {
+				console.log(`pwd1 is ${localStorage.getItem("pwd1")}`)
+				// alert(sessionStorage.getItem("pwd1"))
+			})
+			localBtns[2].addEventListener("click", function (e) {
+				localStorage.removeItem("username1");
+			})
+			localBtns[3].addEventListener("click", function (e) {
+				localStorage.clear();
+			})
+
+		})
+	</script>
+	<form action="javascript:void(0)">
+		<fieldset class="session">
+			<legend>sessionStorage</legend>
+			<input type="text">
+			<button>新增</button>
+			<button>查询</button>
+			<button>删除</button>
+			<button>全部删除</button>
+		</fieldset>
+		<fieldset class="local">
+			<legend>localStorage</legend>
+			<input type="text">
+			<button>新增</button>
+			<button>查询</button>
+			<button>删除</button>
+			<button>全部删除</button>
+		</fieldset>
+	</form>
+
+
+</body>
+
+</html>

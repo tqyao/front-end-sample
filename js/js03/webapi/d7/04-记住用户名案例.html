@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const uname = document.querySelector("#uname");
+			const remem = document.querySelector("#remem");
+
+			if (localStorage.getItem("uname")) {
+				uname.value = localStorage.getItem("uname");
+				remem.checked = true;
+			}
+
+			remem.addEventListener("change", function () {
+				if (this.checked) {
+					if (uname.value) {
+						localStorage.setItem("uname", uname.value);
+					}
+				} else {
+					localStorage.removeItem("uname");
+				}
+			})
+
+			// remem.addEventListener("click", function () {
+			// 	if (this.checked) {
+			// 		if (uname.value){
+			// 			localStorage.setItem("uname", uname.value);
+			// 		}
+			// 		localStorage.setItem("ck", 1);
+			// 		return;
+			// 	}
+			// 	localStorage.removeItem("uname");
+			// 	localStorage.removeItem("ck");
+			//
+			// })
+			//
+			// if (localStorage.getItem("ck")) {
+			// 	uname.value = localStorage.getItem("uname");
+			// 	remem.checked = true;
+			// }
+		})
+	</script>
+	<form action="javascript:;">
+		<fieldset>
+			<legend>login</legend>
+			<label for="uname">用户名：</label>
+			<input type="text" id="uname" name="users[name]">
+			<label for="remem">记住我：</label>
+			<input type="checkbox" name="remem" id="remem">
+		</fieldset>
+	</form>
+
+</body>
+
+</html>

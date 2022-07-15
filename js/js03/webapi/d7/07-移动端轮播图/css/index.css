@@ -1,0 +1,433 @@
+@font-face {
+    font-family: 'iconfont';
+    src: url('iconfont.woff2?t=1656039125418') format('woff2'),
+    url('iconfont.woff?t=1656039125418') format('woff'),
+    url('iconfont.ttf?t=1656039125418') format('truetype');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+    color: #000;
+    background: #f2f2f2;
+    /* 横向永远不出现滚动条 */
+    overflow-x: hidden;
+    /*点击高亮我们需要清除清除设置为transparent完成透明*/
+    -webkit-tap-highlight-color: transparent;
+    height: 2000px;
+
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.go_back {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 39px;
+    height: 39px;
+    background: url(../images/back.png) no-repeat;
+    background-size: 39px 39px;
+}
+.search_index {
+    z-index: 2;
+    /* 固定定位于父盒子没有关系，以屏幕为准 */
+    /* 固定定位盒子应该有宽度 */
+    position: fixed;
+    width: 100%;
+    max-width: 540px;
+    min-width: 320px;
+    display: flex;
+    height: 44px;
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-right: 0;
+    background-color: #f6f6f6;
+}
+
+.search {
+    flex: 1;
+    position: relative;
+    top: 5px;
+    margin: 0 10px;
+    padding-left: 34px;
+    border-radius: 6px;
+    color: #666;
+    height: 26px;
+    line-height: 24px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.search::before {
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: url(../images/sprite.png) no-repeat -58px -279px;
+    background-size: 104px auto;
+}
+
+.user {
+    width: 44px;
+    height: 44px;
+    color: #2eaae0;
+    font-size: 12px;
+    text-align: center;
+}
+
+.user::before {
+    content: "";
+    display: block;
+    margin: 3px auto 0;
+    width: 23px;
+    height: 23px;
+    background: url(../images/sprite.png) no-repeat -58px -194px;
+    background-size: 104px auto;
+}
+
+.foucs {
+    position: relative;
+    padding-top: 44px;
+    overflow: hidden;
+}
+
+.foucs ul {
+    margin-left: -100%;
+    /*
+    三张焦点图+克隆第一张+克隆第三张 一共五张
+    百分比宽度永远相对于父盒子来说，也就是5倍的focus宽度
+    */
+    width: 500%;
+    overflow: hidden;
+}
+
+.foucs ul li {
+    float: left;
+    /*五倍focus宽度的ul，20%就是五分之一*/
+    width: 20%;
+}
+
+.foucs img {
+    width: 100%;
+}
+
+.foucs .circle {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.circle li {
+    float: left;
+    margin: 0 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background-color: red;
+    transition: all .1s;
+}
+
+.circle .current {
+    width: 18px;
+}
+
+.local-nav {
+    margin: 10px 4px;
+    height: 58px;
+    border-radius: 10px;
+    background-color: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.local-nav ul {
+    display: flex;
+    height: 100%;
+}
+
+.local-nav ul li {
+    flex: 1;
+
+}
+
+.local-nav ul li a {
+    display: flex;
+    margin-top: 3px;
+    height: 100%;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.local-nav ul li a span {
+    flex: 1;
+}
+
+/* [class=^="local-nav-icon-"] */
+.local-nav li span[class^="local-nav-icon"] {
+    width: 32px;
+    height: 32px;
+    background: url(../images/localnav_bg.png) no-repeat 0 0;
+    background-size: 32px auto;
+}
+
+.local-nav ul li .local-nav-icon-icon2 {
+    background-position: 0 -32px;
+}
+
+.local-nav ul li .local-nav-icon-icon3 {
+    background-position: 0 -64px;
+}
+
+.local-nav ul li .local-nav-icon-icon4 {
+    background-position: 0 -96px;
+}
+
+.local-nav ul li .local-nav-icon-icon5 {
+    background-position: 0 -128px;
+}
+
+.nav_mod {
+    /* margin: 0 4px; */
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+
+}
+
+.nav_mod .nav_common {
+    flex: 1;
+    margin-bottom: 3px;
+    display: flex;
+    height: 88px;
+}
+
+.nav-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    line-height: 44px;
+    /* background-color: salmon; */
+}
+
+
+.nav-items a:first-child {
+    border-bottom: 1px solid #fff;
+}
+
+.nav-items:first-child a {
+    border-bottom: 0;
+}
+
+.nav-items a {
+    flex: 1;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+}
+
+
+.nav-items:nth-child(-n+2) {
+    border-right: 1px solid #fff;
+}
+
+.nav-items:first-child a {
+    background: url(../images/hotel.png) no-repeat bottom center;
+    background-size: 121px auto;
+}
+
+.nav_common:nth-child(1) {
+    background: -webkit-linear-gradient(left, #fa5c54, #fa974d);
+}
+
+.nav_common:nth-child(2) {
+    background: -webkit-linear-gradient(left, #4b92ed, #52bbed);
+}
+
+.nav_common:nth-child(3) {
+    background: -webkit-linear-gradient(left, #36c2a5, #69d45d);
+}
+
+.nav_common:last-child {
+    margin-bottom: 0;
+}
+
+.subnav_entry {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 6px;
+    padding: 4px 0;
+    border-radius: 10px;
+    background-color: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.subnav_entry li {
+    /* flex 子盒子可以给百分比，增加盒子（换行）也能实现自适应效果 */
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subnav_entry span[class^="icon-subnav-iocn"] {
+    margin-top: 8px;
+    width: 24px;
+    height: 24px;
+    background-color: pink;
+    background: url(../images/subnav-bg.png) no-repeat 0 0;
+    background-size: 24px;
+}
+
+.subnav_entry li .icon-subnav-iocn2 {
+    background-position: 0 -24px;
+}
+
+.subnav_entry li .icon-subnav-iocn3 {
+    background-position: 0 -53px;
+}
+
+.subnav_entry li .icon-subnav-iocn4 {
+    background-position: 0 -83px;
+}
+
+.subnav_entry li .icon-subnav-iocn5 {
+    background-position: 0 -112px;
+}
+
+.subnav_entry li .icon-subnav-iocn6 {
+    background-position: 0 -136px;
+}
+
+.subnav_entry li .icon-subnav-iocn7 {
+    background-position: 0 -24px;
+}
+
+.subnav_entry li .icon-subnav-iocn8 {
+    background-position: 0 -197px;
+}
+
+.subnav_entry li .icon-subnav-iocn9 {
+    background-position: 0 -221px;
+}
+
+.subnav_entry li .icon-subnav-iocn10 {
+    background-position: 0 -245px;
+}
+
+.sale-box {
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.sale-hd {
+    position: relative;
+    padding: 12px 8px 8px;
+    height: 44px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sale-hd h2 {
+    position: relative;
+    overflow: hidden;
+    text-indent: -999px;
+}
+
+.sale-hd h2::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 79px;
+    height: 15px;
+    background-color: pink;
+    background: url(../images/hot.png) no-repeat 0 -20px;
+    background-size: 79px auto;
+}
+
+.sale-hd .more {
+    position: absolute;
+    right: 9px;
+    top: 8px;
+    padding: 3px 20px 3px 10px;
+    border-radius: 15px;
+    color: #fff;
+    background: -webkit-linear-gradient(left, #ff506e, #ff6ac3);
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.more::after {
+    position: absolute;
+    top: 8px;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #fff;
+    border-top: 2px solid #fff;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.row {
+    display: flex;
+}
+
+.row a {
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+
+.row a img {
+    width: 100%;
+}
+
+.row a:nth-child(1) {
+    border-right: 1px solid #eee;
+}
