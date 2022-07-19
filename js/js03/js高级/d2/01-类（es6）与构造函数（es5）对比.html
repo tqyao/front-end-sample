@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		class Star {
+			// var selfVal = "1"; //error
+			StaticAttr = null;//这是实例对象？？
+			constructor(uname, age) {
+				this.uname = uname;
+				this.age = age;
+			}
+		}
+
+		console.log(Star.StaticAttr);//out：null
+		const star = new Star();
+		console.log(star.StaticAttr);//out：null
+		star.StaticAttr = "star 1";
+		console.log(star.StaticAttr);   //out：star 1
+
+		const star2 = new Star();
+		console.log(star2.StaticAttr);  // out：null
+
+
+		function Student(uname,age) {
+			this.uname = uname;
+			this.age = age;
+			this.defaultAtrr = "default";
+			let selfDefinite = null;    // 啥都不是，只能内部调用
+
+			this.study = function () {
+				console.log("student  is learning")
+			}
+		}
+
+		console.log("\n");
+		console.log(Student.selfDefinite);
+		const student = new Student();
+		console.log(student.selfDefinite);
+
+		const student2 = new Student();
+		console.log(student2.study == student.study)// out:false
+		console.log(student2.study === student.study) //out:false
+
+	</script>
+</body>
+</html>

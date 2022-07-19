@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		const person = {
+			isHuman: false,
+			printIntroduction: function() {
+				console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+			}
+		};
+		console.log(person.prototype);//undefined
+		console.log(person.__proto__);
+		console.log(person.constructor);
+
+
+		// 把传入的对象作为新对象的原型
+		const newVar = Object.create(person);
+		console.log(newVar);
+
+		// 新对象从原型链中找到并继承属性及属性值
+		console.log(newVar.isHuman);
+		console.log(newVar.name);
+		console.log(newVar.prototype);
+		console.log(newVar.__proto__);  // persion 作为newVal对象的原型
+
+
+		const newVar1 = Object.create(person);
+		console.log("\n")
+		console.log(newVar1)
+	</script>
+</body>
+</html>

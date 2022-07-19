@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function Animal(species) {
+			this.species = species;
+			this.sleep = function () {
+				console.log(`${this.species} can sleep`);
+			}
+		}
+
+		const dog = new Animal("dog");
+		console.log(dog.__proto__ === Animal.prototype);
+		console.log(Animal.prototype.__proto__ === Object.prototype)
+		console.log(Object.prototype.__proto__);
+
+
+		class Humman {
+			constructor(speek) {
+				this.speek = speek;
+			}
+
+
+			useTool() {
+				console.log("humman 会使用工具");
+			}
+
+			eatSomething(){
+				console.log("humman 吃某些东西");
+				return "吃某些东西";
+			}
+		}
+
+		console.log("\n")
+		const humman = new Humman("english");
+		console.log(humman);// 方法被定义在原型对象上
+		console.log(humman.__proto__ === Humman.prototype);
+		console.log(Humman.prototype.__proto__ === Object.prototype)
+		console.log(Object.prototype.__proto__);
+
+		class Tearcher extends Humman {
+			constructor(subject, speek) {
+				super(speek);
+				this.subject = subject;
+			}
+
+			teachStu() {
+				console.log("老师教导学生");
+			}
+
+			eatSomething() {
+				console.log(`到了饭点，teacher 会${super.eatSomething()}`)
+			}
+		}
+
+		const tearcher = new Tearcher("math", "chinese");
+
+		tearcher.eatSomething();
+		tearcher.teachStu();
+		tearcher.useTool();
+
+		console.log(Humman.prototype);
+		console.log(Tearcher.prototype);
+
+		console.log("\n");
+		console.log(Tearcher.prototype === tearcher.__proto__);
+		console.log(tearcher.__proto__.__proto__ === Humman.prototype);
+		console.log(tearcher.__proto__.__proto__ === humman.__proto__);
+		console.log(tearcher.__proto__.__proto__.__proto__ === Object.prototype);
+		// console.log(tearcher.__proto__.__proto__.__proto__ === Object.prototype);
+		// console.log(tearcher.__proto__.__proto__.__proto__ === Object.__proto__);//false
+
+		console.log("\n")
+		console.log(tearcher.constructor);
+		// console.log(Tearcher.constructor);//ƒ Function() { [native code] }
+		console.log(tearcher)
+		console.log(tearcher.constructor === Tearcher.prototype.constructor);
+		console.log(tearcher.__proto__.constructor === Tearcher.prototype.constructor);
+		console.log(tearcher.__proto__.__proto__.constructor);
+		console.log(tearcher.__proto__.__proto__.constructor === Humman.prototype.constructor);
+		console.log(tearcher.__proto__.__proto__.constructor === humman.constructor);
+
+		console.log("\n");
+		console.log(tearcher.eatSomething);
+		console.log(tearcher.eatSomething === humman.eatSomething);
+		console.log(tearcher.__proto__.eatSomething === humman.__proto__.eatSomething);
+		console.log(Tearcher.prototype.eatSomething === Humman.prototype.eatSomething);
+		console.log(Tearcher.prototype.__proto__.eatSomething === Humman.prototype.eatSomething);
+
+		console.log("\n")
+		console.log(undefined === undefined);
+		console.log(Tearcher.speek);//undefined
+		console.log(Tearcher.speek === Humman.speek);
+
+		console.log(tearcher.speek);
+		console.log(humman.speek);
+		console.log(tearcher.speek === humman.speek);
+
+		console.log("\n")
+		tearcher.useTool()
+		humman.useTool()
+		console.log(tearcher.useTool === humman.useTool);
+		console.log(Tearcher.prototype.useTool === Humman.prototype.useTool);
+		console.log(Tearcher.prototype.__proto__.useTool === Humman.prototype.useTool);
+
+		console.log(tearcher);
+	</script>
+</body>
+</html>

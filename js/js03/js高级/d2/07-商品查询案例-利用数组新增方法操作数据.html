@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		main {
+			margin: 0 auto;
+			width: 600px;
+		}
+
+		input[type="submit"] {
+			cursor: pointer;
+		}
+
+		input[type="number"],
+		input[type="text"] {
+			width: 50px;
+		}
+
+		form {
+			margin: 20px 0;
+		}
+
+		table {
+			margin: 0 auto;
+			width: 400px;
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+
+		th,
+		td {
+			text-align: center;
+			border: 1px solid #aaa;
+		}
+	</style>
+	<script>
+		window.addEventListener("load", () => {
+			const data = [{
+				id: 1,
+				pname: '小米',
+				price: 3999
+			}, {
+				id: 2,
+				pname: 'oppo',
+				price: 999
+			}, {
+				id: 3,
+				pname: '荣耀',
+				price: 1299
+			}, {
+				id: 4,
+				pname: '华为',
+				price: 1999
+			},];
+
+			const qureyFom = document.querySelector("#qureyFom");
+
+			// const keywords = qureyFom.querySelector(".keywords");
+			const priceBtn = qureyFom.querySelector(".se_price_btn");
+			const rangeBtn = qureyFom.querySelector(".se_range_btn");
+
+			const tbody = document.querySelector(".product_detail");
+			renderData(data);
+
+			let res = null;
+			let keywords = null;
+			priceBtn.addEventListener("click", () => {
+				keywords = qureyFom.querySelector(".keywords").value;
+				res = data.filter(item => item["pname"].indexOf(keywords) > -1);
+				renderData(res);
+			})
+
+			let from = null, to = null;
+			rangeBtn.addEventListener("click", function () {
+				from = qureyFom.querySelector(".from").value;
+				to = qureyFom.querySelector(".to").value;
+				// res = data.filter(item => item["price"] >= parseInt(to) && item["price"] <= parseInt(from));
+				 res = data.filter(item =>{
+					// debugger
+					const curPrice = parseInt(item["price"]);
+					// console.log(curPrice >= parseInt(to) && curPrice <= parseInt(from))
+					return item["price"] <= parseInt(to) && item["price"] >= parseInt(from);
+				})
+				renderData(res)
+			})
+
+			function renderData(tableData) {
+				tbody.innerHTML = "";
+				let tr = null, td = null;
+				tableData.forEach(item => {
+					tr = document.createElement("tr");
+					tbody.appendChild(tr);
+					for (let key in item) {
+						td = document.createElement("td");
+						td.innerHTML = item[key];
+						tr.appendChild(td);
+					}
+				})
+			}
+		})
+	</script>
+</head>
+<body>
+	<main>
+		<form action="javascript:void(0)" id="qureyFom" class="query">
+			<label>按照价格查询:</label>
+			<input type="number" name="from" id="from" class="from"> - <input type="number" name="to" id="to"
+			                                                                  class="to">
+			<input class="se_range_btn" type="submit" value="搜索">
+			<label>按照商品名称查询：</label><input type="text" name="" class="keywords" id="keywords"> <input
+				class="se_price_btn" type="submit"
+				value="查询">
+		</form>
+		<table>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>产品名称</th>
+					<th>价格</th>
+				</tr>
+			</thead>
+			<tbody class="product_detail">
+				<!--								<tr>-->
+				<!--									<td>1</td>-->
+				<!--									<td>小米</td>-->
+				<!--									<td>3999</td>-->
+				<!--								</tr>-->
+				<!--				<tr>-->
+				<!--					<td>1</td>-->
+				<!--					<td>小米</td>-->
+				<!--					<td>3999</td>-->
+				<!--				</tr>-->
+			</tbody>
+		</table>
+	</main>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function Star(uanme) {
+			this.uname = uanme;
+		}
+
+
+		Star.prototype.sing = function () {
+			console.log(`${this.uname}会唱歌`);
+		}
+		Star.prototype.jump = function () {
+			console.log(`${this.uname}会跳舞`);
+		}
+
+		// 如此给原型对象添加属性会导致原先原型对象被覆盖，constructor
+		Star.prototype = {
+			jump: function () {
+				console.log(`${this.uname}会跳舞`);
+			},
+			sing: function () {
+				console.log(`${this.uname}会唱歌`);
+			},
+
+			//让原型对象重新指向原来的构造函数。
+			constructor: Star
+		}
+
+		const ldh = new Star("刘德华");
+		ldh.sing();
+
+		// console.log(ldh);
+		// console.log(Star.prototype);
+		// console.log(ldh.__proto__);
+		console.log(Star.prototype.constructor);
+		console.log(ldh.__proto__.constructor);
+
+	</script>
+</body>
+</html>

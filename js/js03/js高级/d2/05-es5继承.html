@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		/*call的使用*/
+		// - call 改变this指向
+		let obj = {
+			color: "red"
+		}
+
+		function fn(v1, v2) {
+			console.log(`color is ${this.color}`)
+			return v1 + v2;
+		}
+
+		console.log(fn.call(obj, 1, 3));
+
+
+
+		function Father(name, age) {
+			this.name = name;
+			this.age = age;
+		}
+
+		Father.prototype.work = function () {
+			console.log("father need work");
+		}
+
+		function Son(name, age, grade) {
+			// - 继承属性
+			// 类似super，调用父类构造函数，并且改变构造函数this指向
+			Father.call(this, name, age);
+			this.grade = grade;
+		}
+
+		Son.prototype.play = function () {
+			console.log("son play game");
+		}
+
+		const son1 = new Son("xiaoming", 12, 5);
+		console.log(son1);
+		// - 继承方法
+		// 子类原型对象指向父类实例对象，而父类实例对象中的 `__proto__`（原型对象）指向父类的构造函数原型对象，从而子类原型对象通过父类实例对象的原型获得了父类方法
+		Son.prototype = new Father();
+
+		const son2 = new Son("qingzi", 23, 3);
+		console.log(son2);
+		// __proto__ 提供了一条查询属性方法的链路，会根据'就近原则'查找成员，并不需要实际调用
+		son2.work();
+		son2.__proto__.work();
+		son2.__proto__.__proto__.work();
+		// son2.__proto__.__proto__.__proto__.work()//error
+
+		son1.play();
+		// 由于直接把父类实例对象引用 赋值给 子类构造函数的原型对象上，以至于子类失去原本的构造函数引用，丢失了原先的方法
+		// son2.play();//error
+
+
+		// 让子类 constructor 重新指向子类构造函数
+		console.log(Son.prototype);
+		Son.prototype.constructor = Son;
+		console.log(Son.prototype.constructor);
+		const son3 = new Son("guangxin",22,33);
+		son3.work()
+		// 这样出现子类原本的方法丢失，如何解决？
+		// son3.play() //error
+		// son2.play();//error
+
+		console.log(Son.prototype);
+		// 等价于给实例对象father添加新方法，是一个新的内存空间，不会影响父类的原型对象。
+		Son.prototype.play = function () {
+			console.log("son play game");
+		}
+		son2.play()
+		son3.play()
+
+		console.log(Father.prototype);
+		console.log(Son.prototype);
+
+
+	</script>
+</body>
+</html>

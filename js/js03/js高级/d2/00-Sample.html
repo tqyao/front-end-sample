@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<button id="test">test</button>
+	<script>
+
+		function testFun(str, event) {
+			console.log(str);
+			console.log(this)
+			console.log(event)
+			console.log(event.target === this);
+		}
+
+		var test = document.getElementById('test');
+
+
+		let a = 1;
+
+
+		/*
+		* - thisArg 不为空，则testFun 内部this 指向 thisArg
+		* - bind arg1,有值且函数有接收形参，则第二个形参是事件对象，有多个形参，则最后一个形参是事件对象
+		* */
+		// test.addEventListener('click', testFun.bind(test, 'this is a test'));
+
+		/*
+		* function.bind(thisArg[, arg1[, arg2[, ...]]])
+		* - bind 函数的参数列表为空，或者thisArg是null或undefined，执行作用域的 this 将被视为新函数的 thisArg。
+		* - 第一个参数还是点击事件对象
+		* */
+		test.addEventListener('click', testFun.bind());
+
+		/*直接传入回调，无实参传入，则最后一个是事件对象(也是第一个)*/
+		// test.addEventListener('click', testFun);
+
+
+
+
+
+	</script>
+</body>
+
+</html>

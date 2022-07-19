@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+
+	<select name="" id="choose">
+		<option value="11111111111111111111111111111111111">apple</option>
+		<option value="2222222222222222222222222222222222222222">banner</option>
+		<option selected value="33333333333333333333333333333333333">orange</option>
+	</select>
+	<script>
+		const chooses = document.querySelectorAll("select option:checked");
+		console.log(chooses);
+		const map = Array.prototype.map.call(chooses, function (obj) {
+			return obj.value;
+		});
+		console.log(map)
+
+		const strs = "hello world";
+		const strLi = strs.split('');
+		console.log(strLi);//out:(11) ['h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd']
+		const mapLi = strLi.map(function (item) {
+			return item.charCodeAt()
+		});
+		console.log(mapLi)//out:(11) [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100]
+
+		// 以上等价于
+		const callMap = Array.prototype.map.call(strs, function (item) {
+			return item.charCodeAt();
+		})
+		console.log(callMap);//[104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100]
+
+		// 去除空格
+		const arrowMap = Array.prototype.map
+				.call(strs, item => item)
+				.filter(item => item != " ")
+				.map(item => item.charCodeAt())
+		console.log(arrowMap)
+
+
+
+		function returnInt(element) {
+			return parseInt(element, 10);
+		}
+
+		// const numbers = ['1', '2', '3'].map(parseInt(item,idx)); // error
+		['1', '2', '3'].map(returnInt); // [1, 2, 3]
+		// Actual result is an array of numbers (as expected)
+		console.log(numbers)
+	</script>
+</body>
+</html>

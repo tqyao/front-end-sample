@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		[11, 22, 33].forEach(item => {
+			if (item === 22) {
+				// return
+
+			}
+			console.log("a")
+		})
+
+
+		const li = [11, 22, 33];
+		fn()
+
+		li.some(item => {
+			if (item === 22) {
+				return true;
+			}
+			console.log("d");
+		})
+
+		function fn() {
+			for (let i = 0; i < li.length; i++) {
+				if (li[i] === 22) {
+					// continue
+					// return;
+					// break;
+				}
+				console.log("b")
+			}
+			console.log("c")
+		}
+	</script>
+</body>
+</html>
