@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	<script>
+		/* 闭包循环获取索引号 */
+		const lis = document.querySelectorAll("li");
+		// for (var i = 0; i < lis.length; i++) {
+		// 	lis[i].dataset["index"] = i;
+		// 	lis[i].onclick = function () {
+		// 		console.log(i); // 无论点击哪一个都是4
+		// 		console.log(this.dataset["index"]);
+		// 	}
+		// }
+
+		for (var i = 0; i < lis.length; i++) {
+			(function (i){
+				lis[i].onclick = function (){
+					console.log(i)
+				}
+			})(i)
+		}
+
+	</script>
+</body>
+</html>

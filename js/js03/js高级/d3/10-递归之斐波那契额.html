@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+		利用递归函数求斐波那契数列（兔子序列）1、1、2、3、5、8、13、21。。
+		用户输入一个数字n就可以求出这个数字对应的兔子序列值
+		idx     res
+		0       1
+		1       1
+		2       1+1=2
+		3       1+2=3
+		4       2+3=5
+		5       3+5=8
+		6       5+8=13
+		...
+		n       (n-1) + (n-2)
+		* */
+		function feibo(idx) {
+			if (idx === 1 || idx === 2) return 1;
+			return feibo(idx - 1) + feibo(idx - 2);
+		}
+
+		console.log(feibo(7));
+
+
+		function feiboLoop(idx) {
+			let n1 = 0, n2 = 0;
+			let res = 0;
+			for (let i = 1; i <= idx; i++) {
+				if (i === 1 || i === 2) {
+					n1=0
+					n2=1;
+				}
+				res = n1 + n2;
+				n1 = n2;
+				n2 = res;
+			}
+			return res;
+		}
+
+		console.log(feiboLoop(7));
+	</script>
+</body>
+</html>

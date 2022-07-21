@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<ul class="nav">
+		<li>榴莲</li>
+		<li>臭豆腐</li>
+		<li>鲱鱼罐头</li>
+		<li>大猪蹄子</li>
+	</ul>
+	<script>
+		/*3s后大于li中的的元素内容*/
+		const lis = document.querySelectorAll(".nav li");
+		function display(){
+			for (var i = 0; i < lis.length; i++) {
+				setTimeout(function (){
+					console.log(lis[i].innerHTML);//error 数组越界 此时i=4
+				},2000)
+			}
+		}
+
+		function display2() {
+			for (var i = 0; i < lis.length; i++) {
+				(function (i){// 外层函数作用域
+					setTimeout(function (){
+						// 内城函数引用外层函数局部变量形成闭包
+						console.log(lis[i].innerHTML); // 内层函数作用域
+					},2000)
+				})(i)
+			}
+		}
+	</script>
+</body>
+</html>

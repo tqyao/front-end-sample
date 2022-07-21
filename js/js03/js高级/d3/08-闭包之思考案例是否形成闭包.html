@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*非闭包*/
+		var name = "window name"
+		const obj = {
+			name: "object name",
+			getNameFunc: function () {//外层函数
+				return function () {// 内层函数
+					return this.name;
+				}
+			}
+		}
+		console.log(obj.getNameFunc()());//window name
+		// const f = function (){
+		// 	return this.name;
+		// }
+		// console.log(f());
+
+		/*形成闭包*/
+		var name2 = "window name2"
+		const obj2 = {
+			name: "object name2",
+			getNameFunc: function ( ) {//外层函数
+				var that = this;    //外层函数局部变量
+				return function () {// 内层函数
+					return that.name;   // 引用外层函数局部变量
+				}
+			}
+		}
+
+		console.log(obj2.getNameFunc()());
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<section>
+		<p id="help">Helpful notes will appear here</p>
+		<p>E-mail: <input type="email" name="email" id="email"></p>
+		<p>Name: <input type="text" name="uname" id="uname"></p>
+		<p>Age: <input type="number" name="age" id="age"></p>
+	</section>
+	<script>
+
+
+		function showHelp(tip) {
+			document.querySelector("#help").innerHTML = tip;
+		}
+
+		/*
+				 赋值给focus的是闭包，整个setHelp形成闭包词法作用域，for循序创建的三个闭包共享一个词法作用域，
+				 由于var变量提升，item具有setHelp的作用域，所以被三个闭包所共享。当focus执行的时候，item的指向早已经确定，
+				 循环先于回调函数完成（异步），此时的item已经是指向数组最后一个对象
+				 */
+		function setHelp() {
+			const helpText = [
+				{id: '#email', dec: "请输入邮箱"},
+				{id: '#uname', dec: "请输入昵称"},
+				{id: '#age', dec: "请输入年龄"},
+			];
+
+			for (let i = 0; i < helpText.length; i++) {
+				var item = helpText[i]; // 由于 var item 变量提升，具有setHelp函数作用域
+				document.querySelector(item.id).onfocus = function () { // 形成闭包
+					showHelp(item.dec); // 回到函数里的item已经是循环迭代到最后的那个对象
+				}
+			}
+		}
+
+		// setHelp()
+
+		function showHelp2(tip) {
+			document.querySelector("#help").innerHTML = tip;
+		}
+
+		function closurShowHelp(dec) {  // 为每一个回调创建一个新的词法环境
+			return function () {
+				showHelp2(dec);
+			}
+		}
+
+		function setHelp2() {
+			const helpText = [
+				{id: '#email', dec: "请输入邮箱"},
+				{id: '#uname', dec: "请输入昵称"},
+				{id: '#age', dec: "请输入年龄"},
+			];
+
+			for (let i = 0; i < helpText.length; i++) {
+				var item = helpText[i];
+				document.querySelector(item.id).onfocus = closurShowHelp(item.dec);
+			}
+		}
+
+		// setHelp2()
+
+
+		function showHelp3(tip) {
+			document.querySelector("#help").innerHTML = tip;
+		}
+
+
+		function setHelp3() {
+			const helpText = [
+				{id: '#email', dec: "请输入邮箱"},
+				{id: '#uname', dec: "请输入昵称"},
+				{id: '#age', dec: "请输入年龄"},
+			];
+
+			for (var i = 0; i < helpText.length; i++) {
+				(function () {
+					var item = helpText[i];
+					document.querySelector(item.id).onfocus = function () {
+						// debugger
+						showHelp(item.dec)
+					}
+				})()// 马上把当前循环项的 item 与事件回调相关联起来
+			}
+		}
+
+		// setHelp3()
+
+
+		/*模拟java私有属性访问限制*/
+		/*计数器：*/
+		const Counter = (function () {
+			let count = 0;  // 闭包变量
+			function calculate(val) {   // 闭包函数
+				count += val;
+			}
+
+			return {// 返回一个对象，对象内函数作用域共享相同词法环境：count 、 calculate
+				increase() {
+					calculate(1);
+				},
+				decrease() {
+					calculate(-1);
+				},
+				value() {
+					return count;
+				}
+			}
+		})()
+		console.log(Counter.value());
+		Counter.increase()
+		console.log(Counter.value());
+		Counter.decrease()
+		console.log(Counter.value());
+
+
+		/*若果不是立即执行函数的话，可以创建多个独立的词法环境的计数器*/
+		const Counter2 = function () {
+			let count = 0;  // 词法环境共享的闭包变量
+			function calculate(val) {   // 词法环境好共享的闭包函数
+				count += val;
+			}
+
+			return {// 返回一个对象，对象内函数作用域共享相同词法环境：count 、 calculate
+				increase() {
+					calculate(1);
+				},
+				decrease() {
+					calculate(-1);
+				},
+				value() {
+					return count;
+				}
+			}
+		}
+		// Counter2(); 将返回一个对象引用，counter2，counter3 分别指向各自的对象
+		// ，每个对象都是独立的词法环境，每个对象中的函数都共享该对象词法环境变量
+		const counter2 = Counter2();
+		const counter3 = Counter2();
+		console.log("\n")
+		console.log(counter2.value())//0
+		console.log(counter3.value())//0
+		counter2.increase()
+		counter3.decrease()
+		console.log(counter2.value());//1
+		console.log(counter3.value());//-1
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		const obj = {};
+		Object.defineProperty(obj, "num", {
+			value: 1,
+			writable: true,
+			enumerable: true,
+			configurable: true
+		})
+		console.log(obj)
+
+		function fun(v1) {
+			console.log(`${v1 + this.num}`);
+		}
+
+		fun.apply(obj, [99]);// out：100
+
+		const arrs = [4, 2, 6, 2, 1];
+		const max = Math.max.apply(null, arrs); // 我们不需要改变this指向可以传null，但是严格模式下回出现问题
+		console.log(max);//6
+
+		// 同上功能，不同实现方式
+		// 扩展运算符
+		console.log(Math.max(...arrs));//6
+	</script>
+</body>
+</html>

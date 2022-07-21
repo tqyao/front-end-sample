@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*深拷贝*/
+		const obj = {
+			uname: "LDH",
+			age: 18,
+			cake: true,
+			gfriend: {
+				uname: "WXM",
+				gray: false,
+				bfriend: {
+					uname: "蜡笔小新"
+				},
+				hoby: ["apple", "banner", 1, false, {"key": "value"}]
+			}
+		}
+
+		function deepCLone(obj) {
+			let target = {};
+			for (let key in obj) {
+				// console.log((typeof obj[key]))
+				const dataType = typeof obj[key];
+				if (dataType == "object") {
+					target[key] = deepCLone(obj[key]);
+					continue;
+				}
+				target[key] = obj[key];
+			}
+			return target;
+		}
+
+		// let cloneObj = {};
+		/*		const c2 = deepCLone(obj);
+				console.log(c2);
+				console.log(obj)
+				c2.gfriend.uname = "BOBY";
+				c2.uname = "HJQ"
+				*/
+		// console.log(typeof obj.uname);
+
+
+		function deepCLone2(target, source) {
+			for (let key in source) {
+				const item = source[key];
+				// if (item instanceof "Array") {   // 判断是否是数组的方法
+				if (Array.isArray(item)) {
+					target[key] = [];
+					deepCLone2(target[key], source[key]);
+					continue;
+				}
+				// if ((typeof item) == "object"){
+				if (item instanceof Object) { // 数组也是对象，所以普通对象的拷贝得放后面
+					target[key] = {};
+					deepCLone2(target[key], source[key]);
+					continue;
+				}
+				target[key] = source[key];
+			}
+		}
+
+		let c3 = {};
+		deepCLone2(c3, obj);
+		console.log(c3);
+		console.log(obj)
+		c3.gfriend.bfriend.uname = "王思聪"
+
+
+		// console.log(typeof undefined);//undefined
+		// console.log(typeof null);//object
+		// console.log(typeof NaN);//number
+
+		// let a = undefined;
+		// let b= a;
+		// console.log(b);//undefined
+
+
+		let arr = [];
+		arr["3"] = "pink"
+		// arr[0] = 1;
+		// arr[4] = "2";
+		console.log(arr)    //返回的都是数组
+		console.log(typeof arr);//out : objext
+		console.log(Array.isArray(arr));
+
+	</script>
+</body>
+</html>

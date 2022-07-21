@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function loopJC(n) {
+			let res = 1
+			for (let i = n; i >= 1; i--) {
+				res *= i;
+			}
+			return res;
+		}
+
+		// console.log(loopJC(10));
+
+		// console.log(null * 3); //out:0
+
+
+		function recursion(n) {
+			if (n === 1) return 1;
+			return n * recursion(--n);
+		}
+
+		console.log(recursion(10));
+	</script>
+</body>
+</html>

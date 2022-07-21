@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<button>点击</button>
+	<button>点击</button>
+	<button>点击</button>
+	<button>点击</button>
+	<button>点击</button>
+	<script>
+		const btn = document.querySelector("button:first-child");
+		// 功能：点击后3s内不可再次触发
+		let that = null;
+		btn.addEventListener("click", function () {
+			this.disabled = true;
+			that = this;
+			setTimeout(function () {
+				// btn.disabled = false;    // 方法一
+				// that.disabled = false;   // 方法二
+				this.disabled = false;  // 方法三
+			}.bind(this), 2000) // 此时的 this 位于定时器回调函数之外，btn.click 回调函数里，所以此时this指向btn
+		})
+
+		const btns = document.querySelectorAll("button:nth-child(n+2)");
+		// 注意这里得用 var 才会出现循环先于定时器执行完毕，i=4 数组越界的问题
+		for (var i = 0; i < btns.length; i++) {
+			btns[i].addEventListener("click", function () {
+				this.disabled = true;
+				/*
+				* btns[i].disable = false; 无法实现效果
+				* 因为定时器的是异步函数，会等待同步主线程执行完毕后在执行，此时循已经执行结束，i 此时也是
+				* */
+				// setTimeout(function () {
+				// 	console.log(i)
+				// 	btns[i].disabled = false;
+				// }, 2000)
+
+				setTimeout(function () {
+					this.disabled = false;
+				}.bind(this), 2000)
+			})
+		}
+	</script>
+</body>
+</html>
