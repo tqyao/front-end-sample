@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*正则表达式创建*/
+
+		// - 构造函数 RegExp 创建正则表达式
+		const regExp = new RegExp(/123/);
+		console.log(regExp);
+		console.log(typeof regExp);
+
+
+		// - 字面量方式创建正则表达式
+		const regExp2 = /123/;
+		console.log(regExp2);
+		console.log(typeof regExp2);
+
+		/*使用正则表达式*/
+		// 完全匹配含有123
+		console.log(regExp.test(123));//true
+		console.log(regExp.test("123"));//true
+		console.log(regExp.test(1234));//true
+		console.log(regExp.test(4567));//f
+		console.log(regExp.test(234567));//f
+		console.log(regExp.test(12234567));//f
+		console.log(regExp.test(1234567));//T
+		console.log(regExp.test("abc"));//false
+
+	</script>
+</body>
+</html>

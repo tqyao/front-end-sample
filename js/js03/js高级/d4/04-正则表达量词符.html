@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*量词符：设定某个模式出现的次数*/
+		// 简单解释 可以配模式中 a 重复出现次数
+		let regExp = /^a$/;
+
+
+		regExp = /^a*$/;    // 匹配 a 出现0次或更多次。>=0
+		console.log(regExp.test(""));//T
+		console.log(regExp.test("a"));//T
+		console.log(regExp.test("aa"));//T
+		console.log(regExp.test("aaaa"));//T
+		console.log("-------------------------------")
+
+		regExp = /^a+$/;    // 匹配 a 出现 1 次或更多次 。>=1
+		console.log(regExp.test(""));//F
+		console.log(regExp.test("a"));//T
+		console.log(regExp.test("aa"));//T
+		console.log(regExp.test("aaaa"));//T
+		console.log("-------------------------------")
+
+		regExp = /^a?$/ //匹配 a 出现 0 次 或 1次 。
+		console.log(regExp.test(""));//T
+		console.log(regExp.test("a"));//T
+		console.log(regExp.test("aa"));//F
+		console.log(regExp.test("aaaa"));//F
+		console.log("-------------------------------")
+
+		regExp = /^a{3}$/;  // 匹配出现了3次a
+		console.log(regExp.test(""));//F
+		console.log(regExp.test("a"));//F
+		console.log(regExp.test("aa"));//F
+		console.log(regExp.test("aaaa"));//F
+		console.log(regExp.test("aaa"));//F
+		console.log("-------------------------------")
+
+		regExp = /^a{3,}$/;  //匹配出现3次或者更多次a
+		console.log(regExp.test(""));//F
+		console.log(regExp.test("a"));//F
+		console.log(regExp.test("aa"));//F
+		console.log(regExp.test("aaaa"));//T
+		console.log(regExp.test("aaa"));//T
+		console.log("-------------------------------")
+
+		regExp = /^a{3,5}$/;    // 匹配出现3次到5次a
+		console.log(regExp.test(""));//F
+		console.log(regExp.test("a"));//F
+		console.log(regExp.test("aa"));//F
+		console.log(regExp.test("aaaa"));//T
+		console.log(regExp.test("aaa"));//T
+		console.log(regExp.test("aaaaa"));//T
+		console.log(regExp.test("aaaaaa"));//F
+		console.log("-------------------------------")
+
+
+		/*用户名表单验证*/
+		// A-z0-9_-  表示 精确匹配包含 26个大小写字母、数字、下中划线（全部包涵）
+		// [A-z0-9_-]   表示 匹配包涵 26个大小写字母、数字、下中划线 其中之一或更多
+		// ^[A-z0-9_-]$ 表示 匹配包涵 26个大小写字母、数字、下中划线 其中之一
+		// ^[A-z0-9_-]{6,16}$ 表示匹配 匹配包涵 26个大小写字母、数字、下中划线 模式中可重复出现6次到16次
+		regExp = /^[A-z0-9_-]{6,16}$/
+		console.log(regExp.test('a'));//f
+		console.log(regExp.test('red-andy'));//t
+		console.log(regExp.test('red7090'));//t
+		console.log(regExp.test('curry_'));//t
+		console.log(regExp.test('cur!ry_'));//f
+
+
+	</script>
+</body>
+</html>

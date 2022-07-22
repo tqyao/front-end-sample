@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		let regExp = /abc/
+		console.log(regExp.test("abc"));
+		console.log(regExp.test("哈abc"));
+		console.log(regExp.test("abc哈"));
+		console.log(regExp.test("哈abc哈"));
+		console.log("------------------------")
+
+		regExp = /^abc/
+		console.log(regExp.test("abc"));
+		console.log(regExp.test("哈abc"));
+		console.log(regExp.test("abc哈"));
+		console.log(regExp.test("哈abc哈"));
+		console.log("------------------------")
+
+		regExp = /abc$/
+		console.log(regExp.test("abc"));
+		console.log(regExp.test("哈abc"));
+		console.log(regExp.test("abc哈"));
+		console.log(regExp.test("哈abc哈"));
+		console.log("------------------------")
+
+		regExp = /^abc$/ // 精确匹配以abc开头结束（匹配abc）
+		console.log(regExp.test("abc"));//T
+		console.log(regExp.test("哈abc"));//F
+		console.log(regExp.test("abc哈"));//F
+		console.log(regExp.test("哈abc哈"));//F
+		console.log("------------------------")
+	</script>
+</body>
+</html>

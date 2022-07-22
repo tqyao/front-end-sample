@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<textarea name="msg" id="msg" cols="30" rows="10"></textarea>
+	<button>提交</button>
+	<div></div>
+	<script>
+		const msg = document.querySelector("#msg");
+		const btn = document.querySelector("button");
+		const div = document.querySelector("div");
+		btn.addEventListener("click", function () {
+			div.innerHTML =  msg.value.replace(/激情|gay/g, '**'); // 全局匹配替换 "激情" 或 "gay" 成"**"
+		})
+	</script>
+</body>
+</html>

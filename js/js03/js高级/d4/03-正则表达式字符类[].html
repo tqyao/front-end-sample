@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		let regExp = /[abc]/;   // 表示 匹配包含 （[] 内）abc中任何一个或更多
+		console.log(regExp.test("anny"));//T
+		console.log(regExp.test("Browder"));//F
+		console.log(regExp.test("banner"));//T
+		console.log(regExp.test("cat"));//T
+		console.log(regExp.test("red"));//F
+		console.log("------------------------");
+
+		regExp = /^[abc]$/; //表示 精确匹配必须是 （[] 内）abc 其中之一(只有a 或是b 或是c)
+		console.log(regExp.test("a"));//T
+		console.log(regExp.test("ab"));//F
+		console.log(regExp.test("abc"));//F
+		console.log("-------------------------");
+
+		regExp = /^[a-z]$/ // 表示 精确匹配a-z的其中之一
+		console.log(regExp.test('A'));//F 非小写字母
+		console.log(regExp.test('fghf'));//F 非其中之一
+		console.log(regExp.test('o'));//T
+		console.log(regExp.test('aA'));//F
+		console.log("-------------------------");
+
+		regExp = /^a-b$/;   // '-' 必须出现在 字符类中'[]'，才有表示范围意义
+		console.log(regExp.test("a-b"));//T
+		console.log(regExp.test("ab"));//F
+		console.log("-------------------------");
+
+
+		/*
+		[] 括号内可以组合多种字符 ：a-z,A-Z，0-9 等等
+		* */
+		regExp = /^[A-z0-9_-]$/;   //表示 精确匹配小写a-z 大写A-Z 数字0-9 和_以及- 的其中之一
+		console.log(regExp.test("A"));//T
+		console.log(regExp.test("a"));//T
+		console.log(regExp.test(7));//T
+		console.log(regExp.test('-'));//T
+		console.log(regExp.test('_'));//T
+		console.log(regExp.test('a9'));//F
+		console.log(regExp.test('!'));//F
+		console.log("-------------------------");
+
+		/* [^] 注意与边界匹配符区分，在[]内的^符号表示取反 匹配不包含规则中的字符*/
+		regExp = /^[^A-z0-9_-]$/;   // 匹配不包含大小写字母，数字，下划线，中划线字符
+		console.log(regExp.test("A"));//F
+		console.log(regExp.test("a"));//F
+		console.log(regExp.test(7));//F
+		console.log(regExp.test('-'));//F
+		console.log(regExp.test('_'));//F
+		console.log(regExp.test('a9'));//F
+		console.log(regExp.test('a9!'));//F 只要包含字符类规则中字符任何之一就不匹配
+		console.log(regExp.test('!'));//T
+		console.log(regExp.test('!!'));//F // 必须是 1 个字符
+		console.log("-------------------------");
+
+		regExp = /[^A-z0-9_-]/;
+		console.log(regExp.test('!$^*')); //T
+
+	</script>
+</body>
+</html>

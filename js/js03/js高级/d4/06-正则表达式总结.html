@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		let regExp = /^abc$/;
+
+
+		regExp = /^abc{3}$/;    // 精确匹配 abccc
+		console.log(regExp.test("abc"));//f
+		console.log(regExp.test("abccc"));//t
+		console.log(regExp.test("abcabcabc"));//f
+		console.log("-----------------");
+
+		/*小括号 提升优先级*/
+		regExp = /^(abc){3}$/;  // 匹配重复三次小括号内字符
+		console.log(regExp.test("abc"));//f
+		console.log(regExp.test("abccc"));//f
+		console.log(regExp.test("abcabcabc"));//t
+		console.log("-----------------");
+
+
+		regExp = /^[abc]$/; // 匹配出现 a 或 b 或 c 。  a||b||c
+		console.log(regExp.test('a'));//t
+		console.log(regExp.test('abc'));//f
+		console.log("-----------------");
+
+		regExp = /^[abc]{3}$/; // 匹配 重复3次包含 [] 内字符
+		console.log(regExp.test('abc'))//t
+		console.log(regExp.test('aaa'))//t
+		console.log(regExp.test('ccc'))//t
+		console.log(regExp.test('abca'))//f
+		console.log(regExp.test('ab'))//f
+		console.log("-----------------")
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.error_color {
+			color: red;
+		}
+
+		.right_color {
+			color: green;
+		}
+
+		form span {
+			color: #aaaaaa;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		// document.addEventListener("DOMContentLoaded", function () {
+		// 	console.log("11");
+		// 	console.log(this)// #document
+		// })
+		document.addEventListener("DOMContentLoaded", () => {
+			// console.log(this) // Window
+			const inp = document.querySelector("input");
+			const tip = document.querySelector(".tip");
+			inp.addEventListener("blur", function (){
+				const regExp = /^[A-z0-9_-]{6,16}$/;
+				if (regExp.test(this.value)) {
+					tip.innerHTML = "输入正确，用户名合法";
+					tip.setAttribute("class","right_color");
+					return
+				}
+				tip.innerHTML = "非法用户名，必须是由6-16位字母下划线数字组合";
+				tip.setAttribute("class","error_color");
+			})
+		})
+
+	</script>
+	<form action="javascript:void(0)">
+		<label for="uname">用户名：
+			<input id="uname" class="uname" name="user[uanme]" type="text">
+		</label>
+		<span class="tip">请输入用户名</span>
+	</form>
+</body>
+</html>
