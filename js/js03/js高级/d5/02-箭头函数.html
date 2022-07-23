@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+
+		/*箭头函数不绑定this关键字，箭头函数中的this，指向的是箭头函数定义位置的上下文this。***/
+		const obj = {
+			name: "张三"
+		}
+
+		function func() {
+			console.log(this)
+			return () => {
+				console.log(this)//{name: '张三'}
+			}
+		}
+
+		const call = func.call(obj);
+		call();
+
+
+		/*箭头函数经典面试*/
+		var obj2 = {
+			name: '王五',
+			// 箭头函中的this是箭头函数定义时所处上下文的this，此处箭头函数位于对象中，对象不产生作用域，
+			// 所以箭头函数实际上被定义在全局作用域下
+			arrow: () => {
+				console.log("this.name =>", this.name)
+			}
+		}
+		console.log("\n")
+		obj2.arrow()//老六
+		var name = "老六";    // 给全局作用域设置name属性
+		obj2.arrow()//老六
+
+
+	</script>
+</body>
+</html>

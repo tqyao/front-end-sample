@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*数组扩展运算符*/
+
+		const li = [11, 22, 33];
+		const li2 = [44, 55, 66];
+		// 实质上是调用了 console.log(arg1,arg2,arg3...)
+		console.log(...li);// 11 22 33
+
+		console.log(li.push('a', 'b', 'c'));
+		console.log(li);
+
+		li.push([false,true])//(6) [11, 22, 33, 'a', 'b', 'c']
+		console.log(li);//(7) [11, 22, 33, 'a', 'b', 'c', Array(2)]
+
+		// - 合并数组 方式一：
+		console.log(li2.push.apply(li2, li));
+		// - 展开语法合并数组 方式二：
+		console.log(li.push(...li2));
+		// - 合并创建新数组
+		const arr = [...li,...li2];
+		console.log(arr);
+
+
+	</script>
+</body>
+</html>

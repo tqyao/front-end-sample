@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*数组结构赋值
+		* 传入参数越界，越界参数赋值undefined
+		* */
+		const arr = ["pink", "red", "andy"];
+		const [a1, a2, a3, a4] = arr;
+		console.log(a1, a2, a3, a4);    //pink red andy undefined
+
+		const obj = {
+			firstName: "詹姆斯",
+			lastName: "哈登",
+			age: 30
+		}
+		/* 对象解构赋值
+		解构对象中不存在的成员，声明赋值为undefined*/
+		const {lastName, firstName, age, hobby} = obj;
+		console.log(firstName, lastName, age, hobby);//詹姆斯 哈登 30 undefined
+
+		// 结构后参数后 重命名
+		let {firstName:name1,age:year,lastName:name2,unfind:test} = obj;
+		console.log(name1,name2,year,test) //詹姆斯 30 哈登 undefined
+	</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*剩余参数*/
+		// 剩余参数语法允许我们将一个不定数量的参数表示为一个数组。
+		const arrow = (...args) => {
+			console.log(args)
+		}
+		arrow(1, 2, 3, 4);//[1, 2, 3, 4]
+		arrow([1, 2], [3]);//[Array(2), Array(1)]
+		arrow({a: 1, b: 1}, {c: 2, d: 2})// [{…}, {…}]
+
+
+		/*剩余参数与结构赋值组合*/
+		const li = [
+			{id: 1, product: "电视"},
+			{id: 2, product: "洗衣机"},
+			{id: 3, product: "冰箱"}
+		];
+
+		// 正常数组结构赋值
+		let [o1, o2] = li;
+		console.log(o1, o2);//{id: 1, product: '电视'} {id: 2, product: '洗衣机'}
+
+		// 把数组未结构的剩余参数包装成数组，赋值给objs
+		let [obj1, ...objs] = li;
+		console.log(obj1, objs)//{id: 1, product: '电视'} (2) [{id: 1, product: '电视'} {id: 2, product: '洗衣机'}]
+
+		/*剩余参数与对象组合*/
+		let obj = {
+			name: "张三",
+			age: 18,
+			hoby: ["篮球", "足球"],
+			tall: 185
+		}
+		console.log("\n")
+		// 正常对象使用结构赋值
+		let {name, age, hoby, tall} = obj;  //张三 18 (2) ['篮球', '足球'] 185
+		console.log(name, age, hoby, tall);
+
+		//与剩余参数组合？
+		// 剩余未结构参数被封装成对象
+		let {name: myName, ...args} = obj;
+		console.log(myName, args) //张三 {age: 18, hoby: Array(2), tall: 185}
+
+		// let {name1,...args1,parm} = obj;//error:剩余参数必须放在最后
+
+	</script>
+</body>
+</html>
