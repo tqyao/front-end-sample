@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<p id="test-jsonp">当前价格:</p>
+	<button>刷新</button>
+	<script>
+
+		const btn = document.querySelector("button");
+		btn.addEventListener("click", function () {
+			getPrice();
+		})
+
+
+		function getPrice() {
+			var js = document.createElement('script'),
+					head = document.getElementsByTagName('head')[0];
+			/*
+			* 跨域问题：
+			* jsonp
+			* 1. 只能用GET请求，并且要求返回JavaScript
+			* 2. 这种方式跨域实际上是利用了浏览器允许跨域引用JavaScript资源： <script src="http://example.com/abc.js"></ script>
+			* 3. JSONP通常以函数调用的形式返回，例如，返回JavaScript内容如下:refreshPrice('data')
+			* */
+			js.src = 'http://api.money.126.net/data/feed/0000001,1399001?callback=refreshPrice';
+			head.appendChild(js);
+		}
+
+		/*
+		* 以163的股票查询URL为例，对于URL：http://api.money.126.net/data/feed/0000001,1399001?callback=refreshPrice
+		* 你将得到如下返回：refreshPrice({"0000001":{"code": "0000001", ... });
+		* 所以需要提前准备好回调函数：function refreshPrice(data){}
+		* */
+
+		/*JSONP : JSON with padding ——带外套的JSON——被函数包裹的JSON
+		1. 我们向服务器发送一个数据请求，该请求携带一个函数名refreshPrice作为参数
+		2. 服务器将我们请求的JSON格式数据data作为参数包裹到我们的函数refreshPrice(data)中并发送，这相当于发送一个js函数调用语句。
+		3. 客户端浏览器收到这个js语句，并调用客户端定义的refreshPrice函数。
+		*/
+		function refreshPrice(data) {
+			var p = document.getElementById('test-jsonp');
+			p.innerHTML = '当前价格：' +
+					data['0000001'].name + ': ' +
+					data['0000001'].price + '；' +
+					data['1399001'].name + ': ' +
+					data['1399001'].price;
+		}
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function printShalou(n, ch) {
+			let row = 0, leave = 0;
+			// 计算行
+			while (1) {
+				if (n % 2 === 0) {
+					n--;
+					leave++;
+					continue;
+				}
+				row = Math.sqrt(parseInt(n / 2) + 1);
+				if (Math.floor(row) !== row) {
+					n--;
+					leave++;
+					continue;
+				}
+				break;
+			}
+
+			// console.log(row);
+			// console.log(leave);
+
+			// 总列数
+			let sumCol = row + row - 1;
+			// 当前行需要打印多少列星星
+			let col = sumCol;
+			// 当前行需要打印多少空格
+			let spaceCh = 0;
+			// 打印结果
+			let res = "";
+			for (let i = 0; i < row; i++) {
+				// col -= i * 2;
+				col = sumCol - i * 2;
+				spaceCh = (sumCol - col) / 2;
+				for (let j = 0; j < sumCol; j++) {
+					if (j >= spaceCh && j < sumCol - spaceCh) {
+						res += ch;
+						// res += " ";
+					} else {
+						res += " ";
+						// res += ch;
+					}
+				}
+				res += "\n";
+			}
+
+
+			// 打印星星数列
+			col = sumCol;
+			// 打印空格数
+			spaceCh = 0;
+			for (let i = 1; i <= row; i++) {
+				if (i === 1) {
+					continue;
+				}
+				col = 2 * i - 1;
+				spaceCh = (sumCol - col) / 2;
+				for (let j = 0; j < sumCol; j++) {
+					if (j >= spaceCh && j < sumCol - spaceCh) {
+						res += ch;
+					} else {
+						res += " "
+					}
+				}
+				res += "\n";
+			}
+			// res+="\n"
+			res+=leave;
+			console.log(res);
+		}
+
+		printShalou(17, '*');
+
+
+		// console.log(Math.sqrt(9));
+		// const number = parseInt(5/2)
+		// console.log(number)
+		// const n = 3
+		// console.log(Math.floor(n) === n);
+	</script>
+
+<!--	<script>-->
+
+<!--		function Main(){-->
+<!--			var fs = require('fs');-->
+<!--			var buf = '';-->
+
+<!--			process.stdin.on('readable', function() {-->
+<!--				var chunk = process.stdin.read();-->
+<!--				if (chunk) buf += chunk.toString();-->
+<!--			});-->
+
+<!--			process.stdin.on('end', function() {-->
+<!--				buf.split('\n').forEach(function(line) {-->
+<!--					var tokens = line.split(' ');-->
+<!--					if (tokens.length != 2) return;-->
+<!--					printShalou(parseInt(tokens[0]),tokens[1])-->
+<!--				});-->
+<!--			});-->
+
+<!--			function printShalou(n, ch) {-->
+<!--				let row = 0, leave = 0;-->
+<!--				// 计算行-->
+<!--				while (1) {-->
+<!--					if (n % 2 === 0) {-->
+<!--						n&#45;&#45;;-->
+<!--						leave++;-->
+<!--						continue;-->
+<!--					}-->
+<!--					row = Math.sqrt(parseInt(n / 2) + 1);-->
+<!--					if (Math.floor(row) !== row) {-->
+<!--						n&#45;&#45;;-->
+<!--						leave++;-->
+<!--						continue;-->
+<!--					}-->
+<!--					break;-->
+<!--				}-->
+
+<!--				// console.log(row);-->
+<!--				// console.log(leave);-->
+
+<!--				// 总列数-->
+<!--				let sumCol = row + row - 1;-->
+<!--				// 当前行需要打印多少列星星-->
+<!--				let col = sumCol;-->
+<!--				// 当前行需要打印多少空格-->
+<!--				let spaceCh = 0;-->
+<!--				// 打印结果-->
+<!--				let res = "";-->
+<!--				for (let i = 0; i < row; i++) {-->
+<!--					// col -= i * 2;-->
+<!--					col = sumCol - i * 2;-->
+<!--					spaceCh = (sumCol - col) / 2;-->
+<!--					for (let j = 0; j < sumCol; j++) {-->
+<!--						if (j >= spaceCh && j < sumCol - spaceCh) {-->
+<!--							res += ch;-->
+<!--							// res += " ";-->
+<!--						} else {-->
+<!--							res += " ";-->
+<!--							// res += ch;-->
+<!--						}-->
+<!--					}-->
+<!--					res += "\n";-->
+<!--				}-->
+
+
+<!--				// 打印星星数列-->
+<!--				col = sumCol;-->
+<!--				// 打印空格数-->
+<!--				spaceCh = 0;-->
+<!--				for (let i = 1; i <= row; i++) {-->
+<!--					if (i === 1) {-->
+<!--						continue;-->
+<!--					}-->
+<!--					col = 2 * i - 1;-->
+<!--					spaceCh = (sumCol - col) / 2;-->
+<!--					for (let j = 0; j < sumCol; j++) {-->
+<!--						if (j >= spaceCh && j < sumCol - spaceCh) {-->
+<!--							res += ch;-->
+<!--						} else {-->
+<!--							res += " "-->
+<!--						}-->
+<!--					}-->
+<!--					res += "\n";-->
+<!--				}-->
+<!--				res+=leave;-->
+<!--				console.log(res);-->
+<!--			}-->
+
+<!--		}-->
+
+<!--	</script>-->
+</body>
+</html>

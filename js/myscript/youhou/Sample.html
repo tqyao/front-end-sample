@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		div {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 500px;
+			padding: 50px 0;
+			background-color: rgba(0, 0, 0, .1);
+		}
+	</style>
+</head>
+<body>
+
+
+	<div id="grabBed" style="
+				z-index: 999;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 500px;
+				padding: 50px 0;
+				background-color: rgba(0,0,0,.1);">
+		<table align="center" width="300" border="1">
+			<thead>
+				<tr>
+					<th>房间号</th>
+					<th>床位号</th>
+				</tr>
+			</thead>
+			<tbody class="room_bd">
+			</tbody>
+		</table>
+	</div>
+
+	<script>
+
+		//在页面未加载完毕之前显示的loading Html自定义内容
+		var _LoadingHtml = '<div id="loadingDiv" style="display: none; "><div id="over" style=" position: fixed;top: 0;left: 0; width: 100%;height: 100%; background-color: #f5f5f5;opacity:0.5;z-index: 1000;"></div><div id="layout" style="position: fixed;top: 40%; left: 40%;width: 20%; height: 20%;  z-index: 1001;text-align:center;"><img src="/js/plugins/layer/skin/default/loading-0.gif" /></div></div>';
+		//呈现loading效果
+		document.write(_LoadingHtml);
+
+		//移除loading效果
+		function completeLoading() {
+			document.getElementById("loadingDiv").style.display = "none";
+		}
+
+		//展示loading效果
+		function showLoading() {
+			document.getElementById("loadingDiv").style.display = "block";
+		}
+		showLoading();
+	</script>
+	<!--	<script>-->
+	<!--		-->
+	<!--		-->
+	<!--		-->
+	<!--		-->
+	<!--		const list = [-->
+	<!--			[-->
+	<!--				{-->
+	<!--					"id": 18701,-->
+	<!--					"xsid": null,-->
+	<!--					"yxid": 7,-->
+	<!--					"zyid": null,-->
+	<!--					"ldid": 33,-->
+	<!--					"dormBuilding": {-->
+	<!--						"id": 33,-->
+	<!--						"ldm": "东学楼33号"-->
+	<!--					},-->
+	<!--					"fjh": "332",-->
+	<!--					"ch": "A",-->
+	<!--					"fxid": 15,-->
+	<!--					"dormType": {-->
+	<!--						"id": 15,-->
+	<!--						"imagename": "天井楼户型.png_6e8d90b7-c3b4-4eda-b475-3b6106cd3908",-->
+	<!--						"fxname": "天井楼户型"-->
+	<!--					},-->
+	<!--					"sfbz": null,-->
+	<!--					"rzxb": 1,-->
+	<!--					"sfrz": false,-->
+	<!--					"bz": null,-->
+	<!--					"deleted": false,-->
+	<!--					"zt": 1-->
+	<!--				},-->
+	<!--				{-->
+	<!--					"id": 18702,-->
+	<!--					"xsid": null,-->
+	<!--					"yxid": 7,-->
+	<!--					"zyid": null,-->
+	<!--					"ldid": 33,-->
+	<!--					"dormBuilding": {-->
+	<!--						"id": 33,-->
+	<!--						"ldm": "东学楼33号"-->
+	<!--					},-->
+	<!--					"fjh": "332",-->
+	<!--					"ch": "B",-->
+	<!--					"fxid": 15,-->
+	<!--					"dormType": {-->
+	<!--						"id": 15,-->
+	<!--						"imagename": "天井楼户型.png_6e8d90b7-c3b4-4eda-b475-3b6106cd3908",-->
+	<!--						"fxname": "天井楼户型"-->
+	<!--					},-->
+	<!--					"sfbz": null,-->
+	<!--					"rzxb": 1,-->
+	<!--					"sfrz": false,-->
+	<!--					"bz": null,-->
+	<!--					"deleted": false,-->
+	<!--					"zt": 1-->
+	<!--				},-->
+	<!--				{-->
+	<!--					"id": 18703,-->
+	<!--					"xsid": null,-->
+	<!--					"yxid": 7,-->
+	<!--					"zyid": null,-->
+	<!--					"ldid": 33,-->
+	<!--					"dormBuilding": {-->
+	<!--						"id": 33,-->
+	<!--						"ldm": "东学楼33号"-->
+	<!--					},-->
+	<!--					"fjh": "332",-->
+	<!--					"ch": "C",-->
+	<!--					"fxid": 15,-->
+	<!--					"dormType": {-->
+	<!--						"id": 15,-->
+	<!--						"imagename": "天井楼户型.png_6e8d90b7-c3b4-4eda-b475-3b6106cd3908",-->
+	<!--						"fxname": "天井楼户型"-->
+	<!--					},-->
+	<!--					"sfbz": null,-->
+	<!--					"rzxb": 1,-->
+	<!--					"sfrz": false,-->
+	<!--					"bz": null,-->
+	<!--					"deleted": false,-->
+	<!--					"zt": 1-->
+	<!--				},-->
+	<!--				{-->
+	<!--					"id": 18704,-->
+	<!--					"xsid": null,-->
+	<!--					"yxid": 7,-->
+	<!--					"zyid": 78,-->
+	<!--					"ldid": 33,-->
+	<!--					"dormBuilding": {-->
+	<!--						"id": 33,-->
+	<!--						"ldm": "东学楼33号"-->
+	<!--					},-->
+	<!--					"fjh": "332",-->
+	<!--					"ch": "D",-->
+	<!--					"fxid": 15,-->
+	<!--					"dormType": {-->
+	<!--						"id": 15,-->
+	<!--						"imagename": "天井楼户型.png_6e8d90b7-c3b4-4eda-b475-3b6106cd3908",-->
+	<!--						"fxname": "天井楼户型"-->
+	<!--					},-->
+	<!--					"sfbz": null,-->
+	<!--					"rzxb": 1,-->
+	<!--					"sfrz": false,-->
+	<!--					"bz": null,-->
+	<!--					"deleted": false,-->
+	<!--					"zt": 1-->
+	<!--				},-->
+	<!--			],-->
+	<!--			[-->
+	<!--				{-->
+	<!--					"id": 18701,-->
+	<!--					"xsid": null,-->
+	<!--					"yxid": 7,-->
+	<!--					"zyid": null,-->
+	<!--					"ldid": 33,-->
+	<!--					"dormBuilding": {-->
+	<!--						"id": 33,-->
+	<!--						"ldm": "东学楼33号"-->
+	<!--					},-->
+	<!--					"fjh": "333",-->
+	<!--					"ch": "A",-->
+	<!--					"fxid": 15,-->
+	<!--					"dormType": {-->
+	<!--						"id": 15,-->
+	<!--						"imagename": "天井楼户型.png_6e8d90b7-c3b4-4eda-b475-3b6106cd3908",-->
+	<!--						"fxname": "天井楼户型"-->
+	<!--					},-->
+	<!--					"sfbz": null,-->
+	<!--					"rzxb": 1,-->
+	<!--					"sfrz": false,-->
+	<!--					"bz": null,-->
+	<!--					"deleted": false,-->
+	<!--					"zt": 1-->
+	<!--				},-->
+	<!--				{-->
+	<!--					"id": 18702,-->
+	<!--					"xsid": null,-->
+	<!--					"yxid": 7,-->
+	<!--					"zyid": null,-->
+	<!--					"ldid": 33,-->
+	<!--					"dormBuilding": {-->
+	<!--						"id": 33,-->
+	<!--						"ldm": "东学楼33号"-->
+	<!--					},-->
+	<!--					"fjh": "333",-->
+	<!--					"ch": "B",-->
+	<!--					"fxid": 15,-->
+	<!--					"dormType": {-->
+	<!--						"id": 15,-->
+	<!--						"imagename": "天井楼户型.png_6e8d90b7-c3b4-4eda-b475-3b6106cd3908",-->
+	<!--						"fxname": "天井楼户型"-->
+	<!--					},-->
+	<!--					"sfbz": null,-->
+	<!--					"rzxb": 1,-->
+	<!--					"sfrz": false,-->
+	<!--					"bz": null,-->
+	<!--					"deleted": false,-->
+	<!--					"zt": 1-->
+	<!--				},-->
+	<!--				{-->
+	<!--					"id": 18703,-->
+	<!--					"xsid": null,-->
+	<!--					"yxid": 7,-->
+	<!--					"zyid": null,-->
+	<!--					"ldid": 33,-->
+	<!--					"dormBuilding": {-->
+	<!--						"id": 33,-->
+	<!--						"ldm": "东学楼33号"-->
+	<!--					},-->
+	<!--					"fjh": "333",-->
+	<!--					"ch": "C",-->
+	<!--					"fxid": 15,-->
+	<!--					"dormType": {-->
+	<!--						"id": 15,-->
+	<!--						"imagename": "天井楼户型.png_6e8d90b7-c3b4-4eda-b475-3b6106cd3908",-->
+	<!--						"fxname": "天井楼户型"-->
+	<!--					},-->
+	<!--					"sfbz": null,-->
+	<!--					"rzxb": 1,-->
+	<!--					"sfrz": false,-->
+	<!--					"bz": null,-->
+	<!--					"deleted": false,-->
+	<!--					"zt": 1-->
+	<!--				},-->
+	<!--				{-->
+	<!--					"id": 18704,-->
+	<!--					"xsid": null,-->
+	<!--					"yxid": 7,-->
+	<!--					"zyid": 78,-->
+	<!--					"ldid": 33,-->
+	<!--					"dormBuilding": {-->
+	<!--						"id": 33,-->
+	<!--						"ldm": "东学楼33号"-->
+	<!--					},-->
+	<!--					"fjh": "333",-->
+	<!--					"ch": "D",-->
+	<!--					"fxid": 15,-->
+	<!--					"dormType": {-->
+	<!--						"id": 15,-->
+	<!--						"imagename": "天井楼户型.png_6e8d90b7-c3b4-4eda-b475-3b6106cd3908",-->
+	<!--						"fxname": "天井楼户型"-->
+	<!--					},-->
+	<!--					"sfbz": null,-->
+	<!--					"rzxb": 1,-->
+	<!--					"sfrz": false,-->
+	<!--					"bz": null,-->
+	<!--					"deleted": false,-->
+	<!--					"zt": 1-->
+	<!--				},-->
+	<!--			]-->
+	<!--		]-->
+
+
+	<!--//-->
+	<!--// 				document.body.insertAdjacentHTML('beforeend',`<div id="grabBed" style="-->
+	<!--// \t\t\tposition: fixed;-->
+	<!--// \t\t\ttop: 50%;-->
+	<!--// \t\t\tleft: 50%;-->
+	<!--// \t\t\ttransform: translate(-50%,-50%);-->
+	<!--// \t\t\twidth: 500px;-->
+	<!--// \t\t\tpadding: 50px 0;-->
+	<!--// \t\t\tbackground-color: rgba(0,0,0,.1);">-->
+	<!--// \t\t<table align="center" width="300" border="1">-->
+	<!--// \t\t\t<thead>-->
+	<!--// \t\t\t\t<tr>-->
+	<!--// \t\t\t\t\t<th>房间号</th>-->
+	<!--// \t\t\t\t\t<th>床位号</th>-->
+	<!--// \t\t\t\t</tr>-->
+	<!--// \t\t\t</thead>-->
+	<!--// \t\t\t<tbody class="room_bd">-->
+	<!--// \t\t\t</tbody>-->
+	<!--// \t\t</table>-->
+	<!--// \t</div>`);-->
+
+
+	<!--		list.forEach(room => {-->
+	<!--			const roomBd = document.querySelector(".room_bd");-->
+	<!--			const tr = document.createElement("tr");-->
+	<!--			const td1 = document.createElement("td");-->
+	<!--			const td2 = document.createElement("td");-->
+	<!--			const {fjh} = room[0];-->
+	<!--			td1.innerHTML = fjh;-->
+	<!--			tr.appendChild(td1);-->
+
+	<!--			room.forEach(bed => {-->
+	<!--				// todo:邪门？？？？？？-->
+	<!--				// let template = `<button onclick="chooseBed(${bed.dormBuilding.id},${bed.fjh},${bed.ch},${bed.dormBuilding.ldm})">${bed.ch}</button> `-->
+	<!--				// let template = `<button onclick="selectBed(${bed.fjh},${bed.dormBuilding.id})">${bed.ch}</button> `-->
+	<!--				// let template = "<button onclick='chooseBed(" + bed.dormBuilding.id + "," + bed.fjh + "," + bed.ch + ")'>" + bed.ch + "</button> "-->
+	<!--				// let template = "<button onclick='chooseBed(" + bed.ch + ")'>" + bed.ch + "</button> "-->
+	<!--				// console.log(template)-->
+	<!--				// td2.insertAdjacentHTML('beforeend', template);-->
+	<!--				// td2.insertAdjacentHTML('beforeend', `<button>${bed.ch}</button> `);-->
+	<!--				const {ldid, fjh, ch} = bed;-->
+	<!--				const btn = document.createElement("button");-->
+	<!--				btn.style.marginRight = "10px";-->
+	<!--				btn.innerHTML = ch;-->
+	<!--				btn.onclick = chooseBed.bind(this,ldid, fjh, ch)-->
+	<!--				td2.appendChild(btn);-->
+
+	<!--			})-->
+	<!--			tr.appendChild(td2);-->
+	<!--			roomBd.appendChild(tr);-->
+	<!--		})-->
+
+	<!--		function chooseBed(ldid, fjh, ch) {-->
+	<!--			console.log(ldid, fjh, ch);-->
+	<!--		}-->
+
+	<!--	</script>-->
+</body>
+</html>

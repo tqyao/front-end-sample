@@ -1,0 +1,949 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>广州南方学院迎新系统</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Core CSS  -->
+	<link rel="stylesheet" type="text/css" href="/welcome/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/welcome/css/bootstrap-responsive.min.css">
+	<link rel="stylesheet" type="text/css" href="/welcome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="/welcome/css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="/welcome/css/pages/signin.css"/>
+	<link rel="stylesheet" type="text/css" href="/welcome/css/step.css"/>
+	<link rel="stylesheet" type="text/css" href="/welcome/css/edu.css"/>
+	<link rel="stylesheet" type="text/css" href="/welcome/css/screen.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/welcome/css/jquery.treetable.css" />
+	<link rel="stylesheet" type="text/css" href="/welcome/css/jquery.treetable.theme.default.css" />
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="/welcome/img/logo.ico"/>
+	<!-- Theme End -->
+
+</head>
+<link rel="stylesheet" type="text/css" href="/welcome/css/hovertreeshow.css"/>
+<!--<link th:href="@{/css/bootstrap-datetimepicker.css}" rel="stylesheet" media="screen"/>-->
+<style type="text/css">
+
+	.tdbg {
+		background-color: #eee
+	}
+
+	#green-channel-info tr td {
+		border: 2px solid;
+	}
+
+	input {
+		overflow: auto;
+		width: 95%;
+		border: 0px;
+		outline: none;
+		cursor: pointer;
+	}
+
+	.td-files {
+		word-wrap: break-word;
+	}
+
+	.box {
+		flex-direction: row;
+	}
+
+	/**
+	#hovertreeshow{
+		width:400px;height :400px;overflow:scroll;margin:5px auto;}
+	#hovertreeshow img{max-height:100%;}
+	#headhovertree{margin:5px auto;width:400px;}a{color:blue;}
+	*/
+</style>
+<body>
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="/">
+					广州南方学院迎新系统
+				</a>
+				<div class="nav-collapse">
+					<ul class="nav pull-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="icon-user"></i>
+								<span>谭钦瑶</span>
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="/welcome/logout">安全退出</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div> <!-- /container -->
+		</div> <!-- /navbar-inner -->
+	</div> <!-- /navbar -->
+
+	<div class="subnavbar">
+
+		<div class="subnavbar-inner">
+			<div class="container">
+				<ul class="mainnav">
+					<li>
+						<a href="/welcome/">
+							<i class="icon-home"></i>
+							<span>首页</span>
+						</a>
+					</li>
+					<li>
+						<a href="/welcome/studentprofile">
+							<i class="icon-list-alt"></i>
+							<span>信息录入</span>
+						</a>
+					</li>
+					<li>
+						<a href="/welcome/toselectroompage">
+							<i class="icon-building"></i>
+							<span>选择宿舍</span>
+						</a>
+					</li>
+					<li>
+						<a href="/welcome/toreportpage">
+							<i class="icon-compass"></i>
+							<span>报到状态</span>
+						</a>
+					</li>
+					<li>
+						<a href="/welcome/toQRcode">
+							<i class="icon-windows"></i>
+							<span>常用二维码</span>
+						</a>
+					</li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li>
+						<a href="/welcome/togreenchannelpage">
+							<i class="icon-dashboard"></i>
+							<span>家庭经济困难新生入学绿色通道</span>
+						</a>
+					</li>
+				</ul>
+			</div> <!-- /container -->
+
+		</div> <!-- /subnavbar-inner -->
+
+	</div> <!-- /subnavbar -->
+
+
+	<div class="main">
+
+		<div class="main-inner">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="span12">
+
+						<div class="widget ">
+
+							<div class="widget-header">
+								<i class="icon-th-list"></i>
+								<h3>绿色通道申请</h3>
+							</div> <!-- /widget-header -->
+
+							<div class="widget-content">
+								<fieldset>
+									<form id="greenChannelInfo" class="form-horizontal"
+									      action="/welcome/greenchannel/savegcinfo"
+									      method="post">
+
+										<input type="hidden" id="qgksh" name="qgksh" value="22440404000015" readonly>
+										<div id="contentGuide" class="widget-content">
+
+											<!--<p><strong>申请指南</strong></p>
+											<p style="color:red;">
+												1.录入信息：请按照要求先完整录入缓交学费申请信息，“保存”后并导出信息打印，本人“手写签名”，拍照或扫描后作为“附件1”上传；</p>
+											<p style="color:red;">
+												2.填写《广东省家庭经济困难认定申请表》（纸质版随录取通知书寄送,亦可点击下方“困难认定表”下载电子版自行打印），手写签名，拍照或扫描后作为“附件2”上传，填写要求可下载“困难认定模版”参考；</p>
+											<p style="color:red;">3.其他家庭经济困难证明材料拍照或扫描，依序上传至“附件3、4……”；</p>
+											<p style="color:red;">4.所有要求签名的地方都必须是手写签名，否则视为无效；</p>
+											<p style="color:red;">5.每次上传附件大小不能超过5M,附件太大上传不成功时请将照片处理后上传;</p>
+											<p style="color:red;">6.联系人：贾老师,联系电话：020-61787100;</p>
+											<p style="color:red;">
+												注意：请务必按照要求提交《缓交学费申请表》、《家庭经济困难认定申请表》和相关证明材料，否则审核不通过将导致申请不成功。</p>-->
+										</div> <!-- /widget-content -->
+										<br/>
+										<table id="green-channel-info" width="100%">
+											<tr>
+												<td class="tdbg" width="8%">申请人</td>
+												<td width="15%"><input type="text" class="disabled" id="name" name="name"
+												                       value="谭钦瑶" readonly></td>
+												<td class="tdbg">学号</td>
+												<td><input type="text" class="disabled" id="xh" name="xh" value="2020168013"
+												           readonly></td>
+												<td class="tdbg" width="8%">专业</td>
+												<td><input type="text" class="disabled" id="zyName" name="zyName"
+												           value="软件工程（专升本）" readonly></td>
+												<td class="tdbg">籍贯</td>
+												<td><input type="text" class="disabled" id="nativePlace" name="nativePlace"
+												           value="珠海金湾" readonly></td>
+											</tr>
+											<tr>
+												<td class="tdbg">学杂费总额(元)</td>
+												<td colspan="7">
+													<input onblur="countDelayPayFees()" type="text" id="totalFees"
+													       name="totalFees"
+													       placeholder="学杂费总额=专业学费+住宿费1900元+医保费398元"
+													       value="">
+												</td>
+
+											</tr>
+											<tr>
+												<td class="tdbg">计划缴费金额(元)</td>
+												<td colspan="7">
+													<input onblur="countDelayPayFees()" type="text" id="planPayFees"
+													       name="planPayFees"
+													       placeholder="计划缴费金额=学杂费总额-申请延期缴费的金额，即可按时先交的缴费金额，如当前可交5000元。"
+													       value="">
+												</td>
+											</tr>
+											<tr>
+												<td class="tdbg">延期缴费金额(元)</td>
+												<td colspan="3">
+													<input disabled="true" type="text" id="delayPayFees" name="delayPayFees"
+													       placeholder="延期缴费金额=学杂费总额-计划在通知缴费时间内缴费的金额" value="">
+												</td>
+												<td class="tdbg">承诺缴清日期</td>
+												<td colspan="3">
+													<div id class="input-append date form_date" data-date=""
+													     data-date-format="dd MM yyyy" data-link-field="delayPayEndtime"
+													     data-link-format="yyyy-mm-dd">
+														<div style="float: left;"><input size="15" type="text" id="delayPayEndtime" name="delayPayEndtime"
+														                                 value="2022-07-31">
+														</div>
+														<div style="position: absolute;margin-left: 160px;">
+															<span class="add-on"><i class="icon-remove"></i></span>
+															<span class="add-on"><i class="icon-th"></i></span>
+															<span>(不迟于2023-01-06)</span>
+														</div>
+													</div>
+													<!--<input type="text"  id="delayPayEndtime"-->
+													<!--name="delayPayEndtime"-->
+													<!--th:value="*{#dates.format(delayPayEndtime,'yyyy-MM-dd')}"-->
+													<!--&gt;-->
+												</td>
+											</tr>
+											<tr>
+												<td class="tdbg">还款计划</td>
+												<td colspan="7">
+													<input type="text" id="repayPlan" name="repayPlan"
+													       placeholder="请写明在xx年xx月xx日前，以xxx方式还款。如：2022年12月30日前，以生源地信用助学贷款交9500元专业学费；或2022年12月1日前，向亲戚借款缴清专业学费5000元。"
+													       value="">
+												</td>
+											</tr>
+											<tr>
+												<td colspan="8" class="tdbg" align="center"><strong>申请人家庭收入状况</strong></td>
+											</tr>
+											<tr>
+												<td class="tdbg">父亲</td>
+												<td>
+													<input type="text" id="fatherName" name="fatherName" placeholder="请输入父亲姓名"
+													       value="">
+												</td>
+												<td class="tdbg">工作单位</td>
+												<td colspan="3">
+													<input type="text" id="fatherCompany" name="fatherCompany"
+													       placeholder="请输入父亲的工作单位" value="">
+												</td>
+												<td class="tdbg">月收入(元)</td>
+												<td>
+													<input type="text" id="fatherMonthlyIncome" name="fatherMonthlyIncome"
+													       placeholder="请输入父亲的月收入"
+													       value="">
+												</td>
+											</tr>
+											<tr>
+												<td class="tdbg">母亲</td>
+												<td>
+													<input type="text" id="motherName" name="motherName" placeholder="请输入母亲姓名"
+													       value="">
+												</td>
+												<td class="tdbg">工作单位</td>
+												<td colspan="3">
+													<input type="text" id="motherCompany" name="motherCompany"
+													       placeholder="请输入母亲的工作单位" value="">
+												</td>
+												<td class="tdbg">月收入(元)</td>
+												<td>
+													<input type="text" id="motherMonthlyIncome" name="motherMonthlyIncome"
+													       placeholder="请输入母亲的月收入"
+													       value="">
+												</td>
+											</tr>
+											<tr>
+												<td class="tdbg">其他</td>
+												<td>
+													<input type="text" id="otherName" name="otherName" placeholder="请输入其他亲属姓名"
+													       value="">
+												</td>
+												<td class="tdbg">工作单位</td>
+												<td colspan="3">
+													<input type="text" id="otherCompany" name="otherCompany"
+													       placeholder="请输入其他亲属的工作单位" value="">
+												</td>
+												<td class="tdbg">月收入(元)</td>
+												<td>
+													<input type="text" id="otherMonthlyIncome" name="otherMonthlyIncome"
+													       placeholder="请输入其他亲属的月收入"
+													       value="">
+												</td>
+											</tr>
+											<tr>
+												<td colspan="1" class="tdbg">申请人家庭状况及申请理由</td>
+												<td colspan="7">
+													<input type="text" style="width: 98%;" id="remark" name="remark"
+													       placeholder="如：本人为广东省原建档立卡家庭户，父母均为农民，父亲去年开始卧病在床，基本丧失劳动力，家中3人上学，其中2人在广州上大学，暂时难以筹集全部学费。特此申请。"
+													       value="">
+												</td>
+											</tr>
+										</table>
+									</form>
+									<br/>
+									<!-- <div class="widget-content">
+										 <p><strong>申请指南</strong></p>
+										 <p style="color:red;">1.录入信息-请按照要求先完整录入缓交学费申请信息,“保存”后并“导出信息”打印,回校后本人及所属单位“手写签字”且“盖章”,“拍照或扫描”作为“附件1上传”;</p>
+										 <p style="color:red;">2.困难证明-请将填写完整并按要求盖好章的《广东省家庭经济困难认定申请表》及其附带困难证明材料拍照或扫描,依序上传至“附件2、3……”;</p>
+										 <p style="color:red;">3.如无《广东家庭经济困难认定申请表》,可点击下方“困难认定表”下载,按要求手写并盖章(填写要求可下载“困难认定模版”参考);</p>
+										 <p style="color:red;">4.所有需要签字的地方都必须是手签,所有需要盖章的地方都必须要相关部门或单位盖章，不按要求视为无效;</p>
+										 <p style="color:red;">5.每次上传附件大小不能超过5M,附件太大上传不成功时请将照片压缩后上传;</p>
+										 <p style="color:red;">6.联系人：余老师,联系电话：020-61787100;</p>
+									 </div>  /widget-content -->
+									<div class="widget-content">
+										<p><strong>上传附件</strong></p>
+										<!--<div class="widget-header"> <i class="icon-th-list"></i>
+											<h3>上传附件</h3>
+										</div>-->
+										<!-- /widget-header -->
+										<!--<form id="uploadfiles" th:action="@{/greenchannel/uploadfiles}"-->
+										<!--<form id="uploadfiles"-->
+										<!--enctype="multipart/form-data" class="form-horizontal" method="post">-->
+										<fieldset>
+											<table class="table table-striped table-bordered">
+												<thead>
+													<tr>
+														<th> 选择附件</th>
+														<th class="td-actions"> 操作</th>
+													</tr>
+												</thead>
+												<tbody id="files">
+												</tbody>
+											</table>
+											<br/>
+											<div class="col-lg-5  pull-right">
+												<button type="button" class="btn btn-default" onclick="addrow();">
+													添加附件
+												</button>
+												<button id="uploadActionBtn" type="button" class="btn btn-primary"
+												        onclick="submitForm();">上传附件
+												</button>
+												<!--
+												<button type="button" class="btn btn-primary" onclick="downloadTemplate(1);">申请模板</button>
+												-->
+												<button type="button" class="btn btn-warning"
+												        onclick="downloadTemplate(2);">下载困难认定模版
+												</button>
+												<button type="button" class="btn btn-warning"
+												        onclick="downloadTemplate(3);">下载困难认定表
+												</button>
+												<!--<a href="javaScrip:downloadTemplate(2);" onclick="downloadTemplate(2);">下载困难认定模版</a>
+												<a href="javaScrip:downloadTemplate(3);" onclick="downloadTemplate(3);">下载困难认定表</a>-->
+
+											</div> <!-- /form-actions -->
+										</fieldset>
+										</form>
+									</div>
+									<div class="widget-content ">
+										<p><strong>已上传附件列表</strong></p>
+										<!--<div class="widget-header">
+											<i class="icon-th-list"></i>
+											<h3>已上传附件列表</h3>
+										</div> -->
+										<table style="table-layout:fixed;" class="table table-striped table-bordered">
+											<thead>
+												<tr>
+													<th>名称</th>
+													<th>上传时间</th>
+													<th class="td-actions">操作</th>
+												</tr>
+											</thead>
+											<tbody id="fileBody">
+
+											</tbody>
+										</table>
+									</div>
+									<br/>
+									<div class="col-lg-5  text-center">
+
+
+
+									</div>
+									<div class="col-lg-5  pull-right">
+										<button id="actionBtn" type="button" class="btn btn-primary"
+										        onclick="saveGreenChannelInfo();">保存信息
+										</button>
+										<!--                                    <button type="button" class="btn btn-warning"-->
+										<!--                                            onclick="exportGreenChannelInfo();">导出信息-->
+										<!--                                    </button>-->
+									</div>
+								</fieldset>
+
+
+							</div> <!-- /widget-content -->
+
+
+						</div> <!-- /widget -->
+
+					</div> <!-- /span8 -->
+
+
+				</div> <!-- /row -->
+
+			</div> <!-- /container -->
+
+		</div> <!-- /main-inner -->
+		<input type="hidden" id="content" name="content" value="&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;1.申请对象&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt; （1）家庭经济困难不能按时缴纳全部学费的新生，可先申请绿色通道延期缴纳部分学费；&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt; （2）申请了生源地信用助学贷款的新生，也可先申请绿色通道，延期缴纳贷款金额；&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;2.&lt;/span&gt;	&lt;strong&gt;专升本新生入学“绿色通道”申请及审批安排&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt; &lt;/strong&gt;（1）专升本新生绿色通道申请时间：&lt;/p&gt;&lt;p&gt;&lt;strong&gt;7月31日08:00-8月11日11:30&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt; &lt;/strong&gt;（2）学校审核时间：&lt;/p&gt;&lt;p&gt;①第一次审核：&lt;strong&gt;8月1日12:00&lt;/strong&gt;，审核8月1日11&lt;strong&gt;:&lt;/strong&gt;59前保存提交的申请数据。&lt;/p&gt;&lt;p&gt;②第二次审核：&lt;strong&gt;8月5日12:00&lt;/strong&gt;，审核8月5日11&lt;strong&gt;:&lt;/strong&gt;59前保存提交的学生申请数据。&lt;/p&gt;&lt;p&gt;③第三次审核：&lt;strong&gt;8月11日12:00&lt;/strong&gt;，审核8月11日11&lt;strong&gt;:&lt;/strong&gt;30前保存提交的学生申请数据。&lt;/p&gt;&lt;p&gt;审批通过后，学生通过线上缴费平台按计划缴费金额自主缴费，缴费成功后，专升本新生可在规定时间内参与选宿舍；&lt;/p&gt;">
+	</div> <!-- /main -->
+
+	<div class="footer">
+
+		<div class="footer-inner">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="span12">
+						<a href="#">版权所有@广州南方学院</a>
+					</div> <!-- /span12 -->
+
+				</div> <!-- /row -->
+
+			</div> <!-- /container -->
+
+		</div> <!-- /footer-inner -->
+
+	</div> <!-- /footer -->
+
+	<div>
+		<!-- Core Javascript - -->
+		<script type="text/javascript" src="/welcome/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/welcome/js/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="/welcome/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/welcome/js/signin.js"></script> <!-- Theme Javascript -->
+		<script type="text/javascript" src="/welcome/js/base.js"></script>
+		<script type="text/javascript" src="/welcome/js/edu.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function () {
+				// Init Theme Core
+				//Core.init();
+
+				//ajax处理session过期问题
+				$.ajaxSetup({
+					contentType:"application/x-www-form-urlencoded;charset=utf-8",
+					complete:function(XMLHttpRequest,textStatus){
+						var sessionstatus=XMLHttpRequest.getResponseHeader("sessionstatus"); //通过XMLHttpRequest取得响应头，sessionstatus，
+						if(sessionstatus=="timeout"){
+							//如果超时就处理 ，指定要跳转的页面
+							bootstrapAlert("提示", "<div class='text-center'><h4>登录超时,请重新登录！</h4></div>", 400, function () {
+								location.replace(location.href);
+							});
+						}
+					}
+				});
+			});
+		</script>
+	</div>
+	<script type="text/javascript" src="/welcome/js/bootstrapAlert.js"></script>
+	<script type="text/javascript" src="/welcome/js/hovertreeshow.js"></script>
+	<script type="text/javascript" src="/welcome/js/jquery.blockUI.min.js"></script>
+	<!--<script type="text/javascript" th:src="@{/js/jquery.min.js}" charset="UTF-8"></script>
+	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>-->
+	<script type="text/javascript" src="/welcome/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="/welcome/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+	<script>
+
+		$(function () {
+			$('.form_date').datetimepicker({
+				language: 'zh-CN',
+				weekStart: 1,
+				todayBtn: 1,
+				autoclose: 1,
+				todayHighlight: 1,
+				startView: 2,
+				minView: 2,
+				forceParse: 0
+			});
+
+			//console.log("<p>1.\u586B\u5199\u201C\u5EF6\u671F\u7F34\u7EB3\u4E13\u4E1A\u5B66\u8D39\u7533\u8BF7\u8868\u201D\uFF0C\u586B\u5199\u5185\u5BB9\u53C2\u8003\u8868\u683C\u4E2D\u7684\u586B\u5199\u8BF4\u660E\u3002</p><p>2.\u4E0A\u4F20\u9644\u4EF6\uFF1A</p><p>\uFF081\uFF09\u5982\u5B66\u751F\u5DF2\u7533\u8BF7\u751F\u6E90\u5730\u4FE1\u7528\u52A9\u5B66\u8D37\u6B3E\uFF0C\u987B\u5C06\u300A\u751F\u6E90\u5730\u4FE1\u7528\u52A9\u5B66\u8D37\u6B3E\u53D7\u7406\u8BC1\u660E\u300B\u62CD\u7167\u4E0A\u4F20\u81F3\u7CFB\u7EDF\uFF0C\u751F\u6E90\u5730\u4FE1\u7528\u52A9\u5B66\u8D37\u6B3E\u5230\u8D26\u540E\u53EF\u76F4\u63A5\u62B5\u6263\u5B66\u8D39\uFF1B</p><p>\uFF082\uFF09 \u5982\u5B66\u751F\u672A\u7533\u8BF7\u751F\u6E90\u5730\u8D37\u6B3E\uFF0C\u5219\u987B\u4E0A\u4F20\u300A\u5E7F\u4E1C\u7701\u5BB6\u5EAD\u7ECF\u6D4E\u56F0\u96BE\u8BA4\u5B9A\u7533\u8BF7\u8868\u300B\u548C\u5BB6\u5EAD\u7ECF\u6D4E\u56F0\u96BE\u76F8\u5173\u4F50\u8BC1\u6750\u6599\uFF0C\u4E0A\u4F20\u683C\u5F0F\u4E3Ajpg/png\u3002\u5176\u4E2D\uFF0C\u300A\u5E7F\u4E1C\u7701\u5BB6\u5EAD\u7ECF\u6D4E\u56F0\u96BE\u8BA4\u5B9A\u7533\u8BF7\u8868\u300B\u987B\u624B\u5199\u7B7E\u5B57\u540E\u62CD\u7167\u4FDD\u5B58\uFF1B</p><p>3.\u4FDD\u5B58\u63D0\u4EA4\u3002</p><p>\u6CE8\u610F\uFF1A\u8BF7\u52A1\u5FC5\u6309\u7167\u8981\u6C42\u586B\u5199\u5EF6\u671F\u7F34\u7EB3\u4E13\u4E1A\u5B66\u8D39\u7533\u8BF7\u4FE1\u606F\uFF0C\u5E76\u4E0A\u4F20\u9644\u4EF6\uFF0C\u5426\u5219\u5BA1\u6838\u4E0D\u901A\u8FC7\u5C06\u5BFC\u81F4\u7533\u8BF7\u4E0D\u6210\u529F\u3002</p>", "1111111");
+			var status = "0";
+			if (status == '3') {
+				$(":input").attr("disabled", "disabled");
+			}
+			//console.log(status, "statusstatusstatus");
+			$("#contentGuide").append("<p>1.\u586B\u5199\u201C\u5EF6\u671F\u7F34\u7EB3\u4E13\u4E1A\u5B66\u8D39\u7533\u8BF7\u8868\u201D\uFF0C\u586B\u5199\u5185\u5BB9\u53C2\u8003\u8868\u683C\u4E2D\u7684\u586B\u5199\u8BF4\u660E\u3002</p><p>2.\u4E0A\u4F20\u9644\u4EF6\uFF1A</p><p>\uFF081\uFF09\u5982\u5B66\u751F\u5DF2\u7533\u8BF7\u751F\u6E90\u5730\u4FE1\u7528\u52A9\u5B66\u8D37\u6B3E\uFF0C\u987B\u5C06\u300A\u751F\u6E90\u5730\u4FE1\u7528\u52A9\u5B66\u8D37\u6B3E\u53D7\u7406\u8BC1\u660E\u300B\u62CD\u7167\u4E0A\u4F20\u81F3\u7CFB\u7EDF\uFF0C\u751F\u6E90\u5730\u4FE1\u7528\u52A9\u5B66\u8D37\u6B3E\u5230\u8D26\u540E\u53EF\u76F4\u63A5\u62B5\u6263\u5B66\u8D39\uFF1B</p><p>\uFF082\uFF09 \u5982\u5B66\u751F\u672A\u7533\u8BF7\u751F\u6E90\u5730\u8D37\u6B3E\uFF0C\u5219\u987B\u4E0A\u4F20\u300A\u5E7F\u4E1C\u7701\u5BB6\u5EAD\u7ECF\u6D4E\u56F0\u96BE\u8BA4\u5B9A\u7533\u8BF7\u8868\u300B\u548C\u5BB6\u5EAD\u7ECF\u6D4E\u56F0\u96BE\u76F8\u5173\u4F50\u8BC1\u6750\u6599\uFF0C\u4E0A\u4F20\u683C\u5F0F\u4E3Ajpg/png\u3002\u5176\u4E2D\uFF0C\u300A\u5E7F\u4E1C\u7701\u5BB6\u5EAD\u7ECF\u6D4E\u56F0\u96BE\u8BA4\u5B9A\u7533\u8BF7\u8868\u300B\u987B\u624B\u5199\u7B7E\u5B57\u540E\u62CD\u7167\u4FDD\u5B58\uFF1B</p><p>3.\u4FDD\u5B58\u63D0\u4EA4\u3002</p><p>\u6CE8\u610F\uFF1A\u8BF7\u52A1\u5FC5\u6309\u7167\u8981\u6C42\u586B\u5199\u5EF6\u671F\u7F34\u7EB3\u4E13\u4E1A\u5B66\u8D39\u7533\u8BF7\u4FE1\u606F\uFF0C\u5E76\u4E0A\u4F20\u9644\u4EF6\uFF0C\u5426\u5219\u5BA1\u6838\u4E0D\u901A\u8FC7\u5C06\u5BFC\u81F4\u7533\u8BF7\u4E0D\u6210\u529F\u3002</p>");
+			// jQuery.validator.methods.delayTime = function(value, element,param) {
+			//     var delayEndTime= "2023-01-06";
+			//     var date1 = new Date(Date.parse(value.replace("-", "/")));
+			//     var date2 = new Date(Date.parse(delayEndTime.replace("-", "/")));
+			//     //console.log(date1 < date2, "delayTime");
+			//     return date1 < date2;
+			// };
+			// jQuery.validator.methods.delayTime2 = function(value, element,param) {
+			//     var date1 = new Date(Date.parse(value.replace("-", "/")));
+			//     var date2 = new Date();
+			//     //只对比年月日,忽略时分秒
+			//     //date2.setHours(date1.getHours());
+			//     //date2.setMinutes(date1.getMinutes());
+			//     //date2.setSeconds(date1.getSeconds());
+			//     //console.log(date1, "date1");
+			//     //console.log(date2, "date2");
+			//     //console.log(date1 > date2, "delayTime2");
+			//     return date1 > date2;
+			// };
+			jQuery.validator.addMethod("isName", function(value, element) {
+				var isName = /^[\u4E00-\u9FA5]{2,4}$/;
+				return this.optional(element) ||  isName.test(value);
+			}, "请正确填写姓名");
+			$("#greenChannelInfo").validate({
+				rules: {
+					qgksh: {
+						required: true,
+					},
+					totalFees: {
+						required: true,
+						decimalsValue: true,
+						maxlength: 18,
+					},
+					planPayFees: {
+						required: true,
+						decimalsValue: true,
+						maxlength: 18,
+					},
+					delayPayFees: {
+						required: true,
+						decimalsValue: true,
+						maxlength: 18,
+					},
+					delayPayEndtime: {
+						required: true,
+						// delayTime:"#delayPayEndtime",
+						// delayTime2:"#delayPayEndtime",
+					},
+					repayPlan: {
+						required: true,
+						maxlength: 255,
+					},
+					fatherName: {
+						// required: true,
+						isName:true,
+						maxlength: 20
+					},
+					motherName: {
+						isName:true,
+						// required: true,
+						maxlength: 20
+					},
+					otherName: {
+						// required: true,
+						maxlength: 20
+					},
+					fatherCompany: {
+						// required: true,
+						maxlength: 100
+					},
+					motherCompany: {
+						// required: true,
+						maxlength: 100
+					},
+					otherCompany: {
+						// required: true,
+						maxlength: 100
+					},
+					fatherMonthlyIncome: {
+						// required: true,
+						decimalsValue: true,
+						maxlength: 18,
+					},
+					motherMonthlyIncome: {
+						// required: true,
+						decimalsValue: true,
+						maxlength: 18,
+					},
+					otherMonthlyIncome: {
+						// required: true,
+						decimalsValue: true,
+						maxlength: 18,
+					},
+					remark: {
+						required: true,
+						maxlength: 255,
+					}
+				},
+				messages: {
+					qgksh: {
+						required: "请输入全国考生号",
+					},
+					totalFees: {
+						required: "请输入学杂费总金额",
+						decimalsValue: "金额必须是大于等于0并且只能精确到分的数字",
+						maxlength: "金额不能超过18位",
+					},
+					planPayFees: {
+						required: "请输入计划缴费金额",
+						decimalsValue: "金额必须是大于等于0并且只能精确到分的数字",
+						maxlength: "金额不能超过18位",
+					},
+					delayPayFees: {
+						required: "请输入延迟缴费金额",
+						decimalsValue: "金额必须是大于等于0并且只能精确到分的数字",
+						maxlength: "金额不能超过18位",
+					},
+					delayPayEndtime: {
+						required: "请输入承诺缴清日期",
+						//     delayTime:"承诺缴清日期不得超过" + "2023-01-06",
+						//     delayTime2:"承诺缴清日期不得早于当前时间",
+					},
+					repayPlan: {
+						required: "请输入还款计划",
+						maxlength: "还款计划描述最多255个字符",
+					},
+					fatherName: {
+						required: "请输入父亲姓名",
+						maxlength: "姓名最多20个字符",
+						isName:"请输入正确姓名",
+					},
+					motherName: {
+						required: "请输入母亲姓名",
+						maxlength: "姓名最多20个字符",
+						isName:"请输入正确姓名",
+					},
+					otherName: {
+						required: "请输入其他姓名",
+						maxlength: "姓名最多20个字符",
+						isName:"请输入正确姓名",
+					},
+					fatherCompany: {
+						required: "请输入父亲工作单位",
+						maxlength: "工作单位名称最多100个字符"
+					},
+					motherCompany: {
+						required: "请输入母亲工作单位",
+						maxlength: "工作单位名称最多100个字符"
+					},
+					otherCompany: {
+						required: "请输入其他亲属工作单位",
+						maxlength: "工作单位名称最多100个字符"
+					},
+					fatherMonthlyIncome: {
+						required: "请输入父亲月收入",
+						decimalsValue: "金额必须是大于等于0并且只能精确到分的数字",
+						maxlength: "金额不能超过18位",
+					},
+					motherMonthlyIncome: {
+						required: "请输入母亲月收入",
+						decimalsValue: "金额必须是大于等于0并且只能精确到分的数字",
+						maxlength: "金额不能超过18位",
+					},
+					otherMonthlyIncome: {
+						required: "请输入其他亲属月收入",
+						decimalsValue: "金额必须是大于等于0并且只能精确到分的数字",
+						maxlength: "金额不能超过18位",
+					},
+					remark: {
+						required: "请输入延迟缴费的原因",
+						maxlength: "延迟缴费原因最多255个字符",
+					}
+				}
+
+			});
+			/*var tips = "<div class='text-center'><h4>" +
+				"<p><strong>第一次开放</strong></p>"+
+				"<p style='color:red;'>1.学生申请:8月22上午10:00至8月23日晚上00:00,学生可录入信息,提交绿色通道申请,不能选宿舍(期间请及时查看审核状态和意见,如需修改,须及時修改信息重新提交)</p>"+
+				"<p style='color:red;'>2.系统关闭:8月23日00:00,绿色通道系统申请准时关闭,学生只能查看不能申请</p>"+
+				"<p style='color:red;'>3.学校审核:8月22日-8月24日上午10:00</p>"+
+				"<p><strong>第二次开放</strong></p>"+
+				"<p style='color:red;'>1.学生申请:8月24日12:00至8月29日17:00,第一次未及时申请或审核未通过又未能及时修改信息提交审核的学生,可以提交绿色通道申请或修改信息后二次提交(期间请及时查看审核状态和意见,如需修改,须及时修改信息重新提交)</p>"+
+				"<p style='color:red;'>2.系统关闭:8月29日17:00,绿色通道系统申请准时关闭,学生只能查看不能申请,不能选宿舍</p>"+
+				"<p style='color:red;'>3.学校审核:8月29日17:00至8月31日上午10:00</p>"+
+				"</h4></div>";*/
+			//2019提示变更为如下
+			var content = $("#content").val();
+			//.log(content, "content");
+			var tips = "<div class='text-center'>" +
+					content +
+					// "<h4>" +
+					// "<p style='color:red;'>1.学生申请： 8月16日上午10:00-8月21日晚上24:00,学生可录入信息,提交绿色通道申请，不能选宿舍。</p>"+
+					// "<p style='color:red;'>2.学校审核：学校将于8月22日上午10:00-8月23日下午17:00期间进行审核，请新生在此期间密切关注审核情况。如审核未通过，需及时修改信息重新提交。</p>"+
+					// "<p style='color:red;'>3.系统关闭：绿色通道系统将于8月23日下午17:00准时关闭，学生只能查看，不能申请或修改。</p>"+
+					// "</h4>" +
+					"</div>";
+
+			bootstrapAlert("绿色通道提示", tips, 400);
+
+		});
+		var filesGloab = [];
+
+		//保存申请信息
+		function saveGreenChannelInfo() {
+			if ($("#greenChannelInfo").valid()) {
+				//去掉validator的校验承诺缴清日期,因为校验不够灵敏,有bug,改为手动校验
+				//delayTime:"承诺缴清日期不得超过" + "2023-01-06",
+				//delayTime2:"承诺缴清日期不得早于当前时间",
+				let delayEndTime= "2023-01-06";
+				//console.log(delayEndTime, "delayEndTime");
+				let delayPayEndtimeVal = $("#delayPayEndtime").val();
+				//console.log(delayPayEndtimeVal, "delayPayEndtimeVal");
+				const date1 = new Date(Date.parse(delayPayEndtimeVal.replace(/-/g, "/")));
+				const date2 = new Date(Date.parse(delayEndTime.replace(/-/g, "/")));
+				//console.log(date1 < date2, "delayTime");
+				if(date1 > date2){
+					bootstrapAlert("提示", "<div class='text-center'><h4>承诺缴清日期不得超过" + delayEndTime + "</h4></div>", 400);
+					return;
+				}
+				const date3 = new Date();
+				if(date1 < date3){
+					bootstrapAlert("提示", "<div class='text-center'><h4>承诺缴清日期不得早于当前时间</h4></div>", 400);
+					return;
+				}
+				//console.info(filesGloab, "filesfiles");
+				if (filesGloab == null || filesGloab.length < 1) {
+					bootstrapAlert("提示", "<div class='text-center'><h4>请先添加并上传附件！</h4></div>", 400);
+					return;
+				}
+				$("#greenChannelInfo").submit();
+				$("#actionBtn").attr("disabled", true);
+			}
+		}
+
+		function countDelayPayFees() {
+			var totalFees = $("#totalFees").val();
+			var planPayFees = $("#planPayFees").val();
+			if (totalFees != null && planPayFees != null) {
+				var delayPayFees = $("#delayPayFees").val(totalFees - planPayFees);
+			}
+		}
+
+		//生成申请表word文档
+		function exportGreenChannelInfo() {
+			var url = "/welcome/greenchannel/exportgcinfo";
+			url = encodeURI(url);
+			location.href = url;
+		}
+
+		function viewFile(fileId) {
+			var imgUrl = "/welcome/greenchannel/getgcimage";
+			imgUrl += "?fileId=" + fileId;
+			displayBigImage(imgUrl);
+		}
+
+		//提交表单
+		function submitForm() {
+			var files = $("[name='file']");
+			var flag = true;
+			var totalSize = 0;
+			var form = new FormData();
+			$.each(files, function (index, file) {
+				var filename = $(file).val();
+				var suffix = filename.toLowerCase().split(".");
+				if (filename == "" || (suffix[suffix.length - 1] != "jpg" && suffix[suffix.length - 1] != "png")) {
+					flag = false;
+					return false;
+				}
+				totalSize += $(file)[0].files[0].size;
+				if (totalSize > 10240 * 1024) {
+					flag = false;
+					return false;
+				}
+				form.append("files", $(file)[0].files[0]);
+			});
+			if (files.length > 0 && flag) {
+				bootstrapConfirm("上传附件", "<div class='text-center'><h4>是否确定上传附件？</h4></div>", 400, function () {
+					//openBootstrapShade(true);
+					// FormData 对象
+					// 可以增加表单数据
+					// 存入文件对象
+					$.ajax({
+						url:"/welcome/greenchannel/uploadFilesAjax",
+						type: 'POST',
+						cache: false,
+						data: form,
+						processData: false,
+						contentType: false,
+						enctype: "multipart/form-data",
+						dataType: "json",
+						beforeSend: function () {
+							// 图标转转转
+							$.blockUI({message: '<h4><img th:src="@{/img/css_Wait.gif}" /> 请求中,请稍等...</h4>'});
+
+						},
+						complete: function () {
+							$.unblockUI();
+							$("#uploadActionBtn").attr("disabled", false);
+						},
+						success: function (data) {
+							$("#uploadActionBtn").attr("disabled", false);
+							if (data.code == 1) {
+								bootstrapConfirm("成功", "<div class='text-center'><h4>上传成功！</h4></div>", 400);
+								getFiles();
+								$("#files").empty();
+							} else {
+								bootstrapConfirm("失败", "<div class='text-center'><h4>上传文件失败！" + data.resultObject + "</h4></div>", 400);
+							}
+						}
+					});
+
+					// $("#uploadfiles").submit();
+					$("#uploadActionBtn").attr("disabled", true);
+				});
+			} else {
+				bootstrapAlert("提示", "<div class='text-center'><h4>没有选择附件或所选附件不是小于10M的jpg/png格式</h4></div>", 400);
+			}
+		}
+
+		function getFiles() {
+			$("#fileBody").empty();
+			$.ajax({
+				url:"/welcome/greenchannel/getFilesAjax",
+				type: 'POST',
+				cache: false,
+				data: {},
+				processData: false,
+				contentType: false,
+				enctype: "multipart/form-data",
+				dataType: "json",
+				beforeSend: function () {
+					// 图标转转转
+					$.blockUI({message: '<h4><img th:src="@{/img/css_Wait.gif}" /> 请求中,请稍等...</h4>'});
+				},
+				complete: function () {
+					$.unblockUI();
+				},
+				success: function (data) {
+					var files = data.files;
+					filesGloab = data.files;
+					var tbodyHtml = "";
+					$.each(files, function (index, obj) {
+						obj.filename = "'" + obj.filename + "'";
+						//添加行
+						var rowTemplate = "<tr>\n" +
+								"<td class=\"td-files\">" + obj.filename + "</td>\n" +
+								"<td class=\"td-files\">" + dateFormat("YYYY-mm-dd HH:MM:SS", obj.uploadtime) + "</td>\n" +
+								"<td class=\"td-files td-actions\">\n" +
+								"<a href=\"javascript:delFile(" + obj.id + ',' + obj.filename + ");\"" +
+								" class=\"btn btn-danger btn-small\"><i\n" +
+								"class=\"btn-icon-only icon-remove\"> </i></a>\n" +
+								"<a href=\"javascript:viewFile(" + obj.id + ");\"" +
+								" class=\"btn btn-success btn-small\"><i\n" +
+								" class=\"btn-icon-only icon-eye-open\"> </i></a>\n" +
+								" </td>\n" +
+								" </tr>";
+						tbodyHtml += rowTemplate;
+					});
+					$("#fileBody").html(tbodyHtml);
+				}
+			});
+		}
+
+		// var fileIndext = 0;
+		//添加行
+		function addrow() {
+			// fileIndext += fileIndext;
+			// "+fileIndext+"
+			var rowTemplate = "<tr>" +
+					"<td><input type=\"file\" class=\"span4\" style=\"border:#1399dc 1px solid;\" name=\"file\" accept=\"image\/\*\"/></td>" +
+					"<td class=\"td-actions\"><a href=\"javascript:;\" class=\"btn btn-danger btn-small\" onclick='delRow(this);'><i class=\"btn-icon-only icon-remove\"> </i></a></td>" +
+					"</tr>"
+			$("#files").append(rowTemplate);
+		}
+
+		//刪除行
+		function delRow(elment) {
+			$(elment).parent().parent().remove();
+		}
+
+		function delFile(fileId, fileName) {
+			bootstrapConfirm("删除文件", "<div class='text-center'><h4>是否确定删除文件：" + fileName + "？</h4></div>", 400, function () {
+				$.ajax({
+					url: "/welcome/greenchannel/delfile",
+					type: "get",
+					async: false,
+					dataType: "json",
+					data: {"fileId": fileId},
+					success: function (data) {
+						if (data.code == 1) {
+							bootstrapConfirm("成功", "<div class='text-center'><h4>删除成功！</h4></div>", 400);
+							getFiles();
+							getFiles();
+						} else {
+							bootstrapConfirm("失败", "<div class='text-center'><h4>删除文件失败！" + data.resultObject + "</h4></div>", 400);
+						}
+					}
+				});
+			});
+		}
+
+		//刪除上传的文件
+		function delFile2(fileId, fileName) {
+			bootstrapConfirm("删除文件", "<div class='text-center'><h4>是否确定删除文件：" + fileName + "？</h4></div>", 400, function () {
+				$.ajax({
+					url: "/welcome/greenchannel/delfile",
+					type: "get",
+					async: false,
+					dataType: "json",
+					data: {"fileId": fileId},
+					success: function (data) {
+						var path = "/welcome/selectroom/toselectroomresultpage";
+						path = path + "?code=" + data.code + "&resultObject=" + data.resultObject;
+						window.location.href = path;
+					}
+				});
+			});
+		}
+
+		function downloadTemplate(type) {
+			var url = "/welcome/greenchannel/downloadfile";
+			url += "?type=" + type;
+			url = encodeURI(url);
+			location.href = url;
+		}
+
+		function dateFormat(fmt, date1) {
+			var date = new Date(date1);
+			let ret;
+			const opt = {
+				"Y+": date.getFullYear().toString(),        // 年
+				"m+": (date.getMonth() + 1).toString(),     // 月
+				"d+": date.getDate().toString(),            // 日
+				"H+": date.getHours().toString(),           // 时
+				"M+": date.getMinutes().toString(),         // 分
+				"S+": date.getSeconds().toString()          // 秒
+				// 有其他格式化字符需求可以继续添加，必须转化成字符串
+			};
+			for (let k in opt) {
+				ret = new RegExp("(" + k + ")").exec(fmt);
+				if (ret) {
+					fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
+				}
+				;
+			}
+			;
+			return fmt;
+		}
+	</script>
+</body>
+
+</html>

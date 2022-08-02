@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<button class="send_btn">发送请求</button>
+	<script>
+		const btn = document.querySelector(".send_btn");
+		btn.addEventListener("click",function (){
+			selectBed();
+		})
+		function selectBed(){
+			let xmlhttp = null;
+			if (window.XMLHttpRequest){
+				xmlhttp = new XMLHttpRequest();
+			}
+			if (!xmlhttp) return;
+			xmlhttp.onreadystatechange=function()
+			{
+				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+					// document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+					console.log(xmlhttp.responseText)
+				}
+			}
+
+			// 跨域无法请求
+			//http://xsm.nfu.edu.cn/welcome/selectroom/getlegalfloors?ldid=33
+			xmlhttp.open("GET","http://xsm.nfu.edu.cn/welcome/selectroom/getlegalfloors?ldid=33")
+			xmlhttp.send()
+		}
+
+	</script>
+</body>
+</html>

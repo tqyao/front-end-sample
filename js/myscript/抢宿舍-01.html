@@ -1,0 +1,1812 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>广州南方学院迎新系统</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<!-- Core CSS  -->
+	<link rel="stylesheet" type="text/css" href="/welcome/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/welcome/css/bootstrap-responsive.min.css">
+	<link rel="stylesheet" type="text/css" href="/welcome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="/welcome/css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="/welcome/css/pages/signin.css"/>
+	<link rel="stylesheet" type="text/css" href="/welcome/css/step.css"/>
+	<link rel="stylesheet" type="text/css" href="/welcome/css/edu.css"/>
+	<link rel="stylesheet" type="text/css" href="/welcome/css/screen.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/welcome/css/jquery.treetable.css" />
+	<link rel="stylesheet" type="text/css" href="/welcome/css/jquery.treetable.theme.default.css" />
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="/welcome/img/logo.ico"/>
+	<!-- Theme End -->
+
+</head>
+
+<body>
+	<!--<style type="text/css">
+		.dormRecommended{
+			text-align: center;
+			vertical-align: center;
+		}
+	</style>-->
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="/">
+					广州南方学院迎新系统
+				</a>
+				<div class="nav-collapse">
+					<ul class="nav pull-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="icon-user"></i>
+								<span>谭钦瑶</span>
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="/welcome/logout">安全退出</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div> <!-- /container -->
+		</div> <!-- /navbar-inner -->
+	</div> <!-- /navbar -->
+
+	<div class="subnavbar">
+
+		<div class="subnavbar-inner">
+
+			<div class="container">
+
+				<ul class="mainnav">
+
+					<li>
+						<a href="/welcome/">
+							<i class="icon-home"></i>
+							<span>首页</span>
+						</a>
+					</li>
+
+					<li>
+						<a href="/welcome/studentprofile">
+							<i class="icon-list-alt"></i>
+							<span>信息录入</span>
+						</a>
+					</li>
+
+					<li class="active">
+						<a href="/welcome/toselectroompage">
+							<i class="icon-building"></i>
+							<span>选择宿舍</span>
+						</a>
+					</li>
+
+					<li>
+						<a href="/welcome/toreportpage">
+							<i class="icon-compass"></i>
+							<span>报到状态</span>
+						</a>
+					</li>
+					<li>
+						<a href="/welcome/toQRcode">
+							<i class="icon-windows"></i>
+							<span>常用二维码</span>
+						</a>
+					</li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li>
+						<a href="/welcome/togreenchannelpage">
+							<i class="icon-dashboard"></i>
+							<span>家庭经济困难新生入学绿色通道</span>
+						</a>
+					</li>
+				</ul>
+
+			</div> <!-- /container -->
+
+		</div> <!-- /subnavbar-inner -->
+
+	</div> <!-- /subnavbar -->
+
+
+	<div class="main">
+
+		<div class="main-inner">
+
+			<div class="container">
+
+				<!--<div class="row">
+
+					<div class="span12">
+						<div class="widget widget-nopad">
+							<div class="widget-header"> <i class="icon-list-alt"></i>
+								<h3> 系统推荐</h3>
+							</div>
+							<div class="widget-content" style="padding:20px 20px">
+								<table class="table table-striped table-hover table-condensed">
+									<tr>
+										<th>楼栋</th>
+										<th>楼层</th>
+										<th>房间</th>
+										<th>操作</th>
+									</tr>
+									<tr th:each="recommendedRoom:${recommendedRooms}">
+										<td th:text="${recommendedRoom.ldm}"></td>
+										<td th:text="'第'+${recommendedRoom.floor}+'层'"></td>
+										<td th:text="${recommendedRoom.fjh}"></td>
+										<td>
+											<button class="btn btn-primary" th:onclick="'javascript:checkRecommendedRoom('+${recommendedRoom.ldid}+','+${recommendedRoom.floor}+','+${recommendedRoom.fjh}+')'">查看详情</button>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>-->
+
+
+				<div class="row">
+
+					<div class="span12">
+						<div class="widget">
+							<div class="widget-header"><i class="icon-list-alt"></i>
+								<h3> 筛选条件</h3>
+							</div>
+							<div class="widget-content">
+								<div class="tabbable">
+									<ul id="selectTab" class="nav nav-tabs">
+										<li class="active">
+											<a onclick="clearLable(1)" href="#rocontrols" data-toggle="tab">系统自动分配</a>
+										</li>
+										<li>
+											<a onclick="clearLable(2)" href="#chcontrols" data-toggle="tab">按照床位号选</a>
+										</li>
+										<li>
+											<a onclick="clearLable(3)" href="#ldcontrols" data-toggle="tab">按照楼栋信息选</a>
+										</li>
+										<li>
+											<a onclick="clearLable(4)" href="#sycontrols" data-toggle="tab">按照舍友类型选</a>
+										</li>
+									</ul>
+									<div class="tab-content">
+										<div id="ldcontrols" class="tab-pane" style="padding:20px 20px">
+											<form id="edit-profile" class="form-horizontal">
+												<fieldset>
+													<input type="hidden" value="" id="sfSelectedBed"
+													       name="sfSelectedBed">
+													<div class="alert">
+														<strong>提示:</strong>
+														<span style="color:red">还未选择床位,请根据楼栋楼层筛选选择自己喜欢的床位</span>
+													</div>
+													<!--<div class="control-group">
+														<label class="control-label">是否空宿舍</label>
+														<div class="controls">
+															<label class="radio inline">
+																<input type="radio" name="emptyFlag" value="1"> 是
+															</label>
+															<label class="radio inline">
+																<input checked="checked" type="radio" name="emptyFlag"
+																	   value="0"> 否
+															</label>
+														</div>
+													</div>-->
+													<div class="control-group">
+														<label class="control-label">楼栋楼层</label>
+														<div class="controls">
+															<select class="form-control" name="ldid" id="ldid"
+															        onchange="getFloors(this.value)">
+																<option value="">请选择楼栋</option>
+																<span>
+                                                <option value="33">东学楼33号</option>
+                                                 </span>
+															</select>
+
+															<select class="form-control" name="lc" id="lc">
+																<option value="">请选择楼层</option>
+															</select>
+															<button name="selectRooms" type="button" class="btn btn-primary"
+															        onclick="">查询房间
+															</button>
+														</div>
+
+													</div>
+													<!-- <div class="control-group">
+														 <div class="widget-content">
+															 <p style="color:red;">可点击“房间信息”查看可用床位</p>
+														 </div>
+													 </div>-->
+													<!--  <select class="form-control" name="fj" id="fj"
+															  onchange="getInterests(this.value)">
+														  <option value="">请选择房间</option>
+													  </select>
+		-->
+													<!-- <button name="checkBeds" type="button" class="btn btn-primary"
+															 onclick="getBeds();">查询床位
+													 </button>-->
+													<!--
+													<button id="fxbutton" type="button" class="btn btn-primary" onclick="viewHx();">显示户型</button>
+													-->
+												</fieldset>
+											</form>
+											<!-- /widget-content -->
+
+										</div>
+										<div id="chcontrols" class="tab-pane " style="padding:20px 20px">
+											<form id="edit-chcontrols" class="form-horizontal">
+												<fieldset>
+
+													<div class="alert">
+														<strong>提示:</strong>
+														<span style="color:red">还未选择床位,请根据床位号筛选选择自己喜欢的床位</span>
+													</div>
+													<div class="control-group">
+														<label class="control-label">床位号</label>
+														<div class="controls">
+															<label class="radio inline">
+																<input type="radio" name="ch" value="A"> A
+															</label>
+															<label class="radio inline">
+																<input type="radio" name="ch" value="B"> B
+															</label>
+															<label class="radio inline">
+																<input type="radio" name="ch" value="C"> C
+															</label>
+															<label class="radio inline">
+																<input type="radio" name="ch" value="D"> D
+															</label>
+															<button name="selectRoomsByCh" type="button"
+															        class="btn btn-primary"
+															        onclick="getRoomsByCh(1)">查询房间
+															</button>
+														</div>
+
+													</div>
+													<!-- <div class="control-group">
+														 <div class="widget-content">
+															 <p style="color:red;">可点击“房间信息”查看可用床位</p>
+														 </div>
+													 </div>-->
+												</fieldset>
+											</form>
+
+										</div>
+										<div id="sycontrols" class="tab-pane " style="padding:20px 20px">
+											<form id="edit-sycontrols" class="form-horizontal ">
+												<fieldset>
+
+													<div class="alert">
+														<strong>提示:</strong>
+														<span style="color:red">还未选择床位,请根据下面的筛选条件选择自己喜欢的床位</span>
+													</div>
+													<div class="control-group">
+														<label class="control-label">专业年级</label>
+														<div class="controls">
+															<select class="form-control" name="zy" id="zyid">
+																<option value="">请选择专业</option>
+																<span>
+                                                             <option value="1">计算机科学与技术</option>
+                                                        </span><span>
+                                                             <option value="2">电子信息科学与技术</option>
+                                                        </span><span>
+                                                             <option value="3">通信工程</option>
+                                                        </span><span>
+                                                             <option value="4">电气工程及其自动化</option>
+                                                        </span><span>
+                                                             <option value="5">软件工程</option>
+                                                        </span><span>
+                                                             <option value="6">行政管理</option>
+                                                        </span><span>
+                                                             <option value="7">公共关系学</option>
+                                                        </span><span>
+                                                             <option value="8">人力资源管理</option>
+                                                        </span><span>
+                                                             <option value="9">文化产业管理</option>
+                                                        </span><span>
+                                                             <option value="10">会计学</option>
+                                                        </span><span>
+                                                             <option value="11">财务管理</option>
+                                                        </span><span>
+                                                             <option value="12">审计学</option>
+                                                        </span><span>
+                                                             <option value="13">护理学</option>
+                                                        </span><span>
+                                                             <option value="14">工商管理</option>
+                                                        </span><span>
+                                                             <option value="15">市场营销</option>
+                                                        </span><span>
+                                                             <option value="16">物流管理</option>
+                                                        </span><span>
+                                                             <option value="17">电子商务</option>
+                                                        </span><span>
+                                                             <option value="18">经济学</option>
+                                                        </span><span>
+                                                             <option value="19">国际经济与贸易</option>
+                                                        </span><span>
+                                                             <option value="20">旅游管理</option>
+                                                        </span><span>
+                                                             <option value="21">国际商务</option>
+                                                        </span><span>
+                                                             <option value="22">金融工程</option>
+                                                        </span><span>
+                                                             <option value="23">英语</option>
+                                                        </span><span>
+                                                             <option value="24">日语</option>
+                                                        </span><span>
+                                                             <option value="25">汉语国际教育</option>
+                                                        </span><span>
+                                                             <option value="26">法语</option>
+                                                        </span><span>
+                                                             <option value="27">朝鲜语</option>
+                                                        </span><span>
+                                                             <option value="28">汉语言文学</option>
+                                                        </span><span>
+                                                             <option value="29">新闻学</option>
+                                                        </span><span>
+                                                             <option value="30">网络与新媒体</option>
+                                                        </span><span>
+                                                             <option value="31">医学检验技术</option>
+                                                        </span><span>
+                                                             <option value="32">艺术设计学</option>
+                                                        </span><span>
+                                                             <option value="33">数字媒体艺术</option>
+                                                        </span><span>
+                                                             <option value="34">公共艺术</option>
+                                                        </span><span>
+                                                             <option value="35">数字媒体技术</option>
+                                                        </span><span>
+                                                             <option value="36">音乐学</option>
+                                                        </span><span>
+                                                             <option value="37">政商研究</option>
+                                                        </span><span>
+                                                             <option value="38">会计学(ACCA)</option>
+                                                        </span><span>
+                                                             <option value="39">电子信息类</option>
+                                                        </span><span>
+                                                             <option value="40">计算机类</option>
+                                                        </span><span>
+                                                             <option value="42">金融工程(中外联合培养)</option>
+                                                        </span><span>
+                                                             <option value="43">电子商务(中外联合培养)</option>
+                                                        </span><span>
+                                                             <option value="44">物流管理(中外联合培养)</option>
+                                                        </span><span>
+                                                             <option value="45">计算机科学与技术（中外联合培养）</option>
+                                                        </span><span>
+                                                             <option value="46">会计学(中外联合培养)</option>
+                                                        </span><span>
+                                                             <option value="47">互联网金融</option>
+                                                        </span><span>
+                                                             <option value="48">金融学</option>
+                                                        </span><span>
+                                                             <option value="49">公共管理类</option>
+                                                        </span><span>
+                                                             <option value="50">金融学类</option>
+                                                        </span><span>
+                                                             <option value="51">设计学类</option>
+                                                        </span><span>
+                                                             <option value="52">智能科学与技术</option>
+                                                        </span><span>
+                                                             <option value="53">国际商务(中外联合培养)</option>
+                                                        </span><span>
+                                                             <option value="54">新闻学(中外联合培养)</option>
+                                                        </span><span>
+                                                             <option value="55">工商管理类</option>
+                                                        </span><span>
+                                                             <option value="56">工商管理类（商学院）</option>
+                                                        </span><span>
+                                                             <option value="57">工商管理类（会计学院）</option>
+                                                        </span><span>
+                                                             <option value="58">工商管理类（公共管理学系）</option>
+                                                        </span><span>
+                                                             <option value="59">计算机类(中外联合培养)</option>
+                                                        </span><span>
+                                                             <option value="61">公共艺术（专升本）</option>
+                                                        </span><span>
+                                                             <option value="62">计算机科学与技术（专升本）</option>
+                                                        </span><span>
+                                                             <option value="63">行政管理（专升本）</option>
+                                                        </span><span>
+                                                             <option value="73">汉语言文学（达人书院）</option>
+                                                        </span><span>
+                                                             <option value="74">英语（达人书院）</option>
+                                                        </span><span>
+                                                             <option value="75">公共关系学（达人书院）</option>
+                                                        </span><span>
+                                                             <option value="77">行政管理（达人书院）</option>
+                                                        </span><span>
+                                                             <option value="78">人力资源管理（专升本）</option>
+                                                        </span><span>
+                                                             <option value="79">新闻学（达人书院）</option>
+                                                        </span><span>
+                                                             <option value="80">计算机科学与技术（达人书院）</option>
+                                                        </span><span>
+                                                             <option value="89">数据科学与大数据技术</option>
+                                                        </span><span>
+                                                             <option value="90">康复治疗学</option>
+                                                        </span><span>
+                                                             <option value="91">会计学（达人书院）</option>
+                                                        </span><span>
+                                                             <option value="96">工商管理（达人书院）</option>
+                                                        </span><span>
+                                                             <option value="98">会计学（专升本）</option>
+                                                        </span><span>
+                                                             <option value="99">财务管理（专升本）</option>
+                                                        </span><span>
+                                                             <option value="101">工商管理（专升本）</option>
+                                                        </span><span>
+                                                             <option value="102">市场营销（专升本）</option>
+                                                        </span><span>
+                                                             <option value="105">国际经济与贸易（专升本）</option>
+                                                        </span><span>
+                                                             <option value="106">金融学（专升本）</option>
+                                                        </span><span>
+                                                             <option value="108">英语（专升本）</option>
+                                                        </span><span>
+                                                             <option value="109">汉语国际教育（专升本）</option>
+                                                        </span><span>
+                                                             <option value="110">汉语言文学（专升本）</option>
+                                                        </span><span>
+                                                             <option value="111">电子商务（专升本）</option>
+                                                        </span><span>
+                                                             <option value="112">软件工程（专升本）</option>
+                                                        </span><span>
+                                                             <option value="113">电气工程及其自动化（专升本）</option>
+                                                        </span><span>
+                                                             <option value="114">电子信息科学与技术（专升本）</option>
+                                                        </span><span>
+                                                             <option value="115">艺术设计学（专升本）</option>
+                                                        </span><span>
+                                                             <option value="116">数字经济</option>
+                                                        </span><span>
+                                                             <option value="117">大数据管理与应用</option>
+                                                        </span><span>
+                                                             <option value="120">人力资源管理（达人书院）</option>
+                                                        </span><span>
+                                                             <option value="121">数字媒体艺术（专升本）</option>
+                                                        </span><span>
+                                                             <option value="122">数据科学与大数据技术(中外联合培养)</option>
+                                                        </span><span>
+                                                             <option value="123">金融学(中外联合培养)</option>
+                                                        </span><span>
+                                                             <option value="124">中药学</option>
+                                                        </span><span>
+                                                             <option value="125">中药制药</option>
+                                                        </span><span>
+                                                             <option value="126">健康服务与管理</option>
+                                                        </span>
+															</select>
+															<select class="form-control" name="sznj" id="sznj">
+																<option value="">请选择年级</option>
+																<span>
+                                                        <option value="2022">2022</option>
+                                                        </span><span>
+                                                        <option value="2021">2021</option>
+                                                        </span><span>
+                                                        <option value="2020">2020</option>
+                                                        </span><span>
+                                                        <option value="2019">2019</option>
+                                                        </span><span>
+                                                        <option value="2018">2018</option>
+                                                        </span><span>
+                                                        <option value="2017">2017</option>
+                                                        </span>
+															</select>
+															<!-- <span style="color:red">专业和所在年级至少选一个</span>-->
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label">作息时间</label>
+														<div class="controls">
+															<select class="form-control" name="wakeupTime" id="wakeupTime">
+																<option value="">请选择起床时间</option>
+																<span>
+                                            <option value="0">早上6点到7点</option>
+                                                </span><span>
+                                            <option value="1">7点到8点30</option>
+                                                </span><span>
+                                            <option value="2">8点30分以后</option>
+                                                </span>
+															</select>
+
+															<select class="form-control" name="sleepingTime"
+															        id="sleepingTime">
+																<option value="">请选择睡觉时间</option>
+																<span>
+                                            <option value="0">晚上9点30到11点</option>
+                                                </span><span>
+                                            <option value="1">晚上11点到12到点</option>
+                                                </span><span>
+                                            <option value="2">12点以后</option>
+                                                </span>
+															</select>
+															<!-- <span style="color:red">作息时间至少选一个</span>-->
+														</div>
+													</div>
+													<div class="control-group">
+														<label class="control-label">个性化选项</label>
+														<div class="controls">
+															<label class="checkbox inline">
+																<input type="checkbox" name="interestLabel" value="2"> 游戏小能手
+															</label>
+															<label class="checkbox inline">
+																<input type="checkbox" name="interestLabel" value="3"> 运动爱好者
+															</label>
+															<label class="checkbox inline">
+																<input type="checkbox" name="interestLabel" value="4"> 活泼爱交友
+															</label>
+															<label class="checkbox inline">
+																<input type="checkbox" name="interestLabel" value="5"> 安静喜独处
+															</label>
+															<label class="checkbox inline">
+																<input type="checkbox" name="interestLabel" value="6"> 考研深造
+															</label>
+															<label class="checkbox inline">
+																<input type="checkbox" name="interestLabel" value="7"> 考公
+															</label>
+															<label class="checkbox inline">
+																<input type="checkbox" name="interestLabel" value="8"> 求职就业
+															</label>
+															<!--<span style="color:red">兴趣爱好至少选一个</span>-->
+															<button name="selectFjh" type="button" class="btn btn-primary"
+															        onclick="selectFjhByLabel(1)">查询房间
+															</button>
+														</div>
+														<div class="control-group">
+															<label class="control-label"></label>
+															<div class="controls"><span
+																	style="color:red">三种筛选条件至少选两种</span></div>
+														</div>
+													</div>
+													<!--<select class="form-control" name="ldid2" id="ldid2"
+															onchange="selectFjhByLabel(this.value)">
+														<option value="">请选择楼栋</option>
+														<span th:each="building:${buildings}">
+												<option th:value="${building.id}" th:text="${building.ldm}"></option>
+														</span>
+													</select>-->
+													<!--<div class="control-group">
+														<label class="control-label">可用房间</label>
+														<div class="controls">
+															<select class="form-control" name="fj2" id="fj2"
+																	onchange="getInterestsByLable(this.value)">
+																<option value="">请选择房间</option>
+															</select>
+															<button name="checkBeds" type="button" class="btn btn-primary"
+																	onclick="getBedByLable()">查询床位
+															</button>
+														</div>
+													</div>-->
+													<!--
+													<button id="fxbutton" type="button" class="btn btn-primary" onclick="viewHx();">显示户型</button>
+													-->
+												</fieldset>
+											</form>
+										</div>
+										<div id="rocontrols" class="tab-pane active" style="padding:20px 20px">
+											<form id="edit-rocontrols" class="form-horizontal">
+												<fieldset>
+
+													<div class="alert">
+														<strong>提示:</strong>
+														<span style="color:red">还未选择床位,可点击随机选择按钮，系统会随机分配一个床位</span>
+													</div>
+
+												</fieldset>
+												<div class="control-group">
+													<div class="controls">
+														<button name="randomSelect" type="button"
+														        class="random-select"
+														        onclick="randomSelectBed()">随机选择
+														</button>
+													</div>
+												</div>
+
+											</form>
+										</div>
+									</div>
+								</div>
+
+								<div id="roomTable" style="display:none" class="widget-content">
+									<p style="color:red;">可点击“房间信息”查看可用床位</p>
+									<table class="table table-striped table-bordered">
+										<thead>
+											<tr>
+												<th> 楼栋名</th>
+												<th> 楼层</th>
+												<th> 房间号</th>
+												<th> 空床位数</th>
+												<th style="width: 20%" class="td-actions"> 操作</th>
+											</tr>
+										</thead>
+										<tbody id="roomList">
+										</tbody>
+									</table>
+									<div class="spiritPagination"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /span12 -->
+
+				</div> <!-- /row -->
+
+				<div class="row">
+					<div class="span6">
+						<div class="widget">
+
+							<div class="widget-header">
+								<i class="icon-star"></i>
+								<h3>房间已入住人的兴趣标签、年级和房间房型</h3>
+							</div> <!-- /widget-header -->
+
+							<div class="widget-content" style="height: 500px">
+								<!--
+								<canvas id="pie-chart" class="chart-holder" height="250" width="538"></canvas>
+								-->
+								<div style="margin-bottom: 1px;">
+									<!--<div class="control-label" style="text-align:center;">已住床位的兴趣爱好标签</div>-->
+									<div id="sznjAndProsTitle" class="control-label" style="text-align:center;">
+
+									</div>
+									<div class="controls" id="sznjAndPros" style="text-align: center"></div>
+									<!--<div id="professionalsTitle" class="control-label" style="text-align:center;">-->
+
+									<!--</div>-->
+									<!--<div class="controls" id="professionals" style="text-align: center"></div>-->
+									<div id="interestsTitle" class="control-label" style="text-align:center;">
+
+									</div>
+									<div class="controls" id="interests" style="text-align:center;">
+
+									</div>    <!-- /controls -->
+									<div id="wakeupTimesTitle" class="control-label" style="text-align:center;">
+
+									</div>
+									<div class="controls" id="wakeupTimes" style="text-align:center;">
+
+									</div>
+
+									<div id="sleepingTimesTitle" class="control-label" style="text-align:center;">
+
+									</div>
+									<div class="controls" id="sleepingTimes" style="text-align:center;">
+
+									</div>
+
+								</div>
+
+								<div id="fxdiv" class="col-sm-6 col-md-3" style="text-align:center;">
+									<img id="fximage" src="img/timg.png" alt="请选择房间" class="img-polaroid" width="50%">
+								</div>
+							</div> <!-- /widget-content -->
+						</div> <!-- /widget -->
+					</div> <!-- /span6 -->
+					<div class="span6">
+						<div class="widget">
+							<div class="widget-header">
+								<i class="icon-th-list"></i>
+								<h3>可用床位</h3>
+							</div>
+							<!-- /widget-header -->
+							<div class="widget-content" style="height: 500px">
+								<table class="table table-striped table-bordered">
+									<thead>
+										<tr>
+											<th> 楼栋名</th>
+											<th> 房间号</th>
+											<th> 床位</th>
+											<th class="td-actions"> 操作</th>
+										</tr>
+									</thead>
+									<tbody id="beds">
+									</tbody>
+								</table>
+
+								<div class="widget-content">
+									<p><strong>备注</strong></p>
+									<p style="color:red;">请点击 <img id="selectBedButton" src="img/randSelectBed.png" class="img-polaroid">，选择床位。</p>
+									<p style="color:red;">默认有两次选择床位的机会和一次退宿的机会</p>
+								</div> <!-- /widget-content -->
+							</div>
+							<!-- /widget-content -->
+						</div>
+					</div> <!-- /span6 -->
+				</div> <!-- /row -->
+
+			</div> <!-- /container -->
+
+		</div> <!-- /main-inner -->
+
+	</div> <!-- /main -->
+
+	<div class="footer">
+
+		<div class="footer-inner">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="span12">
+						<a href="#">版权所有@广州南方学院</a>
+					</div> <!-- /span12 -->
+
+				</div> <!-- /row -->
+
+			</div> <!-- /container -->
+
+		</div> <!-- /footer-inner -->
+
+	</div> <!-- /footer -->
+
+	<div>
+		<!-- Core Javascript - -->
+		<script type="text/javascript" src="/welcome/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/welcome/js/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="/welcome/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/welcome/js/signin.js"></script> <!-- Theme Javascript -->
+		<script type="text/javascript" src="/welcome/js/base.js"></script>
+		<script type="text/javascript" src="/welcome/js/edu.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function () {
+				// Init Theme Core
+				//Core.init();
+
+				//ajax处理session过期问题
+				$.ajaxSetup({
+					contentType:"application/x-www-form-urlencoded;charset=utf-8",
+					complete:function(XMLHttpRequest,textStatus){
+						var sessionstatus=XMLHttpRequest.getResponseHeader("sessionstatus"); //通过XMLHttpRequest取得响应头，sessionstatus，
+						if(sessionstatus=="timeout"){
+							//如果超时就处理 ，指定要跳转的页面
+							bootstrapAlert("提示", "<div class='text-center'><h4>登录超时,请重新登录！</h4></div>", 400, function () {
+								location.replace(location.href);
+							});
+						}
+					}
+				});
+			});
+		</script>
+	</div>
+
+	<script type="text/javascript" src="/welcome/js/bootstrapAlert.js"></script>
+	<script type="text/javascript" src="/welcome/js/bootstrap-paginator.js"></script>
+	<script type="text/javascript" src="/welcome/js/bootstrap-pagination-spirit.js"></script>
+	<script type="text/javascript" src="/welcome/js/jquery.blockUI.min.js"></script>
+	<script>
+		var ldidAvailable = [];//可用的ldid
+		var lcAvailable = [];//可用的楼层
+		var fjAvailable = [];//可用的房间
+		$(function () {
+			//是否空宿舍事件
+			/*$('input[type=radio][name=emptyFlag]').change(function () {
+				var emptyFlag = $("input[name='emptyFlag']:checked").val();
+				ldidAvailable = [];
+				$.ajax({
+					url: /!*"/welcome/selectroom/getEmptyBuildings"*!/,
+					type: "get",
+					async: false,
+					dataType: "json",
+					data: {"emptyFlag": emptyFlag},
+					success: function (data) {
+						//先清空楼层
+						$("#lc").empty();
+						$("#lc").append("<option value=''>请选择楼层</option>");
+						//同时清空房间
+						$("#fj").empty();
+						$("#fj").append("<option value=''>请选择房间</option>");
+						//清空楼栋
+						$("#ldid").empty();
+						$("#ldid").append("<option value=''>请选择楼栋</option>");
+						//清空床位、标签
+						clearLable();
+						//清空房型图片
+						hideHx();
+						if (data != null) {
+							$.each(data, function (index, fl) {
+								if (ldidAvailable.indexOf(fl.id) == -1) {//数组中不存在的楼栋就添加
+									ldidAvailable.push(fl.id)
+									$("#ldid").append("<option value='" + fl.id + "'>" + fl.ldm + "</option>");
+								}
+							});
+						}
+					}
+				});
+			});*/
+		});
+		// $(function(){
+		//     $("#fxbutton").toggle(
+		//         function(){
+		//             viewHx();
+		//             $("#fxbutton").text("隐藏房型");
+		//             $("#fxdiv").show();
+		//         },
+		//         function(){
+		//             $("#fxbutton").text("显示房型");
+		//             $("#fximage").attr("src", "");
+		//             $("#fxdiv").hide();
+		//         }
+		//     );
+		// });
+
+		var fjNum = 0;
+
+		function getRoomsByCh(type) {
+			if (type == 1) {
+				currentPage = 1;//重新查询初始化到第一页
+			}
+			var ch = $('input[name="ch"]:checked').val()
+
+			if (ch == "" || typeof ch == "undefined") {
+				bootstrapAlert("提示", "<div class='text-center'><h4>请选择一个床位号</h4></div>", 400);
+				return;
+			}
+			$.ajax({
+				url: "/welcome/selectroom/getRoomsByCh",
+				type: "get",
+				async: false,
+				dataType: "json",
+				data: {
+					"ch": ch,
+					"current": currentPage,
+					"pageSize": defaultPageSize
+				},
+				beforeSend: function () {
+					// 图标转转转
+					$.blockUI({message: '<h4><img th:src="@{/img/css_Wait.gif}" /> 请求中,请稍等...</h4>'});
+
+				},
+				complete: function () {
+					$.unblockUI();
+				},
+				success: function (data) {
+					//清空房间详情
+					clearLableFjDetail();
+					//可用房间列表
+					$("#roomList").empty();
+					var tbodyHtml = $("#roomList").html();
+					var roomList = [];
+					if (data != null) {
+						if (data.code == 0) {//code为0则查询成功
+							if (data.rooms != null) {
+								roomList = data.rooms;
+								totalCount = data.count;
+								// 总页数向上取整
+								totalPages = Math.ceil(totalCount / defaultPageSize);
+								$.each(roomList, function (index, obj) {
+									//添加行
+									var rowTemplate = "<tr>" +
+											"<td> " + obj.ldm + "</td>" +
+											"<td> " + obj.fjh.substr(0, 1) + "</td>" +
+											"<td> " + obj.fjh + "</td>" +
+											"<td> " + obj.num + "</td>" +
+											"<td class=\"td-actions\">" +
+											"<button type=\"button\"  onclick=\"getInterests(" + obj.ldid + ',' + obj.fjh + ")\" class=\"btn btn-success\">房间信息</button>" +
+											"</td>" +
+											"</tr>";
+									tbodyHtml += rowTemplate;
+								});
+								if (type == 1) {
+									initSpiritPagination(data.count, totalPages, defaultPageSize);
+								}
+							}
+							$("#roomList").html(tbodyHtml);
+						} else {
+							clearLable();
+							bootstrapAlert("提示", "<div class='text-center'><h4>"+data.msg+"</h4></div>", 400, function () {
+								location.replace(location.href);
+							});
+						}
+					} else {
+						clearLable();
+						bootstrapAlert("提示", "<div class='text-center'><h4>哎呀！网络连接断开了！重新登录试试。。。</h4></div>", 400, function () {
+							location.replace(location.href);
+						});
+					}
+				},
+				error: function () {
+					//清空床位、标签
+					clearLable();
+				}
+			});
+		}
+
+		function selectFjhByLabel(type) {
+			if (type == 1) {
+				currentPage = 1;//重新查询初始化到第一页
+			}
+			var sznj = $("#sznj").val();
+			var zyid = $("#zyid").val();
+			var sleepingTime = $("#sleepingTime").val();
+			var wakeupTime = $("#wakeupTime").val();
+			//jquery获取复选框值
+			var interests = [];//定义一个数组
+			$('input[name="interestLabel"]:checked').each(function () {//遍历每一个名字为interest的复选框，其中选中的执行函数
+				interests.push($(this).val());//将选中的值添加到数组interests中
+			});
+
+			console.log(interests, interests.length == 0);
+			console.log(sleepingTime, "sleepingTime");
+			console.log(wakeupTime, "wakeupTime");
+			if ((sznj == "" && zyid == "") && (sleepingTime == "" && wakeupTime == "") && (interests.length < 1)) {
+				bootstrapAlert("提示", "<div class='text-center'><h4>三种筛选条件至少选两种！</h4></div>", 400);
+				return;
+			}
+			if ((sznj == "" && zyid == "") && (sleepingTime == "" && wakeupTime == "")) {
+				bootstrapAlert("提示", "<div class='text-center'><h4>三种筛选条件至少选两种！</h4></div>", 400);
+				return;
+			}
+			if ((sznj == "" && zyid == "") && (interests.length < 1)) {
+				bootstrapAlert("提示", "<div class='text-center'><h4>三种筛选条件至少选两种！</h4></div>", 400);
+				return;
+			}
+			if ((sleepingTime == "" && wakeupTime == "") && (interests.length < 1)) {
+				bootstrapAlert("提示", "<div class='text-center'><h4>三种筛选条件至少选两种！</h4></div>", 400);
+				return;
+			}
+			/*if (sznj == "" && zyid == "") {
+				bootstrapAlert("提示", "<div class='text-center'><h4>专业和所在年级至少选一个</h4></div>", 400);
+				return;
+			}
+			if (sleepingTime == "" && wakeupTime == "") {
+				bootstrapAlert("提示", "<div class='text-center'><h4>作息时间至少选一个</h4></div>", 400);
+				return;
+			}
+			if (interests.length < 1) {
+				bootstrapAlert("提示", "<div class='text-center'><h4>兴趣爱好至少选一个</h4></div>", 400);
+				return;
+			}*/
+			$.ajax({
+				url: "/welcome/selectroom/selectFjhByLabel",
+				type: "get",
+				async: false,
+				dataType: "json",
+				data: {
+					"interests": JSON.stringify(interests),
+					"sznj": sznj,
+					"zyid": zyid,
+					"sleepingTime": sleepingTime,
+					"wakeupTime": wakeupTime,
+					"current": currentPage,
+					"pageSize": defaultPageSize
+				},
+				beforeSend: function () {
+					// 图标转转转
+					$.blockUI({message: '<h4><img th:src="@{/img/css_Wait.gif}" /> 请求中,请稍等...</h4>'});
+
+				},
+				complete: function () {
+					$.unblockUI();
+				},
+				success: function (data) {
+					/* fjNum = 0;
+					 //先清空房间
+					 $("#fj2").empty();
+					 $("#fj2").append("<option value=''>请选择房间</option>");*/
+					//清空房间详情
+					clearLableFjDetail();
+
+					/*if (data != null) {
+						$.each(data, function (index, fj) {
+							$("#fj2").append("<option value='" + fj.ldid + "-" + fj.fjh + "'>" + fj.ldm + "-" + fj.fjh + "</option>");
+						});
+						fjNum = data.length();
+					}*/
+					//可用房间列表
+					$("#roomList").empty();
+					var tbodyHtml = $("#roomList").html();
+					var roomList = [];
+					if (data != null) {
+						if (data.code == 0) {//code为0则查询成功
+							if (data.rooms != null) {
+								roomList = data.rooms;
+								totalCount = data.count;
+								// 总页数向上取整
+								totalPages = Math.ceil(totalCount / defaultPageSize);
+								$.each(roomList, function (index, obj) {
+									//添加行
+									var rowTemplate = "<tr>" +
+											"<td> " + obj.ldm + "</td>" +
+											"<td> " + obj.fjh.substr(0, 1) + "</td>" +
+											"<td> " + obj.fjh + "</td>" +
+											"<td> " + obj.num + "</td>" +
+											"<td class=\"td-actions\">" +
+											"<button type=\"button\"  onclick=\"getInterests(" + obj.ldid + ',' + obj.fjh + ")\" class=\"btn btn-success\">房间信息</button>" +
+											// "<button type=\"button\" onclick=\"getBeds("+obj.fjh+")\" class=\"btn btn-primary\">查看床位</button>"+
+											"</td>" +
+											"</tr>";
+									tbodyHtml += rowTemplate;
+								});
+								// setPage(currentPage,totalPages,getRooms);
+								if (type == 1) {
+									initSpiritPagination(data.count, totalPages, defaultPageSize);
+								}
+								if (data.rooms.length < 1) {
+									bootstrapAlert("提示", "<div class='text-center'><h4>没有符合条件的宿舍，请重新选择筛选条件</h4></div>", 400);
+								}
+							}
+							$("#roomList").html(tbodyHtml);
+						} else {
+							clearLable();
+							bootstrapAlert("提示", "<div class='text-center'><h4>"+data.msg+"</h4></div>", 400, function () {
+							});
+						}
+					} else {
+						clearLable();
+						bootstrapAlert("提示", "<div class='text-center'><h4>哎呀！网络连接断开了！重新登录试试。。。</h4></div>", 400, function () {
+							location.replace(location.href);
+						});
+					}
+				},
+				error: function () {
+					//同时清空房间
+					// $("#fj2").empty();
+					// $("#fj2").append("<option value=''>请选择房间</option>");
+					//清空床位、标签
+					clearLable();
+				}
+			});
+		}
+
+
+		function getFloors(ldid) {
+			var emptyFlag = $("input[name='emptyFlag']:checked").val();
+			$.ajax({
+				url: "/welcome/selectroom/getlegalfloors",
+				type: "get",
+				async: false,
+				dataType: "json",
+				data: {"ldid": ldid, "emptyFlag": emptyFlag},
+				success: function (data) {
+					//先清空楼层
+					$("#lc").empty();
+					$("#lc").append("<option value=''>请选择楼层</option>");
+					// //同时清空房间
+					// $("#fj").empty();
+					// $("#fj").append("<option value=''>请选择房间</option>");
+					//清空床位、标签
+					clearLable();
+					//清空房型图片
+					// hideHx();
+					if (data != null) {
+						$.each(data, function (index, fl) {
+							$("#lc").append("<option value='" + fl.floor + "'>" + ("第" + fl.floor + "层") + "</option>");
+						});
+					}
+				},
+				error: function () {
+					//先清空楼层
+					// $("#lc").empty();
+					// $("#lc").append("<option value=''>请选择楼层</option>");
+					// //同时清空房间
+					// $("#fj").empty();
+					// $("#fj").append("<option value=''>请选择房间</option>");
+					//清空床位、标签
+					clearLable();
+					//清空房型图片
+					// hideHx();
+				}
+			});
+		}
+
+		var defaultPageSize = 5;
+		var totalPages = 1;
+		var currentPage = 1;
+		var totalCount = 0;
+
+		function getRooms(type) {//type == 1  表示初始化getRooms(1)
+			if (type == 1) {
+				currentPage = 1;//重修查询初始化到第一页
+			}
+			var floor = $("#lc").val();
+			var emptyFlag = $("input[name='emptyFlag']:checked").val();
+			var ldid = $("#ldid").val();
+			if (ldid == "" || floor == "") {
+				bootstrapAlert("提示", "<div class='text-center'><h4>请选择楼栋、楼层</h4></div>", 400);
+				return;
+			}
+			$.ajax({
+				url: "/welcome/selectroom/getlegalrooms",
+				type: "get",
+				async: false,
+				dataType: "json",
+				data: {
+					"ldid": ldid,
+					"floor": floor,
+					"emptyFlag": emptyFlag,
+					"current": currentPage,
+					"pageSize": defaultPageSize
+				},
+				beforeSend: function () {
+					// 图标转转转
+					$.blockUI({message: '<h4><img th:src="@{/img/css_Wait.gif}" /> 请求中,请稍等...</h4>'});
+
+				},
+				complete: function () {
+					$.unblockUI();
+				},
+				success: function (data) {
+					$.unblockUI();
+					/* //先清空房间
+					 $("#fj").empty();
+					 $("#fj").append("<option value=''>请选择房间</option>");*/
+					//清空房间信息
+					clearLableFjDetail();
+
+					/*if (data != null) {
+						$.each(data, function (index, fj) {
+							$("#fj").append("<option value='" + fj.fjh + "'>" + fj.fjh + "</option>");
+						});
+					}*/
+					//可用房间列表
+					$("#roomList").empty();
+					var tbodyHtml = $("#roomList").html();
+					var roomList = [];
+					if (data != null) {
+						if (data.code == 0) {//code为0则查询成功
+							if (data.rooms != null) {
+								roomList = data.rooms;
+								totalCount = data.count;
+								// 总页数向上取整
+								totalPages = Math.ceil(totalCount / defaultPageSize);
+								$.each(roomList, function (index, obj) {
+									//添加行
+									var rowTemplate = "<tr>" +
+											"<td> " + obj.ldm + "</td>" +
+											"<td> " + obj.fjh.substr(0, 1) + "</td>" +
+											"<td> " + obj.fjh + "</td>" +
+											"<td> " + obj.num + "</td>" +
+											"<td class=\"td-actions\">" +
+											"<button type=\"button\"  onclick=\"getInterests(" + obj.ldid + ',' + obj.fjh + ")\" class=\"btn btn-success\">房间信息</button>" +
+											// "<button type=\"button\" onclick=\"getBeds("+obj.fjh+")\" class=\"btn btn-primary\">查看床位</button>"+
+											"</td>" +
+											"</tr>";
+									tbodyHtml += rowTemplate;
+								});
+								// setPage(currentPage,totalPages,getRooms);
+								if (type == 1) {
+									initSpiritPagination(data.count, totalPages, defaultPageSize);
+								}
+							}
+							$("#roomList").html(tbodyHtml);
+						} else {
+							clearLable();
+							bootstrapAlert("提示", "<div class='text-center'><h4>data.msg</h4></div>", 400, function () {
+								location.replace(location.href);
+							});
+						}
+					} else {
+						clearLable();
+						bootstrapAlert("提示", "<div class='text-center'><h4>哎呀！网络连接断开了！重新登录试试。。。</h4></div>", 400, function () {
+							location.replace(location.href);
+						});
+					}
+				},
+				error: function () {
+					$.unblockUI();
+					//同时清空房间
+					// $("#fj").empty();
+					// $("#fj").append("<option value=''>请选择房间</option>");
+					//清空床位
+					clearLable();
+					bootstrapAlert("提示", "<div class='text-center'><h4>哎呀！网络连接断开了！退出重新登录试试。。。</h4></div>", 400, function () {
+						location.replace(location.href);
+					});
+				}
+			});
+			console.log(currentPage, "currentPagecurrentPage");
+			console.log(totalPages, "totalPagestotalPagestotalPages");
+		}
+
+		//点击分页
+		function updateViewInfo(pageCurrent, pageSum) {
+			console.log(pageCurrent, "pageCurrentpageCurrentpageCurrent");
+			console.log(pageSum, "pageSumpageSumpageSumpageSumpageSum");
+			currentPage = pageCurrent;
+			var selectShType = $("#selectTab").find(".active").find("a").text();
+			if ("按照舍友类型选" == selectShType) {
+				this.selectFjhByLabel(2);
+			} else if ("按照楼栋信息选" == selectShType) {
+				this.getRooms(2);
+			} else if ("按照床位号选" == selectShType) {
+				this.getRoomsByCh(2);
+			}
+
+		}
+
+		/*function setPage(pageCurrent, pageSum,callback) {
+			$('#example').bootstrapPaginator({
+				currentPage: pageCurrent,   //当前页
+				totalPages: pageSum,     //总页数
+				bootstrapMajorVersion: 3,               //兼容Bootstrap3.x版本
+				tooltipTitles: function (type, page) {
+					switch (type) {
+						case "first" :
+							return "第一页";
+						case "prev" :
+							return "上一页";
+						case "next" :
+							return "下一页";
+						case "last" :
+							return "最后一页";
+						case "page" :
+							return page;
+					}
+					return "";
+				},
+				onPageClicked: function (event, originalEvent, type, page) {
+					currentPage = page;
+					callback && callback();
+				}
+			});
+		}*/
+		function getBeds(ldid, room) {
+			// var ldid = $("#ldid").val();
+			// var lc = $("#lc").val();
+			// var room = $("#fj").val();
+			if (ldid == "" || room == "") {
+				bootstrapAlert("提示", "<div class='text-center'><h4>请选择房间</h4></div>", 400);
+				return;
+			}
+			$.ajax({
+				url: "/welcome/selectroom/getlegalbeds",
+				type: "get",
+				async: false,
+				dataType: "json",
+				data: {"ldid": ldid, "room": room},
+				beforeSend: function () {
+					// 图标转转转
+					$.blockUI({message: '<h4><img th:src="@{/img/css_Wait.gif}" /> 请求中,请稍等...</h4>'});
+
+				},
+				complete: function () {
+					$.unblockUI();
+				},
+				success: function (data) {
+					//先清空表格
+					$("#beds").empty();
+					var tbodyHtml = $("#beds").html();
+					if (data != null) {
+						$.each(data, function (index, bed) {
+							//添加行
+							var rowTemplate = "<tr>" +
+									"<td> " + bed.dormBuilding.ldm + "</td>" +
+									"<td> " + bed.fjh + "</td>" +
+									"<td> " + bed.ch + "</td>" +
+									"<td class=\"td-actions\">" +
+									"<a href=\"javascript:;\" onclick=\"selectBed(" + bed.dormBuilding.id + "," + bed.fjh + ",'" + bed.ch + "','" + bed.dormBuilding.ldm + "')\" class=\"btn btn-small btn-success\">" +
+									"<i class=\"btn-icon-only icon-ok\"> </i></a></td>" +
+									//"<a href=\"javascript:;\" onclick=\"deleteBed("+bed.dormBuilding.id+","+bed.fjh+",'"+bed.ch+"')\"class=\"btn btn-danger btn-small\">" +
+									//"<i class=\"btn-icon-only icon-remove\"> </i></a></td>" +
+									"</tr>";
+							tbodyHtml += rowTemplate;
+						});
+					}
+					$("#beds").html(tbodyHtml);
+				},
+				error: function () {
+					//清空床位和兴趣标签
+					clearLable();
+				}
+			});
+		}
+
+		/*function getBedByLable() {
+			// var ldid = $("#ldid2").val();
+
+			var ld_room = $("#fj2").val();
+			if (ld_room == "") {
+				bootstrapAlert("提示", "<div class='text-center'><h4>请先筛选并选择房间</h4></div>", 400);
+				return;
+			}
+			var ldRoomAry = ld_room.split('-');
+			var ldid = ldRoomAry[0];
+			var room = ldRoomAry[1];
+
+			$.ajax({
+				url: /!*"/welcome/selectroom/getlegalbeds"*!/,
+				type: "get",
+				async: false,
+				dataType: "json",
+				data: {"ldid": ldid, "room": room},
+				success: function (data) {
+					//先清空表格
+					$("#beds").empty();
+					var tbodyHtml = $("#beds").html();
+					if (data != null) {
+						$.each(data, function (index, bed) {
+							//添加行
+							var rowTemplate = "<tr>" +
+								"<td> " + bed.dormBuilding.ldm + "</td>" +
+								"<td> " + bed.fjh + "</td>" +
+								"<td> " + bed.ch + "</td>" +
+								"<td class=\"td-actions\">" +
+								"<a href=\"javascript:;\" onclick=\"selectBed(" + bed.dormBuilding.id + "," + bed.fjh + ",'" + bed.ch + "','" + bed.dormBuilding.ldm + "')\" class=\"btn btn-small btn-success\">" +
+								"<i class=\"btn-icon-only icon-ok\"> </i></a></td>" +
+								//"<a href=\"javascript:;\" onclick=\"deleteBed("+bed.dormBuilding.id+","+bed.fjh+",'"+bed.ch+"')\"class=\"btn btn-danger btn-small\">" +
+								//"<i class=\"btn-icon-only icon-remove\"> </i></a></td>" +
+								"</tr>";
+							tbodyHtml += rowTemplate;
+						});
+					}
+					$("#beds").html(tbodyHtml);
+				},
+				error: function () {
+					//清空床位和兴趣标签
+					clearLable();
+				}
+			});
+		}*/
+
+		function getInterestsByLable(ld_room) {
+			// var ldid = $("#ldid2").val();
+			// var ld_room = $("#fj2").val();
+			var ldRoomAry = ld_room.split('-');
+			var ldid = ldRoomAry[0];
+			var fjh = ldRoomAry[1];
+			submitGetInterests(ldid, fjh);
+		}
+
+		function selectBed(ldid, fjh, ch, ldm) {
+			if ($("#sfSelectedBed").val() != null && $("#sfSelectedBed").val() != "") {//说明已经选过床位了
+				bootstrapAlert("提示", "<div class='text-center'><h4>已经选过床位了！请先取消选中的床位!</h4></div>", 400, function () {
+					var path = "/welcome/toreportpage";
+					location.replace(path);
+				});
+			} else {
+				//alert(ldid+"-----"+fjh+"-----"+ch);
+				bootstrapConfirm("是否选床", "<div class='text-center'><h4>是否确定选择：" + ldm + fjh + "房间" + ch + "床位" + "？</h4></div>", 400, function () {
+					var timestamp1 = new Date().getTime();
+					$.ajax({
+						url: "/welcome/selectroom/selectbed",
+						type: "get",
+						async: false,
+						dataType: "json",
+						data: {"ldid": ldid, "room": fjh, "ch": ch},
+						beforeSend: function () {
+							// 图标转转转
+							$.blockUI({message: '<h4><img th:src="@{/img/css_Wait.gif}" /> 请求中,请稍等...</h4>'});
+
+						},
+						complete: function () {
+							$.unblockUI();
+						},
+						success: function (data) {
+							var timestamp2 = new Date().getTime();
+							console.log(timestamp2 - timestamp1, "timestamp2timestamp2");
+							$.unblockUI();
+							var path = "/welcome/selectroom/toselectroomresultpage";
+							path = path + "?code=" + data.code + "&resultObject=" + data.resultObject;
+							window.location.href = path;
+						}
+					});
+				});
+			}
+		}
+
+		function randomSelectBed() {
+			if ($("#sfSelectedBed").val() != null && $("#sfSelectedBed").val() != "") {//说明已经选过床位了
+				bootstrapAlert("提示", "<div class='text-center'><h4>已经选过床位了！请先取消选中的床位!</h4></div>", 400, function () {
+					var path = "/welcome/toreportpage";
+					location.replace(path);
+				});
+			} else {
+				bootstrapConfirm("确定", "<div class='text-center'><h4>系统会自动分配一个床位，且会消耗一次选宿舍机会，是否确定随机选择？</h4></div>", 400, function () {
+					var timestamp1 = new Date().getTime();
+					$.ajax({
+						url: "/welcome/selectroom/getBedRandom",
+						type: "get",
+						async: false,
+						dataType: "json",
+						data: {},
+						beforeSend: function () {
+							// 图标转转转
+							$.blockUI({message: '<h4><img th:src="@{/img/css_Wait.gif}" /> 请求中,请稍等...</h4>'});
+
+						},
+						complete: function () {
+							$.unblockUI();
+						},
+						success: function (data1) {
+							if (data1 != null) {
+								$.ajax({
+									url: "/welcome/selectroom/randomSelectBed",
+									type: "get",
+									async: false,
+									dataType: "json",
+									data: {id: data1},
+									beforeSend: function () {
+										// 图标转转转
+										$.blockUI({message: '<h4><img th:src="@{/img/css_Wait.gif}" /> 请求中,请稍等...</h4>'});
+
+									},
+									complete: function () {
+										$.unblockUI();
+									},
+									success: function (data) {
+
+										var timestamp2 = new Date().getTime();
+										console.log(timestamp2 - timestamp1, "timestamp2timestamp2timestamp2");
+										$.unblockUI();
+										var path = "/welcome/selectroom/toselectroomresultpage";
+										path = path + "?code=" + data.code + "&resultObject=" + data.resultObject;
+										window.location.href = path;
+									}
+
+								});
+							} else {
+								bootstrapAlert("提示", "<div class='text-center'><h4>选取床位失败，没有可用的床位！</h4></div>", 400);
+							}
+						}
+					});
+				});
+			}
+		}
+
+		var interests = {
+			"0": "早睡早起",
+			"1": "夜猫族",
+			"2": "游戏小能手",
+			"3": "运动爱好者",
+			"4": "活泼爱交友",
+			"5": "安静喜独处",
+			"6": "考研深造",
+			"7": "考公",
+			"8": "求职就业"
+		};
+		var weakupTimeArry = {"0": "早上6点到7点", "1": "7点到8点30", "2": "8点30分以后"};
+		var sleepingTimeArry = {"0": "晚上9点30到11点", "1": "晚上11点到12到点", "2": "12点以后"};
+
+		function getInterests(ldid, fjh) {
+			// var ldid = $("#ldid").val();
+			submitGetInterests(ldid, fjh);
+			getBeds(ldid, fjh);
+			/*$.ajax({
+				url: /!*"/welcome/selectroom/getinterests"*!/,
+				type: "get",
+				async: true,
+				dataType: "json",
+				data: {"ldid": ldid, "room": fjh},
+				success: function (data) {
+					//清空床位
+					$("#beds").empty();
+					//清空兴趣标签
+					$("#interests").empty();
+					//清空年级标签
+					$("#sznjAndPros").empty();
+					//清空房型图片
+					//hideHx();
+					var tbodyHtml = $("#interests").html();
+					if (data != null) {
+						$.each(data, function (index, interest) {
+							var rowTemplate = "<a class=\"btn btn-small\" href=\"#\"><i class=\"icon-star\"></i> " + interests[interest] + "</a>";
+							tbodyHtml += rowTemplate;
+						});
+					}
+					if (data.length > 0) {
+						$("#interestsTitle").html("<span class=\"label label-info\">室友的兴趣爱好标签</span>");
+					} else {
+						$("#interestsTitle").html("");
+					}
+					$("#interests").html(tbodyHtml);
+					getSznjAndPros(ldid, fjh);
+					// getProfessionals(ldid, fjh);
+				},
+				error: function () {
+					//清空床位和兴趣标签
+					$("#beds").empty();
+					$("#interests").empty();
+					//清空年级标签
+					$("#sznjAndPros").empty();
+					//清空房型图片
+					//hideHx();
+				}
+			});
+			viewHx();*/
+		}
+
+		function submitGetInterests(ldid, fjh) {
+			$.ajax({
+				url: "/welcome/selectroom/getinterests",
+				type: "get",
+				async: false,
+				dataType: "json",
+				data: {"ldid": ldid, "room": fjh},
+				beforeSend: function () {
+					// 图标转转转
+					$.blockUI({message: '<h4><img th:src="@{/img/css_Wait.gif}" /> 请求中,请稍等...</h4>'});
+
+				},
+				complete: function () {
+					$.unblockUI();
+				},
+				success: function (data) {
+					//清空房间详情
+					clearLableFjDetail();
+					//清空房型图片
+					//hideHx();
+					var tbodyHtml = $("#interests").html();
+					var sleepingTimesHtml = $("#sleepingTimes").html();
+					var wakeupTimesHtml = $("#wakeupTimes").html();
+					if (data != null) {
+						//兴趣爱好
+						if (data.interests != null) {
+							$.each(data.interests, function (index, interest) {
+								var rowTemplate = "<a class=\"btn btn-small\" href=\"#\"><i class=\"icon-star\"></i> " + interests[interest] + "</a>";
+								tbodyHtml += rowTemplate;
+							});
+						}
+						if (data.interests.length > 0) {
+							$("#interestsTitle").html("<span class=\"label label-info\">室友的兴趣爱好标签</span>");
+						} else {
+							$("#interestsTitle").html("<span class=\"label label-info\">室友的兴趣爱好标签</span>");
+						}
+						$("#interests").html(tbodyHtml);
+
+						//起床时间
+						if (data.wakeupTimes != null) {
+							$.each(data.wakeupTimes, function (index, weakupTime) {
+								if (weakupTime != null) {
+									var rowTemplate = "<a class=\"btn btn-small\" href=\"#\"><i class=\"icon-time\"></i> " + weakupTimeArry[weakupTime] + "</a>";
+									wakeupTimesHtml += rowTemplate;
+								}
+							});
+							$("#wakeupTimesTitle").html("<span class=\"label label-info\">室友的起床时间</span>");
+						} else {
+							$("#wakeupTimesTitle").html("<span class=\"label label-info\">室友的起床时间</span>");
+						}
+						$("#wakeupTimes").html(wakeupTimesHtml);
+
+						//睡觉
+						if (data.sleepingTimes != null) {
+							$.each(data.sleepingTimes, function (index, sleepingTime) {
+								if (sleepingTime != null) {
+									var rowTemplate = "<a class=\"btn btn-small\" href=\"#\"><i class=\"icon-time\"></i> " + sleepingTimeArry[sleepingTime] + "</a>";
+									sleepingTimesHtml += rowTemplate;
+								}
+							});
+							$("#sleepingTimesTitle").html("<span class=\"label label-info\">室友的睡觉时间</span>");
+						} else {
+							$("#sleepingTimesTitle").html("<span class=\"label label-info\">室友的睡觉时间</span>");
+						}
+						$("#sleepingTimes").html(sleepingTimesHtml);
+					}
+
+				},
+				error: function () {
+					//清空床位和兴趣标签
+					clearLableFjDetail();
+					//清空房型图片
+					//hideHx();
+				}
+			});
+			getSznjAndPros(ldid, fjh);
+			// getProfessionals(ldid, fjh);
+			viewHxByLables(ldid, fjh);
+		}
+
+		function viewHxByLables(ldid, room) {
+			if (room == "") {
+				$("#fximage").attr("src", "img/timg.png");
+			} else {
+				var imgUrl = "/welcome/selectroom/getfximage";
+				imgUrl += "?ldid=" + ldid + "&room=" + room;
+				if (imgUrl != $("#fximage").attr("src")) {
+					$("#fximage").attr("src", imgUrl);
+				}
+				$("#fxdiv").show();
+			}
+		}
+
+		function viewHx() {
+			var ldid = $("#ldid").val();
+			var lc = $("#lc").val();
+			var room = $("#fj").val();
+			//if(ldid==""||lc==""||room=="") {
+			//    bootstrapAlert("提示", "<div class='text-center'><h4>请选择楼栋、楼层和房间</h4></div>", 400);
+			//    return;
+			//}
+			if (room == "") {
+				$("#fximage").attr("src", "img/timg.png");
+			} else {
+				var imgUrl = "/welcome/selectroom/getfximage";
+				imgUrl += "?ldid=" + ldid + "&room=" + room;
+				if (imgUrl != $("#fximage").attr("src")) {
+					$("#fximage").attr("src", imgUrl);
+				}
+				$("#fxdiv").show();
+			}
+
+		}
+
+		function hideHx() {
+			$("#fxdiv").show();
+			$("#fximage").attr("src", "img/timg.png");
+		}
+
+		/*function checkRecommendedRoom(ldid, lc, room) {
+			$("#ldid").val(ldid);
+			this.getFloors(ldid);
+			$("#lc").val(lc);
+			this.getRooms(lc);
+			$("#fj").val(room);
+			// this.getInterests(room);
+
+			var ldid = $("#ldid").val();
+			$.ajax({
+				url: /!*"/welcome/selectroom/getinterests"*!/,
+				type: "get",
+				async: true,
+				dataType: "json",
+				data: {"ldid": ldid, "room": room},
+				success: function (data) {
+					//清空床位
+					clearLable();
+					//清空房型图片
+					//hideHx();
+					var tbodyHtml = $("#interests").html();
+					if (data != null) {
+						$.each(data, function (index, interest) {
+							var rowTemplate = "<a class=\"btn btn-small\" href=\"#\"><i class=\"icon-star\"></i> " + interests[interest] + "</a>";
+							tbodyHtml += rowTemplate;
+						});
+					}
+					if (data.length > 0) {
+						$("#interestsTitle").html("<span class=\"label label-success\">室友的兴趣爱好标签</span>");
+					} else {
+						$("#interestsTitle").html("");
+					}
+					$("#interests").html(tbodyHtml);
+					getSznjAndPros(ldid, room);
+					// getProfessionals(ldid, room);
+					getBeds(ldid,room);
+				},
+				error: function () {
+					//清空床位和兴趣标签
+					clearLable();
+					//清空房型图片
+					//hideHx();
+					getSznjAndPros(ldid, room);
+					// getProfessionals(ldid, room);
+					getBeds(ldid,room);
+				}
+			});
+			viewHx();
+			// this.getBeds();
+			// $("#checkBeds").click();
+			$('html,body').animate({scrollTop: $('#beds').offset().top}, 100);
+		}*/
+
+		function getSznjAndPros(ldid, room) {
+			$.ajax({
+				url: "/welcome/selectroom/getSznjAndPros",
+				type: "get",
+				async: true,
+				dataType: "json",
+				contentType: 'text/json,charset=utf-8',
+				data: {"ldid": ldid, "room": room},
+				success: function (data) {
+
+					$("#sznjAndPros").empty();
+					var tbodyHtml = $("#sznjAndPros").html();
+					var rowTemplate = "";
+					if (data != null) {
+						for (var i = 0; i < data.length; i++) {
+							var color = "#0a0a0a";
+							var sznj = data[i].substr(0, 4);
+							/*if (sznj % 4 == 0) {
+								color = "red"
+							} else if (sznj % 4 == 1) {
+								color = "orange"
+							} else if (sznj % 4 == 2) {
+								color = "blue"
+							} else if (sznj % 4 == 3) {
+								color = "green"
+							}*/
+							if (sznj == '大四  ') {
+								color = "red"
+							} else if (sznj == '大三  ') {
+								color = "orange"
+							} else if (sznj == '大二  ') {
+								color = "blue"
+							} else if (sznj == '大一  ') {
+								color = "green"
+							}
+							rowTemplate += "<a class=\"btn btn-small\" style=\"color:white;background-color:" + color + ";\" href=\"#\">" + data[i] + "</a>";
+						}
+						tbodyHtml += rowTemplate;
+					}
+					if (data.length > 0) {
+						$("#sznjAndProsTitle").html("<span class=\"label label-info\">室友的年级和专业</span>");
+					} else {
+						$("#sznjAndProsTitle").html("<span class=\"label label-info\">室友的年级和专业</span>");
+					}
+					$("#sznjAndPros").html(tbodyHtml);
+				},
+				error: function (data) {
+					$("#sznjAndPros").empty();
+				}
+			})
+		}
+		var selectType = 1;
+		//清空所有
+		function clearLable(selectType) {
+			this.selectType = selectType;
+			if(selectType == 1){
+				document.getElementById("roomTable").style.display="none";//隐藏
+				document.getElementById("selectBedButton").src="img/randSelectBed.png";
+			}else{
+				document.getElementById("roomTable").style.display="";//显
+				document.getElementById("selectBedButton").src="img/selectBed.png";
+			}
+			$("#beds").empty();
+			$("#interestsTitle").empty();
+			$("#interests").empty();
+			$("#wakeupTimesTitle").empty();
+			$("#wakeupTimes").empty();
+			$("#sleepingTimesTitle").empty();
+			$("#sleepingTimes").empty();
+			$("#sznjAndProsTitle").empty();
+			$("#sznjAndPros").empty();
+			$("#roomList").empty();
+			$(".spiritPagination").empty();
+			hideHx();
+		}
+
+		//清空房间详情
+		function clearLableFjDetail() {
+			$("#beds").empty();
+			$("#interestsTitle").empty();
+			$("#interests").empty();
+			$("#wakeupTimesTitle").empty();
+			$("#wakeupTimes").empty();
+			$("#sleepingTimesTitle").empty();
+			$("#sleepingTimes").empty();
+			$("#sznjAndProsTitle").empty();
+			$("#sznjAndPros").empty();
+			hideHx();
+		}
+
+		/*function getProfessionals(ldid,room) {
+			$.ajax({
+				url: /!*"/welcome/selectroom/getProfessionals"*!/,
+				type: "get",
+				async: true,
+				dataType: "json",
+				data:{"ldid":ldid,"room":room},
+				success:function (data) {
+
+					$("#professionals").empty();
+					var tbodyHtml = $("#professionals").html();
+					var rowTemplate = "";
+					if (data != null) {
+						for (var i = 0;i < data.length;i++) {
+							rowTemplate += "<a class=\"btn btn-small\" href=\"#\">"+data[i]+"</a>";
+						}
+						tbodyHtml += rowTemplate;
+					}
+					if (data.length > 0) {
+						$("#professionalsTitle").html("<span class=\"label label-success\">室友的专业</span>");
+					} else {
+						$("#professionalsTitle").html("");
+					}
+					$("#professionals").html(tbodyHtml);
+				},
+				error:function (data) {
+					$("#professionals").empty();
+				}
+			})
+		}*/
+
+	</script>
+</body>
+
+</html>
