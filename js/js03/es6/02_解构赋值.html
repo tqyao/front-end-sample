@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+
+		/*基本用法*/
+
+		// -  嵌套数组的结构赋值
+		let [a, [b, c], d] = [1, [2, 3], 4];
+		console.log(a, b, c, d);
+
+		// - 省缺（不完全结构）
+		let [p1, , p2] = [1, 2, 3];
+		console.log(p1, p2);
+
+		// - ... 运算符
+		let [q1, ...li] = [1, 2, [3, 4], 5, 6];
+		console.log(q1, li);
+
+		// y不匹配
+		let [x, y, ...z] = [1];
+		console.log(x, y, z);
+
+		let [...li2] = [1, 2, 3, 4];
+		console.log(li2);
+
+		let [li3] = [];
+		console.log(li3);//undefined // 解构失败返回 undefined
+
+		let[...li4] = [];
+		console.log(li4);//[]
+		// 生成器
+		// function* fibs() {
+		// 	let a = 0;
+		// 	let b = 1;
+		// 	while (true) {
+		// 		yield a;
+		// 		[a, b] = [b, a + b];
+		// 	}
+		// }
+		//
+		// let [first, second, third, fourth, fifth, sixth] = fibs();
+		// console.log(first,second,third,fourth,fifth,sixth);
+
+
+		/*默认值*/
+
+
+
+	</script>
+</body>
+</html>

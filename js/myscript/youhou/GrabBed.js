@@ -8,10 +8,9 @@ console.log('helloword ^^');
 //     }, 1000);
 // }
 
-if (location.href.indexOf('toselectroompage') <= -1) {
-    return;
-}
-
+// if (location.href.indexOf('toselectroompage') <= -1) {
+//     return;
+// }
 function getJson(url, param) {
     if (param) {
         url += '?';
