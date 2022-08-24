@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		let gFather = {
+			father: {
+				son01: {
+					attr01: "son01"
+				},
+				son02: {
+					attr02: "son02"
+				}
+			}
+		}
+
+		let gF = gFather;
+		console.log(gFather);
+
+		// let {father} = gFather;
+		// console.log(father)
+
+		let {father: {son01: {attr01:a1}, son02: {attr02}}} =
+				{
+					father: {
+						son01: {
+							attr01: "son01"
+						},
+						son02: {
+							attr02: "son02"
+						}
+					}
+				}
+		console.log(a1, attr02);
+
+
+	</script>
+</body>
+</html>

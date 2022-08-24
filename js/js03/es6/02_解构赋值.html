@@ -14,6 +14,12 @@
 		/*基本用法*/
 
 		// -  嵌套数组的结构赋值
+		(function () {
+			let li = [1, "2", [[3]], [4, 5]];
+			let [q, w, [[e]], [r, t]] = li;
+			console.log(q, w, e, r, t);
+		}())
+
 		let [a, [b, c], d] = [1, [2, 3], 4];
 		console.log(a, b, c, d);
 
@@ -35,7 +41,7 @@
 		let [li3] = [];
 		console.log(li3);//undefined // 解构失败返回 undefined
 
-		let[...li4] = [];
+		let [...li4] = [];
 		console.log(li4);//[]
 		// 生成器
 		// function* fibs() {
@@ -52,9 +58,244 @@
 
 
 		/*默认值*/
+		let [foo = true] = [];
+		console.log(foo);
+
+		let [x1, y1 = 'b'] = [1];
+		console.log(x1, y1);
+
+		// 需要完全匹配 undefined 默认值才会生效
+		let [x3 = 1, y3 = 2] = [undefined, null];
+		console.log(x3, y3);
+
+		// todo
+		function fn() {
+			console.log("aaa");
+		}
+
+		let [x4 = fn()] = [1];
+		console.log(x4);
+
+		// - 引用默认值
+		let [a1 = "1", b2 = a1] = [];
+		console.log(a1, b2);
+
+		let [a3 = "111", b3 = a3] = [789, 888];
+		console.log(a3, b3);
+
+		let [a4 = "111", b4 = a4] = [369];
+		console.log(a4, b4);
+		// ler  [a2=b2,b2 = "2"]= []; // error
 
 
+		/*对象解构赋值*/
+		let {name, age} = {name: "tom", age: 18};
+		console.log(name, age);
 
+		let {parm1} = {foo: 1};
+		console.log(parm1); //undefined
+
+		// - 对象的方法也能解构，实质上方法也是对象的一个属性
+		let {cos, sin, tan} = Math;
+		console.log(cos, sin, tan);
+
+		let {log} = console;
+		log("hello");
+
+
+		// - 解构赋值重命名
+		let {pn: pn1, op: op1} = {pn: 111, op: 222};
+		// console.log(pn,op);//error   // 实质上 :之后的才是变量，:前的是格式
+		console.log(pn1, op1);
+
+		// - 嵌套对象解构
+		let obk = {
+					arr: [{h: "hello"}, ["2", 3], 7],
+					inObk01: {
+						ininObk: {
+							att01: 1,
+							attr02: 2
+						}
+					},
+					inObk02: {
+						attr03: 3
+					}
+				}
+
+		;(function () {
+			console.log("-------->>>>")
+			let {arr: [{h}, [x, y], z], inObk01: {ininObk: {att01, attr02}}, inObk02: {attr03}} = obk;
+			console.log(h, x, y, z, att01, attr02, attr03);
+
+			let {arr, inObk01, inObk02} = obk
+			console.log(arr, inObk01, inObk02);
+			console.log("-------->>>>")
+
+			let {inObk01: {ininObk: xyz}} = obk;
+			console.log(xyz);
+		}())
+
+		let obj = {
+			p: [
+				'Hello',
+				{y: 'World'}
+			]
+		};
+		(function () {
+			console.log("====");
+			let {p: [H, Y]} = obj;
+			console.log(H, Y);
+		}());
+
+		(function () {
+
+			let {p: [x8, {y}]} = obj;
+			console.log(x8, y);
+			console.log(">")
+			// 结构重命名
+			let {p: [x9, {y: y9}]} = obj;
+			console.log(x9, y9);
+		})();
+
+		// 把p也一起结构出来
+		(function () {
+			let {p, p: [overName, {y}]} = obj;
+			console.log(p, overName, y);
+		})();
+
+
+		const node = {
+			loc: {
+				start: {
+					line: 1,
+					column: 5
+				}
+			}
+		};
+		(function () {
+			let {loc: l1} = node;
+			console.log(l1);
+			let {loc} = node;
+			console.log(loc);
+		})();
+
+		(function () {
+			let {loc: {start: {line, column}}} = node;
+			// console.log(loc);//error
+			// console.log(start);//error;
+			console.log(line, column);
+
+		})();
+
+		(function () {
+			let {loc: loc1, loc: {start: start1}, loc: {start: {line, column}}} = node;
+			console.log(loc1, start1, line, column);
+		})();
+
+		// 嵌套赋值
+		(function () {
+			let obj = {};
+			let arr = [];
+			({foo: obj.attr, too: arr[0]} = {foo: 123, too: 345});
+			console.log(obj, arr);
+		}());
+
+
+		// 解构可取得继承属性
+		(function () {
+			let obj1 = {};
+			let obj2 = {
+				attr: "abc"
+			};
+			Object.setPrototypeOf(obj1, obj2);
+			console.log(obj1, obj2);
+
+			let {attr: atta1} = obj1;
+			console.log(atta1);
+		}());
+
+		// 嵌套模式解构，如果父属性不存在则会报错
+		(function () {
+			// 先结构father ，father 不存在（undefined），自然取 undefined 属性会报错
+			// let {father: {fAttrabute}} = {fAttrabute: "属性"};//error
+			// console.log(fAttrabute);
+		}())
+
+
+		// - 对象解构赋值默认值
+		;(function () {
+			let {x = 1, y = 2} = {};
+			console.log(x, y);
+
+			let {x2, y2 = 3} = {x2: 1, y2: 2};
+			console.log(x1, y2);
+
+			let {x3: y3 = 1} = {};
+			console.log(y3);
+
+			let {x4: y4 = 1} = {x4: 123};
+			console.log(y4);
+		}())
+
+		/*字符串结构赋值*/
+		;(function () {
+			let [a, b, c, d] = "asgdashjdga";
+			console.log(a, b, c, d);
+
+			// 字符串本身是一个对象，对象有length属性
+			let {length: len} = "sadasda";
+			console.log(len);
+		}())
+
+		console.log(Boolean.prototype.toString());
+		console.log(Number.prototype.toString());
+
+		//数值与布尔值的结构赋值
+		;(function () {
+			// 数值和布尔值会被转化成对象
+			let {toString: s} = 123;
+			let {toString: s2} = true;
+			console.log(Number.prototype.toString)
+			console.log(Boolean.prototype.toString)
+			console.log(s === Number.prototype.toString);
+			console.log(s2 === Boolean.prototype.toString);
+
+			// undefined null 无法被转化为对象
+			// let {prop:x} = undefined;//error
+			// let{prop2:y} = null;//error
+			console.log(x, y);
+		}())
+
+		/*函数参数结构赋值*/
+		;(function () {
+
+			function add01(arr) {
+				return arr[0] + arr[1];
+			}
+
+			console.log(add01([1, 2]));
+
+			function add02([x, y]) {
+				return x + y;
+			}
+
+			console.log(add02([1, 2]));
+
+
+			let li = [[1, 2], [3, 4]];
+			console.log(li.map(item => {
+				let [a1, a2] = item;
+				return a1 + a2;
+			}));
+
+			console.log(li.map(([a, b]) => a + b));
+
+		}())
+
+		;(function(){
+			let { o: {p: p1 } } = { o: { p: 2 } }
+			console.log(p1);
+		}())
 	</script>
 </body>
 </html>
